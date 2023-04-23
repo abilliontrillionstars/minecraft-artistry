@@ -1,0 +1,12 @@
+[{
+    "modid": "ancientspellcraft",
+    "name": "AncientSpellcraft",
+    "description": "Ancient Spellcraft is an addon mod for Electroblob's Wizardry, adding many new spells, mechanics, blocks and a new magical element to the game.",
+    "version": "1.12.2-1.5",
+    "mcversion": "1.12.2",
+    "url": "https://www.curseforge.com/minecraft/mc-mods/ancient-spellcraft",
+    "updateUrl": "https://raw.githubusercontent.com/WinDanesz/AncientSpellcraft/1.12.2/.forge/update.json",
+    "authorList": ["WinDanesz"],
+    "credits": "# Ancient Spellcraft Minecraft mod credits\n- Thanks to Minecraft Forge and MCP.\n- Thanks to Electroblob, for making his awesome ElectroBlob's Wizardry mod without which this addon would not have been possible.\nSounds\n- \"Water, Pouring, A.wav\" by InspectorJ (www.jshaw.co.uk) of Freesound.org for the extinguish spell\nTexture\n- Will o' Wisp spell book icon by Aether\nContributors\n- Yranic, Bombadil, HatBot for writing/reworking many of the lore texts\nIdea contributors - spells, artefacts and more\n- Idea contributors: Elso, Kug, OBLIQUE, VasiliySiniy (class weapon ideas), CycloneBuster, I Mayk Kwuests, Moreira, Mekhane",
+    "logoFile":"assets/ancientspellcraft/textures/gui/logo.png"
+}]

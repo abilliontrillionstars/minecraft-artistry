@@ -1,0 +1,3681 @@
+{
+  "electroblob/wizardry/Wizardry": {
+    "name": "electroblob/wizardry/Wizardry",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod;",
+        "target": "electroblob/wizardry/Wizardry",
+        "values": {
+          "acceptedMinecraftVersions": {
+            "value": "[1.12.2]"
+          },
+          "dependencies": {
+            "value": "required-after:forge@[14.23.5.2847,);after:jei@[4.15.0,);after:baubles@[1.5.2,);after:antiqueatlas@[4.6,)"
+          },
+          "guiFactory": {
+            "value": "electroblob.wizardry.WizardryGuiFactory"
+          },
+          "modid": {
+            "value": "ebwizardry"
+          },
+          "name": {
+            "value": "Electroblob\u0027s Wizardry"
+          },
+          "updateJSON": {
+            "value": "https://github.com/Electroblob77/Wizardry/blob/1.12.2/.forge/update.json"
+          },
+          "version": {
+            "value": "4.3.7"
+          }
+        }
+      },
+      {
+        "type": "FIELD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$Instance;",
+        "target": "instance",
+        "value": {
+          "value": "ebwizardry"
+        }
+      },
+      {
+        "type": "FIELD",
+        "name": "Lnet/minecraftforge/fml/common/SidedProxy;",
+        "target": "proxy",
+        "values": {
+          "clientSide": {
+            "value": "electroblob.wizardry.client.ClientProxy"
+          },
+          "serverSide": {
+            "value": "electroblob.wizardry.CommonProxy"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "preInit(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "init(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "postInit(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "serverStarting(Lnet/minecraftforge/fml/common/event/FMLServerStartingEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onConfigChanged(Lnet/minecraftforge/fml/client/event/ConfigChangedEvent$OnConfigChangedEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onMissingItemMappingEvent(Lnet/minecraftforge/event/RegistryEvent$MissingMappings;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onMissingSpellMappingEvent(Lnet/minecraftforge/event/RegistryEvent$MissingMappings;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/WizardryEventHandler": {
+    "name": "electroblob/wizardry/WizardryEventHandler",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/WizardryEventHandler"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerLoggedInEvent(Lnet/minecraftforge/fml/common/gameevent/PlayerEvent$PlayerLoggedInEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlaySoundAtEntityEvent(Lnet/minecraftforge/event/entity/PlaySoundAtEntityEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/HIGH"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onAdvancementEvent(Lnet/minecraftforge/event/entity/player/AdvancementEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onSpellCastPreEvent(Lelectroblob/wizardry/event/SpellCastEvent$Pre;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/HIGH"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onSpellCastPostEvent(Lelectroblob/wizardry/event/SpellCastEvent$Post;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onDiscoverSpellEvent(Lelectroblob/wizardry/event/DiscoverSpellEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/LOW"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingSetAttackTargetEvent(Lnet/minecraftforge/event/entity/living/LivingSetAttackTargetEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/LOW"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingHurtEvent(Lnet/minecraftforge/event/entity/living/LivingHurtEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/LOW"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingDeathEvent(Lnet/minecraftforge/event/entity/living/LivingDeathEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/LOWEST"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingFallEvent(Lnet/minecraftforge/event/entity/living/LivingFallEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/WizardryGuiFactory": {
+    "name": "electroblob/wizardry/WizardryGuiFactory",
+    "interfaces": [
+      "net/minecraftforge/fml/client/IModGuiFactory"
+    ]
+  },
+  "electroblob/wizardry/WizardryGuiHandler": {
+    "name": "electroblob/wizardry/WizardryGuiHandler",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/IGuiHandler"
+    ]
+  },
+  "electroblob/wizardry/advancement/CustomAdvancementTrigger": {
+    "name": "electroblob/wizardry/advancement/CustomAdvancementTrigger",
+    "interfaces": [
+      "net/minecraft/advancements/ICriterionTrigger"
+    ]
+  },
+  "electroblob/wizardry/advancement/SpellCastTrigger": {
+    "name": "electroblob/wizardry/advancement/SpellCastTrigger",
+    "interfaces": [
+      "net/minecraft/advancements/ICriterionTrigger"
+    ]
+  },
+  "electroblob/wizardry/advancement/SpellDiscoveryTrigger": {
+    "name": "electroblob/wizardry/advancement/SpellDiscoveryTrigger",
+    "interfaces": [
+      "net/minecraft/advancements/ICriterionTrigger"
+    ]
+  },
+  "electroblob/wizardry/advancement/StructureTrigger": {
+    "name": "electroblob/wizardry/advancement/StructureTrigger",
+    "interfaces": [
+      "net/minecraft/advancements/ICriterionTrigger"
+    ]
+  },
+  "electroblob/wizardry/advancement/WizardryContainerTrigger": {
+    "name": "electroblob/wizardry/advancement/WizardryContainerTrigger",
+    "interfaces": [
+      "net/minecraft/advancements/ICriterionTrigger"
+    ]
+  },
+  "electroblob/wizardry/block/BlockBookshelf": {
+    "name": "electroblob/wizardry/block/BlockBookshelf",
+    "interfaces": [
+      "net/minecraft/block/ITileEntityProvider"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/block/BlockBookshelf"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onWorldLoadEvent(Lnet/minecraftforge/event/world/WorldEvent$Load;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onWorldUnloadEvent(Lnet/minecraftforge/event/world/WorldEvent$Unload;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/block/BlockBookshelf$Listener": {
+    "name": "electroblob/wizardry/block/BlockBookshelf$Listener",
+    "interfaces": [
+      "net/minecraft/world/IWorldEventListener"
+    ]
+  },
+  "electroblob/wizardry/block/BlockCrystalFlower": {
+    "name": "electroblob/wizardry/block/BlockCrystalFlower",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/block/BlockCrystalFlower"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onBonemealEvent(Lnet/minecraftforge/event/entity/player/BonemealEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/block/BlockImbuementAltar": {
+    "name": "electroblob/wizardry/block/BlockImbuementAltar",
+    "interfaces": [
+      "net/minecraft/block/ITileEntityProvider"
+    ]
+  },
+  "electroblob/wizardry/block/BlockLectern": {
+    "name": "electroblob/wizardry/block/BlockLectern",
+    "interfaces": [
+      "net/minecraft/block/ITileEntityProvider"
+    ]
+  },
+  "electroblob/wizardry/block/BlockMagicLight": {
+    "name": "electroblob/wizardry/block/BlockMagicLight",
+    "interfaces": [
+      "net/minecraft/block/ITileEntityProvider"
+    ]
+  },
+  "electroblob/wizardry/block/BlockPedestal": {
+    "name": "electroblob/wizardry/block/BlockPedestal",
+    "interfaces": [
+      "net/minecraft/block/ITileEntityProvider"
+    ]
+  },
+  "electroblob/wizardry/block/BlockReceptacle": {
+    "name": "electroblob/wizardry/block/BlockReceptacle",
+    "interfaces": [
+      "net/minecraft/block/ITileEntityProvider"
+    ]
+  },
+  "electroblob/wizardry/block/BlockSnare": {
+    "name": "electroblob/wizardry/block/BlockSnare",
+    "interfaces": [
+      "net/minecraft/block/ITileEntityProvider"
+    ]
+  },
+  "electroblob/wizardry/block/BlockSpectral": {
+    "name": "electroblob/wizardry/block/BlockSpectral",
+    "interfaces": [
+      "net/minecraft/block/ITileEntityProvider"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/block/BlockSpectral"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onBlockPlaceEvent(Lnet/minecraftforge/event/world/BlockEvent$PlaceEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/block/BlockStatue": {
+    "name": "electroblob/wizardry/block/BlockStatue",
+    "interfaces": [
+      "net/minecraft/block/ITileEntityProvider"
+    ]
+  },
+  "electroblob/wizardry/block/BlockThorns": {
+    "name": "electroblob/wizardry/block/BlockThorns",
+    "interfaces": [
+      "net/minecraft/block/ITileEntityProvider"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/block/BlockThorns"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLeftClickBlockEvent(Lnet/minecraftforge/event/entity/player/PlayerInteractEvent$LeftClickBlock;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/block/BlockVanishingCobweb": {
+    "name": "electroblob/wizardry/block/BlockVanishingCobweb",
+    "interfaces": [
+      "net/minecraft/block/ITileEntityProvider"
+    ]
+  },
+  "electroblob/wizardry/client/ScreenShakeHandler": {
+    "name": "electroblob/wizardry/client/ScreenShakeHandler",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/ScreenShakeHandler",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerTickEvent(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/WizardryClientEventHandler": {
+    "name": "electroblob/wizardry/client/WizardryClientEventHandler",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/WizardryClientEventHandler",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerTickEvent(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onClientTickEvent(Lnet/minecraftforge/fml/common/gameevent/TickEvent$ClientTickEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onMouseEvent(Lnet/minecraftforge/client/event/MouseEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onInputUpdateEvent(Lnet/minecraftforge/client/event/InputUpdateEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderHandEvent(Lnet/minecraftforge/client/event/RenderHandEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onFOVUpdateEvent(Lnet/minecraftforge/client/event/FOVUpdateEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/WizardryControlHandler": {
+    "name": "electroblob/wizardry/client/WizardryControlHandler",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/WizardryControlHandler",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTickEvent(Lnet/minecraftforge/fml/common/gameevent/TickEvent$ClientTickEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onMouseEvent(Lnet/minecraftforge/client/event/MouseEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/animation/PlayerAnimator": {
+    "name": "electroblob/wizardry/client/animation/PlayerAnimator",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/animation/PlayerAnimator",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderHandEvent(Lnet/minecraftforge/client/event/RenderSpecificHandEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderPlayerPreEvent(Lnet/minecraftforge/client/event/RenderPlayerEvent$Pre;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderPlayerPostEvent(Lnet/minecraftforge/client/event/RenderPlayerEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/audio/SoundLoop": {
+    "name": "electroblob/wizardry/client/audio/SoundLoop",
+    "interfaces": [
+      "net/minecraft/util/ITickable"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/audio/SoundLoop",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "tick(Lnet/minecraftforge/fml/common/gameevent/TickEvent$ClientTickEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/gui/CustomCreativeSearchHandler": {
+    "name": "electroblob/wizardry/client/gui/CustomCreativeSearchHandler",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/gui/CustomCreativeSearchHandler",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onInitGuiEvent(Lnet/minecraftforge/client/event/GuiScreenEvent$InitGuiEvent$Post;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onKeyboardInputEvent(Lnet/minecraftforge/client/event/GuiScreenEvent$KeyboardInputEvent$Post;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onClientTickEvent(Lnet/minecraftforge/fml/common/gameevent/TickEvent$ClientTickEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onDrawScreenPostEvent(Lnet/minecraftforge/client/event/GuiScreenEvent$DrawScreenEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/gui/GuiArcaneWorkbench": {
+    "name": "electroblob/wizardry/client/gui/GuiArcaneWorkbench",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/gui/GuiArcaneWorkbench",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/gui/GuiButtonResurrect": {
+    "name": "electroblob/wizardry/client/gui/GuiButtonResurrect",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/gui/GuiButtonResurrect",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onClientTickEvent(Lnet/minecraftforge/fml/common/gameevent/TickEvent$ClientTickEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onGuiScreenInitEvent(Lnet/minecraftforge/client/event/GuiScreenEvent$InitGuiEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onGuiScreenActionPerformedEvent(Lnet/minecraftforge/client/event/GuiScreenEvent$ActionPerformedEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/gui/GuiLectern": {
+    "name": "electroblob/wizardry/client/gui/GuiLectern",
+    "interfaces": [
+      "electroblob/wizardry/util/ISpellSortable"
+    ]
+  },
+  "electroblob/wizardry/client/gui/GuiSpellDisplay": {
+    "name": "electroblob/wizardry/client/gui/GuiSpellDisplay",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/gui/GuiSpellDisplay",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "draw(Lnet/minecraftforge/client/event/RenderGameOverlayEvent$Post;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/gui/WizardTradeTweaksHandler": {
+    "name": "electroblob/wizardry/client/gui/WizardTradeTweaksHandler",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/gui/WizardTradeTweaksHandler",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onGuiOpenEvent(Lnet/minecraftforge/client/event/GuiOpenEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/LOWEST"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onActionPerformedPostEvent(Lnet/minecraftforge/client/event/GuiScreenEvent$ActionPerformedEvent$Post;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onGuiDrawForegroundEvent(Lnet/minecraftforge/client/event/GuiContainerEvent$DrawForeground;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/gui/handbook/HandbookToast": {
+    "name": "electroblob/wizardry/client/gui/handbook/HandbookToast",
+    "interfaces": [
+      "net/minecraft/client/gui/toasts/IToast"
+    ]
+  },
+  "electroblob/wizardry/client/model/BakedModelBookshelf": {
+    "name": "electroblob/wizardry/client/model/BakedModelBookshelf",
+    "interfaces": [
+      "net/minecraft/client/renderer/block/model/IBakedModel"
+    ]
+  },
+  "electroblob/wizardry/client/model/BakedModelGenerateOverrides": {
+    "name": "electroblob/wizardry/client/model/BakedModelGenerateOverrides",
+    "interfaces": [
+      "net/minecraft/client/renderer/block/model/IBakedModel"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/model/BakedModelGenerateOverrides",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "bake(Lnet/minecraftforge/client/event/ModelBakeEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/model/BakedModelGlowingOverlay": {
+    "name": "electroblob/wizardry/client/model/BakedModelGlowingOverlay",
+    "interfaces": [
+      "net/minecraft/client/renderer/block/model/IBakedModel"
+    ]
+  },
+  "electroblob/wizardry/client/model/ModelBookshelf": {
+    "name": "electroblob/wizardry/client/model/ModelBookshelf",
+    "interfaces": [
+      "net/minecraftforge/client/model/IModel"
+    ]
+  },
+  "electroblob/wizardry/client/model/ModelLoaderBookshelf": {
+    "name": "electroblob/wizardry/client/model/ModelLoaderBookshelf",
+    "interfaces": [
+      "net/minecraftforge/client/model/ICustomModelLoader"
+    ]
+  },
+  "electroblob/wizardry/client/model/WizardryModels": {
+    "name": "electroblob/wizardry/client/model/WizardryModels",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/model/WizardryModels",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "register(Lnet/minecraftforge/client/event/ModelRegistryEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "bake(Lnet/minecraftforge/client/event/ModelBakeEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticleBlockHighlight": {
+    "name": "electroblob/wizardry/client/particle/ParticleBlockHighlight",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticleBlockHighlight",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticleCloud": {
+    "name": "electroblob/wizardry/client/particle/ParticleCloud",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticleCloud",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticleIce": {
+    "name": "electroblob/wizardry/client/particle/ParticleIce",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticleIce",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticleLeaf": {
+    "name": "electroblob/wizardry/client/particle/ParticleLeaf",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticleLeaf",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticleLightningPulse": {
+    "name": "electroblob/wizardry/client/particle/ParticleLightningPulse",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticleLightningPulse",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticleMagicFlame": {
+    "name": "electroblob/wizardry/client/particle/ParticleMagicFlame",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticleMagicFlame",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticlePath": {
+    "name": "electroblob/wizardry/client/particle/ParticlePath",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticlePath",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticleScorch": {
+    "name": "electroblob/wizardry/client/particle/ParticleScorch",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticleScorch",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticleSnow": {
+    "name": "electroblob/wizardry/client/particle/ParticleSnow",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticleSnow",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticleSpark": {
+    "name": "electroblob/wizardry/client/particle/ParticleSpark",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticleSpark",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticleSparkle": {
+    "name": "electroblob/wizardry/client/particle/ParticleSparkle",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticleSparkle",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/particle/ParticleVine": {
+    "name": "electroblob/wizardry/client/particle/ParticleVine",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/particle/ParticleVine",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onTextureStitchEvent(Lnet/minecraftforge/client/event/TextureStitchEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/RayHelper": {
+    "name": "electroblob/wizardry/client/renderer/RayHelper",
+    "interfaces": [
+      "java/lang/Comparable"
+    ]
+  },
+  "electroblob/wizardry/client/renderer/effect/RenderContainmentField": {
+    "name": "electroblob/wizardry/client/renderer/effect/RenderContainmentField",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/effect/RenderContainmentField",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderWorldLastEvent(Lnet/minecraftforge/client/event/RenderWorldLastEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/effect/RenderDonationPerks": {
+    "name": "electroblob/wizardry/client/renderer/effect/RenderDonationPerks",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/effect/RenderDonationPerks",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderPlayerEvent(Lnet/minecraftforge/client/event/RenderPlayerEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/effect/RenderMirage": {
+    "name": "electroblob/wizardry/client/renderer/effect/RenderMirage",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/effect/RenderMirage",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderLivingEvent(Lnet/minecraftforge/client/event/RenderLivingEvent$Pre;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderLivingEvent(Lnet/minecraftforge/client/event/RenderLivingEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/effect/RenderShadowWard": {
+    "name": "electroblob/wizardry/client/renderer/effect/RenderShadowWard",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/effect/RenderShadowWard",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderWorldLastEvent(Lnet/minecraftforge/client/event/RenderWorldLastEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderPlayerEvent(Lnet/minecraftforge/client/event/RenderPlayerEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/effect/RenderShield": {
+    "name": "electroblob/wizardry/client/renderer/effect/RenderShield",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/effect/RenderShield",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderWorldLastEvent(Lnet/minecraftforge/client/event/RenderWorldLastEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderPlayerEvent(Lnet/minecraftforge/client/event/RenderPlayerEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/effect/RenderWings": {
+    "name": "electroblob/wizardry/client/renderer/effect/RenderWings",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/effect/RenderWings",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderPlayerEvent(Lnet/minecraftforge/client/event/RenderPlayerEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/entity/RenderPossessingPlayer": {
+    "name": "electroblob/wizardry/client/renderer/entity/RenderPossessingPlayer",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/entity/RenderPossessingPlayer",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderPlayerPreEvent(Lnet/minecraftforge/client/event/RenderPlayerEvent$Pre;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/entity/layers/LayerDisintegrateAnimation": {
+    "name": "electroblob/wizardry/client/renderer/entity/layers/LayerDisintegrateAnimation",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/entity/layers/LayerDisintegrateAnimation",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderLivingEvent(Lnet/minecraftforge/client/event/RenderLivingEvent$Pre;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderLivingEvent(Lnet/minecraftforge/client/event/RenderLivingEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/entity/layers/LayerStrayMinionClothing": {
+    "name": "electroblob/wizardry/client/renderer/entity/layers/LayerStrayMinionClothing",
+    "interfaces": [
+      "net/minecraft/client/renderer/entity/layers/LayerRenderer"
+    ]
+  },
+  "electroblob/wizardry/client/renderer/entity/layers/LayerSummonAnimation": {
+    "name": "electroblob/wizardry/client/renderer/entity/layers/LayerSummonAnimation",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/entity/layers/LayerSummonAnimation",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderLivingEvent(Lnet/minecraftforge/client/event/RenderLivingEvent$Pre;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderLivingEvent(Lnet/minecraftforge/client/event/RenderLivingEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/entity/layers/LayerTiledOverlay": {
+    "name": "electroblob/wizardry/client/renderer/entity/layers/LayerTiledOverlay",
+    "interfaces": [
+      "net/minecraft/client/renderer/entity/layers/LayerRenderer"
+    ]
+  },
+  "electroblob/wizardry/client/renderer/overlay/RenderBlinkEffect": {
+    "name": "electroblob/wizardry/client/renderer/overlay/RenderBlinkEffect",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/overlay/RenderBlinkEffect",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerTickEvent(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onFOVUpdateEvent(Lnet/minecraftforge/client/event/FOVUpdateEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderGameOverlayEvent(Lnet/minecraftforge/client/event/RenderGameOverlayEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/overlay/RenderFrostOverlay": {
+    "name": "electroblob/wizardry/client/renderer/overlay/RenderFrostOverlay",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/overlay/RenderFrostOverlay",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderGameOverlayEvent(Lnet/minecraftforge/client/event/RenderGameOverlayEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/overlay/RenderSixthSense": {
+    "name": "electroblob/wizardry/client/renderer/overlay/RenderSixthSense",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/overlay/RenderSixthSense",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderGameOverlayEvent(Lnet/minecraftforge/client/event/RenderGameOverlayEvent$Post;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderLivingEvent(Lnet/minecraftforge/client/event/RenderLivingEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/overlay/RenderTargetPointers": {
+    "name": "electroblob/wizardry/client/renderer/overlay/RenderTargetPointers",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/overlay/RenderTargetPointers",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderLivingEvent(Lnet/minecraftforge/client/event/RenderLivingEvent$Post;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/overlay/RenderTransportationUI": {
+    "name": "electroblob/wizardry/client/renderer/overlay/RenderTransportationUI",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/overlay/RenderTransportationUI",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderWorldLastEvent(Lnet/minecraftforge/client/event/RenderWorldLastEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/tileentity/RenderArcaneLock": {
+    "name": "electroblob/wizardry/client/renderer/tileentity/RenderArcaneLock",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/tileentity/RenderArcaneLock",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRenderWorldLastEvent(Lnet/minecraftforge/client/event/RenderWorldLastEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/client/renderer/tileentity/RenderMagicLight": {
+    "name": "electroblob/wizardry/client/renderer/tileentity/RenderMagicLight",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/client/renderer/tileentity/RenderMagicLight",
+        "value": {
+          "type": "ENUM",
+          "values": [
+            "Lnet/minecraftforge/fml/relauncher/Side;/CLIENT"
+          ]
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onDrawBlockHighlightEvent(Lnet/minecraftforge/client/event/DrawBlockHighlightEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/command/SpellEmitter": {
+    "name": "electroblob/wizardry/command/SpellEmitter",
+    "interfaces": [
+      "net/minecraft/util/ITickable"
+    ]
+  },
+  "electroblob/wizardry/constants/Element": {
+    "name": "electroblob/wizardry/constants/Element",
+    "interfaces": [
+      "net/minecraft/util/IStringSerializable"
+    ]
+  },
+  "electroblob/wizardry/data/BlockCastingData": {
+    "name": "electroblob/wizardry/data/BlockCastingData",
+    "interfaces": [
+      "net/minecraftforge/common/util/INBTSerializable"
+    ]
+  },
+  "electroblob/wizardry/data/DispenserCastingData": {
+    "name": "electroblob/wizardry/data/DispenserCastingData",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/data/DispenserCastingData"
+      },
+      {
+        "type": "FIELD",
+        "name": "Lnet/minecraftforge/common/capabilities/CapabilityInject;",
+        "target": "DISPENSER_CASTING_CAPABILITY",
+        "value": {
+          "type": "CLASS",
+          "value": "Lelectroblob/wizardry/data/DispenserCastingData;"
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onCapabilityLoad(Lnet/minecraftforge/event/AttachCapabilitiesEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onWorldTickEvent(Lnet/minecraftforge/fml/common/gameevent/TickEvent$WorldTickEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/data/DispenserCastingData$1": {
+    "name": "electroblob/wizardry/data/DispenserCastingData$1",
+    "interfaces": [
+      "net/minecraftforge/common/capabilities/Capability$IStorage"
+    ]
+  },
+  "electroblob/wizardry/data/DispenserCastingData$Provider": {
+    "name": "electroblob/wizardry/data/DispenserCastingData$Provider",
+    "interfaces": [
+      "net/minecraftforge/common/capabilities/ICapabilitySerializable"
+    ]
+  },
+  "electroblob/wizardry/data/IStoredVariable": {
+    "name": "electroblob/wizardry/data/IStoredVariable",
+    "interfaces": [
+      "electroblob/wizardry/data/IVariable"
+    ]
+  },
+  "electroblob/wizardry/data/IStoredVariable$StoredVariable": {
+    "name": "electroblob/wizardry/data/IStoredVariable$StoredVariable",
+    "interfaces": [
+      "electroblob/wizardry/data/IStoredVariable"
+    ]
+  },
+  "electroblob/wizardry/data/IVariable$Variable": {
+    "name": "electroblob/wizardry/data/IVariable$Variable",
+    "interfaces": [
+      "electroblob/wizardry/data/IVariable"
+    ]
+  },
+  "electroblob/wizardry/data/SpellEmitterData": {
+    "name": "electroblob/wizardry/data/SpellEmitterData",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/data/SpellEmitterData"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "tick(Lnet/minecraftforge/fml/common/gameevent/TickEvent$WorldTickEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onWorldLoadEvent(Lnet/minecraftforge/event/world/WorldEvent$Load;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerChangedDimensionEvent(Lnet/minecraftforge/fml/common/gameevent/PlayerEvent$PlayerChangedDimensionEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/data/SpellGlyphData": {
+    "name": "electroblob/wizardry/data/SpellGlyphData",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/data/SpellGlyphData"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onWorldLoadEvent(Lnet/minecraftforge/event/world/WorldEvent$Load;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/data/WizardData": {
+    "name": "electroblob/wizardry/data/WizardData",
+    "interfaces": [
+      "net/minecraftforge/common/util/INBTSerializable"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/data/WizardData"
+      },
+      {
+        "type": "FIELD",
+        "name": "Lnet/minecraftforge/common/capabilities/CapabilityInject;",
+        "target": "WIZARD_DATA_CAPABILITY",
+        "value": {
+          "type": "CLASS",
+          "value": "Lelectroblob/wizardry/data/WizardData;"
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onCapabilityLoad(Lnet/minecraftforge/event/AttachCapabilitiesEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerCloneEvent(Lnet/minecraftforge/event/entity/player/PlayerEvent$Clone;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onEntityJoinWorld(Lnet/minecraftforge/event/entity/EntityJoinWorldEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/data/WizardData$1": {
+    "name": "electroblob/wizardry/data/WizardData$1",
+    "interfaces": [
+      "net/minecraftforge/common/capabilities/Capability$IStorage"
+    ]
+  },
+  "electroblob/wizardry/data/WizardData$Provider": {
+    "name": "electroblob/wizardry/data/WizardData$Provider",
+    "interfaces": [
+      "net/minecraftforge/common/capabilities/ICapabilitySerializable"
+    ]
+  },
+  "electroblob/wizardry/enchantment/EnchantmentMagicSword": {
+    "name": "electroblob/wizardry/enchantment/EnchantmentMagicSword",
+    "interfaces": [
+      "electroblob/wizardry/enchantment/Imbuement"
+    ]
+  },
+  "electroblob/wizardry/enchantment/EnchantmentTimed": {
+    "name": "electroblob/wizardry/enchantment/EnchantmentTimed",
+    "interfaces": [
+      "electroblob/wizardry/enchantment/Imbuement"
+    ]
+  },
+  "electroblob/wizardry/enchantment/Imbuement": {
+    "name": "electroblob/wizardry/enchantment/Imbuement",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/enchantment/Imbuement"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingDropsEvent(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onItemTossEvent(Lnet/minecraftforge/event/entity/item/ItemTossEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerOpenContainerEvent(Lnet/minecraftforge/event/entity/player/PlayerContainerEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onEntityJoinWorld(Lnet/minecraftforge/event/entity/EntityJoinWorldEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/entity/EntityLevitatingBlock": {
+    "name": "electroblob/wizardry/entity/EntityLevitatingBlock",
+    "interfaces": [
+      "net/minecraftforge/fml/common/registry/IEntityAdditionalSpawnData"
+    ]
+  },
+  "electroblob/wizardry/entity/construct/EntityBubble": {
+    "name": "electroblob/wizardry/entity/construct/EntityBubble",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/entity/construct/EntityBubble"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/entity/construct/EntityForcefield": {
+    "name": "electroblob/wizardry/entity/construct/EntityForcefield",
+    "interfaces": [
+      "electroblob/wizardry/entity/ICustomHitbox"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/entity/construct/EntityForcefield"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerInteractEvent(Lnet/minecraftforge/event/entity/player/PlayerInteractEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onExplosionEvent(Lnet/minecraftforge/event/world/ExplosionEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/entity/construct/EntityIceBarrier": {
+    "name": "electroblob/wizardry/entity/construct/EntityIceBarrier",
+    "interfaces": [
+      "electroblob/wizardry/entity/ICustomHitbox"
+    ]
+  },
+  "electroblob/wizardry/entity/construct/EntityMagicConstruct": {
+    "name": "electroblob/wizardry/entity/construct/EntityMagicConstruct",
+    "interfaces": [
+      "net/minecraft/entity/IEntityOwnable",
+      "net/minecraftforge/fml/common/registry/IEntityAdditionalSpawnData"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityBlazeMinion": {
+    "name": "electroblob/wizardry/entity/living/EntityBlazeMinion",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISummonedCreature"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityEvilWizard": {
+    "name": "electroblob/wizardry/entity/living/EntityEvilWizard",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISpellCaster",
+      "net/minecraftforge/fml/common/registry/IEntityAdditionalSpawnData"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/entity/living/EntityEvilWizard"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onCheckSpawnEvent(Lnet/minecraftforge/event/entity/living/LivingSpawnEvent$CheckSpawn;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityIceGiant": {
+    "name": "electroblob/wizardry/entity/living/EntityIceGiant",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISummonedCreature"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityIceWraith": {
+    "name": "electroblob/wizardry/entity/living/EntityIceWraith",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/entity/living/EntityIceWraith"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onCheckSpawnEvent(Lnet/minecraftforge/event/entity/living/LivingSpawnEvent$CheckSpawn;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityLightningWraith": {
+    "name": "electroblob/wizardry/entity/living/EntityLightningWraith",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/entity/living/EntityLightningWraith"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onCheckSpawnEvent(Lnet/minecraftforge/event/entity/living/LivingSpawnEvent$CheckSpawn;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityMagicSlime": {
+    "name": "electroblob/wizardry/entity/living/EntityMagicSlime",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISummonedCreature"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityPhoenix": {
+    "name": "electroblob/wizardry/entity/living/EntityPhoenix",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISpellCaster"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityShadowWraith": {
+    "name": "electroblob/wizardry/entity/living/EntityShadowWraith",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISpellCaster"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntitySilverfishMinion": {
+    "name": "electroblob/wizardry/entity/living/EntitySilverfishMinion",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISummonedCreature"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntitySkeletonMinion": {
+    "name": "electroblob/wizardry/entity/living/EntitySkeletonMinion",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISummonedCreature"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntitySpectralGolem": {
+    "name": "electroblob/wizardry/entity/living/EntitySpectralGolem",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISummonedCreature"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntitySpiderMinion": {
+    "name": "electroblob/wizardry/entity/living/EntitySpiderMinion",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISummonedCreature"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityStormElemental": {
+    "name": "electroblob/wizardry/entity/living/EntityStormElemental",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISpellCaster"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntitySummonedCreature": {
+    "name": "electroblob/wizardry/entity/living/EntitySummonedCreature",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISummonedCreature"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityVexMinion": {
+    "name": "electroblob/wizardry/entity/living/EntityVexMinion",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISummonedCreature"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityWitherSkeletonMinion": {
+    "name": "electroblob/wizardry/entity/living/EntityWitherSkeletonMinion",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISummonedCreature"
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityWizard": {
+    "name": "electroblob/wizardry/entity/living/EntityWizard",
+    "interfaces": [
+      "net/minecraft/entity/INpc",
+      "net/minecraft/entity/IMerchant",
+      "electroblob/wizardry/entity/living/ISpellCaster",
+      "net/minecraftforge/fml/common/registry/IEntityAdditionalSpawnData"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/entity/living/EntityWizard"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onBlockBreakEvent(Lnet/minecraftforge/event/world/BlockEvent$BreakEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/entity/living/EntityZombieMinion": {
+    "name": "electroblob/wizardry/entity/living/EntityZombieMinion",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISummonedCreature"
+    ]
+  },
+  "electroblob/wizardry/entity/living/IIntelligentSpellCaster": {
+    "name": "electroblob/wizardry/entity/living/IIntelligentSpellCaster",
+    "interfaces": [
+      "electroblob/wizardry/entity/living/ISpellCaster"
+    ]
+  },
+  "electroblob/wizardry/entity/living/ISummonedCreature": {
+    "name": "electroblob/wizardry/entity/living/ISummonedCreature",
+    "interfaces": [
+      "net/minecraftforge/fml/common/registry/IEntityAdditionalSpawnData",
+      "net/minecraft/entity/IEntityOwnable"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/entity/living/ISummonedCreature"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/HIGHEST"
+          }
+        }
+      }
+    ]
+  },
+  "electroblob/wizardry/entity/projectile/EntityLargeMagicFireball": {
+    "name": "electroblob/wizardry/entity/projectile/EntityLargeMagicFireball",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/entity/projectile/EntityLargeMagicFireball"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onEntityJoinWorldEvent(Lnet/minecraftforge/event/entity/EntityJoinWorldEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/entity/projectile/EntityMagicArrow": {
+    "name": "electroblob/wizardry/entity/projectile/EntityMagicArrow",
+    "interfaces": [
+      "net/minecraft/entity/IProjectile",
+      "net/minecraftforge/fml/common/registry/IEntityAdditionalSpawnData"
+    ]
+  },
+  "electroblob/wizardry/entity/projectile/EntityMagicFireball": {
+    "name": "electroblob/wizardry/entity/projectile/EntityMagicFireball",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/entity/projectile/EntityMagicFireball"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onEntityJoinWorldEvent(Lnet/minecraftforge/event/entity/EntityJoinWorldEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/entity/projectile/EntityMagicProjectile": {
+    "name": "electroblob/wizardry/entity/projectile/EntityMagicProjectile",
+    "interfaces": [
+      "net/minecraftforge/fml/common/registry/IEntityAdditionalSpawnData"
+    ]
+  },
+  "electroblob/wizardry/event/ImbuementActivateEvent": {
+    "name": "electroblob/wizardry/event/ImbuementActivateEvent",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/Cancelable;",
+        "target": "electroblob/wizardry/event/ImbuementActivateEvent"
+      }
+    ]
+  },
+  "electroblob/wizardry/event/ResurrectionEvent": {
+    "name": "electroblob/wizardry/event/ResurrectionEvent",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/Cancelable;",
+        "target": "electroblob/wizardry/event/ResurrectionEvent"
+      }
+    ]
+  },
+  "electroblob/wizardry/event/SpellBindEvent": {
+    "name": "electroblob/wizardry/event/SpellBindEvent",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/Cancelable;",
+        "target": "electroblob/wizardry/event/SpellBindEvent"
+      }
+    ]
+  },
+  "electroblob/wizardry/event/SpellCastEvent$Pre": {
+    "name": "electroblob/wizardry/event/SpellCastEvent$Pre",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/Cancelable;",
+        "target": "electroblob/wizardry/event/SpellCastEvent$Pre"
+      }
+    ]
+  },
+  "electroblob/wizardry/event/SpellCastEvent$Tick": {
+    "name": "electroblob/wizardry/event/SpellCastEvent$Tick",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/Cancelable;",
+        "target": "electroblob/wizardry/event/SpellCastEvent$Tick"
+      }
+    ]
+  },
+  "electroblob/wizardry/integration/DamageSafetyChecker": {
+    "name": "electroblob/wizardry/integration/DamageSafetyChecker",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/integration/DamageSafetyChecker"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "tick(Lnet/minecraftforge/fml/common/gameevent/TickEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/integration/antiqueatlas/WizardryAntiqueAtlasIntegration": {
+    "name": "electroblob/wizardry/integration/antiqueatlas/WizardryAntiqueAtlasIntegration",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/integration/antiqueatlas/WizardryAntiqueAtlasIntegration"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onWorldLoadEvent(Lnet/minecraftforge/event/world/WorldEvent$Load;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/integration/baubles/WizardryBaublesIntegration$ArtefactBaubleProvider": {
+    "name": "electroblob/wizardry/integration/baubles/WizardryBaublesIntegration$ArtefactBaubleProvider",
+    "interfaces": [
+      "net/minecraftforge/common/capabilities/ICapabilityProvider"
+    ]
+  },
+  "electroblob/wizardry/integration/jei/ArcaneWorkbenchRecipe": {
+    "name": "electroblob/wizardry/integration/jei/ArcaneWorkbenchRecipe",
+    "interfaces": [
+      "mezz/jei/api/recipe/IRecipeWrapper"
+    ]
+  },
+  "electroblob/wizardry/integration/jei/ArcaneWorkbenchRecipeCategory": {
+    "name": "electroblob/wizardry/integration/jei/ArcaneWorkbenchRecipeCategory",
+    "interfaces": [
+      "mezz/jei/api/recipe/IRecipeCategory"
+    ]
+  },
+  "electroblob/wizardry/integration/jei/ArcaneWorkbenchTransferHandler": {
+    "name": "electroblob/wizardry/integration/jei/ArcaneWorkbenchTransferHandler",
+    "interfaces": [
+      "mezz/jei/api/recipe/transfer/IRecipeTransferInfo"
+    ]
+  },
+  "electroblob/wizardry/integration/jei/ImbuementAltarRecipe": {
+    "name": "electroblob/wizardry/integration/jei/ImbuementAltarRecipe",
+    "interfaces": [
+      "mezz/jei/api/recipe/IRecipeWrapper"
+    ]
+  },
+  "electroblob/wizardry/integration/jei/ImbuementAltarRecipeCategory": {
+    "name": "electroblob/wizardry/integration/jei/ImbuementAltarRecipeCategory",
+    "interfaces": [
+      "mezz/jei/api/recipe/IRecipeCategory"
+    ]
+  },
+  "electroblob/wizardry/integration/jei/WizardryJEIPlugin": {
+    "name": "electroblob/wizardry/integration/jei/WizardryJEIPlugin",
+    "interfaces": [
+      "mezz/jei/api/IModPlugin"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lmezz/jei/api/JEIPlugin;",
+        "target": "electroblob/wizardry/integration/jei/WizardryJEIPlugin"
+      }
+    ]
+  },
+  "electroblob/wizardry/inventory/ContainerArcaneWorkbench": {
+    "name": "electroblob/wizardry/inventory/ContainerArcaneWorkbench",
+    "interfaces": [
+      "electroblob/wizardry/util/ISpellSortable"
+    ]
+  },
+  "electroblob/wizardry/item/IConjuredItem": {
+    "name": "electroblob/wizardry/item/IConjuredItem",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/item/IConjuredItem"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingDropsEvent(Lnet/minecraftforge/event/entity/living/LivingDropsEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onItemTossEvent(Lnet/minecraftforge/event/entity/item/ItemTossEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/item/IConjuredItem$1": {
+    "name": "electroblob/wizardry/item/IConjuredItem$1",
+    "interfaces": [
+      "net/minecraft/item/IItemPropertyGetter"
+    ]
+  },
+  "electroblob/wizardry/item/IConjuredItem$2": {
+    "name": "electroblob/wizardry/item/IConjuredItem$2",
+    "interfaces": [
+      "net/minecraft/item/IItemPropertyGetter"
+    ]
+  },
+  "electroblob/wizardry/item/ItemArtefact": {
+    "name": "electroblob/wizardry/item/ItemArtefact",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/item/ItemArtefact"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerTickEvent(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onSpellCastPreEvent(Lelectroblob/wizardry/event/SpellCastEvent$Pre;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/LOW"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onSpellCastPostEvent(Lelectroblob/wizardry/event/SpellCastEvent$Post;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingHurtEvent(Lnet/minecraftforge/event/entity/living/LivingHurtEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingDeathEvent(Lnet/minecraftforge/event/entity/living/LivingDeathEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerDropsEvent(Lnet/minecraftforge/event/entity/player/PlayerDropsEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/HIGH"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPotionApplicableEvent(Lnet/minecraftforge/event/entity/living/PotionEvent$PotionApplicableEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onItemPickupEvent(Lnet/minecraftforge/fml/common/gameevent/PlayerEvent$ItemPickupEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/item/ItemBlankScroll": {
+    "name": "electroblob/wizardry/item/ItemBlankScroll",
+    "interfaces": [
+      "electroblob/wizardry/item/IWorkbenchItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemBlockMultiTextured": {
+    "name": "electroblob/wizardry/item/ItemBlockMultiTextured",
+    "interfaces": [
+      "electroblob/wizardry/item/IMultiTexturedItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemCrystal": {
+    "name": "electroblob/wizardry/item/ItemCrystal",
+    "interfaces": [
+      "electroblob/wizardry/item/IMultiTexturedItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemFlamecatcher": {
+    "name": "electroblob/wizardry/item/ItemFlamecatcher",
+    "interfaces": [
+      "electroblob/wizardry/item/IConjuredItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemFlamecatcher$1": {
+    "name": "electroblob/wizardry/item/ItemFlamecatcher$1",
+    "interfaces": [
+      "net/minecraft/item/IItemPropertyGetter"
+    ]
+  },
+  "electroblob/wizardry/item/ItemFlamecatcher$2": {
+    "name": "electroblob/wizardry/item/ItemFlamecatcher$2",
+    "interfaces": [
+      "net/minecraft/item/IItemPropertyGetter"
+    ]
+  },
+  "electroblob/wizardry/item/ItemFlamingAxe": {
+    "name": "electroblob/wizardry/item/ItemFlamingAxe",
+    "interfaces": [
+      "electroblob/wizardry/item/IConjuredItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemFrostAxe": {
+    "name": "electroblob/wizardry/item/ItemFrostAxe",
+    "interfaces": [
+      "electroblob/wizardry/item/IConjuredItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemLightningHammer": {
+    "name": "electroblob/wizardry/item/ItemLightningHammer",
+    "interfaces": [
+      "electroblob/wizardry/item/IConjuredItem"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/item/ItemLightningHammer"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onAttackEntityEvent(Lnet/minecraftforge/event/entity/player/AttackEntityEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/item/ItemScroll": {
+    "name": "electroblob/wizardry/item/ItemScroll",
+    "interfaces": [
+      "electroblob/wizardry/item/ISpellCastingItem",
+      "electroblob/wizardry/item/IWorkbenchItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemSpectralArmour": {
+    "name": "electroblob/wizardry/item/ItemSpectralArmour",
+    "interfaces": [
+      "electroblob/wizardry/item/IConjuredItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemSpectralBow": {
+    "name": "electroblob/wizardry/item/ItemSpectralBow",
+    "interfaces": [
+      "electroblob/wizardry/item/IConjuredItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemSpectralBow$1": {
+    "name": "electroblob/wizardry/item/ItemSpectralBow$1",
+    "interfaces": [
+      "net/minecraft/item/IItemPropertyGetter"
+    ]
+  },
+  "electroblob/wizardry/item/ItemSpectralBow$2": {
+    "name": "electroblob/wizardry/item/ItemSpectralBow$2",
+    "interfaces": [
+      "net/minecraft/item/IItemPropertyGetter"
+    ]
+  },
+  "electroblob/wizardry/item/ItemSpectralDust": {
+    "name": "electroblob/wizardry/item/ItemSpectralDust",
+    "interfaces": [
+      "electroblob/wizardry/item/IMultiTexturedItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemSpectralPickaxe": {
+    "name": "electroblob/wizardry/item/ItemSpectralPickaxe",
+    "interfaces": [
+      "electroblob/wizardry/item/IConjuredItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemSpectralSword": {
+    "name": "electroblob/wizardry/item/ItemSpectralSword",
+    "interfaces": [
+      "electroblob/wizardry/item/IConjuredItem"
+    ]
+  },
+  "electroblob/wizardry/item/ItemWand": {
+    "name": "electroblob/wizardry/item/ItemWand",
+    "interfaces": [
+      "electroblob/wizardry/item/IWorkbenchItem",
+      "electroblob/wizardry/item/ISpellCastingItem",
+      "electroblob/wizardry/item/IManaStoringItem"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/item/ItemWand"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onAttackEntityEvent(Lnet/minecraftforge/event/entity/player/AttackEntityEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/item/ItemWizardArmour": {
+    "name": "electroblob/wizardry/item/ItemWizardArmour",
+    "interfaces": [
+      "electroblob/wizardry/item/IWorkbenchItem",
+      "electroblob/wizardry/item/IManaStoringItem"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/item/ItemWizardArmour"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingEquipmentChangeEvent(Lnet/minecraftforge/event/entity/living/LivingEquipmentChangeEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onSpellCastPreEvent(Lelectroblob/wizardry/event/SpellCastEvent$Pre;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/LOW"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingSetAttackTargetEvent(Lnet/minecraftforge/event/entity/living/LivingSetAttackTargetEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/misc/DonationPerksHandler": {
+    "name": "electroblob/wizardry/misc/DonationPerksHandler",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/misc/DonationPerksHandler"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onEntityJoinWorldEvent(Lnet/minecraftforge/event/entity/EntityJoinWorldEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/misc/Forfeit": {
+    "name": "electroblob/wizardry/misc/Forfeit",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/misc/Forfeit"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onSpellCastPreEvent(Lelectroblob/wizardry/event/SpellCastEvent$Pre;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/NORMAL"
+          }
+        }
+      }
+    ]
+  },
+  "electroblob/wizardry/misc/RecipeRechargeWithFlask": {
+    "name": "electroblob/wizardry/misc/RecipeRechargeWithFlask",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/misc/RecipeRechargeWithFlask"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onItemCraftedEvent(Lnet/minecraftforge/fml/common/gameevent/PlayerEvent$ItemCraftedEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/packet/PacketCastContinuousSpell": {
+    "name": "electroblob/wizardry/packet/PacketCastContinuousSpell",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketCastContinuousSpell$Message": {
+    "name": "electroblob/wizardry/packet/PacketCastContinuousSpell$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketCastSpell": {
+    "name": "electroblob/wizardry/packet/PacketCastSpell",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketCastSpell$Message": {
+    "name": "electroblob/wizardry/packet/PacketCastSpell$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketCastSpellAtPos": {
+    "name": "electroblob/wizardry/packet/PacketCastSpellAtPos",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketCastSpellAtPos$Message": {
+    "name": "electroblob/wizardry/packet/PacketCastSpellAtPos$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketClairvoyance": {
+    "name": "electroblob/wizardry/packet/PacketClairvoyance",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketClairvoyance$1": {
+    "name": "electroblob/wizardry/packet/PacketClairvoyance$1",
+    "interfaces": [
+      "java/lang/Runnable"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketClairvoyance$Message": {
+    "name": "electroblob/wizardry/packet/PacketClairvoyance$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketConquerShrine": {
+    "name": "electroblob/wizardry/packet/PacketConquerShrine",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketConquerShrine$Message": {
+    "name": "electroblob/wizardry/packet/PacketConquerShrine$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketControlInput": {
+    "name": "electroblob/wizardry/packet/PacketControlInput",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketControlInput$Message": {
+    "name": "electroblob/wizardry/packet/PacketControlInput$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketDispenserCastSpell": {
+    "name": "electroblob/wizardry/packet/PacketDispenserCastSpell",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketDispenserCastSpell$Message": {
+    "name": "electroblob/wizardry/packet/PacketDispenserCastSpell$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketEmitterData": {
+    "name": "electroblob/wizardry/packet/PacketEmitterData",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketEmitterData$Message": {
+    "name": "electroblob/wizardry/packet/PacketEmitterData$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketGlyphData": {
+    "name": "electroblob/wizardry/packet/PacketGlyphData",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketGlyphData$Message": {
+    "name": "electroblob/wizardry/packet/PacketGlyphData$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketLectern": {
+    "name": "electroblob/wizardry/packet/PacketLectern",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketLectern$Message": {
+    "name": "electroblob/wizardry/packet/PacketLectern$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketNPCCastSpell": {
+    "name": "electroblob/wizardry/packet/PacketNPCCastSpell",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketNPCCastSpell$1": {
+    "name": "electroblob/wizardry/packet/PacketNPCCastSpell$1",
+    "interfaces": [
+      "java/lang/Runnable"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketNPCCastSpell$Message": {
+    "name": "electroblob/wizardry/packet/PacketNPCCastSpell$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketPlayerSync": {
+    "name": "electroblob/wizardry/packet/PacketPlayerSync",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketPlayerSync$Message": {
+    "name": "electroblob/wizardry/packet/PacketPlayerSync$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketPossession": {
+    "name": "electroblob/wizardry/packet/PacketPossession",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketPossession$Message": {
+    "name": "electroblob/wizardry/packet/PacketPossession$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketRequestAdvancementSync": {
+    "name": "electroblob/wizardry/packet/PacketRequestAdvancementSync",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketRequestAdvancementSync$Message": {
+    "name": "electroblob/wizardry/packet/PacketRequestAdvancementSync$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketRequestDonationPerks": {
+    "name": "electroblob/wizardry/packet/PacketRequestDonationPerks",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketRequestDonationPerks$Message": {
+    "name": "electroblob/wizardry/packet/PacketRequestDonationPerks$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketResurrection": {
+    "name": "electroblob/wizardry/packet/PacketResurrection",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketResurrection$Message": {
+    "name": "electroblob/wizardry/packet/PacketResurrection$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketSpellProperties": {
+    "name": "electroblob/wizardry/packet/PacketSpellProperties",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketSpellProperties$Message": {
+    "name": "electroblob/wizardry/packet/PacketSpellProperties$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketSpellQuickAccess": {
+    "name": "electroblob/wizardry/packet/PacketSpellQuickAccess",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketSpellQuickAccess$Message": {
+    "name": "electroblob/wizardry/packet/PacketSpellQuickAccess$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketSyncAdvancements": {
+    "name": "electroblob/wizardry/packet/PacketSyncAdvancements",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketSyncAdvancements$Message": {
+    "name": "electroblob/wizardry/packet/PacketSyncAdvancements$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketSyncDonationPerks": {
+    "name": "electroblob/wizardry/packet/PacketSyncDonationPerks",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketSyncDonationPerks$Message": {
+    "name": "electroblob/wizardry/packet/PacketSyncDonationPerks$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketSyncSettings": {
+    "name": "electroblob/wizardry/packet/PacketSyncSettings",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketSyncSettings$Message": {
+    "name": "electroblob/wizardry/packet/PacketSyncSettings$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketTransportation": {
+    "name": "electroblob/wizardry/packet/PacketTransportation",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessageHandler"
+    ]
+  },
+  "electroblob/wizardry/packet/PacketTransportation$Message": {
+    "name": "electroblob/wizardry/packet/PacketTransportation$Message",
+    "interfaces": [
+      "net/minecraftforge/fml/common/network/simpleimpl/IMessage"
+    ]
+  },
+  "electroblob/wizardry/potion/CurseEnfeeblement": {
+    "name": "electroblob/wizardry/potion/CurseEnfeeblement",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/potion/CurseEnfeeblement"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerTickEvent(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/potion/ICustomPotionParticles": {
+    "name": "electroblob/wizardry/potion/ICustomPotionParticles",
+    "interfaces": [
+      "electroblob/wizardry/potion/ISyncedPotion"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/potion/ICustomPotionParticles"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPotionColourCalculationEvent(Lnet/minecraftforge/event/entity/living/PotionColorCalculationEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/potion/ISyncedPotion": {
+    "name": "electroblob/wizardry/potion/ISyncedPotion",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/potion/ISyncedPotion"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPotionAddedEvent(Lnet/minecraftforge/event/entity/living/PotionEvent$PotionAddedEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPotionExpiryEvent(Lnet/minecraftforge/event/entity/living/PotionEvent$PotionExpiryEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPotionRemoveEvent(Lnet/minecraftforge/event/entity/living/PotionEvent$PotionRemoveEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/potion/PotionContainment": {
+    "name": "electroblob/wizardry/potion/PotionContainment",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/potion/PotionContainment"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/potion/PotionDecay": {
+    "name": "electroblob/wizardry/potion/PotionDecay",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/potion/PotionDecay"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/potion/PotionDiamondflesh": {
+    "name": "electroblob/wizardry/potion/PotionDiamondflesh",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/potion/PotionDiamondflesh"
+      }
+    ]
+  },
+  "electroblob/wizardry/potion/PotionFrost": {
+    "name": "electroblob/wizardry/potion/PotionFrost",
+    "interfaces": [
+      "electroblob/wizardry/potion/ICustomPotionParticles"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/potion/PotionFrost"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onBreakSpeedEvent(Lnet/minecraftforge/event/entity/player/PlayerEvent$BreakSpeed;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingJumpEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingJumpEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/potion/PotionFrostStep": {
+    "name": "electroblob/wizardry/potion/PotionFrostStep",
+    "interfaces": [
+      "electroblob/wizardry/potion/ICustomPotionParticles"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/potion/PotionFrostStep"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/potion/PotionIronflesh": {
+    "name": "electroblob/wizardry/potion/PotionIronflesh",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/potion/PotionIronflesh"
+      }
+    ]
+  },
+  "electroblob/wizardry/potion/PotionMagicEffectParticles": {
+    "name": "electroblob/wizardry/potion/PotionMagicEffectParticles",
+    "interfaces": [
+      "electroblob/wizardry/potion/ICustomPotionParticles"
+    ]
+  },
+  "electroblob/wizardry/potion/PotionOakflesh": {
+    "name": "electroblob/wizardry/potion/PotionOakflesh",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/potion/PotionOakflesh"
+      }
+    ]
+  },
+  "electroblob/wizardry/potion/PotionSlowTime": {
+    "name": "electroblob/wizardry/potion/PotionSlowTime",
+    "interfaces": [
+      "electroblob/wizardry/potion/ISyncedPotion"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/potion/PotionSlowTime"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPotionAddedEvent(Lnet/minecraftforge/event/entity/living/PotionEvent$PotionAddedEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "tick(Lnet/minecraftforge/fml/common/gameevent/TickEvent$WorldTickEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerLoggedOutEvent(Lnet/minecraftforge/fml/common/gameevent/PlayerEvent$PlayerLoggedOutEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/registry/Spells": {
+    "name": "electroblob/wizardry/registry/Spells",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/registry/GameRegistry$ObjectHolder;",
+        "target": "electroblob/wizardry/registry/Spells",
+        "value": {
+          "value": "ebwizardry"
+        }
+      },
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/registry/Spells"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "createRegistry(Lnet/minecraftforge/event/RegistryEvent$NewRegistry;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "register(Lnet/minecraftforge/event/RegistryEvent$Register;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/registry/WizardryBlocks": {
+    "name": "electroblob/wizardry/registry/WizardryBlocks",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/registry/GameRegistry$ObjectHolder;",
+        "target": "electroblob/wizardry/registry/WizardryBlocks",
+        "value": {
+          "value": "ebwizardry"
+        }
+      },
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/registry/WizardryBlocks"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "register(Lnet/minecraftforge/event/RegistryEvent$Register;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/registry/WizardryEnchantments": {
+    "name": "electroblob/wizardry/registry/WizardryEnchantments",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/registry/GameRegistry$ObjectHolder;",
+        "target": "electroblob/wizardry/registry/WizardryEnchantments",
+        "value": {
+          "value": "ebwizardry"
+        }
+      },
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/registry/WizardryEnchantments"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "register(Lnet/minecraftforge/event/RegistryEvent$Register;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/registry/WizardryEntities": {
+    "name": "electroblob/wizardry/registry/WizardryEntities",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/registry/WizardryEntities"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "register(Lnet/minecraftforge/event/RegistryEvent$Register;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/registry/WizardryItems": {
+    "name": "electroblob/wizardry/registry/WizardryItems",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/registry/GameRegistry$ObjectHolder;",
+        "target": "electroblob/wizardry/registry/WizardryItems",
+        "value": {
+          "value": "ebwizardry"
+        }
+      },
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/registry/WizardryItems"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "register(Lnet/minecraftforge/event/RegistryEvent$Register;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/registry/WizardryLoot": {
+    "name": "electroblob/wizardry/registry/WizardryLoot",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/registry/WizardryLoot"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLootTableLoadEvent(Lnet/minecraftforge/event/LootTableLoadEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/registry/WizardryPotions": {
+    "name": "electroblob/wizardry/registry/WizardryPotions",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/registry/GameRegistry$ObjectHolder;",
+        "target": "electroblob/wizardry/registry/WizardryPotions",
+        "value": {
+          "value": "ebwizardry"
+        }
+      },
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/registry/WizardryPotions"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "register(Lnet/minecraftforge/event/RegistryEvent$Register;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/registry/WizardryRecipes": {
+    "name": "electroblob/wizardry/registry/WizardryRecipes",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/registry/WizardryRecipes"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "registerRecipes(Lnet/minecraftforge/event/RegistryEvent$Register;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/registry/WizardrySounds": {
+    "name": "electroblob/wizardry/registry/WizardrySounds",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/registry/WizardrySounds"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "register(Lnet/minecraftforge/event/RegistryEvent$Register;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/ArcaneJammer": {
+    "name": "electroblob/wizardry/spell/ArcaneJammer",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/ArcaneJammer"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onSpellCastPreEvent(Lelectroblob/wizardry/event/SpellCastEvent$Pre;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/HIGHEST"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/ArcaneLock": {
+    "name": "electroblob/wizardry/spell/ArcaneLock",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/ArcaneLock"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRightClickBlockEvent(Lnet/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLeftClickBlockEvent(Lnet/minecraftforge/event/entity/player/PlayerInteractEvent$LeftClickBlock;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onBlockBreakEvent(Lnet/minecraftforge/event/world/BlockEvent$BreakEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingDestroyBlockEvent(Lnet/minecraftforge/event/entity/living/LivingDestroyBlockEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onExplosionEvent(Lnet/minecraftforge/event/world/ExplosionEvent$Detonate;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/Charge": {
+    "name": "electroblob/wizardry/spell/Charge",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/Charge"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/HIGH"
+          }
+        }
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/Clairvoyance": {
+    "name": "electroblob/wizardry/spell/Clairvoyance",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/Clairvoyance"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onRightClickBlockEvent(Lnet/minecraftforge/event/entity/player/PlayerInteractEvent$RightClickBlock;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/CurseOfSoulbinding": {
+    "name": "electroblob/wizardry/spell/CurseOfSoulbinding",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/CurseOfSoulbinding"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingHurtEvent(Lnet/minecraftforge/event/entity/living/LivingHurtEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/EmpoweringPresence": {
+    "name": "electroblob/wizardry/spell/EmpoweringPresence",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/EmpoweringPresence"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onSpellCastPreEvent(Lelectroblob/wizardry/event/SpellCastEvent$Pre;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/LOW"
+          }
+        }
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/Enrage": {
+    "name": "electroblob/wizardry/spell/Enrage",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/Enrage"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/Fangs": {
+    "name": "electroblob/wizardry/spell/Fangs",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/Fangs"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/HIGH"
+          }
+        }
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/FontOfMana": {
+    "name": "electroblob/wizardry/spell/FontOfMana",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/FontOfMana"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onSpellCastPreEvent(Lelectroblob/wizardry/event/SpellCastEvent$Pre;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/LOW"
+          }
+        }
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/Intimidate": {
+    "name": "electroblob/wizardry/spell/Intimidate",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/Intimidate"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/LightningBolt": {
+    "name": "electroblob/wizardry/spell/LightningBolt",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/LightningBolt"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onEntityStruckByLightningEvent(Lnet/minecraftforge/event/entity/EntityStruckByLightningEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/LOW"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/HIGHEST"
+          }
+        }
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/MarkSacrifice": {
+    "name": "electroblob/wizardry/spell/MarkSacrifice",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/MarkSacrifice"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingHurtEvent(Lnet/minecraftforge/event/entity/living/LivingHurtEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/MindControl": {
+    "name": "electroblob/wizardry/spell/MindControl",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/MindControl"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingSetAttackTargetEvent(Lnet/minecraftforge/event/entity/living/LivingSetAttackTargetEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPotionExpiryEvent(Lnet/minecraftforge/event/entity/living/PotionEvent$PotionExpiryEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPotionExpiryEvent(Lnet/minecraftforge/event/entity/living/PotionEvent$PotionRemoveEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/MindTrick": {
+    "name": "electroblob/wizardry/spell/MindTrick",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/MindTrick"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingSetAttackTargetEvent(Lnet/minecraftforge/event/entity/living/LivingSetAttackTargetEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/Paralysis": {
+    "name": "electroblob/wizardry/spell/Paralysis",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/Paralysis"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingUpdateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingHurtEvent(Lnet/minecraftforge/event/entity/living/LivingHurtEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/Possession": {
+    "name": "electroblob/wizardry/spell/Possession",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/Possession"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerTickEvent(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/HIGH"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingDamageEvent(Lnet/minecraftforge/event/entity/living/LivingDamageEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerInteractEvent(Lnet/minecraftforge/event/entity/player/PlayerInteractEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingSetAttackTargetEvent(Lnet/minecraftforge/event/entity/living/LivingSetAttackTargetEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingDeathEvent(Lnet/minecraftforge/event/entity/living/LivingDeathEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerLoggedOutEvent(Lnet/minecraftforge/fml/common/gameevent/PlayerEvent$PlayerLoggedOutEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onBlockBreakEvent(Lnet/minecraftforge/event/world/BlockEvent$BreakEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onBlockPlaceEvent(Lnet/minecraftforge/event/world/BlockEvent$PlaceEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onEntityItemPickupEvent(Lnet/minecraftforge/event/entity/player/EntityItemPickupEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onItemTossEvent(Lnet/minecraftforge/event/entity/item/ItemTossEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onAttackEntityEvent(Lnet/minecraftforge/event/entity/player/AttackEntityEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/Resurrection": {
+    "name": "electroblob/wizardry/spell/Resurrection",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/Resurrection"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerTickEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingUpdateEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/ShadowWard": {
+    "name": "electroblob/wizardry/spell/ShadowWard",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/ShadowWard"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/SixthSense": {
+    "name": "electroblob/wizardry/spell/SixthSense",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/SixthSense"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPotionAddedEvent(Lnet/minecraftforge/event/entity/living/PotionEvent$PotionAddedEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/Spell": {
+    "name": "electroblob/wizardry/spell/Spell",
+    "interfaces": [
+      "java/lang/Comparable"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/Spell"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onWorldLoadEvent(Lnet/minecraftforge/event/world/WorldEvent$Load;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onClientConnectEvent(Lnet/minecraftforge/fml/common/network/FMLNetworkEvent$ClientConnectedToServerEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onClientDisconnectEvent(Lnet/minecraftforge/fml/common/network/FMLNetworkEvent$ClientDisconnectionFromServerEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/Spell$TierElementFilter": {
+    "name": "electroblob/wizardry/spell/Spell$TierElementFilter",
+    "interfaces": [
+      "java/util/function/Predicate"
+    ]
+  },
+  "electroblob/wizardry/spell/SpellThrowable": {
+    "name": "electroblob/wizardry/spell/SpellThrowable",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/SpellThrowable"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/Transience": {
+    "name": "electroblob/wizardry/spell/Transience",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/Transience"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerInteractEvent(Lnet/minecraftforge/event/entity/player/PlayerInteractEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPotionAddedEvent(Lnet/minecraftforge/event/entity/living/PotionEvent$PotionAddedEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/spell/WitherSkull": {
+    "name": "electroblob/wizardry/spell/WitherSkull",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/spell/WitherSkull"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onEntityMobGriefingEvent(Lnet/minecraftforge/event/entity/EntityMobGriefingEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/tileentity/TileEntityArcaneWorkbench": {
+    "name": "electroblob/wizardry/tileentity/TileEntityArcaneWorkbench",
+    "interfaces": [
+      "net/minecraft/inventory/IInventory",
+      "net/minecraft/util/ITickable"
+    ]
+  },
+  "electroblob/wizardry/tileentity/TileEntityBookshelf": {
+    "name": "electroblob/wizardry/tileentity/TileEntityBookshelf",
+    "interfaces": [
+      "net/minecraft/util/ITickable"
+    ]
+  },
+  "electroblob/wizardry/tileentity/TileEntityImbuementAltar": {
+    "name": "electroblob/wizardry/tileentity/TileEntityImbuementAltar",
+    "interfaces": [
+      "net/minecraft/util/ITickable"
+    ]
+  },
+  "electroblob/wizardry/tileentity/TileEntityLectern": {
+    "name": "electroblob/wizardry/tileentity/TileEntityLectern",
+    "interfaces": [
+      "net/minecraft/util/ITickable"
+    ]
+  },
+  "electroblob/wizardry/tileentity/TileEntityShrineCore": {
+    "name": "electroblob/wizardry/tileentity/TileEntityShrineCore",
+    "interfaces": [
+      "net/minecraft/util/ITickable"
+    ]
+  },
+  "electroblob/wizardry/tileentity/TileEntityStatue": {
+    "name": "electroblob/wizardry/tileentity/TileEntityStatue",
+    "interfaces": [
+      "net/minecraft/util/ITickable"
+    ]
+  },
+  "electroblob/wizardry/tileentity/TileEntityThorns": {
+    "name": "electroblob/wizardry/tileentity/TileEntityThorns",
+    "interfaces": [
+      "net/minecraft/util/ITickable"
+    ]
+  },
+  "electroblob/wizardry/tileentity/TileEntityTimer": {
+    "name": "electroblob/wizardry/tileentity/TileEntityTimer",
+    "interfaces": [
+      "net/minecraft/util/ITickable"
+    ]
+  },
+  "electroblob/wizardry/util/AllyDesignationSystem": {
+    "name": "electroblob/wizardry/util/AllyDesignationSystem",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/util/AllyDesignationSystem"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/util/IElementalDamage": {
+    "name": "electroblob/wizardry/util/IElementalDamage",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/util/IElementalDamage"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onLivingAttackEvent(Lnet/minecraftforge/event/entity/living/LivingAttackEvent;)V"
+      }
+    ]
+  },
+  "electroblob/wizardry/util/IndirectMagicDamage": {
+    "name": "electroblob/wizardry/util/IndirectMagicDamage",
+    "interfaces": [
+      "electroblob/wizardry/util/IElementalDamage"
+    ]
+  },
+  "electroblob/wizardry/util/MagicDamage": {
+    "name": "electroblob/wizardry/util/MagicDamage",
+    "interfaces": [
+      "electroblob/wizardry/util/IElementalDamage"
+    ]
+  },
+  "electroblob/wizardry/worldgen/MossifierTemplateProcessor": {
+    "name": "electroblob/wizardry/worldgen/MossifierTemplateProcessor",
+    "interfaces": [
+      "net/minecraft/world/gen/structure/template/ITemplateProcessor"
+    ]
+  },
+  "electroblob/wizardry/worldgen/MultiTemplateProcessor": {
+    "name": "electroblob/wizardry/worldgen/MultiTemplateProcessor",
+    "interfaces": [
+      "net/minecraft/world/gen/structure/template/ITemplateProcessor"
+    ]
+  },
+  "electroblob/wizardry/worldgen/WoodTypeTemplateProcessor": {
+    "name": "electroblob/wizardry/worldgen/WoodTypeTemplateProcessor",
+    "interfaces": [
+      "net/minecraft/world/gen/structure/template/ITemplateProcessor"
+    ]
+  },
+  "electroblob/wizardry/worldgen/WorldGenCrystalFlower": {
+    "name": "electroblob/wizardry/worldgen/WorldGenCrystalFlower",
+    "interfaces": [
+      "net/minecraftforge/fml/common/IWorldGenerator"
+    ]
+  },
+  "electroblob/wizardry/worldgen/WorldGenCrystalOre": {
+    "name": "electroblob/wizardry/worldgen/WorldGenCrystalOre",
+    "interfaces": [
+      "net/minecraftforge/fml/common/IWorldGenerator"
+    ]
+  },
+  "electroblob/wizardry/worldgen/WorldGenWizardryStructure": {
+    "name": "electroblob/wizardry/worldgen/WorldGenWizardryStructure",
+    "interfaces": [
+      "net/minecraftforge/fml/common/IWorldGenerator"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventBusSubscriber;",
+        "target": "electroblob/wizardry/worldgen/WorldGenWizardryStructure"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "onPlayerTick(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V"
+      }
+    ]
+  }
+}

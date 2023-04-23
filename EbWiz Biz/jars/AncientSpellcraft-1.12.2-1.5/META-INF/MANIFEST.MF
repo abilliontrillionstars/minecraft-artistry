@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Maven-Artifact: com.windanesz.ancientspellcraft:AncientSpellcraft:1.12.2
+ -1.5
+Specification-Title: AncientSpellcraft
+Specification-Vendor: WinDanesz
+Specification-Version: 1
+Implementation-Title: AncientSpellcraft
+Implementation-Version: 1.12.2-1.5
+Implementation-Vendor: WinDanesz
+Implementation-Timestamp: 2022-08-31T15:15:46+0000
+Built-On-Java: 11.0.16.1+1 (Eclipse Adoptium)
+Built-On: 1.12.2-14.23.5.2860
+
