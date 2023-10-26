@@ -1,0 +1,18 @@
+{
+	"type": "mna:component",
+	"tier": 1,
+	"output": "mna:fling",
+	"items":
+	[
+		"mna:stone_rune_white",
+		"mna:stone_rune_gray",
+		"mna:runesmith_hammer",
+		"mna:stone_rune_white",
+		"mna:vinteum_dust"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/circle",
+		"mna:manaweave_patterns/triangle"
+	]
+}

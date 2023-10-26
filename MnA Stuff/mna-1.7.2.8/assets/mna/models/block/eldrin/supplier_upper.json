@@ -1,0 +1,17 @@
+{
+  "parent": "forge:item/default",
+  "loader": "forge:composite",
+  "textures": {
+  	"particle": "mna:block/material/supplier/supplier"
+  },
+  "parts": {
+    "lower": {
+      "loader": "forge:obj",
+      "detectCullableFaces": false,
+	  "diffuseLighting": false,
+	  "flip-v": true,
+	  "ambientToFullbright": true,
+      "model": "mna:models/block/obj/supplier/supplier_upper.obj"
+    }
+  }
+}

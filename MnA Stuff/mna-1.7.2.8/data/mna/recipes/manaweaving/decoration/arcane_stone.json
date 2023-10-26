@@ -1,0 +1,19 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:decoration/arcane_stone",
+	"tier": 1,
+	"quantity": 8,		
+	"items": [
+		"forge:stone",
+		"forge:stone",
+		"forge:stone",
+		"forge:stone",
+		"forge:stone",
+		"forge:stone",
+		"forge:stone",
+		"forge:stone"
+	],
+	"patterns": [
+		"mna:circle"
+	]
+}

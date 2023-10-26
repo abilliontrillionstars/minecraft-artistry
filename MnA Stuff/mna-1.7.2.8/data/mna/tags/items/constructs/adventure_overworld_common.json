@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+   	"#minecraft:small_flowers",
+   	"#forge:seeds",
+   	"#minecraft:saplings",
+   	"mna:rune_clay_plate",
+   	"mna:rune_pattern",
+   	"minecraft:bone",
+   	"minecraft:gunpowder",
+   	"minecraft:rotten_flesh",
+   	"minecraft:spider_eye",
+   	"minecraft:string",
+   	"minecraft:ink_sac",
+   	"minecraft:glow_ink_sac",
+   	"minecraft:honey_bottle", 
+   	"minecraft:honeycomb",
+   	"minecraft:feather",
+   	"minecraft:book",
+   	"minecraft:clay",
+   	"minecraft:kelp",
+   	"minecraft:sugar_cane",
+   	"minecraft:cactus",
+   	"minecraft:bamboo"
+  ]
+}

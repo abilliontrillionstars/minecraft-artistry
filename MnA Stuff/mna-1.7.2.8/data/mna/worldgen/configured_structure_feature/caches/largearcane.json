@@ -1,0 +1,10 @@
+{
+	"type": "minecraft:village",
+	"config": {
+		"start_pool": "mna:cache_dais_largearcane/start_pool",
+		"size": 1
+	},
+	"biomes": "#mna:manaweave_cache_biomes",
+	"adapt_noise": true,
+	"spawn_overrides": {}
+}

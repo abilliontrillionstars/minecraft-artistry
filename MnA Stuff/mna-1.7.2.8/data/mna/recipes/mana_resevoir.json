@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"O O",
+  	"SGS",
+  	"SIS"
+  ],
+  "key": {
+  	"O": {
+  		"tag": "forge:obsidian"
+  	},
+  	"S": {
+  		"tag": "forge:stone"
+  	},
+  	"I": {
+  		"item": "mna:vinteum_ingot"
+  	},
+  	"G": {
+  		"tag": "forge:glass"
+  	}
+  },
+  "result": {
+    "item": "mna:mana_resevoir"    
+  }
+}

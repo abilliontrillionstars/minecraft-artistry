@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"V  ",
+  	" S "
+  ],
+  "key": {
+  	"S": {
+  		"item": "minecraft:stick"
+  	},
+  	"V": {
+  		"item": "mna:chimerite_gem"
+  	}
+  },
+  "result": {
+    "item": "mna:wand_b"    
+  }
+}

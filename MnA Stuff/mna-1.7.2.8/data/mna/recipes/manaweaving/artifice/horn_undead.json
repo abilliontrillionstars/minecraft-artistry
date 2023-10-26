@@ -1,0 +1,21 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:faction_horn_undead",
+	"tier": 5,
+	"items": [
+		"minecraft:bone_block",
+		"minecraft:netherite_ingot",
+		"minecraft:netherite_ingot",		
+		"minecraft:nether_star",
+		"minecraft:chain",
+		"minecraft:chain",
+		"mna:greater_mote_ender",
+		"mna:greater_mote_air"
+	],
+	"patterns": [
+		"mna:hourglass",
+		"mna:inverted_split_triangle",
+		"mna:circle",
+		"mna:circle"
+	]
+}

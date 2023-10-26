@@ -1,0 +1,25 @@
+{
+	"parent": "mna:root",
+	"display": {
+		"icon": {
+			"item": "mna:constructs/construct_basic_head_wickerwood"
+		},
+		"title": {
+			"translate": "mna:advancements.summon_construct.title"
+		},
+		"description": {
+			"translate": "mna:advancements.summon_construct.description"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": true
+	},
+	"criteria": {
+		"summon_construct": {
+			"trigger": "mna:summon_construct",
+			"conditions": {	}
+		}
+	},
+	"requirements": []
+}

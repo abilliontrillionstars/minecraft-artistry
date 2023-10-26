@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+  	"#forge:netherrack",
+    "#forge:nuggets/gold",
+    "#forge:gems/quartz"
+  ]
+}

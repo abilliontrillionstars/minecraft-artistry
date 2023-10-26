@@ -1,0 +1,20 @@
+{
+	"type": "mna:eldrin-altar",
+	"output": "mna:greater_mote_air",
+	"tier": 4,
+	"items": [
+		"mna:mote_air",
+		"minecraft:phantom_membrane",
+		"minecraft:phantom_membrane"
+	],
+	"power_requirements": [
+		{
+			"affinity": "WIND",
+			"amount": 600
+		}
+	],
+	"colors": [
+		13816530,
+		9211020
+	]
+}

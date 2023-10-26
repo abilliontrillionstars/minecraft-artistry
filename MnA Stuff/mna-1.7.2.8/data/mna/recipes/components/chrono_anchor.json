@@ -1,0 +1,24 @@
+{
+	"type": "mna:component",
+	"tier": 5,
+	"output": "mna:chrono_anchor",
+	"items":
+	[
+		"forge:sand",
+		"forge:sand",
+		"forge:glass",
+		"forge:glass",
+		"mna:vinteum_dust",
+		"mna:vinteum_dust",
+		"mna:mote_arcane"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/hourglass",
+		"mna:manaweave_patterns/infinity",
+		"mna:manaweave_patterns/split_triangle",
+		"mna:manaweave_patterns/infinity",
+		"mna:manaweave_patterns/hourglass",
+		"mna:manaweave_patterns/split_triangle"
+	]
+}

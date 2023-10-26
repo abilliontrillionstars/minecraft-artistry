@@ -1,0 +1,28 @@
+{
+	"type": "minecraft:bastion_remnant",
+	"config": {
+		"start_pool": "mna:undead_crypt/start_pool",
+		"size": 1
+	},
+	"biomes": "#mna:crypt_biomes",
+	"adapt_noise": true,
+	"spawn_overrides": {
+		"monster": {
+			"bounding_box": "full",
+			"spawns": [
+				{
+					"type": "mna:hulking_zombie",
+					"weight": 1,
+					"minCount": 1,
+					"maxCount": 2
+				},
+				{
+					"type": "mna:skeleton_assassin",
+					"weight": 1,
+					"minCount": 1,
+					"maxCount": 3
+				}
+			]
+		}
+	}
+}

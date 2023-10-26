@@ -1,0 +1,20 @@
+{
+	"type": "mna:eldrin-altar",
+	"output": "mna:greater_mote_arcane",
+	"tier": 4,
+	"items": [
+		"mna:mote_arcane",
+		"minecraft:book",
+		"minecraft:book"
+	],
+	"power_requirements": [
+		{
+			"affinity": "ARCANE",
+			"amount": 600
+		}
+	],
+	"colors": [
+		6232189,
+		5080527
+	]
+}

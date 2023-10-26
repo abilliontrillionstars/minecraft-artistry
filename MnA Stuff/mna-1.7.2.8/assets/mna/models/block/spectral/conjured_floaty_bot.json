@@ -1,0 +1,17 @@
+{
+  "parent": "forge:item/default",
+  "loader": "forge:composite",
+  "textures": {
+  	"particle": "mna:block/material/spectral/conjures"
+  },
+  "parts": {
+    "ash": {
+      "loader": "forge:obj",
+      "detectCullableFaces": false,
+	  "diffuseLighting": false,
+	  "flip-v": true,
+	  "ambientToFullbright": true,
+      "model": "mna:models/block/obj/spectral/conjured_floaty_bot.obj"
+    }
+  }
+}

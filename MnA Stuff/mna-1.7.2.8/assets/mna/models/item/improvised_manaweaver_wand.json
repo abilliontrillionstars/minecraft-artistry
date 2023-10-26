@@ -1,0 +1,25 @@
+{
+  	"parent": "forge:item/default",
+  	"loader": "forge:composite",
+  	"parts": {
+    	"crystal": {
+      		"loader": "forge:obj",
+      		"detectCullableFaces": true,
+	  		"diffuseLighting": true,
+	  		"flip-v": true,
+	  		"ambientToFullbright": false,
+      		"model": "mna:models/item/obj/manaweaving/manaweaving_improvised.obj"
+    	}
+  	},
+  	"display": {
+  		"firstperson_righthand": {
+  			"translation": [-2, 0, 0]
+  		},
+  		"firstperson_lefthand": {
+  			"translation": [-2, 0, 0]
+  		},
+		"gui": {			
+			"rotation": [0, 0, -45]
+		}
+	}
+}

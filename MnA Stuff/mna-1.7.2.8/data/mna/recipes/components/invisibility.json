@@ -1,0 +1,20 @@
+{
+	"type": "mna:component",
+	"output": "mna:invisibility",
+	"tier": 4,
+	"items":
+	[
+		"minecraft:carrot",
+		"minecraft:spider_eye",
+		"forge:glass",
+		"forge:glass",
+		"mna:cerublossom",
+		"mna:vinteum_dust"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/hourglass",
+		"mna:manaweave_patterns/circle",
+		"mna:manaweave_patterns/circle"	
+	]
+}

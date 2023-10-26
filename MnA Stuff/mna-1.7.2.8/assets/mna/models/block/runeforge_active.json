@@ -1,0 +1,20 @@
+{
+  "parent": "forge:item/default",
+  "loader": "forge:composite",
+  "textures": {
+  	"particle": "minecraft:block/stone"
+  },
+  "parts": {
+    "part1": {
+      "loader": "forge:obj",
+      "detectCullableFaces": false,
+	  "diffuseLighting": true,
+	  "flip-v": true,
+	  "ambientToFullbright": false,
+      "model": "mna:models/block/obj/runeforge/runeforge.obj",
+      "textures": {
+        "forgetex": "mna:block/runeforge/runeforge_standard_on"
+      }
+    }
+  }
+}

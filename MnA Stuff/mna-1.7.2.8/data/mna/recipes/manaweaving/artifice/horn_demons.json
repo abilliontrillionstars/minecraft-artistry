@@ -1,0 +1,20 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:faction_horn_demons",
+	"tier": 5,
+	"items": [
+		"minecraft:nether_brick",
+		"minecraft:nether_brick",
+		"minecraft:netherite_ingot",
+		"minecraft:netherite_ingot",
+		"minecraft:dragon_breath",
+		"mna:greater_mote_fire",
+		"mna:greater_mote_air"
+	],
+	"patterns": [
+		"mna:hourglass",
+		"mna:inverted_split_triangle",
+		"mna:circle",
+		"mna:circle"
+	]
+}

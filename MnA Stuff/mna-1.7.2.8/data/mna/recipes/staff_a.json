@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"C  ",
+  	" S ",
+  	"  S"
+  ],
+  "key": {
+  	"S": {
+  		"item": "minecraft:stick"
+  	},
+  	"C": {
+  		"item": "mna:vinteum_dust"
+  	}
+  },
+  "result": {
+    "item": "mna:staff_a"    
+  }
+}

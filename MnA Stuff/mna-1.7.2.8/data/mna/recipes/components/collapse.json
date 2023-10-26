@@ -1,0 +1,15 @@
+{
+	"type": "mna:component",
+	"output": "mna:collapse",
+	"tier": 1,
+	"items":
+	[
+		"forge:sand",
+		"minecraft:gravel",
+		"mna:vinteum_dust"		
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/square"
+	]
+}

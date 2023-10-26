@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.mna.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "mna.refmap.json",
+  "plugin": "com.mna.mixins.MixinPlugin",
+  "mixins": [
+    "PiglinGoldMixin",
+    "FireproofMixin",
+    "ArmorStandMixin",
+    "LivingEntityFireWalkerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

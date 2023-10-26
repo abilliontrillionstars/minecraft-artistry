@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"V  ",
+  	" S ",
+  	"  S"
+  ],
+  "key": {
+  	"S": {
+  		"item": "minecraft:stick"
+  	},
+  	"V": {
+  		"item": "mna:aum"
+  	}
+  },
+  "result": {
+    "item": "mna:staff_c"    
+  }
+}

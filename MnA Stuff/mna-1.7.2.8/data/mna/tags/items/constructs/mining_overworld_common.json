@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:raw_materials",
+    "#forge:dusts/redstone",
+    "#forge:mushrooms",
+    "minecraft:stone",
+    "minecraft:andesite",
+    "minecraft:diorite",
+    "minecraft:granite",
+    "minecraft:deepslate",
+    "minecraft:gravel",
+    "minecraft:sand",
+    "minecraft:flint" 
+  ]
+}

@@ -1,0 +1,41 @@
+{
+	"type": "mna:eldrin-altar",
+	"output": "mna:constructs/construct_armor_torso_diamond",
+	"tier": 5,
+	"items": [
+		"mna:constructs/rune_torso",
+		"minecraft:diamond",
+		"minecraft:diamond",
+		"minecraft:diamond",
+		"mna:vinteum_dust",
+		"mna:vinteum_dust",
+		"mna:mote_earth",
+		"mna:rune_defense"
+	],
+	"power_requirements": [
+		{
+			"affinity": "WATER",
+			"amount": 300
+		},
+		{
+			"affinity": "FIRE",
+			"amount": 300
+		},
+		{
+			"affinity": "EARTH",
+			"amount": 450
+		},
+		{
+			"affinity": "WIND",
+			"amount": 300
+		},
+		{
+			"affinity": "ENDER",
+			"amount": 300
+		},
+		{
+			"affinity": "ARCANE",
+			"amount": 450
+		}
+	]
+}

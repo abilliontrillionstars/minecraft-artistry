@@ -1,0 +1,25 @@
+{
+	"parent": "mna:root",
+	"display": {
+		"icon": {
+			"item": "mna:fall_charm"
+		},
+		"title": {
+			"translate": "mna:advancements.use_bonefeather.title"
+		},
+		"description": {
+			"translate": "mna:advancements.use_bonefeather.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": true
+	},
+	"criteria": {
+		"get_vinteum_coated_iron": {
+			"trigger": "mna:use_bonefeather",
+			"conditions": {	}
+		}
+	},
+	"requirements": []
+}

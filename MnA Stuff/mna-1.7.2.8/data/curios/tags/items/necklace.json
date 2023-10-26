@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"mna:warding_amulet",
+		"mna:battlemage_amulet",
+		"mna:enderguard_amulet",
+		"mna:witherguard_amulet"
+	]
+}

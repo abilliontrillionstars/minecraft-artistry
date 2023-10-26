@@ -1,0 +1,10 @@
+{
+	"type": "minecraft:village",
+	"config": {
+		"start_pool": "mna:ritual_circle_desert/start_pool",
+		"size": 1
+	},
+	"biomes": "#mna:dry_biomes",
+	"adapt_noise": true,
+	"spawn_overrides": {}
+}

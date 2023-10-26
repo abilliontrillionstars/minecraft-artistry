@@ -1,0 +1,17 @@
+{
+  "parent": "forge:item/default",
+  "loader": "forge:composite",
+  "textures": {
+  	"particle": "mna:block/artifice/decoration/arcane_sandstone"
+  },
+  "parts": {
+    "cup": {
+      "loader": "forge:obj",
+      "detectCullableFaces": false,
+	  "diffuseLighting": false,
+	  "flip-v": true,
+	  "ambientToFullbright": true,
+      "model": "mna:models/block/obj/construct_gantry/constructgantry_arch.obj"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:faction_horn_fey",
+	"tier": 5,
+	"items": [
+		"minecraft:heart_of_the_sea",		
+		"mna:purified_vinteum_ingot",
+		"mna:purified_vinteum_ingot",		
+		"minecraft:logs",
+		"mna:aum",
+		"mna:cerublossom",		
+		"mna:greater_mote_water",
+		"mna:greater_mote_air"
+	],
+	"patterns": [
+		"mna:hourglass",
+		"mna:inverted_split_triangle",
+		"mna:circle",
+		"mna:circle"
+	]
+}

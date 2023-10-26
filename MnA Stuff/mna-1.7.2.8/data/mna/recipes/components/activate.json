@@ -1,0 +1,15 @@
+{
+	"type": "mna:component",
+	"tier": 2,
+	"output": "mna:activate",
+	"items":
+	[
+		"minecraft:stick",
+		"minecraft:buttons",
+		"minecraft:lever"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/inverted_triangle"		
+	]
+}

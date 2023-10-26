@@ -1,0 +1,37 @@
+{
+	"parent": "mna:root",
+	"display": {
+		"icon": {
+			"item": "mna:vinteum_ore"
+		},
+		"title": {
+			"translate": "mna:advancements.mine_vinteum.title"
+		},
+		"description": {
+			"translate": "mna:advancements.mine_vinteum.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"has_stone": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"mna:vinteum_ore"
+						]
+					}
+				]
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_stone"
+		]
+	]
+}

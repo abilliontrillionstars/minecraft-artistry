@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	" N ",
+  	"NGN",
+  	" N "
+  ],
+  "key": {
+  	"N": {
+  		"tag": "forge:nuggets/iron"
+  	},
+  	"G": {
+  		"tag": "forge:glass"
+  	}
+  },
+  "result": {
+    "item": "mna:ritual_focus_minor"    
+  }
+}

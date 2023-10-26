@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "can_supply=true": { "model": "mna:block/eldrin/supplier_lesser" },
+    "can_supply=false": { "model": "mna:block/eldrin/supplier_lesser_inactive" }
+  }
+}

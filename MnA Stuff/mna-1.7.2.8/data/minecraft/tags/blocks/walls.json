@@ -1,0 +1,13 @@
+{
+	"replace": false,
+	"values": [
+		"mna:decoration/arcane_stone_wall",
+		"mna:decoration/vinteum_arcane_stone_wall",
+		"mna:decoration/chimerite_arcane_stone_wall",
+		"mna:decoration/redstone_arcane_stone_wall",
+		"mna:decoration/arcane_sandstone_wall",
+		"mna:decoration/vinteum_arcane_sandstone_wall",
+		"mna:decoration/chimerite_arcane_sandstone_wall",
+		"mna:decoration/redstone_arcane_sandstone_wall"
+	]
+}

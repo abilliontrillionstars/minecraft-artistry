@@ -1,0 +1,20 @@
+{
+  "parent": "forge:item/default",
+  "loader": "forge:composite",
+  "textures": {
+  	"particle": "mna:block/material/supplier/supplier"
+  },
+  "parts": {
+    "lower": {
+      "loader": "forge:obj",
+      "detectCullableFaces": false,
+	  "diffuseLighting": false,
+	  "flip-v": true,
+	  "ambientToFullbright": true,
+      "model": "mna:models/block/obj/supplier/leypylon_basic.obj",
+      "textures": {
+        "crystalcolor": "mna:block/artifice/decoration/arcane_stone"
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+	"type": "mna:eldrin-altar",
+	"output": "mna:demon_armor_leggings",
+	"tier": 5,
+	"requiredFaction": "DEMONS",
+	"items": [
+		"minecraft:diamond_leggings",
+		"mna:brimstone_charm",
+		"mna:rune_earth",
+		"mna:greater_mote_earth",		
+		"mna:greater_mote_air",
+		"mna:rune_air",
+		"mna:living_flame",
+		"mna:living_flame"
+	],
+	"power_requirements": [
+		{
+			"affinity": "FIRE",
+			"amount": 750
+		},
+		{
+			"affinity": "EARTH",
+			"amount": 200
+		}
+	],
+	"colors": [
+		14226452,
+		3671092
+	]
+}

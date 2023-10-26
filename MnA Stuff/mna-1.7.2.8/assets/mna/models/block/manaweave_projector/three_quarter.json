@@ -1,0 +1,33 @@
+{
+  "parent": "forge:item/default",
+  "loader": "forge:composite",
+  "textures": {
+  	"particle": "minecraft:block/stone"
+  },
+  "parts": {
+    "base": {
+      "loader": "forge:obj",
+      "detectCullableFaces": false,
+	  "diffuseLighting": true,
+	  "flip-v": true,
+	  "ambientToFullbright": true,
+      "model": "mna:models/block/obj/manaweave_projector/manaweaving_projector.obj"
+    },
+    "pedestal": {
+      "loader": "forge:obj",
+      "detectCullableFaces": false,
+	  "diffuseLighting": true,
+	  "flip-v": true,
+	  "ambientToFullbright": true,
+      "model": "mna:models/block/obj/manaweave_projector/manaweaving_projector_pedestal.obj"
+    },
+    "liquid": {
+      "loader": "forge:obj",
+      "detectCullableFaces": false,
+	  "diffuseLighting": true,
+	  "flip-v": true,
+	  "ambientToFullbright": false,
+      "model": "mna:models/block/obj/manaweave_projector/manaweaving_projector_fluid3of4.obj"
+    }
+  }
+}

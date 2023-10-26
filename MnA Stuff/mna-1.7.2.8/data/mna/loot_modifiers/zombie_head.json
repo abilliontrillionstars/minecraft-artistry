@@ -1,0 +1,7 @@
+{
+	"type": "mna:beheading",
+	"conditions": [],
+	"chancePerLevel": 0.05,
+	"mobID": "minecraft:zombie",
+	"headID": "minecraft:zombie_head"
+}

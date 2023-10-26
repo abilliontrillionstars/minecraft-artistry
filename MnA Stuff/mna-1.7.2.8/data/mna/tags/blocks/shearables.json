@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+  	"minecraft:pumpkin",
+  	"minecraft:beehive",
+  	"minecraft:bee_nest"  	
+  ]
+}

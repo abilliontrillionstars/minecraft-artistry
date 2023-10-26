@@ -1,0 +1,28 @@
+{
+	"type": "minecraft:village",
+	"config": {
+		"start_pool": "mna:council_library/start_pool",
+		"size": 1
+	},
+	"biomes": "#minecraft:is_mountain",
+	"adapt_noise": true,
+	"spawn_overrides": {
+		"monster": {
+			"bounding_box": "full",
+			"spawns": [
+				{
+					"type": "mna:witch_hunter",
+					"weight": 1,
+					"minCount": 1,
+					"maxCount": 3
+				},
+				{
+					"type": "mna:spell_breaker",
+					"weight": 1,
+					"minCount": 1,
+					"maxCount": 3
+				}
+			]
+		}
+	}
+}

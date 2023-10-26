@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	"I I",
+  	"RFR",
+  	"ASA"
+  ],
+  "key": {
+  	"S": {
+  		"tag": "forge:sandstone"
+  	},
+  	"A": {
+  		"tag": "forge:stone"
+  	},
+  	"I": {
+  		"tag": "forge:ingots/iron"
+  	},
+  	"R": {
+  		"tag": "mna:stone_runes"
+  	},
+  	"F": {
+  		"item": "minecraft:furnace"
+  	}
+  },
+  "result": {
+    "item": "mna:runeforge"    
+  }
+}

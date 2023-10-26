@@ -1,0 +1,10 @@
+{
+	"type": "minecraft:village",
+	"config": {
+		"start_pool": "mna:lonely_tower/start_pool",
+		"size": 1
+	},
+	"biomes": "minecraft:mushroom_fields",
+	"adapt_noise": true,
+	"spawn_overrides": {}
+}

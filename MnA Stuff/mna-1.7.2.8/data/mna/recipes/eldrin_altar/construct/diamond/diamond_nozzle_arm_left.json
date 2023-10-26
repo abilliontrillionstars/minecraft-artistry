@@ -1,0 +1,41 @@
+{
+	"type": "mna:eldrin-altar",
+	"output": "mna:constructs/construct_fluid_nozzle_left_diamond",
+	"tier": 5,
+	"items": [
+		"mna:constructs/rune_rod",
+		"minecraft:piston",
+		"minecraft:bucket",
+		"minecraft:diamond",
+		"minecraft:diamond",
+		"minecraft:diamond",
+		"mna:vinteum_dust",
+		"mna:vinteum_dust"
+	],
+	"power_requirements": [
+		{
+			"affinity": "WATER",
+			"amount": 600
+		},
+		{
+			"affinity": "FIRE",
+			"amount": 300
+		},
+		{
+			"affinity": "EARTH",
+			"amount": 300
+		},
+		{
+			"affinity": "WIND",
+			"amount": 300
+		},
+		{
+			"affinity": "ENDER",
+			"amount": 300
+		},
+		{
+			"affinity": "ARCANE",
+			"amount": 300
+		}
+	]
+}

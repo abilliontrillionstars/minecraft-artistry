@@ -1,0 +1,17 @@
+{
+  "parent": "forge:item/default",
+  "loader": "forge:composite",
+  "textures": {
+  	"particle": "mna:block/artifice/wizard_lab/inscription_table"
+  },
+  "parts": {
+    "ash": {
+      "loader": "forge:obj",
+      "detectCullableFaces": false,
+	  "diffuseLighting": false,
+	  "flip-v": true,
+	  "ambientToFullbright": true,
+      "model": "mna:models/block/obj/wizard_lab/station_thesisdesk_ink.obj"
+    }
+  }
+}

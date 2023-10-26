@@ -1,0 +1,8 @@
+# Blender MTL File: 'mana_crystal.blend'
+# Material Count: 2
+
+newmtl EXTENSION
+map_Kd mna:block/material/mana_crystal/mana_crystal_extension
+
+newmtl MAIN
+map_Kd mna:block/material/mana_crystal/mana_crystal

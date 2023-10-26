@@ -1,0 +1,48 @@
+{
+  "parent": "forge:item/default",
+  "loader": "forge:composite",
+  "parts": {
+    "head": {
+      "loader": "forge:obj",
+      "detectCullableFaces": false,
+	  "diffuseLighting": true,
+	  "flip-v": true,
+	  "ambientToFullbright": false,
+      "model": "mna:models/construct/obj/iron/head_smart.obj"
+    },
+    "eyes": {
+      "loader": "forge:obj",
+      "detectCullableFaces": false,
+	  "diffuseLighting": true,
+	  "flip-v": true,
+	  "ambientToFullbright": false,
+      "model": "mna:models/construct/obj/common/construct_eyes_neutral.obj"
+    }
+  },
+  	"display": {
+		"gui": {
+			"translation": [-6, -36, 0],
+			"rotation": [-15, 150, 0],
+			"scale": [2, 2, 2]
+		},
+		"thirdperson_righthand": {
+			"translation": [8, -16, 8]
+		},
+		"thirdperson_lefthand": {
+			"translation": [-8, -16, 8]
+		},
+		"firstperson_righthand": {
+			"translation": [8, -16, 8]	
+		},
+		"firstperson_lefthand": {
+			"translation": [-8, -16, 8]	
+		},
+		"ground": {
+			"translation": [8, -16, 8]			
+		},
+		"fixed": {
+			"translation": [16, -31, 16],
+			"scale": [2, 2, 2]
+		}
+	}
+}

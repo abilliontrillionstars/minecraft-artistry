@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"mna:bed_charm",
+		"mna:fall_charm",
+		"mna:drown_charm",
+		"mna:burn_charm"
+	]
+}

@@ -1,0 +1,31 @@
+{
+	"type": "mna:eldrin-altar",
+	"output": "mna:bone_armor_leggings",
+	"tier": 5,
+	"requiredFaction": "UNDEAD",
+	"items": [
+		"minecraft:netherite_leggings",
+		"mna:witherbone",
+		"mna:witherbone",
+		"minecraft:bone",
+		"minecraft:bone",
+		"mna:bone_ash",
+		"mna:bone_ash",
+		"mna:greater_mote_air",
+		"mna:rune_air"
+	],
+	"power_requirements": [
+		{
+			"affinity": "WATER",
+			"amount": 750
+		},
+		{
+			"affinity": "WIND",
+			"amount": 200
+		}
+	],
+	"colors": [
+		8092539,
+		2565927
+	]
+}

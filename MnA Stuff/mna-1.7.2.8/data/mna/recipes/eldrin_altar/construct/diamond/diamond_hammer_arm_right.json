@@ -1,0 +1,40 @@
+{
+	"type": "mna:eldrin-altar",
+	"output": "mna:constructs/construct_hammer_arm_right_diamond",
+	"tier": 5,
+	"items": [
+		"mna:constructs/rune_rod",
+		"mna:constructs/rune_hammer",
+		"minecraft:diamond",
+		"minecraft:diamond",
+		"minecraft:diamond",
+		"mna:vinteum_dust",
+		"mna:vinteum_dust"
+	],
+	"power_requirements": [
+		{
+			"affinity": "WATER",
+			"amount": 300
+		},
+		{
+			"affinity": "FIRE",
+			"amount": 450
+		},
+		{
+			"affinity": "EARTH",
+			"amount": 450
+		},
+		{
+			"affinity": "WIND",
+			"amount": 300
+		},
+		{
+			"affinity": "ENDER",
+			"amount": 300
+		},
+		{
+			"affinity": "ARCANE",
+			"amount": 300
+		}
+	]
+}

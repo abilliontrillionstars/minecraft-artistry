@@ -1,0 +1,7 @@
+{
+  "type":"mna:beheading",
+  "conditions": [],
+  "chancePerLevel": 0.1,
+  "mobID": "minecraft:rabbit",
+  "headID": "minecraft:rabbit_foot"
+}

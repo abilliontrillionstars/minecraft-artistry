@@ -1,0 +1,19 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"tier": 4,
+	"output": "mna:rune_ender",
+	"enchant": "mna:transitorystep",
+	"magnitude": 1,
+	"items": [
+		"mna:rune_ender",
+		"mna:arcane_ash",
+		"minecraft:blaze_rod",
+		"mna:mote_ender",
+		"minecraft:chain",
+		"forge:glass"
+	],
+	"patterns": [
+		"mna:hourglass",
+		"mna:square"
+	]
+}

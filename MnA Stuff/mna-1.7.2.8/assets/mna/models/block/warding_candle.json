@@ -1,0 +1,24 @@
+{
+  "parent": "forge:item/default",
+  "loader": "forge:composite",
+  "textures": {
+  	"particle": "mna:block/artifice/warding_candle"
+  },
+  "parts": {
+    "model": {
+      "loader": "forge:obj",
+      "detectCullableFaces": true,
+	  "diffuseLighting": true,
+	  "flip-v": true,
+	  "ambientToFullbright": false,
+      "model": "mna:models/block/obj/warding_candle/wardingcandle.obj"      
+    }
+  },
+	"display": {		
+		"gui": {
+			"rotation": [29, 225, 0],
+			"scale": [0.8, 0.8, 0.8],
+			"transform": [2, 8, 0]
+		}
+	}
+}

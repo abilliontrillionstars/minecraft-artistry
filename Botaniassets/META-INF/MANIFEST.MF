@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: Botania
+Specification-Vendor: vazkii
+Specification-Version: 1
+Implementation-Title: Botania
+Implementation-Version: 1.19.2-438-FORGE
+Implementation-Vendor: vazkii
+MixinConfigs: botania_xplat.mixins.json,botania_forge.mixins.json
+

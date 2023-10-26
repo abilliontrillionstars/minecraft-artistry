@@ -1,0 +1,29 @@
+{
+	"type": "mna:eldrin-altar",
+	"output": "mna:council_armor_head",
+	"tier": 5,
+	"requiredFaction": "ANCIENT_WIZARDS",
+	"items": [
+		"mna:mage_hood",
+		"minecraft:chainmail_helmet",
+		"mna:greater_mote_arcane",
+		"mna:rune_defense",
+		"mna:rune_defense",
+		"mna:rune_defense",
+		"mna:rune_arcane"
+	],
+	"power_requirements": [
+		{
+			"affinity": "ARCANE",
+			"amount": 750
+		},
+		{
+			"affinity": "ENDER",
+			"amount": 200
+		}
+	],
+	"colors": [
+		6232189,
+		5080527
+	]
+}

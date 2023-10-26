@@ -1,0 +1,15 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "minecraft:name_tag",
+	"quantity": 1,
+	"tier": 1,
+	"items": [
+		"minecraft:rabbit_hide",
+		"mna:mundane_ring",
+		"mna:runesmith_chisel",
+		"minecraft:string"
+	],
+	"patterns": [
+		"mna:knot3"		
+	]
+}

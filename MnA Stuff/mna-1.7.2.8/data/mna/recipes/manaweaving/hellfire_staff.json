@@ -1,0 +1,22 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"output": "mna:hellfire_staff",
+	"tier": 5,
+	"requiredFaction": "DEMONS",
+	"items": [
+		"mna:staff_a",
+		"mna:greater_mote_fire",
+		"mna:greater_mote_fire",
+		"mna:rune_fire",
+		"mna:rune_fire",
+		"minecraft:nether_star",
+		"minecraft:dragon_breath",
+		"minecraft:soul_lantern",
+		"minecraft:soul_lantern"
+	],
+	"patterns": [
+		"mna:inverted_triangle",
+		"mna:inverted_split_triangle",
+		"mna:inverted_triangle"		
+	]
+}

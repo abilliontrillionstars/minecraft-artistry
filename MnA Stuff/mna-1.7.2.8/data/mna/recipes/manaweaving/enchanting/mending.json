@@ -1,0 +1,26 @@
+{
+	"type": "mna:manaweaving-recipe",
+	"tier": 5,
+	"output": "mna:rune_earth",
+	"enchant": "minecraft:mending",
+	"magnitude": 1,
+	"items": [
+		"mna:rune_earth",
+		"minecraft:anvil",
+		"mna:runesmith_hammer",
+		"mna:mote_arcane",
+		"minecraft:anvil",
+		"mna:runesmith_hammer",
+		"minecraft:dragon_breath",
+		"minecraft:nether_star",
+		"minecraft:grindstone"
+	],
+	"patterns": [
+		"mna:manaweave_patterns/split_triangle",
+		"mna:manaweave_patterns/knot2",
+		"mna:manaweave_patterns/knot4",
+		"mna:manaweave_patterns/knot3",
+		"mna:manaweave_patterns/knot",
+		"mna:manaweave_patterns/circle"
+	]
+}

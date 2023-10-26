@@ -1,0 +1,28 @@
+{
+	"type": "mna:eldrin-altar",
+	"output": "mna:constructs/construct_rocket_legs_obsidian",
+	"tier": 4,
+	"items": [
+		"mna:constructs/rune_hips",
+		"mna:constructs/rune_rod",
+		"mna:constructs/rune_rod",
+		"minecraft:obsidian",
+		"minecraft:obsidian",
+		"minecraft:obsidian",
+		"mna:mote_fire"
+	],
+	"power_requirements": [
+		{
+			"affinity": "WATER",
+			"amount": 300
+		},
+		{
+			"affinity": "FIRE",
+			"amount": 600
+		},
+		{
+			"affinity": "WIND",
+			"amount": 300
+		}
+	]
+}

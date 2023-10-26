@@ -1,0 +1,19 @@
+{
+	"type": "mna:component",
+	"tier": 1,
+	"output": "mna:fire_damage",
+	"items":
+	[
+		"mna:stone_rune_red",
+		"mna:stone_rune_black",
+		"mna:stone_rune_orange",
+		"mna:stone_rune_yellow",
+		"mna:superheated_vinteum_ingot",
+		"mna:superheated_vinteum_ingot",
+		"minecraft:flint_and_steel"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/triangle"
+	]
+}

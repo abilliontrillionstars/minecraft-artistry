@@ -1,0 +1,19 @@
+{
+	"type": "mna:component",
+	"output": "mna:haste",
+	"tier": 4,
+	"items":
+	[
+		"minecraft:sugar",
+		"minecraft:sugar",
+		"mna:vinteum_dust",
+		"minecraft:redstone",
+		"minecraft:redstone",
+		"minecraft:rabbit_foot"
+	],
+	"patterns":
+	[
+		"mna:manaweave_patterns/hourglass",
+		"mna:manaweave_patterns/triangle"
+	]
+}

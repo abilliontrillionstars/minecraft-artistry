@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:seeds",
+    "#forge:crops",
+    {
+   		"id": "#mysticalagriculture:seeds",
+   		"required": false 
+    }
+  ]
+}
