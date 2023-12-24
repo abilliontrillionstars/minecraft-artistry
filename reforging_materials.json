@@ -1,0 +1,1086 @@
+[
+  {
+    "comment": "This file contains custom reforging materials. By default, you can reforge
+                a tool with its repair item (like iron ingots for an iron sword), but some
+                items don't have a repair item, like bows. This adds items to reforge those.
+                It can also add an item for 'any', which will work for any item that can't be
+                reforged otherwise. For more info about how to add materials, visit:
+                https://bitbucket.org/Tmtravlr/qualitytools/wiki/Home",
+    "tool": "any",
+    "material": {
+        "item": "minecraft:nether_star"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:bow"
+    },
+    "material": {
+        "ore_dict": "plankWood"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:fishing_rod"
+    },
+    "material": {
+        "ore_dict": "plankWood"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:wooden_hoe"
+    },
+    "material": {
+        "ore_dict": "plankWood"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:stone_hoe"
+    },
+    "material": {
+        "ore_dict": "cobblestone"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:iron_hoe"
+    },
+    "material": {
+        "ore_dict": "ingotIron"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:shears"
+    },
+    "material": {
+        "ore_dict": "ingotIron"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:iron_horse_armor"
+    },
+    "material": {
+        "ore_dict": "ingotIron"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:golden_hoe"
+    },
+    "material": {
+        "ore_dict": "ingotGold"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:golden_horse_armor"
+    },
+    "material": {
+        "ore_dict": "ingotGold"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:diamond_hoe"
+    },
+    "material": {
+        "ore_dict": "gemDiamond"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:diamond_horse_armor"
+    },
+    "material": {
+        "ore_dict": "gemDiamond"
+    }
+  },
+  {
+    "tool": {
+        "item": "qualitytools:emerald_ring"
+    },
+    "material": {
+        "ore_dict": "gemEmerald"
+    }
+  },
+  {
+    "tool": {
+        "item": "qualitytools:emerald_amulet"
+    },
+    "material": {
+        "ore_dict": "gemEmerald"
+    }
+  },
+  {
+    "tool": {
+        "item": "minecraft:totem_of_undying"
+    },
+    "material": {
+        "ore_dict": "gemEmerald"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_sword"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_waraxe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_mace"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_dagger"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_spear"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_greatsword"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_battleaxe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_warhammer"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_katana"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_halbeard"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_lance"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_pick"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_axe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_spade"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_hoe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_heavy_pick"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_heavy_shovel"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_handpick"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_trow"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_scythe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_mattock"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_lumber"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_hammer"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_heavy_hammer"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_chain_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_chain_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_chain_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_chain_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_scale_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_scale_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_scale_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_scale_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_splint_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_splint_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_splint_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_splint_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_plate_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_plate_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_plate_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:dragonforged_plate_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_sword"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_waraxe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_mace"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_dagger"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_spear"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_greatsword"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_battleaxe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_warhammer"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_katana"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_halbeard"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_lance"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_pick"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_axe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_spade"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_hoe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_heavy_pick"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_heavy_shovel"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_handpick"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_trow"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_scythe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_mattock"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_lumber"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_hammer"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_heavy_hammer"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_chain_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_chain_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_chain_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_chain_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_scale_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_scale_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_scale_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_scale_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_splint_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_splint_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_splint_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_splint_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_plate_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_plate_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_plate_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:ornate_plate_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_sword"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_waraxe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_mace"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_dagger"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_spear"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_greatsword"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_battleaxe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_warhammer"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_katana"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_halbeard"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_lance"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_pick"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_axe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_spade"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_hoe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_heavy_pick"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_heavy_shovel"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_handpick"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_trow"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_scythe"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_mattock"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_lumber"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_hammer"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_heavy_hammer"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_chain_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_chain_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_chain_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_chain_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_scale_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_scale_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_scale_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_scale_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_splint_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_splint_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_splint_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_splint_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_plate_helmet"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_plate_chestplate"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_plate_leggings"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  },
+  {
+    "tool": {
+      "item": "minefantasyreforged:standard_plate_boots"
+    },
+    "material": {
+      "item": "minefantasyreforged:repair_kit_ornate"
+    }
+  }
+]
