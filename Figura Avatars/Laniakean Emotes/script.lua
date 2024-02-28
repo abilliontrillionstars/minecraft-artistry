@@ -111,6 +111,10 @@ end
 local hexShotKey = keybinds:newKeybind("Quick Hexshot", "key.keyboard.x")
 hexShotKey.press = pings.hexShot
 
+local hexMineKey = keybinds:newKeybind("Quick Hexmine", "key.keyboard.r")
+hexMineKey.press = pings.mineHex
+
+
 
 function events.tick()
     if action_wheel:getCurrentPage() ~= mainPage and not action_wheel:isEnabled()
