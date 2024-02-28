@@ -1,5 +1,6 @@
 -- Auto generated script file --
 vanilla_model.PLAYER:setVisible(false)
+vanilla_model.ARMOR:setVisible(false)
 --vanilla_model.LEFT_ELYTRA:setVisible(false)
 --vanilla_model.RIGHT_ELYTRA:setVisible(false)
 
@@ -12,7 +13,7 @@ local emotePage = action_wheel:newPage()
 local bookPage = action_wheel:newPage()
 
 mainPage:newAction()
-    :title("Hex Commands"):item("hexcasting:spruce_staff")
+    :title("Hex Commands"):item("hexcasting:staff/spruce")
     :hoverColor(vectors.hexToRGB("#462451"))
     :onLeftClick(function() action_wheel:setPage(hexPage) end)
 mainPage:newAction()
@@ -25,7 +26,7 @@ mainPage:newAction()
     :onLeftClick(function() action_wheel:setPage(bookPage) end)
 
 hexPage:newAction()
-    :title("Return to Main"):item("hexcasting:spruce_staff")
+    :title("Return to Main"):item("hexcasting:staff/spruce")
     :onLeftClick(function() action_wheel:setPage(mainPage) end)
 emotePage:newAction()
     :title("Return to Main"):item("minecraft:trident")
@@ -33,15 +34,29 @@ emotePage:newAction()
 
 
 -- HEX COMMANDS --
-function pings.clearHex() animations.model.clearHex:play() end
+function pings.clearHex() animations.model.spellClear:play() end
 hexPage:newAction()
     :title("Clear Command"):item("hexcasting:slate")
     :hoverColor(0.3, 0.3, 0.3):onLeftClick(pings.clearHex)
 
-function pings.hexShot() animations.model.shoot:play() end
+function pings.hexShot() animations.model.spellHexshot:play() end
 hexPage:newAction()
     :title("Hex Shot"):item("minecraft:arrow")
     :hoverColor(vectors.hexToRGB("#24514D")):onLeftClick(pings.hexShot)
+
+function pings.mineHex()
+    host:sendChatMessage("!hexmine")
+    pings.clearHex()
+ end
+hexPage:newAction()
+    :title("Mine"):item("minecraft:iron_pickaxe")
+    :hoverColor(vectors.hexToRGB("#24514D")):onLeftClick(pings.mineHex)
+
+function pings.castShockwave() animations.model.spellShockwave:play() end
+hexPage:newAction()
+    :title("Shockwave"):item("minecraft:tnt")
+    :hoverColor(vectors.hexToRGB("#462451")):onLeftClick(pings.castShockwave)
+
 
 
 -- EMOTES / VISUALS --
@@ -49,6 +64,11 @@ function pings.laniTestAnim() animations.model.twirl_trident:play() end
 emotePage:newAction()
     :title("Emote: Twirl Trident"):item("minecraft:trident")
     :hoverColor(vectors.hexToRGB("#4DB17D")):onLeftClick(pings.laniTestAnim)
+function pings.shockwaveTestAnim() animations.model.shockwave:play() end
+emotePage:newAction()
+    :title("Emote: Cast Shockwave"):item("minecraft:tnt")
+    :hoverColor(vectors.hexToRGB("#462451")):onLeftClick(pings.shockwaveTestAnim)
+
 
 --local tex = textures:getTextures()
 --for i,v in ipairs(tex) do print(v) end
