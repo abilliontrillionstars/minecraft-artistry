@@ -25,13 +25,14 @@ mainPage:newAction()
     :hoverColor(vectors.hexToRGB("#512424"))
     :onLeftClick(function() action_wheel:setPage(bookPage) end)
 
+--[[
 hexPage:newAction()
     :title("Return to Main"):item("hexcasting:staff/spruce")
     :onLeftClick(function() action_wheel:setPage(mainPage) end)
 emotePage:newAction()
     :title("Return to Main"):item("minecraft:trident")
     :onLeftClick(function() action_wheel:setPage(mainPage) end)
-
+]]--
 
 -- HEX COMMANDS --
 function pings.clearHex() animations.model.spellClear:play() end
@@ -98,7 +99,7 @@ for i,v in ipairs(tableOfContents) do
                     host:sendChatMessage("!spellbooknav" .. ((i-1) * 8) + j - 1)
                     sounds:playSound("item.book.page_turn", player:getPos(), 0.7, 1.5, false)
                     pings.clearHex()
-                    --host:setActionbar(player:getHeldItem(true):getName())
+                    host:setActionbar(player:getHeldItem(true):getName())
                 else
                     host:setActionbar("No Spellbook!")
                 end
@@ -108,10 +109,10 @@ for i,v in ipairs(tableOfContents) do
 end
 
 -- KEYBINDS --
-local hexShotKey = keybinds:newKeybind("Quick Hexshot", "key.keyboard.x")
+hexShotKey = keybinds:newKeybind("Quick Hexshot", "key.mouse.5")
 hexShotKey.press = pings.hexShot
 
-local hexMineKey = keybinds:newKeybind("Quick Hexmine", "key.keyboard.r")
+hexMineKey = keybinds:newKeybind("Quick Hexmine", "key.mouse.4")
 hexMineKey.press = pings.mineHex
 
 
