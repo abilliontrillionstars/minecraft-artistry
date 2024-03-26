@@ -40,7 +40,7 @@ hexPage:newAction()
     :title("Clear Command"):item("hexcasting:slate")
     :hoverColor(0.3, 0.3, 0.3):onLeftClick(pings.clearHex)
 
-function pings.hexShot() animations.model.spellHexshot:play() end
+function pings.hexShot() if player:isLoaded() then animations.model.spellHexshot:play() end end
 hexPage:newAction()
     :title("Hex Shot"):item("minecraft:arrow")
     :hoverColor(vectors.hexToRGB("#24514D")):onLeftClick(pings.hexShot)
@@ -70,42 +70,49 @@ emotePage:newAction()
     :title("Emote: Cast Shockwave"):item("minecraft:tnt")
     :hoverColor(vectors.hexToRGB("#462451")):onLeftClick(pings.shockwaveTestAnim)
 
+local famParent = models.model.root.Head.FamiliarWisp
+function pings.toggleFamiliar() famParent:setVisible(not famParent:getVisible()) end
+emotePage:newAction()
+    :title("Toggle Familiar Wisp Bits"):item("minecraft:glowstone_dust")
+    :hoverColor(vectors.hexToRGB("#462451")):onLeftClick(pings.toggleFamiliar)
+
+
 
 --local tex = textures:getTextures()
 --for i,v in ipairs(tex) do print(v) end
 
 -- SPELLBOOK PAGING --
-local chapterPage1 = action_wheel:newPage()
-local chapterPage2 = action_wheel:newPage()
-local chapterPage3 = action_wheel:newPage()
-local chapterPage4 = action_wheel:newPage()
-local chapterPage5 = action_wheel:newPage()
-local chapterPage6 = action_wheel:newPage()
-local chapterPage7 = action_wheel:newPage()
-local chapterPage8 = action_wheel:newPage()
-local tableOfContents = {chapterPage1, chapterPage2, chapterPage3, chapterPage4, chapterPage5, chapterPage6, chapterPage7, chapterPage8}
+local tableOfContents = {action_wheel:newPage(), action_wheel:newPage(),
+                        action_wheel:newPage(), action_wheel:newPage(),
+                        action_wheel:newPage(), action_wheel:newPage(),
+                        action_wheel:newPage(), action_wheel:newPage()}
 
 for i,v in ipairs(tableOfContents) do
     bookPage:newAction()
-        :item("hexcasting:focus"):title("Chapter " .. i)
+        :setTexture(textures["icons.chapter" .. i]):title("Chapter " .. i)
         :onLeftClick(function() action_wheel:setPage(v) end)
         :hoverColor(vectors.hexToRGB("#54398a"))
-    for j = 1, 8 do
+    for j = 1, 8, 1 do
         v:newAction()
-            :setTexture(textures["icons.chapter" .. j]):title("Iota " .. j)
+            :item("hexcasting:focus")
+            :title("Iota " .. j)
             :hoverColor(vectors.hexToRGB("#B38EF3"))
             :onLeftClick(function()
                 if player:getHeldItem(true).id == "hexcasting:spellbook" then
-                    host:sendChatMessage("!spellbooknav" .. ((i-1) * 8) + j - 1)
+                    host:sendChatMessage("!spellbooknav" .. ((i-1) * 8) + j-1)
                     sounds:playSound("item.book.page_turn", player:getPos(), 0.7, 1.5, false)
-                    pings.clearHex()
-                    host:setActionbar(player:getHeldItem(true):getName())
-                else
-                    host:setActionbar("No Spellbook!")
-                end
+                    --host:setActionbar(player:getHeldItem(true):getName())
+                else host:setActionbar("No Spellbook!") end
             end)
-        local j = j + 1
     end
+end
+
+--
+function dymo_write(pageNum, item)
+    local chapter = tableOfContents[math.floor(pageNum/8)+1]
+    local action = chapter:getAction(pageNum%8)
+    action:item(item)
+    sounds:playSound("entity.villager.work_cartographer", player:getPos(), 1, 1, false)
 end
 
 -- KEYBINDS --
@@ -117,15 +124,10 @@ hexMineKey.press = pings.mineHex
 
 
 
+-- OTHER FUNCTIONS --
 function events.tick()
     if action_wheel:getCurrentPage() ~= mainPage and not action_wheel:isEnabled()
         then action_wheel:setPage(mainPage) end
-end
 
---[[
-keybinds:fromVanilla("figura.config.action_wheel_button")
-    :setOnRelease(function()
-         if action_wheel:getCurrentPage() == bookPage
-            then action_wheel:setPage(mainPage) end
-     end)
-]]--
+    famParent.Halo:setRot(0,0,famParent.Halo:getRot()[3]-1)
+end
