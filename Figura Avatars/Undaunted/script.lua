@@ -1,4 +1,3 @@
--- Auto generated script file --
 vanilla_model.PLAYER:setVisible(false)
 vanilla_model.ARMOR:setVisible(false)
 vanilla_model.LEFT_ELYTRA:setVisible(false)
@@ -7,93 +6,114 @@ vanilla_model.RIGHT_ELYTRA:setVisible(false)
 --predicate state for whether the 'butterfly form' is active
 EMPOWERED = false
 --string psuedo-enum for which 'mode' moon's magic is in
---current modes are BOLTS, MINING, and PROTECT
+--current possible modes are BOLTS, MINING, and PROTECT
 SPELL_MODE = "BOLTS"
 
 ------------------------
 --- EMOTES / VISUALS ---
 ------------------------
-function pings.wingsOut1() animations.moon.wingsOut1:play() end
-function pings.wingsIn1() animations.moon.wingsIn1:play() end
-function pings.charge1() animations.moon.charge1start:play() end
-function pings.charge2() animations.moon.charge2start:play() end
+function pings.playAnim(anim) animations.moon[anim]:play() end
+function pings.stopAnim(anim) animations.moon[anim]:stop() end
 
 ----------------
 --- KEYBINDS ---
 ----------------
-keybinds:newKeybind("Open Wings", "key.mouse.5").press = pings.wingsOut1
-keybinds:newKeybind("Close Wings", "key.mouse.4").press = pings.wingsIn1
+keybinds:newKeybind("Open Wings", "key.mouse.5").press = function() if next(animations:getPlaying()) == nil then pings.playAnim("wingsOut1") end end
+keybinds:newKeybind("Close Wings", "key.mouse.4").press = function() if next(animations:getPlaying()) == nil then pings.playAnim("wingsIn1") end end
+local boostKey = keybinds:newKeybind("Elytra Boost", "key.keyboard.left.control")
 local chargeKey = keybinds:newKeybind("Charge Key", "key.mouse.3")
 
 -----------------------
 --- OTHER FUNCTIONS ---
 -----------------------
+local isBoosting = false
 function handleWings()
     if host:isFlying() or player:isGliding() then
         --wing beats for flying
         models.moon.Body.WingL:setRot(0,-10+ math.sin(world.getTime()) * 15,0)
         models.moon.Body.WingR:setRot(0,10+ math.sin(world.getTime()) * -15,0)
         --oh also if the wings aren't open, open them
-        if not EMPOWERED then pings.wingsOut1() end
+        if not EMPOWERED then pings.playAnim("wingsOut1") end
     else
         --wing breathing
         models.moon.Body.WingL:setRot(0,-10+ math.sin(world.getTime() / 25) * 4,0)
         models.moon.Body.WingR:setRot(0,10+ math.sin(world.getTime() / 25) * -4,0)
+    end
+    --kind of scope creepy but wtv
+    --process hex-powered elytra thrust
+    
+    if boostKey:isPressed() then
+        if not isBoosting and player:isGliding() then 
+            host:sendChatMessage("!boostcont0") 
+            isBoosting = true 
+        end
+    else
+        if isBoosting then 
+            host:sendChatMessage("!") 
+            isBoosting = false
+        end
     end
 end
 
 cTicks = 0
 function handleCharging()
     if chargeKey:isPressed() then
+        --increment the time charged
         cTicks = cTicks + 1
-        
+
+        --choose the charging animation
+        if SPELL_MODE == "BOLTS" or SPELL_MODE == "MINING" then 
+            if next(animations:getPlaying()) == nil then pings.playAnim("charge1start") end
+        elseif SPELL_MODE == "PROTECT" then
+            if next(animations:getPlaying()) == nil then pings.playAnim("shieldstart") end
+        end
+        --play sounds indicating charging thresholds
         if not EMPOWERED then 
             if SPELL_MODE == "BOLTS" and cTicks%10 == 0 and player:isLoaded() then
-                if cTicks >= 90 then 
-                    sounds:playSound("minecraft:entity.player.levelup", player:getPos(), 0.01, 1.8, false)
-                else    
-                    sounds:playSound("minecraft:entity.experience_orb.pickup", player:getPos(), 0.01, 0.8, false) 
+                if cTicks < 90 then 
+                    sounds:playSound("block.amethyst_block.place", player:getPos(), 0.4, 1)
+                elseif cTicks == 90 then
+                    sounds:playSound("block.amethyst_cluster.break", player:getPos(), 1, 1.8)     
                 end
             elseif SPELL_MODE == "MINING" and cTicks%20 == 0 and player:isLoaded() then
-                if cTicks >= 180 then 
-                    sounds:playSound("minecraft:entity.player.levelup", player:getPos(), 0.01, 1.5, false)
-                else    
-                    sounds:playSound("minecraft:entity.experience_orb.pickup", player:getPos(), 0.01, 0.8, false) 
+                if cTicks < 180 then 
+                    sounds:playSound("block.amethyst_block.place", player:getPos(), 0.4, 1) 
+                elseif cTicks == 180 then                 
+                    sounds:playSound("block.amethyst_cluster.break", player:getPos(), 1, 1.3)
                 end
             end
-            if next(animations:getPlaying()) == nil then pings.charge1() end
         elseif EMPOWERED then
-            if SPELL_MODE == "BOLTS" and cTicks%20 == 0 and player:isLoaded() then
-                if cTicks >= 180 then 
-                    sounds:playSound("minecraft:entity.player.levelup", player:getPos(), 0.01, 1.9, false)
-                else    
-                    sounds:playSound("minecraft:entity.experience_orb.pickup", player:getPos(), 0.01, 0.7, false) 
+            if SPELL_MODE == "BOLTS" and cTicks%15 == 0 and player:isLoaded() then
+                if cTicks < 135 then 
+                    sounds:playSound("block.amethyst_block.place", player:getPos(), 0.4, 0.9) 
+                elseif cTicks == 135 then
+                    sounds:playSound("block.amethyst_cluster.break", player:getPos(), 1, 1.2)    
                 end
             elseif SPELL_MODE == "MINING" and cTicks%20 == 0 and player:isLoaded() then
-                if cTicks >= 180 then 
-                    sounds:playSound("minecraft:entity.player.levelup", player:getPos(), 0.01, 1.6, false)
-                else    
-                    sounds:playSound("minecraft:entity.experience_orb.pickup", player:getPos(), 0.01, 0.6, false) 
+                if cTicks < 180 then 
+                    sounds:playSound("block.amethyst_block.place", player:getPos(), 0.4, 0.9) 
+                elseif cTicks == 180 then
+                    sounds:playSound("block.amethyst_cluster.break", player:getPos(), 1, 1)
                 end
             end
-            if next(animations:getPlaying()) == nil then pings.charge2() end
         end
     else
-        --debug: show how long we charged
-        if cTicks~=0 then host:setActionbar("§bTicks Charged: §3"..cTicks) end
+        --show how long we charged for
+        --if cTicks~=0 then host:setActionbar("§bTicks Charged: §3"..cTicks) end
 
+        --stop or progress any charging animations
         if animations.moon.charge1loop:isPlaying() then
-            animations.moon.charge1loop:stop()
-            animations.moon.charge1shoot:play()
+            pings.stopAnim("charge1loop")
+            pings.playAnim("charge1shoot")
         elseif animations.moon.charge1start:isPlaying() then
-            animations.moon.charge1start:stop()
-            animations.moon.charge1shoot:play()
-        elseif animations.moon.charge2loop:isPlaying() then
-            animations.moon.charge2loop:stop()
-            animations.moon.charge2shoot:play()
-        elseif animations.moon.charge2start:isPlaying() then
-            animations.moon.charge2start:stop()
-            animations.moon.charge2shoot:play()
+            pings.stopAnim("charge1start")
+            pings.playAnim("charge1shoot")
+        elseif animations.moon.shieldstart:isPlaying() then
+            pings.stopAnim("shieldstart")
+            pings.playAnim("shieldshoot")
+        elseif animations.moon.shieldloop:isPlaying() then
+            pings.stopAnim("shieldloop")
+            pings.playAnim("shieldshoot")
         end
     end
 end
@@ -121,6 +141,11 @@ mainPage:newAction()
     :item("minecraft:crossbow")
     :title("BOLTS")
     :onLeftClick(function() changeSpellType("BOLTS") end)
+mainPage:newAction()
+    :hoverColor(vectors.hexToRGB("406797"))
+    :item("minecraft:shield")
+    :title("PROTECT")
+    :onLeftClick(function() changeSpellType("PROTECT") end)
 
 ---------------------
 --- API FUNCTIONS ---
@@ -130,27 +155,23 @@ function events.tick()
     --force-render the offhand if it's empty
     renderer:setRenderLeftArm(player:getHeldItem(true).id == "minecraft:air")
     handleCharging()
+
+    if LastMessage == "!fly0" then
+        if not keybinds:fromVanilla("key.forward"):isPressed() then host:sendChatMessage("!") end
+    else
+        if keybinds:fromVanilla("key.forward"):isPressed() then host:sendChatMessage("!fly0") end
+    end
 end
 
-function events.ON_PLAY_SOUND(id, pos, vol, pitch, loop, cat, path)
+function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
     -- if there's no path, it's a Figura sound, so we ignore those
 
     --replace explosions with polite firework booms
-    if path and id:find("explode") and (pos - player:getPos()):lengthSquared() < 32 then
+    if path and id:find("explode") and (pos - player:getPos()):lengthSquared() < 32^2 then
         sounds["entity.firework_rocket.large_blast"]:pos(pos):play()
         return true
     end
 end
-
-local lastMessage = ""
-function events.CHAT_SEND_MESSAGE(message)
-    --prevent duplicate hexcasting signals
-    if (string.sub(message, 1, 1) == "!") and (lastMessage == message) then return end
-
-    lastMessage = message
-    return message
-end
-
 
 --unused, I'm putting off getting extruded textures to scale well in bb
 --[[
