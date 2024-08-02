@@ -41,7 +41,7 @@ function changeSpell(spell)
     elseif type(spell) == "table" then
       print(spell)
       pings.colorStaff(vectors.hexToRGB(spell.hue1), vectors.hexToRGB(spell.hue2))
-      SpellString = "!" .. spell.name .. spell.state
+      SpellString = "!" .. spell.id .. spell.state
       host:sendChatMessage(SpellString)
     end
 end

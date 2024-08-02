@@ -9,10 +9,10 @@
 
 2. spells with modifiers need to be stored as tables
     - table entries are bools for mods enabled
+        -name, state as num, and table of enable-mods
     - a changeSpell(spell) function
-        - calls colorStaff() 
+        - calls colorStaff()
         - sends message based on mod table
-    - spells library becomes a map<str, map<str, bool>>
 
 3. gramary-roots.lua
     holds the tables for the roots spells
