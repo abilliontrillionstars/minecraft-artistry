@@ -14,14 +14,21 @@
         - calls colorStaff()
         - sends message based on mod table
 
-3. gramary-roots.lua
+3. spell string parsing format
+    "spellid-0-1-0"
+    - staff spell splits by '-'
+    - reads the first segment to discern id
+    - additional numbers come from spell tables
+        - past the first common 3 or 4 attributes  
+
+4. gramary-roots.lua
     holds the tables for the roots spells
     - have gramary-hex and gramary-cantrips for similar
     (?) holds the actions for modifier manip
     - does NOT hold the actions for equipping spells
     changeSpell() is passed the table
 
-4. Action Wheel Functions
+5. Action Wheel Functions
     left-click equips, saves to history 
     right-click opens modifiers page
     functions on mod pages modify spell tables

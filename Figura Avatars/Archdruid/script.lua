@@ -3,7 +3,6 @@ require("physBoneAPI")
 local ENABLECANTRIPS = true
 local ENABLEHEXES = true
 local ENABLEROOTS = true
-
 if client.getVersion() ~= "1.19.2" then
   print("Minecraft Version incompatible with Hexcasting, disabling magicks")
   ENABLECANTRIPS = false
@@ -15,35 +14,55 @@ vanilla_model.PLAYER:setVisible(false)
 vanilla_model.ARMOR:setVisible(false)
 --vanilla_model.ALL:setVisible(false)
 models.aduene.ItemStaff3D:setVisible(true)
+models.aduene.ItemSpellbook:setVisible(true)
 ------------------------
 --- EMOTES / VISUALS ---
 ------------------------
 function pings.playAnim(anim) animations.aduene[anim]:play() end
 function pings.stopAnim(anim) animations.aduene[anim]:stop() end
 function pings.sfx(sound, pitch) if player:isLoaded() then sounds:playSound(sound, player:getPos(), 1, pitch) end end
-
-----------------
---- KEYBINDS ---
-----------------
-
------------------------
---- OTHER FUNCTIONS ---
------------------------
 function pings.colorStaff(first, second)
   models.aduene.ItemStaff3D.leaf1:setColor(first)
   models.aduene.ItemStaff3D.leaf2:setColor(second)
 end
 
+----------------
+--- KEYBINDS ---
+----------------
+if ENABLECANTRIPS then
+  local sneakKey = keybinds:fromVanilla("key.sneak")
+  local wristPocketKey = keybinds:newKeybind("Quick Wristpocket Spell", "key.keyboard.c", false)
+  wristPocketKey.press = function() 
+    if sneakKey:isPressed() then
+      changeSpell("wrist0")
+      pings.playAnim("castFlickWrist")
+      if player:isLoaded() then
+        if player:getHeldItem(true).id:find("spellbook") then
+          pings.playAnim("closeSpellbook") end 
+      end
+    end
+  end
+end
+
+-----------------------
+--- OTHER FUNCTIONS ---
+-----------------------
+SpellHistory = {"","","","",""}
 SpellString = ""
 function changeSpell(spell) 
+    --if passed a string, just use that
     if type(spell) == "string" then
       SpellString = spell
     elseif type(spell) == "table" then
-      print(spell)
       pings.colorStaff(vectors.hexToRGB(spell.hue1), vectors.hexToRGB(spell.hue2))
-      SpellString = "!" .. spell.id .. spell.state
-      host:sendChatMessage(SpellString)
+      SpellString = "!" .. spell.id --"!skysoarer"
+      for i,v in pairs(spell.mods) do 
+        SpellString = SpellString..'-'..v 
+      end --"!skysoarer-2-0"
     end
+    host:sendChatMessage(SpellString)
+    --save to the history
+
 end
 ---------------------
 --- ACTION WHEEL  ---
@@ -99,19 +118,20 @@ end
 ---------------------
 --- API FUNCTIONS ---
 ---------------------
-local watchForSpam = true
+local watchForSpam = false
 function events.tick()
   if action_wheel:getCurrentPage() ~= mainPage and not action_wheel:isEnabled()
       then action_wheel:setPage(mainPage) end
-      
+ 
   renderer:setRenderLeftArm(player:getHeldItem(true).id == "minecraft:air")
+  renderer:setRenderRightArm(player:getHeldItem().id == "minecraft:air" or player:getHeldItem().id == "hexgloop:casting_ring")
+  
   watchForSpam = false
 end
 function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
     -- if there's no path, it's a Figura sound, so we ignore those
-    
-    --sounds played in the same tick will get muted
-    if watchForSpam then return true end
+    --print(id)
+
     --replace casting noises with the staff percussion hit
     if path and player:isLoaded() then
       if (pos - player:getPos()):lengthSquared()<3 and (id:find("hermes") or id:find("thoth") or id == "hexcasting:casting.cast") then
@@ -120,10 +140,12 @@ function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
       end
     end
 
-    --replace explosions with polite firework booms
+    --replace explosions with polite firework booms, or cancel duplicates of them
     if player:isLoaded() then
       if path and id:find("explode") and (pos - player:getPos()):lengthSquared() < 32^2 then
-        sounds["entity.firework_rocket.large_blast"]:pos(pos):play()
+        if not watchForSpam then
+          sounds["entity.firework_rocket.large_blast"]:pos(pos):play()
+        end
         watchForSpam = true
         return true -- we return true here to cancel the sound
     end
@@ -131,11 +153,43 @@ function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
 end
 function events.item_render(item, mode)
   if item:getName():find("Druidic Staff") then return models.aduene.ItemStaff3D end
+  if item:getID() == "hexgloop:casting_ring" then return models.aduene.ItemRing end
+
+  if item:getID() == "hexcasting:spellbook" then 
+    if mode:find("FIRST") then 
+      if mode:find("LEFT") then return models.aduene.ItemSpellbook:setRot(30,15,0)
+      else return models.aduene.ItemSpellbook:setRot(30,-15,0)
+    end 
+    elseif mode:find("THIRD") then return models.aduene.ItemSpellbook:setRot(90,0,0) end
+  end
 end
 function events.entity_init()
   --physBone.physBoneMantle:setSpringForce(0.5)
 end
 function events.chat_receive_message(message, asJson) 
   --if message:find("[lua]") then return end
-  --print(message)
+  --print(message) NO
+end
+local rmbDown = false
+local bookOpen = true
+function events.mouse_press(button, action)
+  if player:isLoaded() then  
+    if player:getHeldItem(true).id:find("spellbook") and player:getHeldItem(false).id == "minecraft:air" then
+      if button==1 then
+        if action==1 then rmbDown=true
+        elseif action==0 then rmbDown=false
+        end
+      elseif button==0 and action==1 and rmbDown then
+        if bookOpen then 
+          pings.playAnim("closeSpellbook")
+          pings.stopAnim("openSpellbook")
+          bookOpen = false
+        else 
+          pings.playAnim("openSpellbook") 
+          pings.stopAnim("closeSpellbook")
+          bookOpen = true
+        end
+      end
+    end
+  end
 end
