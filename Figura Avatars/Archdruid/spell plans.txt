@@ -33,95 +33,107 @@
     right-click opens modifiers page
     functions on mod pages modify spell tables
 
+6. Staff Spell Animations
+    animations can still play with staff!!
+    -can be a static pose, or a loop
+    -spell tables will have an anim name assigned
+    -spellAnim:setPlaying(rmbDown)
+
+
+
 ############
 ## SPELLS ##
 ############
-Acid Cloud - channeled
+|+|Acid Cloud - channeled
     'donut' shape, means 2 concentric zone dist + exclusion
     poison nadir
     mod- add weaken, slowing
     mod- heals instead
     mod- peaceful
     mod- configgable radius
-Aqua Bubble - applies effect
+| |Aqua Bubble - applies effect
     absorbs damage (not possible?)
     saves from lava/fire
     -can be done with conjure water/blocks
     mod- poison immunity
-Augment - applies effect
+|+|Augment - applies effect
     general buff spell
     zeniths, maybe splash bottle transport? no, EPHEMERA TO THE RESCUE
     valid effects 0-8: slowfall, fire res, resistance, water breathing, strength, haste, regen, invis, speed,  
     mod- increase strength (auto-lowers duration)
-Chrysopoeia - INCOMPATIBLE
-Dandelion Winds - instant
+| |Chrysopoeia - INCOMPATIBLE
+|+|Dandelion Winds - instant
     conical blow-away spell
     mod- vary range, strength
     mod- pull instead of push
     mod- peaceful, affect items
     mod- affect circle
-Desaturate - INCOMPATIBLE, TOO NICHE
-Disarm - INCOMPATIBLE
-Extension - applies effect
+| |Desaturate - INCOMPATIBLE, TOO NICHE
+| |Disarm - INCOMPATIBLE
+| |Extension - applies effect
     grants night vision, or points to POIs
     mod- detect home, animals, monsters, chests/spawners, ore, liquids, or time (reveal timekeeper's? day-night? MOON?)
-Fey Light - instant
+| |Fey Light - instant
     proj wisp -> conjure light
     mod- foot pos instead
-Geas - TOO NICHE, COMPLEX
-Growth Infusion - channeled
+| |Geas - TOO NICHE, COMPLEX
+| |Growth Infusion - channeled
     overgrowth. auto-targets plants/crops 
     mod- up range
     mod- autofeed animals
     one to grow babies, one to breed
     check height to tell which (or Hexical farmer's prf. coming soon!)
     mob->feed dict
-Harvest - instant
+| |Harvest - instant
     harvest and replant (mature plants detected via Hexical farmer's prf. coming soon!)
     mod- tweak range
     mod- tp collect drops (powered by Chorus Blink?)
     crop->seed dict 
-Life Drain - TOO NICHE
-Nature's Scythe - channeled
+|-|Life Drain - TOO NICHE
+| |Nature's Scythe - channeled
     breaks plants (based on mods)
     options- cobwebs, leaves, grass/ferns, mushrooms, flowers
     mod- tp collect drops
-Petal Shell - INCOMPATIBLE
-Radiance - channeled
+| |Petal Shell - INCOMPATIBLE
+| |Radiance - channeled
     light laser
     mod- peaceful
     mod- tp collect drops/xp
     mod- does different damage/healing
-Rose Thorns - instant
+|+|Rose Thorns - instant
     toss a wisp mine  
     mod- peaceful
     mod- larger trap radius
     mod- weaken, fling, slow 
-Sanctuary - channeled
+| |Sanctuary - channeled
     pushes hostiles/projs outward in a sphere
     mod- anti-peaceful (affect animals)
     mod- fling intruders away
     mod- levitate intruders
     mod- bigger radius
-Saturate - INCOMPATIBLE
-Shatter - instant
+| |Saturate - NOW VIABLE - channeled
+    force-eat spell (wristpocket eating)
+    -loop throught the hotbar and handoff
+    -check edibility and wrist-eat while not full
+    -end early when full
+|*|Shatter - instant
     mining spell
     mod- hammer 3x3, 5x5
     mod- 3d hammer 3x3, 5x5
-Sky Soarer - instant (will change to channeled)
+|*|Sky Soarer - instant (will change to channeled)
     impulse toward look
     mod- vary strength
-Storm Cloud - applies effect
+| |Storm Cloud - applies effect
     spawns a stormcloud, extinguishes nearby fires
     wisp that follows overhead
     --use Inferno Prf. to see burning
     mod- turn lava->obs, and/or water->ice (hexal freeze)
     mod- vary radius
-Time Stop - applies effect
+| |Time Stop - applies effect
     freezes mobs in time
     -plant snare wisps at mob positions
     mod- peaceful
     mod- vary duration
-Wildfire - instant
+| |Wildfire - instant
     shoots fireball
     needs investigation

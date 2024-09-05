@@ -34,7 +34,6 @@ if ENABLECANTRIPS then
   local wristPocketKey = keybinds:newKeybind("Quick Wristpocket Spell", "key.keyboard.c", false)
   wristPocketKey.press = function() 
     if sneakKey:isPressed() then
-      changeSpell("wrist0")
       pings.playAnim("castFlickWrist")
       if player:isLoaded() then
         if player:getHeldItem(true).id:find("spellbook") then
@@ -49,20 +48,29 @@ end
 -----------------------
 SpellHistory = {"","","","",""}
 SpellString = ""
+SpellNick = nil
 function changeSpell(spell) 
     --if passed a string, just use that
     if type(spell) == "string" then
-      SpellString = spell
+      SpellString = "!"..spell
     elseif type(spell) == "table" then
       pings.colorStaff(vectors.hexToRGB(spell.hue1), vectors.hexToRGB(spell.hue2))
       SpellString = "!" .. spell.id --"!skysoarer"
       for i,v in pairs(spell.mods) do 
         SpellString = SpellString..'-'..v 
       end --"!skysoarer-2-0"
+      SpellNick = spell.nick
     end
     host:sendChatMessage(SpellString)
     --save to the history
-
+    SpellHistory[1]=SpellHistory[2]
+    SpellHistory[2]=SpellHistory[3]
+    SpellHistory[3]=SpellHistory[4]
+    SpellHistory[4]=SpellHistory[5]
+    if SpellNick then SpellHistory[5]=SpellNick
+    else SpellHistory[5]=SpellString end
+    SpellNick=nil
+    host:setActionbar(SpellHistory[1]..'§f-'..SpellHistory[2]..'§f-'..SpellHistory[3]..'§f-'..SpellHistory[4]..'§f-§n'..SpellHistory[5])
 end
 ---------------------
 --- ACTION WHEEL  ---
@@ -82,19 +90,25 @@ if ENABLEROOTS then
     :item("minecraft:feather"):title("Sky Soarer")
     :onLeftClick(function() changeSpell(SkySoarer) end)
     :onRightClick(function() action_wheel:setPage(ModPageSS) end)
-
   spellPage:newAction()
     :item("minecraft:golden_pickaxe"):title("Shatter")
-    :onLeftClick(function() 
-    pings.colorStaff(vectors.hexToRGB("#606060"), vectors.hexToRGB("#c0c0c0"))
-    host:sendChatMessage("!shatter")
-    end)
+    :onLeftClick(function() changeSpell(Shatter) end)
   spellPage:newAction()
     :item("minecraft:sunflower"):title("Radiance")
-    :onLeftClick(function() 
-    pings.colorStaff(vectors.hexToRGB("#ffff40"), vectors.hexToRGB("#ffffc0"))
-    host:sendChatMessage("!radiance")
-    end)
+    :onLeftClick(function() changeSpell(Radiance) end)
+  spellPage:newAction()
+    :item("minecraft:rose_bush"):title("Rose Thorns")
+    :onLeftClick(function() changeSpell(RoseThorns) end)
+    :onRightClick(function() action_wheel:setPage(ModPageRS) end)
+  spellPage:newAction()
+    :item("minecraft:dandelion"):title("Dandelion Winds")
+    :onLeftClick(function() changeSpell(DandelionWinds) end)
+    :onRightClick(function() action_wheel:setPage(ModPageDW) end)
+  spellPage:newAction()
+    :item("minecraft:potion"):title("Augment")
+    :onLeftClick(function() changeSpell(Augment) end)
+    :onRightClick(function() action_wheel:setPage(ModPageA) end)
+  
 
 --color each action
 for i,v in pairs(spellPage:getActions()) do v:hoverColor(vectors.hexToRGB("#3a5b24")) end
@@ -131,11 +145,16 @@ end
 function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
     -- if there's no path, it's a Figura sound, so we ignore those
     --print(id)
-
-    --replace casting noises with the staff percussion hit
+    
     if path and player:isLoaded() then
+      --replace casting noises with the staff percussion hit
       if (pos - player:getPos()):lengthSquared()<3 and (id:find("hermes") or id:find("thoth") or id == "hexcasting:casting.cast") then
         sounds:playSound("Staff percusses", player:getPos(), 1, 1+(math.random(-20,50)/100))
+        return true
+      end
+      --replace Hexical evoking noises with 
+      if (pos - player:getPos()):lengthSquared()<1 and id == "hexical:evoking_murmur" then
+        sounds:playSound("minecraft:block.beacon.power_select", player:getPos(), 1, 1+(math.random(-20,50)/100))
         return true
       end
     end
@@ -155,7 +174,7 @@ function events.item_render(item, mode)
   if item:getName():find("Druidic Staff") then return models.aduene.ItemStaff3D end
   if item:getID() == "hexgloop:casting_ring" then return models.aduene.ItemRing end
 
-  if item:getID() == "hexcasting:spellbook" then 
+  if item:getID() == "hexcasting:spellbook" or item:getID() == "hexgloop:covered_spellbook" then 
     if mode:find("FIRST") then 
       if mode:find("LEFT") then return models.aduene.ItemSpellbook:setRot(30,15,0)
       else return models.aduene.ItemSpellbook:setRot(30,-15,0)
