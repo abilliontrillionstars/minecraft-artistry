@@ -77,7 +77,8 @@ if client.getVersion() == "1.19.2" then
         nick="§1A", poseAnim="",
         mods={
             0, --[slowfall, fire res, resistance, water breathing, strength, haste, regen, invis, speed]
-            1 --buff potency 
+            1, --buff potency 
+            2 --armor strength
         } 
     }
     local buffNames = {"Slowfalling", "Fire Resistance", "Resistance", "Water Breathing", "Strength", "Haste", "Regeneration", "Invisibility", "Speed"}
@@ -87,11 +88,21 @@ if client.getVersion() == "1.19.2" then
         :item("minecraft:brewing_stand"):title("Change Buff")
         :onLeftClick(function() 
             Augment.mods[1]=(Augment.mods[1]+1)%9  
-            host:setActionbar("§aAugment Bestows§1: §0"..buffNames[(Augment.mods[1]%9)+1])
+            host:setActionbar("§1Augment Bestows: §b"..buffNames[(Augment.mods[1]%9)+1])
         end)
         :onRightClick(function() 
             Augment.mods[1]=(Augment.mods[1]-1)%9  
-            host:setActionbar("§aAugment Bestows§1: §0"..buffNames[(Augment.mods[1]%9)+1])
+            host:setActionbar("§1Augment Bestows: §b"..buffNames[(Augment.mods[1]%9)+1])
         end)
+    ModPageA:newAction()
+        :item("minecraft:chainmail_chestplate"):title("Armor Value")
+        :onLeftClick(function() 
+            Augment.mods[3]=math.min(Augment.mods[3]+1, 10)  
+            host:setActionbar("§1Armor Potency: §b"..Augment.mods[3])
+        end)
+        :onRightClick(function() 
+            Augment.mods[3]=math.max(Augment.mods[3]-1, 0)  
+            host:setActionbar("§1Armor Potency: §b"..Augment.mods[3])
+        end)    
     
 end

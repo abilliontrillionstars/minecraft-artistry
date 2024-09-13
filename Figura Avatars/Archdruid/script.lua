@@ -47,21 +47,10 @@ end
 --- OTHER FUNCTIONS ---
 -----------------------
 SpellHistory = {"","","","",""}
-SpellString = ""
+SpellString = "!"
 SpellNick = nil
 function changeSpell(spell) 
-    --if passed a string, just use that
-    if type(spell) == "string" then
-      SpellString = "!"..spell
-    elseif type(spell) == "table" then
-      pings.colorStaff(vectors.hexToRGB(spell.hue1), vectors.hexToRGB(spell.hue2))
-      SpellString = "!" .. spell.id --"!skysoarer"
-      for i,v in pairs(spell.mods) do 
-        SpellString = SpellString..'-'..v 
-      end --"!skysoarer-2-0"
-      SpellNick = spell.nick
-    end
-    host:sendChatMessage(SpellString)
+    SendSpell(spell)
     --save to the history
     SpellHistory[1]=SpellHistory[2]
     SpellHistory[2]=SpellHistory[3]
@@ -71,6 +60,21 @@ function changeSpell(spell)
     else SpellHistory[5]=SpellString end
     SpellNick=nil
     host:setActionbar(SpellHistory[1]..'§f-'..SpellHistory[2]..'§f-'..SpellHistory[3]..'§f-'..SpellHistory[4]..'§f-§n'..SpellHistory[5])
+end
+
+function SendSpell(spell)
+--if passed a string, just use that
+  if type(spell) == "string" then
+    SpellString = "!"..spell
+  elseif type(spell) == "table" then
+    pings.colorStaff(vectors.hexToRGB(spell.hue1), vectors.hexToRGB(spell.hue2))
+    SpellString = "!" .. spell.id --"!skysoarer"
+    for i,v in pairs(spell.mods) do 
+      SpellString = SpellString..'-'..v 
+    end --"!skysoarer-2-0"
+    SpellNick = spell.nick
+  end
+  host:sendChatMessage(SpellString)
 end
 ---------------------
 --- ACTION WHEEL  ---
