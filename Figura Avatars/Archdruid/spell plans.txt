@@ -56,7 +56,7 @@
     saves from lava/fire
     -can be done with conjure water/blocks
     mod- poison immunity
-|+|Augment - applies effect
+|*|Augment - applies effect
     general buff spell
     zeniths, maybe splash bottle transport? no, EPHEMERA TO THE RESCUE
     valid effects 0-8: slowfall, fire res, resistance, water breathing, strength, haste, regen, invis, speed,  
@@ -84,7 +84,7 @@
     one to grow babies, one to breed
     check height to tell which (or Hexical farmer's prf. coming soon!)
     mob->feed dict
-| |Harvest - instant
+|+|Harvest - instant
     harvest and replant (mature plants detected via Hexical farmer's prf. coming soon!)
     mod- tweak range
     mod- tp collect drops (powered by Chorus Blink?)
@@ -100,7 +100,7 @@
     mod- peaceful
     mod- tp collect drops/xp
     mod- does different damage/healing
-|+|Rose Thorns - instant
+|*|Rose Thorns - instant
     toss a wisp mine  
     mod- peaceful
     mod- larger trap radius

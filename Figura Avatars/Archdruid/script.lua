@@ -15,6 +15,11 @@ vanilla_model.ARMOR:setVisible(false)
 --vanilla_model.ALL:setVisible(false)
 models.aduene.ItemStaff3D:setVisible(true)
 models.aduene.ItemSpellbook:setVisible(true)
+
+SpellHistory = {nil, nil, nil, nil, nil}
+HistoryDepth = 0
+SpellString = "!"
+SpellCache = nil
 ------------------------
 --- EMOTES / VISUALS ---
 ------------------------
@@ -43,23 +48,58 @@ if ENABLECANTRIPS then
   end
 end
 
+local wheelClicks = 0
+if ENABLEROOTS or ENABLEHEXES then
+  --keybind to sense the closing of the action wheel
+  local wheelRelease = keybinds:newKeybind("Figura Wheel Release", 
+    keybinds:getVanillaKey("figura.config.action_wheel_button"))
+  wheelRelease.release = function() 
+    if wheelClicks>3 then 
+      ChangeSpell(SpellCache)
+    end
+    wheelClicks = 0
+  end
+
+  --back and previous buttons
+  local prevSpell = keybinds:newKeybind("Previous Spell", "key.mouse.4")
+  prevSpell.press = function()
+    if HistoryDepth<4 then
+      HistoryDepth=HistoryDepth+1 end
+    RecallSpell(HistoryDepth)
+  end
+  local nextSpell = keybinds:newKeybind("Next Spell", "key.mouse.5")
+  nextSpell.press = function()
+    if HistoryDepth>0 then
+      HistoryDepth=HistoryDepth-1 end
+    RecallSpell(HistoryDepth)  end
+  
+end
+
 -----------------------
 --- OTHER FUNCTIONS ---
 -----------------------
-SpellHistory = {"","","","",""}
-SpellString = "!"
-SpellNick = nil
-function changeSpell(spell) 
+function ChangeSpell(spell) 
+    SpellCache = spell
     SendSpell(spell)
+    if type(spell) == "table" then
+      pings.colorStaff(vectors.hexToRGB(spell.hue1), vectors.hexToRGB(spell.hue2)) end
+
     --save to the history
     SpellHistory[1]=SpellHistory[2]
     SpellHistory[2]=SpellHistory[3]
     SpellHistory[3]=SpellHistory[4]
     SpellHistory[4]=SpellHistory[5]
-    if SpellNick then SpellHistory[5]=SpellNick
-    else SpellHistory[5]=SpellString end
-    SpellNick=nil
-    host:setActionbar(SpellHistory[1]..'§f-'..SpellHistory[2]..'§f-'..SpellHistory[3]..'§f-'..SpellHistory[4]..'§f-§n'..SpellHistory[5])
+    SpellHistory[5]=spell
+
+    local hudMessage=""
+    for i,v in pairs(SpellHistory) do
+      if v~=nil then 
+        if i==5 then hudMessage=hudMessage.."{"..v.nick.."§f}"
+        else hudMessage = hudMessage..v.nick end
+      end
+      if i~=5 then hudMessage=hudMessage.."§f-" end
+    end
+    host:setActionbar(hudMessage)
 end
 
 function SendSpell(spell)
@@ -67,7 +107,6 @@ function SendSpell(spell)
   if type(spell) == "string" then
     SpellString = "!"..spell
   elseif type(spell) == "table" then
-    pings.colorStaff(vectors.hexToRGB(spell.hue1), vectors.hexToRGB(spell.hue2))
     SpellString = "!" .. spell.id --"!skysoarer"
     for i,v in pairs(spell.mods) do 
       SpellString = SpellString..'-'..v 
@@ -76,6 +115,27 @@ function SendSpell(spell)
   end
   host:sendChatMessage(SpellString)
 end
+
+function RecallSpell(depth)
+  --send the chat signal for the spell
+  if SpellHistory[5-depth] then
+    if SpellHistory[5-depth] then
+      SendSpell(SpellHistory[5-depth]) end
+  end
+  --color the staff
+  pings.colorStaff(vectors.hexToRGB(SpellHistory[5-depth].hue1), vectors.hexToRGB(SpellHistory[5-depth].hue2))
+  --and show the selection to the action bar
+  local hudMessage = ""
+  for i,v in pairs(SpellHistory) do
+    if v~=nil then 
+      if i==5-depth then hudMessage=hudMessage.."{"..v.nick.."§f}"
+      else hudMessage = hudMessage..v.nick end
+    end
+    if i~=5 then hudMessage=hudMessage.."§f-" end
+  end
+  host:setActionbar(hudMessage)
+end
+
 ---------------------
 --- ACTION WHEEL  ---
 ---------------------
@@ -92,25 +152,25 @@ if ENABLEROOTS then
 
   spellPage:newAction()
     :item("minecraft:feather"):title("Sky Soarer")
-    :onLeftClick(function() changeSpell(SkySoarer) end)
+    :onLeftClick(function() ChangeSpell(SkySoarer) end)
     :onRightClick(function() action_wheel:setPage(ModPageSS) end)
   spellPage:newAction()
     :item("minecraft:golden_pickaxe"):title("Shatter")
-    :onLeftClick(function() changeSpell(Shatter) end)
+    :onLeftClick(function() ChangeSpell(Shatter) end)
   spellPage:newAction()
     :item("minecraft:sunflower"):title("Radiance")
-    :onLeftClick(function() changeSpell(Radiance) end)
+    :onLeftClick(function() ChangeSpell(Radiance) end)
   spellPage:newAction()
     :item("minecraft:rose_bush"):title("Rose Thorns")
-    :onLeftClick(function() changeSpell(RoseThorns) end)
+    :onLeftClick(function() ChangeSpell(RoseThorns) end)
     :onRightClick(function() action_wheel:setPage(ModPageRS) end)
   spellPage:newAction()
     :item("minecraft:dandelion"):title("Dandelion Winds")
-    :onLeftClick(function() changeSpell(DandelionWinds) end)
+    :onLeftClick(function() ChangeSpell(DandelionWinds) end)
     :onRightClick(function() action_wheel:setPage(ModPageDW) end)
   spellPage:newAction()
     :item("minecraft:potion"):title("Augment")
-    :onLeftClick(function() changeSpell(Augment) end)
+    :onLeftClick(function() ChangeSpell(Augment) end)
     :onRightClick(function() action_wheel:setPage(ModPageA) end)
   
 
@@ -137,6 +197,7 @@ end
 --- API FUNCTIONS ---
 ---------------------
 local watchForSpam = false
+local cloakTimer = 0
 function events.tick()
   if action_wheel:getCurrentPage() ~= mainPage and not action_wheel:isEnabled()
       then action_wheel:setPage(mainPage) end
@@ -144,7 +205,10 @@ function events.tick()
   renderer:setRenderLeftArm(player:getHeldItem(true).id == "minecraft:air")
   renderer:setRenderRightArm(player:getHeldItem().id == "minecraft:air" or player:getHeldItem().id == "hexgloop:casting_ring")
   
-  watchForSpam = false
+  if cloakTimer==0 then
+    sounds:playSound("minecraft:block.beacon.activate", player:getPos(), 0.6, 2+(math.random(-20,50)/100))
+  end
+  cloakTimer = cloakTimer-1
 end
 function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
     -- if there's no path, it's a Figura sound, so we ignore those
@@ -156,9 +220,16 @@ function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
         sounds:playSound("Staff percusses", player:getPos(), 1, 1+(math.random(-20,50)/100))
         return true
       end
-      --replace Hexical evoking noises with 
+      --replace Hexical evoking noises with beacon powah
       if (pos - player:getPos()):lengthSquared()<1 and id == "hexical:evoking_murmur" then
         sounds:playSound("minecraft:block.beacon.power_select", player:getPos(), 1, 1+(math.random(-20,50)/100))
+        return true
+      end
+
+      --replace the botania cloak sound, and trigger a countdown
+      if (pos - player:getPos()):lengthSquared()<1 and id == "botania:holy_cloak" then
+        sounds:playSound("minecraft:block.beacon.deactivate", player:getPos(), 0.6, 2+(math.random(-20,50)/100))
+        cloakTimer = 10*20 --ten seconds
         return true
       end
     end
@@ -214,5 +285,9 @@ function events.mouse_press(button, action)
         end
       end
     end
+  end
+
+  if action_wheel:isEnabled() then
+    if action==1 then wheelClicks=wheelClicks+1 end
   end
 end

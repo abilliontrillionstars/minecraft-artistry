@@ -66,7 +66,12 @@ if client.getVersion() == "1.19.2" then
         name="Dandelion Winds", id="dandelionwinds",
         hue1="ffff20", hue2="ffb020",
         nick="§eD§fW", poseAnim="",
-        mods={} 
+        mods={
+            0, --[normal, updraft, downburst] pick wind hex
+            1, --strength of the impulse
+            0.75, --dot product threshold for targeting/particles (-1 for target all, closer to 1 means narrower)
+            1 --targets [living, hostile (peaceful), player, items]
+        } 
     }
     ModPageDW = action_wheel:newPage()
     --Dandelion Winds Modifiers--
