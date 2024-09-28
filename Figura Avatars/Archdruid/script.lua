@@ -79,27 +79,32 @@ end
 --- OTHER FUNCTIONS ---
 -----------------------
 function ChangeSpell(spell) 
-    SpellCache = spell
-    SendSpell(spell)
-    if type(spell) == "table" then
-      pings.colorStaff(vectors.hexToRGB(spell.hue1), vectors.hexToRGB(spell.hue2)) end
+  SpellCache = spell
+  SendSpell(spell)
+  if type(spell) == "table" then
+    pings.colorStaff(vectors.hexToRGB(spell.hue1), vectors.hexToRGB(spell.hue2)) end
 
-    --save to the history
-    SpellHistory[1]=SpellHistory[2]
-    SpellHistory[2]=SpellHistory[3]
-    SpellHistory[3]=SpellHistory[4]
-    SpellHistory[4]=SpellHistory[5]
-    SpellHistory[5]=spell
+  --save to the history
+  SpellHistory[1]=SpellHistory[2]
+  SpellHistory[2]=SpellHistory[3]
+  SpellHistory[3]=SpellHistory[4]
+  SpellHistory[4]=SpellHistory[5]
+  SpellHistory[5]=spell
 
-    local hudMessage=""
-    for i,v in pairs(SpellHistory) do
-      if v~=nil then 
+  local hudMessage=""
+  for i,v in pairs(SpellHistory) do
+    if v~=nil then 
+      if type(v)=="table" then
         if i==5 then hudMessage=hudMessage.."{"..v.nick.."§f}"
         else hudMessage = hudMessage..v.nick end
+      elseif type(v)=="string" then
+        if i==5 then hudMessage=hudMessage.."{"..v.."§f}"
+        else hudMessage = hudMessage..v end
       end
-      if i~=5 then hudMessage=hudMessage.."§f-" end
     end
-    host:setActionbar(hudMessage)
+    if i~=5 then hudMessage=hudMessage.."§f-" end
+  end
+  host:setActionbar(hudMessage)
 end
 
 function SendSpell(spell)
@@ -117,13 +122,14 @@ function SendSpell(spell)
 end
 
 function RecallSpell(depth)
+  local spell = SpellHistory[5-depth]
   --send the chat signal for the spell
-  if SpellHistory[5-depth] then
-    if SpellHistory[5-depth] then
-      SendSpell(SpellHistory[5-depth]) end
-  end
+  if spell then
+    SendSpell(spell) end
   --color the staff
-  pings.colorStaff(vectors.hexToRGB(SpellHistory[5-depth].hue1), vectors.hexToRGB(SpellHistory[5-depth].hue2))
+  if type(spell)=="table" then
+    pings.colorStaff(
+    vectors.hexToRGB(SpellHistory[5-depth].hue1), vectors.hexToRGB(SpellHistory[5-depth].hue2)) end
   --and show the selection to the action bar
   local hudMessage = ""
   for i,v in pairs(SpellHistory) do

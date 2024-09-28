@@ -2,57 +2,73 @@ if client.getVersion() == "1.19.2" then
 
   hexPage = action_wheel:newPage()
 
+  CadCont = {
+    name="Read & Cast (Continuous)", id="cadcont",
+    hue1="820082", hue2="cfa0f3",
+    nick="§6C§dC", poseAnim="", 
+    mods={}
+  }
   hexPage:newAction()
     :item("hexcasting:trinket")
     :title("Read & Cast (Continuous)")
-    :onLeftClick(function() 
-      pings.colorStaff(vectors.hexToRGB("#820082"), vectors.hexToRGB("#cfa0f3"))
-      ChangeSpell("cadcont")
-    end)
+    :onLeftClick(function() ChangeSpell(CadCont) end)
+  CadHalt = {
+    name="Read & Cast (Halts)", id="cadhalt",
+    hue1="820082", hue2="6f4fab",
+    nick="§6C§5C", poseAnim="", 
+    mods={}
+  }
   hexPage:newAction()
     :item("hexcasting:cypher")
     :title("Read & Cast (Halts)")
-    :onLeftClick(function() 
-      pings.colorStaff(vectors.hexToRGB("#820082"), vectors.hexToRGB("#6f4fab"))
-      ChangeSpell("cadhalt")
-    end)
+    :onLeftClick(function() ChangeSpell(CadHalt) end)
+  RechargeItem = {
+    name="Recharge Item", id="recharge",
+    hue1="b38ef3", hue2="ebaa4e",
+    nick="§1R", poseAnim="", 
+    mods={}
+  }
   hexPage:newAction()
     :item("hexcasting:battery")
     :title("Recharge Item")
-    :onLeftClick(function() 
-      pings.colorStaff(vectors.hexToRGB("#b38ef3"), vectors.hexToRGB("#ebaa4e"))
-      ChangeSpell("recharge")
-    end)
-   
+    :onLeftClick(function() ChangeSpell(RechargeItem) end)
+  Orbiters = {
+    name="Orbiters", id="orbiters",
+    hue1="5d4627", hue2="777777",
+    nick="§7OS", poseAnim="", 
+    mods={}
+  }
   hexPage:newAction(9)
     :item("minecraft:shield")
     :title("Orbiters")
-    :onLeftClick(function() 
-      pings.colorStaff(vectors.hexToRGB("#5d4627"), vectors.hexToRGB("#777777"))
-      ChangeSpell("orbiters")
-    end)    
+    :onLeftClick(function() ChangeSpell(Orbiters) end)   
+  MissileBurst = {
+    name="Missile Burst", id="missiles",
+    hue1="8d6acc", hue2="732303",
+    nick="§dM§6B", poseAnim="", 
+    mods={}
+  }
   hexPage:newAction(10)
     :item("minecraft:spectral_arrow")
     :title("Missile Burst")
-    :onLeftClick(function() 
-      pings.colorStaff(vectors.hexToRGB("#8d6acc"), vectors.hexToRGB("#732303"))
-      ChangeSpell("missiles")
-    end) 
+    :onLeftClick(function() ChangeSpell(MissileBurst) end) 
     
-  hexPage:newAction(11)
-    :item("botania:brewery"):title("Botanian Brewbelt")
-    :onLeftClick(function() ChangeSpell(BrewBelt) end)
-    :onRightClick(function() action_wheel:setPage(ModPageBB) end)
+  
   BrewBelt = {
     name="Brew Belt", id="brew",
     hue1="dbdbc7", hue2="2599a3",
-    nick="§1BB", poseAnim="",
+    nick="§1B§dB", poseAnim="",
     mods={
         0, --[slowfall, fire res, resistance, water breathing, strength, haste, regen, invis, speed]
         1, --effect potency (currently static)
         2 --armor strength 
     } 
   }
+  hexPage:newAction(11)
+    :item("botania:brewery"):title("Botanian Brewbelt")
+    :onLeftClick(function() ChangeSpell(BrewBelt) end)
+    :onRightClick(function() action_wheel:setPage(ModPageBB) end)
+
   local brewNames = {"Vanity's Emptiness", "Bloodthirst", "Feather Feet", "Crossed Souls", "Allure"}  
   ModPageBB = action_wheel:newPage()
         --Augment Modifiers--
@@ -79,5 +95,4 @@ if client.getVersion() == "1.19.2" then
   
     --color each action
     for i,v in pairs(hexPage:getActions()) do v:hoverColor(vectors.hexToRGB("#462451")) end
-
   end
