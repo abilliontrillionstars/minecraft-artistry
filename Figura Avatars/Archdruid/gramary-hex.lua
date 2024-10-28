@@ -9,8 +9,7 @@ if client.getVersion() == "1.19.2" then
     mods={}
   }
   hexPage:newAction()
-    :item("hexcasting:trinket")
-    :title("Read & Cast (Continuous)")
+    :item("hexcasting:trinket"):title("Read & Cast (Continuous)")
     :onLeftClick(function() ChangeSpell(CadCont) end)
   CadHalt = {
     name="Read & Cast (Halts)", id="cadhalt",
@@ -19,8 +18,7 @@ if client.getVersion() == "1.19.2" then
     mods={}
   }
   hexPage:newAction()
-    :item("hexcasting:cypher")
-    :title("Read & Cast (Halts)")
+    :item("hexcasting:cypher"):title("Read & Cast (Halts)")
     :onLeftClick(function() ChangeSpell(CadHalt) end)
   RechargeItem = {
     name="Recharge Item", id="recharge",
@@ -29,35 +27,32 @@ if client.getVersion() == "1.19.2" then
     mods={}
   }
   hexPage:newAction()
-    :item("hexcasting:battery")
-    :title("Recharge Item")
+    :item("hexcasting:battery"):title("Recharge Item")
     :onLeftClick(function() ChangeSpell(RechargeItem) end)
   Orbiters = {
     name="Orbiters", id="orbiters",
     hue1="5d4627", hue2="777777",
-    nick="§7OS", poseAnim="", 
+    nick="§7OS", poseAnim="poseRaiseStaff", 
     mods={}
   }
   hexPage:newAction(9)
-    :item("minecraft:shield")
-    :title("Orbiters")
+    :item("minecraft:shield"):title("Orbiters")
     :onLeftClick(function() ChangeSpell(Orbiters) end)   
   MissileBurst = {
     name="Missile Burst", id="missiles",
     hue1="8d6acc", hue2="732303",
-    nick="§dM§6B", poseAnim="", 
+    nick="§dM§6B", poseAnim="posePush", 
     mods={}
   }
   hexPage:newAction(10)
-    :item("minecraft:spectral_arrow")
-    :title("Missile Burst")
+    :item("minecraft:spectral_arrow"):title("Missile Burst")
     :onLeftClick(function() ChangeSpell(MissileBurst) end) 
     
   
   BrewBelt = {
     name="Brew Belt", id="brew",
     hue1="dbdbc7", hue2="2599a3",
-    nick="§1B§dB", poseAnim="",
+    nick="§1B§dB", poseAnim="poseRaiseStaff",
     mods={
         0, --[slowfall, fire res, resistance, water breathing, strength, haste, regen, invis, speed]
         1, --effect potency (currently static)
@@ -93,6 +88,16 @@ if client.getVersion() == "1.19.2" then
       host:setActionbar("§1Armor Potency: §b"..BrewBelt.mods[3])
     end)
   
+    Pumpkill = {
+      name="Pumpkin Bombtrap", id="pumpkill",
+      hue1="975c13", hue2="999999",
+      nick="§6P§eB", poseAnim="posePush",
+      mods={} 
+    }
+    hexPage:newAction(12)
+      :item("minecraft:pumpkin"):title("Pumpkin Bombtrap")
+      :onLeftClick(function() ChangeSpell(Pumpkill) end)
+
     --color each action
     for i,v in pairs(hexPage:getActions()) do v:hoverColor(vectors.hexToRGB("#462451")) end
   end

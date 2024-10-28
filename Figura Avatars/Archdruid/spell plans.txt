@@ -105,7 +105,7 @@
     mod- peaceful
     mod- larger trap radius
     mod- weaken, fling, slow 
-| |Sanctuary - channeled
+|+|Sanctuary - channeled
     pushes hostiles/projs outward in a sphere
     mod- anti-peaceful (affect animals)
     mod- fling intruders away

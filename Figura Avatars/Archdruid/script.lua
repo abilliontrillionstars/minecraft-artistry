@@ -15,17 +15,33 @@ vanilla_model.ARMOR:setVisible(false)
 --vanilla_model.ALL:setVisible(false)
 models.aduene.ItemStaff3D:setVisible(true)
 models.aduene.ItemSpellbook:setVisible(true)
+models.aduene.ItemRing:setVisible(true)
 
 SpellHistory = {nil, nil, nil, nil, nil}
 HistoryDepth = 0
 SpellString = "!"
-SpellCache = nil
+SpellCache = SkySoarer
 ------------------------
 --- EMOTES / VISUALS ---
 ------------------------
-function pings.playAnim(anim) animations.aduene[anim]:play() end
-function pings.stopAnim(anim) animations.aduene[anim]:stop() end
-function pings.sfx(sound, pitch) if player:isLoaded() then sounds:playSound(sound, player:getPos(), 1, pitch) end end
+function pings.playAnim(anim) 
+  if animations.aduene[anim]:getLoop()=="LOOP" then
+    animations.aduene[anim]:setPlaying(true)
+  else
+    animations.aduene[anim]:play()
+  end
+end
+function pings.stopAnim(anim) 
+  if animations.aduene[anim]:getLoop()=="LOOP" then
+    animations.aduene[anim]:setPlaying(false)
+  else
+    animations.aduene[anim]:stop()
+  end
+end
+function pings.sfx(sound, pitch) 
+  if player:isLoaded() then 
+    sounds:playSound(sound, player:getPos(), 1, pitch) end 
+end
 function pings.colorStaff(first, second)
   models.aduene.ItemStaff3D.leaf1:setColor(first)
   models.aduene.ItemStaff3D.leaf2:setColor(second)
@@ -54,13 +70,13 @@ if ENABLEROOTS or ENABLEHEXES then
   local wheelRelease = keybinds:newKeybind("Figura Wheel Release", 
     keybinds:getVanillaKey("figura.config.action_wheel_button"))
   wheelRelease.release = function() 
-    if wheelClicks>3 then 
-      ChangeSpell(SpellCache)
+    if wheelClicks>=3 then 
+      SendSpell(SpellCache)
     end
     wheelClicks = 0
   end
 
-  --back and previous buttons
+  --next and previous buttons
   local prevSpell = keybinds:newKeybind("Previous Spell", "key.mouse.4")
   prevSpell.press = function()
     if HistoryDepth<4 then
@@ -123,6 +139,7 @@ end
 
 function RecallSpell(depth)
   local spell = SpellHistory[5-depth]
+  SpellCache = spell
   --send the chat signal for the spell
   if spell then
     SendSpell(spell) end
@@ -142,6 +159,14 @@ function RecallSpell(depth)
   host:setActionbar(hudMessage)
 end
 
+function handleIdleMovement()
+  models.aduene.root.Head.faunaEye.irisOuterLeft:setPos(math.sin(world.getTime()/10)/3,0,0)
+  models.aduene.root.Head.faunaEye.irisOuterRight:setPos(math.sin(world.getTime()/10)/-3,0,0)
+  models.aduene.root.RightArm.faunaWristRight:setScale(1+math.sin(world.getTime()/10)/10,1,1+math.sin(world.getTime()/10)/10)
+  models.aduene.root.LeftArm.faunaWristLeft:setScale(1+math.sin(world.getTime()/10)/10,1,1+math.sin(world.getTime()/10)/10)
+  models.aduene.root.Elytra.RightElytra.faunaWingRight:setPos(math.sin(world.getTime()/10)/4,math.sin(world.getTime()/10)/4,math.sin(world.getTime()/10)/4)
+  models.aduene.root.Elytra.LeftElytra.faunaWingLeft:setPos(math.sin(world.getTime()/10)/-4,math.sin(world.getTime()/10)/4,math.sin(world.getTime()/10)/4)
+end
 ---------------------
 --- ACTION WHEEL  ---
 ---------------------
@@ -178,6 +203,10 @@ if ENABLEROOTS then
     :item("minecraft:potion"):title("Augment")
     :onLeftClick(function() ChangeSpell(Augment) end)
     :onRightClick(function() action_wheel:setPage(ModPageA) end)
+  spellPage:newAction()
+    :item("minecraft:red_stained_glass"):title("Sanctuary")
+    :onLeftClick(function() ChangeSpell(Sanctuary) end)
+    --:onRightClick(function() action_wheel:setPage() end)
   
 
 --color each action
@@ -205,6 +234,8 @@ end
 local watchForSpam = false
 local cloakTimer = 0
 function events.tick()
+  handleIdleMovement()
+
   if action_wheel:getCurrentPage() ~= mainPage and not action_wheel:isEnabled()
       then action_wheel:setPage(mainPage) end
  
@@ -291,6 +322,19 @@ function events.mouse_press(button, action)
         end
       end
     end
+    if player:getHeldItem():getName() == "Druidic Staff" and not action_wheel:isEnabled() then
+      if button==1 then
+        if action==1 then
+          if SpellCache and SpellCache.poseAnim ~= "" then pings.playAnim(SpellCache.poseAnim) end
+        elseif action==0 then
+          if SpellCache and SpellCache.poseAnim ~= "" then 
+            if animations.aduene[SpellCache.poseAnim]:getLoop()=="LOOP" then 
+              pings.stopAnim(SpellCache.poseAnim) end
+          end
+        end
+      end
+    end
+    
   end
 
   if action_wheel:isEnabled() then

@@ -46,7 +46,7 @@ if client.getVersion() == "1.19.2" then
     RoseThorns = {
         name="Rose Thorns", id="rosethorns",
         hue1="ff2040", hue2="20ff60",
-        nick="§cR§aT", poseAnim="",
+        nick="§cR§aT", poseAnim="poseToss",
         mods={ 0 } --targets [living, hostile (peaceful), player]
     }
     ModPageRS = action_wheel:newPage()
@@ -65,21 +65,47 @@ if client.getVersion() == "1.19.2" then
     DandelionWinds = {
         name="Dandelion Winds", id="dandelionwinds",
         hue1="ffff20", hue2="ffb020",
-        nick="§eD§fW", poseAnim="",
+        nick="§eD§fW", poseAnim="posePush",
         mods={
             0, --[normal, updraft, downburst] pick wind hex
-            1, --strength of the impulse
+            2, --strength of the impulse
             0.75, --dot product threshold for targeting/particles (-1 for target all, closer to 1 means narrower)
-            1 --targets [living, hostile (peaceful), player, items]
+            0 --targets [living, hostile (peaceful), player, items]
         } 
     }
     ModPageDW = action_wheel:newPage()
     --Dandelion Winds Modifiers--
+    local windDirs = {"Winds", "Updraft", "Downburst"}
+    local windDirPoses =  {"posePush", "poseRaiseStaff", "posePush"}
+    ModPageDW:newAction()
+        :item("minecraft:fern"):title("Winds/Updraft/Downburst")
+        :onLeftClick(function() 
+            DandelionWinds.mods[1]=math.min(DandelionWinds.mods[1]+1, 2) 
+            host:setActionbar("Type: "..windDirs[DandelionWinds.mods[1]+1])
+            DandelionWinds.poseAnim = windDirPoses[DandelionWinds.mods[1]+1]
+        end)
+        :onRightClick(function()  
+            DandelionWinds.mods[1]=math.max(DandelionWinds.mods[1]-1, 0) 
+            host:setActionbar("Type: "..windDirs[DandelionWinds.mods[1]+1])   
+            DandelionWinds.poseAnim = windDirPoses[DandelionWinds.mods[1]+1]
+        end)
+        local windTargets = {"Living", "Hostile", "Players", "Items"}
+    ModPageDW:newAction()
+        :item("minecraft:egg"):title("Targets")
+        :onLeftClick(function() 
+            DandelionWinds.mods[4]=math.min(DandelionWinds.mods[4]+1, 3) 
+            host:setActionbar("Target: "..windTargets[DandelionWinds.mods[4]+1])
+        end)
+        :onRightClick(function()  
+            DandelionWinds.mods[4]=math.max(DandelionWinds.mods[4]-1, 0) 
+            host:setActionbar("Target: "..windTargets[DandelionWinds.mods[4]+1])   
+        end)
+    
 
     Augment = {
         name="Augment", id="augment",
         hue1="45d17f", hue2="1c1c94",
-        nick="§1A", poseAnim="",
+        nick="§1A", poseAnim="poseRaiseStaff",
         mods={
             0, --[slowfall, fire res, resistance, water breathing, strength, haste, regen, invis, speed]
             1, --buff potency 
@@ -108,6 +134,12 @@ if client.getVersion() == "1.19.2" then
         :onRightClick(function() 
             Augment.mods[3]=math.max(Augment.mods[3]-1, 0)  
             host:setActionbar("§1Armor Potency: §b"..Augment.mods[3])
-        end)    
+        end)
     
+        Sanctuary = {
+            name="Sanctuary", id="sanctuary",
+            hue1="d01050", hue2="e02090",
+            nick="§cS", poseAnim="poseStaffLongpointGuard",
+            mods={} 
+        }
 end
