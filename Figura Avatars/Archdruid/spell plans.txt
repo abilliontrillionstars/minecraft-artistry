@@ -62,7 +62,7 @@
     valid effects 0-8: slowfall, fire res, resistance, water breathing, strength, haste, regen, invis, speed,  
     mod- increase strength (auto-lowers duration)
 | |Chrysopoeia - INCOMPATIBLE
-|+|Dandelion Winds - instant
+|*|Dandelion Winds - instant
     conical blow-away spell
     mod- vary range, strength
     mod- pull instead of push

@@ -34,7 +34,7 @@ if client.getVersion() == "1.19.2" then
     Shatter = {
         name="Shatter", id="shatter",
         hue1="606060", hue2="c0c0c0",
-        nick="§8S", poseAnim="",
+        nick="§8S", poseAnim="posePush",
         mods={} 
     }
     Radiance = {
@@ -49,15 +49,15 @@ if client.getVersion() == "1.19.2" then
         nick="§cR§aT", poseAnim="poseToss",
         mods={ 0 } --targets [living, hostile (peaceful), player]
     }
-    ModPageRS = action_wheel:newPage()
+    ModPageRT = action_wheel:newPage()
     --Sky Soarer Modifiers--
-    ModPageRS:newAction()
+    ModPageRT:newAction()
         :item("minecraft:egg"):title("Target: Living")
         :onLeftClick(function() RoseThorns.mods[1]=0 end)
-    ModPageRS:newAction()
+    ModPageRT:newAction()
         :item("minecraft:creeper_spawn_egg"):title("Target: Hostiles")
         :onLeftClick(function() RoseThorns.mods[1]=1 end)
-    ModPageRS:newAction()
+    ModPageRT:newAction()
         :item("minecraft:player_head"):title("Target: Players")
         :onLeftClick(function() RoseThorns.mods[1]=2 end)
 
@@ -100,6 +100,27 @@ if client.getVersion() == "1.19.2" then
             DandelionWinds.mods[4]=math.max(DandelionWinds.mods[4]-1, 0) 
             host:setActionbar("Target: "..windTargets[DandelionWinds.mods[4]+1])   
         end)
+    ModPageDW:newAction()
+        :item("minecraft:blaze_powder"):title("Wind Strength")
+        :onLeftClick(function() 
+            DandelionWinds.mods[2] = DandelionWinds.mods[2] + 0.125 
+            host:setActionbar("Strength: "..DandelionWinds.mods[2])
+        end)
+        :onRightClick(function() 
+            DandelionWinds.mods[2] = DandelionWinds.mods[2] - 0.125 
+            host:setActionbar("Strength: "..DandelionWinds.mods[2])
+        end)
+    ModPageDW:newAction()
+        :item("minecraft:ender_eye"):title("Targeting Cone Width")
+        :onLeftClick(function() 
+            DandelionWinds.mods[3] = math.min(DandelionWinds.mods[3] + 0.125, 1) 
+            host:setActionbar("Range: "..DandelionWinds.mods[3])
+        end)
+        :onRightClick(function() 
+            DandelionWinds.mods[3] = math.max(DandelionWinds.mods[3] - 0.125, 0) 
+            host:setActionbar("Range: "..DandelionWinds.mods[3])
+        end)
+
     
 
     Augment = {
@@ -142,4 +163,10 @@ if client.getVersion() == "1.19.2" then
             nick="§cS", poseAnim="poseStaffLongpointGuard",
             mods={} 
         }
+
+    ModPageSc = action_wheel:newPage()
+    --Sanctuary Modifiers--
+    ModPageSc:newAction()
+    
+
 end
