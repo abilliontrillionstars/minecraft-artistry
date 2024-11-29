@@ -24,12 +24,25 @@ if client.getVersion() == "1.19.2" then
       pings.playAnim("castHandSwirl")
     end)
 
-  cantripPage:newAction()
-    :title("Bound Recharge"):item("minecraft:chorus_flower")
-    :onLeftClick(function() pings.playAnim("castRaiseStaff") end)
+  --cantripPage:newAction()
+    --:title("Bound Recharge"):item("minecraft:chorus_flower")
+    --:onLeftClick(function() pings.playAnim("castRaiseStaff") end)
   rechargeKey = keybinds:newKeybind("Quickcast: Bound Recharge", "key.mouse.middle")
-  rechargeKey:onPress(function() pings.playAnim("castRaiseStaff") end)
---[[
+  rechargeKey:onPress(function() 
+    if player:isLoaded() then
+      if player:getHeldItem():getName() == "Druidic Staff" then
+        pings.playAnim("castRaiseStaff") end
+    end
+  end)
+
+  cantripPage:newAction()
+    :title("Circle Shot I"):item("minecraft:spectral_arrow")
+    :onLeftClick(function() 
+      CantripString = "hexshot0"
+      pings.playAnim("castDualOverheadHand")   
+    end)
+
+  --[[
   cantripPage:newAction()
     :title("Reflect & Cast"):item("hexcasting:artifact")
     :onLeftClick(function() pings.playAnim("castFromSpellbook") end)

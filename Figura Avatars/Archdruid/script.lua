@@ -17,6 +17,10 @@ models.aduene.ItemStaff3D:setVisible(true)
 models.aduene.ItemSpellbook:setVisible(true)
 models.aduene.ItemRing:setVisible(true)
 
+models.aduene.root.LeftArm.faunaWristLeft:setVisible(false)
+models.aduene.root.RightArm.faunaWristRight:setVisible(false)
+
+
 SpellHistory = {nil, nil, nil, nil, nil}
 HistoryDepth = 0
 SpellString = "!"
@@ -167,6 +171,17 @@ function handleIdleMovement()
   models.aduene.root.Elytra.RightElytra.faunaWingRight:setPos(math.sin(world.getTime()/10)/4,math.sin(world.getTime()/10)/4,math.sin(world.getTime()/10)/4)
   models.aduene.root.Elytra.LeftElytra.faunaWingLeft:setPos(math.sin(world.getTime()/10)/-4,math.sin(world.getTime()/10)/4,math.sin(world.getTime()/10)/4)
 end
+
+FaunaActive = false
+function ToggleFauna()
+  if FaunaActive then
+    pings.playAnim("deactivateFauna")
+    FaunaActive = false
+  else 
+    pings.playAnim("activateFauna")
+    FaunaActive = true
+  end
+end
 ---------------------
 --- ACTION WHEEL  ---
 ---------------------
@@ -269,6 +284,10 @@ function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
         cloakTimer = 10*20 --ten seconds
         return true
       end
+
+      if id == "minecraft:entity.wolf.hurt" then
+        print("heard wolf hurt! retreat?") end
+      ---"fabrication:absorption_hurt"
     end
 
     --replace explosions with polite firework booms, or cancel duplicates of them
@@ -289,14 +308,11 @@ function events.item_render(item, mode)
   if item:getID() == "hexcasting:spellbook" or item:getID() == "hexgloop:covered_spellbook" then 
     if mode:find("FIRST") then 
       if mode:find("LEFT") then return models.aduene.ItemSpellbook:setRot(30,15,0)
-      else return models.aduene.ItemSpellbook:setRot(30,-15,0)
-    end 
+      else return models.aduene.ItemSpellbook:setRot(30,-15,0) end 
     elseif mode:find("THIRD") then return models.aduene.ItemSpellbook:setRot(90,0,0) end
   end
 end
-function events.entity_init()
-  --physBone.physBoneMantle:setSpringForce(0.5)
-end
+
 function events.chat_receive_message(message, asJson) 
   --if message:find("[lua]") then return end
   --print(message) NO
