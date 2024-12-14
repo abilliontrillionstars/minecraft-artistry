@@ -25,8 +25,7 @@ function pings.ToggleBrushStaff()
     end
 end
 
-function pings.ColorApron(r,g,b)
-    local color = vec(r,g,b) 
+function pings.ColorApron(color)
     models.iris.root.LeftLeg.overall:setColor(color)
     models.iris.root.LeftLeg.pocket:setColor(color)
     models.iris.root.LeftLeg.overallFlap:setColor(color)
@@ -39,14 +38,21 @@ function pings.ColorApron(r,g,b)
         sounds:playSound("minecraft:entity.zombie_villager.converted", player:getPos(), 0.3, 7 + (math.random(-4,4)/10))
         sounds:playSound("minecraft:entity.zombie_villager.converted", player:getPos(), 0.05, 5 + (math.random(-4,4)/10))
     end
+    avatar:store("pigment", color)
 end
 
 
 mainPage:newAction()
     :title("Test Apron Color"):item("botania:spectrolus")
     :onLeftClick(function ()
-        pings.ColorApron(math.random(), math.random(), math.random())
+        pings.ColorApron(vec(math.random(), math.random(), math.random()))
     end)
+mainPage:newAction()
+    :title("Chloe Apron Color"):item("botania:spectranthemum")
+    :onLeftClick(function ()
+        pings.ColorApron(vectors.hexToRGB("#69c67c"))
+    end)
+
 mainPage:newAction()
     :title("Test Brush-Staff"):item("lanishextendedstaves:extended_staff_spruce")
     :onLeftClick(function ()

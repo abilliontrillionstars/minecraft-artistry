@@ -66,6 +66,14 @@ if ENABLECANTRIPS then
       end
     end
   end
+  local faunaKey = keybinds:newKeybind("Toggle Fauna-Eye", "key.mouse.middle", false)
+  faunaKey.press = function()
+    if sneakKey:isPressed() and player:isLoaded() then
+      if player:getHeldItem(true):getID() == "minecraft:air" and player:getHeldItem(false):getID() == "minecraft:air" then
+        ToggleFauna()
+      end
+    end
+  end
 end
 
 local wheelClicks = 0
@@ -285,9 +293,6 @@ function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
         return true
       end
 
-      if id == "minecraft:entity.wolf.hurt" then
-        print("heard wolf hurt! retreat?") end
-      ---"fabrication:absorption_hurt"
     end
 
     --replace explosions with polite firework booms, or cancel duplicates of them
@@ -315,7 +320,13 @@ end
 
 function events.chat_receive_message(message, asJson) 
   --if message:find("[lua]") then return end
-  --print(message) NO
+  --print(message)
+  message= string.lower(message)
+  if message:find("lani") and not message:find("<just_laniakea>") and player:isLoaded() then
+    pings.sfx("entity.experience_orb.pickup",  0.5+math.random(0,4)/10)
+    pings.sfx("entity.experience_orb.pickup",  0.2+math.random(0,4)/10)
+  end
+    
 end
 local rmbDown = false
 local bookOpen = true
