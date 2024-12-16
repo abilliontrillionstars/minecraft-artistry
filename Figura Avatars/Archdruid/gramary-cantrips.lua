@@ -42,19 +42,28 @@ if client.getVersion() == "1.19.2" then
       pings.playAnim("castDualOverheadHand")   
     end)
 
-  cantripPage:newAction(9)
+  cantripPage:newAction(11)
     :title("Call Perrin & Paddan"):item("minecraft:bone")
     :onLeftClick(function() 
       CantripString = "wolf0"
       pings.playAnim("castDualOverheadHand")   
     end)
 
-  cantripPage:newAction()
-    :title("Test Clap Anim"):item("minecraft:bamboo")
+    cantripPage:newAction()
+    :title("Nature's Guillotine"):item("minecraft:pointed_dripstone")
     :onLeftClick(function() 
-      CantripString = "test0"
+      CantripString = "drip0"
       pings.playAnim("castClap")   
     end)
+
+  cantripPage:newAction(9)
+    :title("Call Lightning Chain"):item("minecraft:lightning_rod")
+    :onLeftClick(function() 
+      CantripString = "lightningchain0"
+      pings.playAnim("castClapCharge")   
+    end)
+
+  
 
   --[[
   cantripPage:newAction()

@@ -20,7 +20,6 @@ models.aduene.ItemRing:setVisible(true)
 models.aduene.root.LeftArm.faunaWristLeft:setVisible(false)
 models.aduene.root.RightArm.faunaWristRight:setVisible(false)
 
-
 SpellHistory = {nil, nil, nil, nil, nil}
 HistoryDepth = 0
 SpellString = "!"
@@ -322,7 +321,7 @@ function events.chat_receive_message(message, asJson)
   --if message:find("[lua]") then return end
   --print(message)
   message= string.lower(message)
-  if message:find("lani") and not message:find("<just_laniakea>") and player:isLoaded() then
+  if message:find("lani") and not (message:find("<just_laniakea>") or message:find("<#just_laniakea>")) and player:isLoaded() then
     pings.sfx("entity.experience_orb.pickup",  0.5+math.random(0,4)/10)
     pings.sfx("entity.experience_orb.pickup",  0.2+math.random(0,4)/10)
   end
