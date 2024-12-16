@@ -98,6 +98,27 @@ if client.getVersion() == "1.19.2" then
       :item("minecraft:pumpkin"):title("Pumpkin Bombtrap")
       :onLeftClick(function() ChangeSpell(Pumpkill) end)
 
+    DripstoneRing = {
+        name="Dripstone Plate", id="dripstonearea",
+        hue1="6e5347", hue2="3a4c26",
+        nick="§6D§8P", poseAnim="poseRaiseStaffSlam",
+        mods={} 
+      }
+      hexPage:newAction(13)
+        :item("minecraft:dripstone_block"):title(DripstoneRing.name)
+        :onLeftClick(function() ChangeSpell(DripstoneRing) end)
+    
+    Transplace = {
+        name="Transplace", id="transplace",
+        hue1="a45dde", hue2="422d97",
+        nick="§dT§5P", poseAnim="poseRaiseStaff",
+        mods={} 
+      }
+      hexPage:newAction(14)
+        :item("minecraft:ender_pearl"):title(Transplace.name)
+        :onLeftClick(function() ChangeSpell(Transplace) end)
+    
+  
     --color each action
     for i,v in pairs(hexPage:getActions()) do v:hoverColor(vectors.hexToRGB("#462451")) end
   end
