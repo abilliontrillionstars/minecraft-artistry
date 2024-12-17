@@ -15,12 +15,18 @@ end
 
 function events.tick()
     if PENDOWN then
-        local posit = models.iris.ItemBrush.physBoneBrushTip.physBoneBrushTipTip.springForce:partToWorldMatrix():apply()
-        confetti.newParticle("inkdot", posit, nil,{
+        local posit
+        if models.iris.AnimBrush:getVisible() then
+            posit = models.iris.AnimBrush.physBoneBrushTip2.physBoneBrushTipTip2.springForce3:partToWorldMatrix():apply()
+        else
+            posit = models.iris.ItemBrush.physBoneBrushTip.physBoneBrushTipTip.springForce:partToWorldMatrix():apply()
+        end
+            confetti.newParticle("inkdot", posit, nil,
+        {
             billboard=true,
             ticker = function (particle) 
                 confetti.defaultTicker(particle)
-                particle.task:setColor(PENCOLOR)
+                particle.task:setColor(PENCOLOR) 
             end
         })
     end
