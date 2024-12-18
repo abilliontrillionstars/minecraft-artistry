@@ -9,12 +9,26 @@ models.iris.root:setVisible(true)
 models.iris.ItemBrush:setVisible(true)
 models.iris.ItemBrush.handleExtend:setVisible(false)
 models.iris.AnimBrush:setVisible(false)
-models.iris.AnimBrush.handleExtend:setVisible(false)
+models.iris.AnimBrush.holdPivot.handleExtend:setVisible(false)
 
 confetti.registerSprite("inkdot", textures["textures.ink_particle"], vec(0,0,0,0), 20)
 confetti.registerSprite("inkblot", textures["textures.ink_particle"], vec(0,0,0,0), 10)
 confetti.registerSprite("inksplotch", textures["textures.ink_particle"], vec(0,0,0,0), 10)
 
+function pings.playAnim(anim) 
+    if animations.iris[anim]:getLoop()=="LOOP" then
+      animations.iris[anim]:setPlaying(true)
+    else
+      animations.iris[anim]:play()
+    end
+end
+function pings.stopAnim(anim) 
+    if animations.iris[anim]:getLoop()=="LOOP" then
+      animations.iris[anim]:setPlaying(false)
+    else
+      animations.iris[anim]:stop()
+    end
+end
 
 BRUSHMODE = "WAND"
 function pings.ToggleBrushStaff()
@@ -54,6 +68,9 @@ mainPage:newAction()
 mainPage:newAction()
     :title("Test Brush-Staff"):item("lanishextendedstaves:extended_staff_spruce")
     :onLeftClick(function () pings.ToggleBrushStaff() end)
+mainPage:newAction(9)
+    :title("Test Casting Anim"):item("minecraft:end_portal_frame")
+    :onLeftClick(function () pings.playAnim("testStaffOrbit1") end)
 
 
 

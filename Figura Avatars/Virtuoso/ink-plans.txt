@@ -69,12 +69,15 @@ BLACK - Power, Mystery
     large overdrive-mode attacks
     spread-shot ink-slings?
     spooky, eldritch
+    @The abundance of hue blackens the air.@
 GRAY - Evanescence (?)  Forlornness
     mote/item manip?
     weakness, slowness, sloth
 LIGHT_GRAY - Change, Quiet
     block placing? item processing? trade?
+    phase block
     *Brush Shift: Exchange Wand?
 WHITE - Purity, Innocence
     invincibility, cant touch dis
     also overdrive-mode
+    @I can SEE the LIGHT@

@@ -17,7 +17,7 @@ function events.tick()
     if PENDOWN then
         local posit
         if models.iris.AnimBrush:getVisible() then
-            posit = models.iris.AnimBrush.physBoneBrushTip2.physBoneBrushTipTip2.springForce3:partToWorldMatrix():apply()
+            posit = models.iris.AnimBrush.holdPivot.physBoneBrushTip2.physBoneBrushTipTip2.springForce3:partToWorldMatrix():apply()
         else
             posit = models.iris.ItemBrush.physBoneBrushTip.physBoneBrushTipTip.springForce:partToWorldMatrix():apply()
         end
