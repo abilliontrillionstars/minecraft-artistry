@@ -1,5 +1,3 @@
-confetti = require("addons.confetti")
-require("pen")
 
 vanilla_model.PLAYER:setVisible(false)
 vanilla_model.ARMOR:setVisible(false)
@@ -11,9 +9,6 @@ models.iris.ItemBrush.handleExtend:setVisible(false)
 models.iris.AnimBrush:setVisible(false)
 models.iris.AnimBrush.holdPivot.handleExtend:setVisible(false)
 
-confetti.registerSprite("inkdot", textures["textures.ink_particle"], vec(0,0,0,0), 20)
-confetti.registerSprite("inkblot", textures["textures.ink_particle"], vec(0,0,0,0), 10)
-confetti.registerSprite("inksplotch", textures["textures.ink_particle"], vec(0,0,0,0), 10)
 
 function pings.playAnim(anim) 
     if animations.iris[anim]:getLoop()=="LOOP" then
@@ -28,6 +23,10 @@ function pings.stopAnim(anim)
     else
       animations.iris[anim]:stop()
     end
+end
+function pings.sfx(sound, pitch) 
+    if player:isLoaded() then 
+      sounds:playSound(sound, player:getPos(), 1, pitch) end 
 end
 
 BRUSHMODE = "WAND"
