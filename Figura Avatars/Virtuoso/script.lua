@@ -62,14 +62,11 @@ mainPage:newAction()
     :title("Test Apron Color"):item("botania:spectrolus")
     :onLeftClick(function () pings.ColorApron(vec(math.random(), math.random(), math.random())) end)
 mainPage:newAction()
-    :title("Chloe Apron Color"):item("botania:spectranthemum")
-    :onLeftClick(function () pings.ColorApron(vectors.hexToRGB("#69c67c")) end)
-mainPage:newAction()
-    :title("Test Brush-Staff"):item("lanishextendedstaves:extended_staff_spruce")
-    :onLeftClick(function () pings.ToggleBrushStaff() end)
-mainPage:newAction(9)
     :title("Test Casting Anim"):item("minecraft:end_portal_frame")
     :onLeftClick(function () pings.playAnim("testStaffOrbit1") end)
+    mainPage:newAction()
+    :title("Test Brush-Staff"):item("lanishextendedstaves:extended_staff_spruce")
+    :onLeftClick(function () pings.ToggleBrushStaff() end)
 
 
 

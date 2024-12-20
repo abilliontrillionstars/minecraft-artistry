@@ -61,7 +61,7 @@ function events.WORLD_RENDER(delta)
         else
             posit = models.iris.ItemBrush.physBoneBrushTip.physBoneBrushTipTip.springForce:partToWorldMatrix():apply()
         end
-        if (posit - lastposit):length() > 0.1 and not isCasting then
+        if (posit - lastposit):length() > 0.2 and not isCasting then
             confetti.newParticle("inkblot", posit, 
                 vec(math.random(),math.random(),math.random())/1000,
             {billboard=true,}
