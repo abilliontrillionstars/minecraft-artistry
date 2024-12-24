@@ -64,6 +64,7 @@ GREEN - Balance, Harmony
     cure spell
 ORANGE - Warmth, Comfort
     brewing drinks, tea, cooking
+    smelting, fire
 ------------------------------------------#
 BLACK - Power, Mystery
     large overdrive-mode attacks

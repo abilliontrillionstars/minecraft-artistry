@@ -65,9 +65,8 @@ mainPage:newAction()
     :title("Test Casting Anim"):item("minecraft:end_portal_frame")
     :onLeftClick(function () pings.playAnim("testStaffOrbit1") end)
     mainPage:newAction()
-    :title("Test Brush-Staff"):item("lanishextendedstaves:extended_staff_spruce")
+    :title("Test Brush-Staff"):item("hexcasting:staff/spruce")
     :onLeftClick(function () pings.ToggleBrushStaff() end)
-
 
 
 

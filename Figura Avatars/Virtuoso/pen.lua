@@ -1,7 +1,7 @@
 confetti = require("addons.confetti")
-confetti.registerSprite("inkdot", textures["textures.ink_particle"], vec(0,0,0,0), 20)
-confetti.registerSprite("inkblot", textures["textures.ink_particle"], vec(2,2,-1,-1), 20)
-confetti.registerSprite("inksplotch", textures["textures.ink_particle"], vec(3,3,-1,-1), 20)
+confetti.registerSprite("inkdot", textures["iris.ink_particle"], vec(0,0,0,0), 20)
+confetti.registerSprite("inkblot", textures["iris.ink_particle"], vec(2,2,-1,-1), 20)
+confetti.registerSprite("inksplotch", textures["iris.ink_particle"], vec(3,3,-1,-1), 20)
 
 PENDOWN = false
 PENCOLOR = vec(1,1,1)
@@ -55,7 +55,8 @@ function events.tick()
 end
 
 function events.WORLD_RENDER(delta)
-    if PENDOWN then
+    --[[
+    if PENDOWN and not isCasting then
         if models.iris.AnimBrush:getVisible() then
             posit = models.iris.AnimBrush.holdPivot.physBoneBrushTip2.physBoneBrushTipTip2.springForce3:partToWorldMatrix():apply()
         else
@@ -68,4 +69,5 @@ function events.WORLD_RENDER(delta)
             ).task:setColor(PENCOLOR):setRot(0,0,math.random(-100,100))
         end
     end
+    ]]
 end
