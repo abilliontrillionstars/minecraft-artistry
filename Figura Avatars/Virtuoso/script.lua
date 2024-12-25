@@ -9,6 +9,9 @@ models.iris.ItemBrush.handleExtend:setVisible(false)
 models.iris.AnimBrush:setVisible(false)
 models.iris.AnimBrush.holdPivot.handleExtend:setVisible(false)
 
+--------------------
+--HELPER FUNCTIONS--
+--------------------
 
 function pings.playAnim(anim) 
     if animations.iris[anim]:getLoop()=="LOOP" then
@@ -28,6 +31,23 @@ function pings.sfx(sound, pitch)
     if player:isLoaded() then 
       sounds:playSound(sound, player:getPos(), 1, pitch) end 
 end
+function SetVanillaParent(toggle)
+    if toggle then
+        models.iris.root.Head:setParentType("Head")
+        models.iris.root.Body:setParentType("Body")
+        models.iris.root.LeftArm:setParentType("LeftArm")
+        models.iris.root.RightArm:setParentType("RightArm")
+        models.iris.root.LeftLeg:setParentType("LeftLeg")
+        models.iris.root.RightLeg:setParentType("RightLeg")
+    else
+        models.iris.root.Head:setParentType("None")
+        models.iris.root.Body:setParentType("None")
+        models.iris.root.LeftArm:setParentType("None")
+        models.iris.root.RightArm:setParentType("None")
+        models.iris.root.LeftLeg:setParentType("None")
+        models.iris.root.RightLeg:setParentType("None")
+    end
+end
 
 BRUSHMODE = "WAND"
 function pings.ToggleBrushStaff()
@@ -37,7 +57,7 @@ function pings.ToggleBrushStaff()
         animations.iris["brushToWand"]:play()
     end
 end
-function pings.ColorApron(color)
+function pings.ColorMain(color)
     models.iris.root.LeftLeg.overall:setColor(color)
     models.iris.root.LeftLeg.pocket:setColor(color)
     models.iris.root.LeftLeg.overallFlap:setColor(color)
@@ -60,7 +80,7 @@ action_wheel:setPage(mainPage)
 
 mainPage:newAction()
     :title("Test Apron Color"):item("botania:spectrolus")
-    :onLeftClick(function () pings.ColorApron(vec(math.random(), math.random(), math.random())) end)
+    :onLeftClick(function () pings.ColorMain(vec(math.random(), math.random(), math.random())) end)
 mainPage:newAction()
     :title("Test Casting Anim"):item("minecraft:end_portal_frame")
     :onLeftClick(function () pings.playAnim("testStaffOrbit1") end)
@@ -68,14 +88,20 @@ mainPage:newAction()
     :title("Test Brush-Staff"):item("hexcasting:staff/spruce")
     :onLeftClick(function () pings.ToggleBrushStaff() end)
 
+    
+local sneakKey = keybinds:fromVanilla("key.sneak")
+keybinds:fromVanilla("key.jump").press = function()
+    if sneakKey:isPressed() then
+        pings.playAnim("jumpTwirlWand")
+    end
+end
 
 
-function events.item_render(item, mode)
-    if item:getID():find("staff") or item:getID()=="spectrum:paintbrush" or item:getID()=="hexgloop:casting_ring" then 
-        if host:getScreen() == "at.petrak.hexcasting.client.gui.GuiSpellcasting" and BRUSHMODE=="WAND" then
-            return models.iris.ItemBrush:setRot(-45,0,0)
+function events.mouse_press(button, action)    
+    if player:isLoaded() then
+        if player:getHeldItem():getID() == "spectrum:paintbrush" and action==1 and button==1 then
+        
         else
-            return models.iris.ItemBrush:setRot(-15,0,0) 
         end
     end
 end
