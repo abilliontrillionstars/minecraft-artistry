@@ -49,14 +49,7 @@ function SetVanillaParent(toggle)
     end
 end
 
-BRUSHMODE = "WAND"
-function pings.ToggleBrushStaff()
-    if BRUSHMODE=="WAND" then
-        animations.iris["brushToStaff"]:play()
-    else
-        animations.iris["brushToWand"]:play()
-    end
-end
+
 function pings.ColorMain(color)
     models.iris.root.LeftLeg.overall:setColor(color)
     models.iris.root.LeftLeg.pocket:setColor(color)
@@ -92,16 +85,50 @@ mainPage:newAction()
 local sneakKey = keybinds:fromVanilla("key.sneak")
 keybinds:fromVanilla("key.jump").press = function()
     if sneakKey:isPressed() then
-        pings.playAnim("jumpTwirlWand")
+        pings.playAnim("jumpSpin")
     end
 end
 
-
-function events.mouse_press(button, action)    
+LMBDown = false
+RMBDown = false
+MMBDown = false
+function events.mouse_press(button, action)
+    if action==1 then
+        if button==0 then
+            LMBDown = true
+        elseif button==1 then
+            RMBDown = true
+        elseif button==2 then
+            MMBDown = true
+        end
+    else
+        if button==0 then
+            LMBDown = false
+        elseif button==1 then
+            RMBDown = false
+        elseif button==2 then
+            MMBDown = false
+        end
+    end
     if player:isLoaded() then
         if player:getHeldItem():getID() == "spectrum:paintbrush" and action==1 and button==1 then
-        
-        else
+            pings.playAnim("slingInk1") 
+        end
+    end
+end
+
+IsSlinging = false
+function events.on_play_sound(id, pos)
+    --print(id)
+    if id == "spectrum:ink_projectile_launch" then
+        --alternate left-right sling arm swing anims
+        --don't interrupt the animation immediately after the first sling 
+        if animations.iris["slingInk1"]:isPlaying() and animations.iris["slingInk1"]:getTime() > 0.25 then
+            pings.stopAnim("slingInk1")    
+            pings.playAnim("slingInk2")
+        elseif animations.iris["slingInk2"]:isPlaying() then
+            pings.stopAnim("slingInk2")    
+            pings.playAnim("slingInk1")
         end
     end
 end

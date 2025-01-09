@@ -5,6 +5,7 @@ These animations are played by Figura, and hold instruction keyframes that send 
 cast hexes in time with them. Cassettes will be used to read property iotas to select the right 
 action to take.
 
+
 main page of the Action Wheel will start with 3 entries - TIME, MATTER, and ENERGY. these will
 represent the Magentas, Cyans, and Yellows, respectively. Their icons will of course be the 
 Amethyst, Citrine, and Topaz, with a fourth entry being unlocked when the grayscale pigments are 
@@ -15,13 +16,15 @@ then link to the spell lists.
 depending on the selected spell, right-clicking with the paintbrush can cancel the use of the item
 (thus not painting or slinging ink). we'll hook into events.use_item for this.
 
-### Tenants of Pigment Magic ###
+
+### Tenants of Pigment arcana ###
 some spells will 'summon' a Spectrum tool while featuring a special model for them, likely with a 
 look and feel similar to the paintbrush model. we'll call these "Brush Shifts". A brush shift will
 enqueue a cassette to mishap out the held item, mediafy the brush, and return the specified item. 
 this allows usage of some items to be preserved, saving on media usage and using Ink instead. for
 example, instead of casting Overgrowth on a target, we brush shift into the Nature Staff. tossing 
 out the shifted item will mediafy it and return the paintbrush as it were.
+
 
 
 ### Spectrum Hues + Symbology Reference ###

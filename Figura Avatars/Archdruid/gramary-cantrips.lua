@@ -42,13 +42,6 @@ if client.getVersion() == "1.19.2" then
       pings.playAnim("castDualOverheadHand")   
     end)
 
-  cantripPage:newAction(11)
-    :title("Call Perrin & Paddan"):item("minecraft:bone")
-    :onLeftClick(function() 
-      CantripString = "wolf0"
-      pings.playAnim("castDualOverheadHand")   
-    end)
-
     cantripPage:newAction()
     :title("Nature's Guillotine"):item("minecraft:pointed_dripstone")
     :onLeftClick(function() 
@@ -63,9 +56,29 @@ if client.getVersion() == "1.19.2" then
       pings.playAnim("castClapCharge")   
     end)
 
-  
+  cantripPage:newAction(10)
+    :title("Hextended Blink"):item("minecraft:ender_eye")
+    :onLeftClick(function() 
+      CantripString = "extblink0"
+      pings.playAnim("castHandSwirl")   
+    end) 
 
-  --[[
+  cantripPage:newAction(11)
+    :title("Fern Wall"):item("minecraft:fern")
+    :onLeftClick(function() 
+      CantripString = "fernwall0"
+      pings.playAnim("castClap")   
+    end) 
+
+
+  cantripPage:newAction(17)
+    :title("Summon Warden"):item("minecraft:sculk_catalyst")
+    :onLeftClick(function() 
+      CantripString = "warden0"
+      pings.playAnim("castClapCharge")   
+    end) 
+
+--[[
   cantripPage:newAction()
     :title("Reflect & Cast"):item("hexcasting:artifact")
     :onLeftClick(function() pings.playAnim("castFromSpellbook") end)

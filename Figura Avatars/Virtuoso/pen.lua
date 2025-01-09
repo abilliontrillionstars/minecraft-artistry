@@ -36,7 +36,7 @@ function events.tick()
         if (posit - lastposit):length() > 0.3 and not isCasting then
             ptcl = "inksplotch" 
             --make a particle in between the two
-            confetti.newParticle("inkblot",  lastposit+(lastposit - posit)/2, 
+            confetti.newParticle("inkblot", lastposit+(lastposit - posit)/2, 
                 vec(math.random(),math.random(),math.random())/1000,
                 {billboard=true}
             ).task:setColor(PENCOLOR):setRot(0,0,math.random(-100,100))
