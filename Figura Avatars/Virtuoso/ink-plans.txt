@@ -1,4 +1,9 @@
 --Virtuoso Ink Magic Plans--
+
+useful links:
+- spectrum particle registry
+https://github.com/DaFuqs/Spectrum/blob/1.20.1-aria-for-painters/src/main/java/de/dafuqs/spectrum/particle/SpectrumParticleTypes.java
+
 ### Mechanics ###
 Spells will mostly consist of animations that sling ink in the form of particle lines or splines. 
 These animations are played by Figura, and hold instruction keyframes that send chat messages to 
@@ -17,7 +22,7 @@ depending on the selected spell, right-clicking with the paintbrush can cancel t
 (thus not painting or slinging ink). we'll hook into events.use_item for this.
 
 
-### Tenants of Pigment arcana ###
+### Tenants of Pigment Arcana ###
 some spells will 'summon' a Spectrum tool while featuring a special model for them, likely with a 
 look and feel similar to the paintbrush model. we'll call these "Brush Shifts". A brush shift will
 enqueue a cassette to mishap out the held item, mediafy the brush, and return the specified item. 

@@ -1,3 +1,5 @@
+--[[
+
 --muliplier for the bounds of the arm waving
 ANGLEMOD = 1
 --whether or not to additionally tilt the casting item, for ping rate budgeting
@@ -84,3 +86,5 @@ function events.mouse_press(button, action)
         end
     end
 end
+
+]]--

@@ -5,7 +5,7 @@ vanilla_model.ELYTRA:setVisible(false)
 --vanilla_model.ALL:setVisible(false)
 models.iris.root:setVisible(true)
 models.iris.ItemBrush:setVisible(true)
-models.iris.ItemBrush.handleExtend:setVisible(false)
+models.iris.ItemBrush.holdPivot2.handleExtend:setVisible(false)
 models.iris.AnimBrush:setVisible(false)
 models.iris.AnimBrush.holdPivot.handleExtend:setVisible(false)
 

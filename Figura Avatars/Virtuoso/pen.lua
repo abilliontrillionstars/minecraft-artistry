@@ -5,6 +5,7 @@ confetti.registerSprite("inksplotch", textures["iris.ink_particle"], vec(3,3,-1,
 
 PENDOWN = false
 PENCOLOR = vec(1,1,1)
+PENCOLOR_DYE_STRING = "white"
 PENWIDTH = 1
 
 local isCasting = host:getScreen() == "at.petrak.hexcasting.client.gui.GuiSpellcasting"
@@ -31,7 +32,7 @@ function events.tick()
         if models.iris.AnimBrush:getVisible() then
             posit = models.iris.AnimBrush.holdPivot.physBoneBrushTip2.physBoneBrushTipTip2.springForce3:partToWorldMatrix():apply()
         else
-            posit = models.iris.ItemBrush.physBoneBrushTip.physBoneBrushTipTip.springForce:partToWorldMatrix():apply()
+            posit = models.iris.ItemBrush.holdPivot2.physBoneBrushTip.physBoneBrushTipTip.springForce:partToWorldMatrix():apply()
         end
         if (posit - lastposit):length() > 0.3 and not isCasting then
             ptcl = "inksplotch" 
