@@ -18,8 +18,6 @@ introduced, bearing the <VOID> at first, then changing to <LIFE> at the peak of 
 these 4 actions will then link to 4 subpages (for the subhues under each 4 main hues), which will
 then link to the spell lists.
 
-depending on the selected spell, right-clicking with the paintbrush can cancel the use of the item
-(thus not painting or slinging ink). we'll hook into events.use_item for this.
 
 
 ### Tenants of Pigment Arcana ###
