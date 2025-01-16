@@ -68,18 +68,6 @@ function pings.ColorMain(color)
     PENCOLOR=color
 end
 
-local mainPage = action_wheel:newPage()
-action_wheel:setPage(mainPage)
-
-mainPage:newAction()
-    :title("Test Apron Color"):item("botania:spectrolus")
-    :onLeftClick(function () pings.ColorMain(vec(math.random(), math.random(), math.random())) end)
-mainPage:newAction()
-    :title("Test Casting Anim"):item("minecraft:end_portal_frame")
-    :onLeftClick(function () pings.playAnim("testStaffOrbit1") end)
-    mainPage:newAction()
-    :title("Test Brush-Staff"):item("hexcasting:staff/spruce")
-    :onLeftClick(function () pings.ToggleBrushStaff() end)
 
     
 local sneakKey = keybinds:fromVanilla("key.sneak")
