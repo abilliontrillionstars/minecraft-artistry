@@ -42,6 +42,9 @@ CYAN - Integrity
 LIGHT_BLUE - Luck, Peace
     *Brush Shift: Moon Clock
     moon imagery, scrying?
+    cold, freezing, slowness?
+    *Gear: Reach Gloves, 
+    *Gear: Glow Goggles
 BLUE - Permanence, Safety
     shielding, blockades
     *Gear: Azure Dike
@@ -51,23 +54,32 @@ LIME - Happiness, Fertility
 ------------------------------------------#
 MAGENTA - Kindness, Tolerance
     *Brush Shift: Celestial Pocketwatch 
+    subdue w/o damage
+    low-level defense
+    stasis (time stop/slow)
 PINK - Health, Admiration
     regeneration, absorption
     *Gear: Heartsinger's Reward
 PURPLE - Wisdom, Creativity
     *Brush Shift: Knowledge Gem
     enchantments, design
+    visual hexes
+    scrying?
 RED - Passion, Willpower
-    strength
+    strength, damage, knockback
     *Brush Shift: Dreamslayer(?)
 ------------------------------------------#
 YELLOW - Joy
     *Brush Shift: Illume Wand
     haste, invigoration
+    lightning ofc
 BROWN - Nature, Stability
     trees, home, biomes
+    terraforming
 GREEN - Balance, Harmony
     cure spell
+    extinguisher
+    water summoning
 ORANGE - Warmth, Comfort
     brewing drinks, tea, cooking
     smelting, fire
@@ -76,6 +88,7 @@ BLACK - Power, Mystery
     large overdrive-mode attacks
     spread-shot ink-slings?
     spooky, eldritch
+    explosions
     @The abundance of hue blackens the air.@
 GRAY - Evanescence (?)  Forlornness
     mote/item manip?
@@ -88,3 +101,4 @@ WHITE - Purity, Innocence
     invincibility, cant touch dis
     also overdrive-mode
     @I can SEE the LIGHT@
+    glowing?

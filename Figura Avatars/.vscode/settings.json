@@ -7,5 +7,27 @@
   ],
   "[lua]": {
     "editor.suggest.showDeprecated": false
-  }
+  },
+  "Lua.diagnostics.globals": [
+    "action_wheel",
+    "vectors",
+    "models",
+    "animations",
+    "pings",
+    "host",
+    "events",
+    "vec",
+    "textures",
+    "client",
+    "vanilla_model",
+    "player",
+    "keybinds",
+    "avatar",
+    "sounds",
+    "world",
+    "renderer"
+  ],
+  "Lua.diagnostics.disable": [
+    "duplicate-set-field"
+  ]
 }

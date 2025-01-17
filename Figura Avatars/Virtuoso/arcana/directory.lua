@@ -6,13 +6,9 @@
 local mainPage = action_wheel:newPage()
 action_wheel:setPage(mainPage)
 
-local testPage = action_wheel:newPage()
-mainPage:newAction()
-    :title("Testing"):item("minecraft:paper")
-    :onLeftClick(function() action_wheel:setPage(mainPage) end)
 local CMYKPage = action_wheel:newPage()
 mainPage:newAction()
-    :title("Chromatic Arcana"):item("spectrum:pigment_palette")
+    :title("Ink Arcana"):item("spectrum:pigment_palette")
     :onLeftClick(function() action_wheel:setPage(CMYKPage) end)
 
 TopazPage = action_wheel:newPage()
@@ -32,13 +28,16 @@ CMYKPage:newAction()
     :title("TIME"):item("minecraft:amethyst_shard")
     :setHoverColor(vectors.hexToRGB("F0F"))
     :onLeftClick(function() action_wheel:setPage(AmethystPage) end)
---uncomment this when the TIME IS RiGHT 
+--uncomment this when the TIME IS RIGHT 
 --[[
 CMYKPage:newAction()
     :title("VOID"):item("spectrum:onyx_shard")
     :setHoverColor(vectors.hexToRGB("000"))
     :onLeftClick(function() action_wheel:setPage(OnyxPage) end)
 ]]--
+
+
+
 
 CyanPage = action_wheel:newPage()
 LightBluePage = action_wheel:newPage()
@@ -90,6 +89,7 @@ YellowPage = action_wheel:newPage()
 BrownPage = action_wheel:newPage()
 GreenPage = action_wheel:newPage()
 OrangePage = action_wheel:newPage()
+
 CitrinePage:newAction()
     :title("Yellow"):item("minecraft:yellow_dye")
     :setHoverColor(vectors.hexToRGB("fed83d"))
@@ -112,34 +112,20 @@ BlackPage = action_wheel:newPage()
 GrayPage = action_wheel:newPage()
 LightGrayPage = action_wheel:newPage()
 WhitePage = action_wheel:newPage()
-BlackPage:newAction()
+
+OnyxPage:newAction()
     :title("Black"):item("minecraft:black_dye")
     :setHoverColor(vectors.hexToRGB("1d1d21"))
     :onLeftClick(function() action_wheel:setPage(BlackPage) end)
-GrayPage:newAction()
+OnyxPage:newAction()
     :title("Gray"):item("minecraft:gray_dye")
     :setHoverColor(vectors.hexToRGB("474f52"))
     :onLeftClick(function() action_wheel:setPage(GrayPage) end)
-LightGrayPage:newAction()
+OnyxPage:newAction()
     :title("Light Gray"):item("minecraft:light_gray_dye")
     :setHoverColor(vectors.hexToRGB("9d9d97"))
     :onLeftClick(function() action_wheel:setPage(LightGrayPage) end)
-WhitePage:newAction()
+OnyxPage:newAction()
     :title("White"):item("minecraft:white_dye")
     :setHoverColor(vectors.hexToRGB("f9fffe"))
     :onLeftClick(function() action_wheel:setPage(WhitePage) end)
-
-
-
-
-
-    
-testPage:newAction()
-    :title("Test Apron Color"):item("botania:spectrolus")
-    :onLeftClick(function() pings.ColorMain(vec(math.random(), math.random(), math.random())) end)
-testPage:newAction()
-    :title("Test Casting Anim"):item("minecraft:end_portal_frame")
-    :onLeftClick(function() pings.playAnim("testStaffOrbit1") end)
-testPage:newAction()
-    :title("Test Brush-Staff"):item("hexcasting:staff/spruce")
-    :onLeftClick(function() pings.ToggleBrushStaff() end)

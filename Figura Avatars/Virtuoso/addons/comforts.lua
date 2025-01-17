@@ -17,7 +17,7 @@ function events.on_play_sound(id, pos)
 
 
         --replace explosions with polite firework booms, or cancel duplicates of them
-        if path and id:find("explode") and (pos - player:getPos()):lengthSquared() < 32^2 then
+        if id:find("explode") and (pos - player:getPos()):lengthSquared() < 32^2 then
             if not watchForSpam then
                 sounds["entity.firework_rocket.large_blast"]:pos(pos):play()
             end

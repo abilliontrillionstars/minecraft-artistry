@@ -19,9 +19,7 @@ end
 
 function events.item_render(item, mode)
     local id = item:getID()
-    
     if brushSkins[id] then return brushSkins[id] end
-
     if id:find("staff") then
         if host:getScreen() == "at.petrak.hexcasting.client.gui.GuiSpellcasting" and BRUSHMODE=="WAND" then
             return models.iris.ItemBrush:setRot(-45,0,0)

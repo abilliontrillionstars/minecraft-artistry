@@ -216,7 +216,7 @@ if ENABLEROOTS then
   spellPage:newAction()
     :item("minecraft:rose_bush"):title("Rose Thorns")
     :onLeftClick(function() ChangeSpell(RoseThorns) end)
-    :onRightClick(function() action_wheel:setPage(ModPageRS) end)
+    :onRightClick(function() action_wheel:setPage(ModPageRT) end)
   spellPage:newAction()
     :item("minecraft:dandelion"):title("Dandelion Winds")
     :onLeftClick(function() ChangeSpell(DandelionWinds) end)

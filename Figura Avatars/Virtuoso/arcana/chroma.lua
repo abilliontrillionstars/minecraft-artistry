@@ -1,0 +1,15 @@
+
+local testPage = action_wheel:newPage()
+mainPage:newAction()
+    :title("Other"):item("spectrum:paintbrush")
+    :onLeftClick(function() action_wheel:setPage(mainPage) end)
+
+testPage:newAction()
+    :title("Test Apron Color"):item("botania:spectrolus")
+    :onLeftClick(function() pings.ColorMain(vec(math.random(), math.random(), math.random())) end)
+testPage:newAction()
+    :title("Test Casting Anim"):item("minecraft:end_portal_frame")
+    :onLeftClick(function() pings.playAnim("testStaffOrbit1") end)
+testPage:newAction()
+    :title("Test Brush-Staff"):item("hexcasting:staff/spruce")
+    :onLeftClick(function() pings.ToggleBrushStaff() end)
