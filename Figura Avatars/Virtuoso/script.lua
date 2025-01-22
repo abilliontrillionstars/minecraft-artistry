@@ -67,7 +67,9 @@ function pings.ColorMain(color)
 
     PENCOLOR=color
 end
-
+function pings.ColorFX(color)
+    PENCOLOR_DYE_STRING=color
+end
 
     
 local sneakKey = keybinds:fromVanilla("key.sneak")

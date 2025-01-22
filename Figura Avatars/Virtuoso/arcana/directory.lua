@@ -1,13 +1,16 @@
+MainPage = action_wheel:newPage()
+action_wheel:setPage(MainPage)
 
------------
---TODO: make an arcana.lua (name wip) for actual arcana actions. this file is *just* for nav
------------
+events.TICK:register(function ()
+    if action_wheel:getCurrentPage() ~= MainPage and not action_wheel:isEnabled()
+      then action_wheel:setPage(MainPage) end
+end)
 
-local mainPage = action_wheel:newPage()
-action_wheel:setPage(mainPage)
 
-local CMYKPage = action_wheel:newPage()
-mainPage:newAction()
+
+
+CMYKPage = action_wheel:newPage()
+MainPage:newAction(2)
     :title("Ink Arcana"):item("spectrum:pigment_palette")
     :onLeftClick(function() action_wheel:setPage(CMYKPage) end)
 

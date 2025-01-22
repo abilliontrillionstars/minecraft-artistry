@@ -1,7 +1,7 @@
 confetti = require("addons.confetti")
-confetti.registerSprite("inkdot", textures["iris.ink_particle"], vec(0,0,0,0), 20)
-confetti.registerSprite("inkblot", textures["iris.ink_particle"], vec(2,2,-1,-1), 20)
-confetti.registerSprite("inksplotch", textures["iris.ink_particle"], vec(3,3,-1,-1), 20)
+confetti.registerSprite("inkdot", textures["textures.ink_particle"], vec(0,0,0,0), 20)
+confetti.registerSprite("inkblot", textures["textures.ink_particle"], vec(2,2,-1,-1), 20)
+confetti.registerSprite("inksplotch", textures["textures.ink_particle"], vec(3,3,-1,-1), 20)
 
 PENDOWN = false
 PENCOLOR = vec(1,1,1)

@@ -1,4 +1,3 @@
---[[
 
 --muliplier for the bounds of the arm waving
 ANGLEMOD = 1
@@ -22,6 +21,7 @@ local isCasting
 
 function pings.waveArm(x, y)
     --host:setActionbar(x..", "..y)
+    --castingArm:setParentType("None")
     castingArm:setRot(x,y,0)
 end
 function pings.tiltStaff(toggle)
@@ -58,7 +58,7 @@ function events.tick()
         --factor in ANGLEMOD
         mousePos = vec(mousePos[1]*ANGLEMOD, mousePos[2]*ANGLEMOD)
         --extend the arm out, just a tad
-        mousePos[1] = mousePos[1]+30
+        mousePos[1] = mousePos[1]
         --now, FLOOR IT! *epic chase scene*
         --this is for ping data rates, makes the numbers 2 bytes long
         mousePos = vec(math.floor(mousePos[1]), math.floor(mousePos[2]))
@@ -86,5 +86,3 @@ function events.mouse_press(button, action)
         end
     end
 end
-
-]]--
