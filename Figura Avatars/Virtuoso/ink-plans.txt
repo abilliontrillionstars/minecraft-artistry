@@ -42,9 +42,10 @@ CYAN - Integrity
 LIGHT_BLUE - Luck, Peace
     *Brush Shift: Moon Clock
     moon imagery, scrying?
+    water summoning
+    night vision
     cold, freezing, slowness?
-    *Gear: Reach Gloves, 
-    *Gear: Glow Goggles
+    *Gear: Reach Gloves
 BLUE - Permanence, Safety
     shielding, blockades
     *Gear: Azure Dike
@@ -54,8 +55,7 @@ LIME - Happiness, Fertility
 ------------------------------------------#
 MAGENTA - Kindness, Tolerance
     *Brush Shift: Celestial Pocketwatch 
-    subdue w/o damage
-    low-level defense
+    subdue w/o damage, low-level defense
     stasis (time stop/slow)
 PINK - Health, Admiration
     regeneration, absorption
@@ -64,7 +64,7 @@ PURPLE - Wisdom, Creativity
     *Brush Shift: Knowledge Gem
     enchantments, design
     visual hexes
-    scrying?
+    summon meshes as markers
 RED - Passion, Willpower
     strength, damage, knockback
     *Brush Shift: Dreamslayer(?)
@@ -79,7 +79,6 @@ BROWN - Nature, Stability
 GREEN - Balance, Harmony
     cure spell
     extinguisher
-    water summoning
     *Warp: Wheel HQ
 ORANGE - Warmth, Comfort
     brewing drinks, tea, cooking

@@ -32,12 +32,11 @@ CMYKPage:newAction()
     :setHoverColor(vectors.hexToRGB("F0F"))
     :onLeftClick(function() action_wheel:setPage(AmethystPage) end)
 --uncomment this when the TIME IS RIGHT 
---[[
 CMYKPage:newAction()
     :title("VOID"):item("spectrum:onyx_shard")
     :setHoverColor(vectors.hexToRGB("000"))
     :onLeftClick(function() action_wheel:setPage(OnyxPage) end)
-]]--
+
 
 
 
