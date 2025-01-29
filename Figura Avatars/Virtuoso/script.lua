@@ -49,6 +49,14 @@ function SetVanillaParent(toggle)
     end
 end
 
+local sneakKey = keybinds:fromVanilla("key.sneak")
+  local wristPocketKey = keybinds:newKeybind("Quick Wristpocket Spell", "key.keyboard.c", false)
+  wristPocketKey.press = function() 
+    if sneakKey:isPressed() then
+      pings.playAnim("castFlickWrist")
+    end
+  end
+
 
 function pings.ColorMain(color)
     models.iris.root.LeftLeg.overall:setColor(color)
