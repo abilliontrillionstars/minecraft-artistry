@@ -29,5 +29,6 @@
   ],
   "Lua.diagnostics.disable": [
     "duplicate-set-field"
-  ]
+  ],
+  "figura.librariesFolderPath": "/home/billiontrillionstars/.local/share/.minecraft/figura/avatars/libraries/"
 }
