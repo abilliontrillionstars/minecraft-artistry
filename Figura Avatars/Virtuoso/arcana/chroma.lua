@@ -18,12 +18,20 @@ testPage:newAction()
     :onLeftClick(function() pings.ToggleBrushStaff() end)
 
 OrangePage:newAction()
-    :title("Ignite Monsters"):item("minecraft:fire_charge")
+    :title("Combust Monsters"):item("minecraft:fire_charge")
+    :onLeftClick(function() 
+        pings.ColorFX("orange")
+        ArcanaString = "area:monster:combust"
+        pings.playAnim("castStaffOrbit1") 
+    end)
+OrangePage:newAction()
+    :title("Ignite Monsters"):item("minecraft:flint_and_steel")
     :onLeftClick(function() 
         pings.ColorFX("orange")
         ArcanaString = "area:monster:ignite"
-        pings.playAnim("castStaffOrbit1") 
+        pings.playAnim("castInkCross1") 
     end)
+
 PinkPage:newAction()
     :title("Heal Players"):item("minecraft:glistering_melon_slice")
     :onLeftClick(function() 
@@ -60,6 +68,21 @@ CyanPage:newAction()
     :onLeftClick(function() 
         pings.ColorFX("cyan")
         ArcanaString = "brush-shift:multitool"
+        pings.playAnim("castSpinRaiseWand") 
+    end)
+
+GreenPage:newAction()
+    :title("Warp Home"):item("minecraft:dark_oak_sapling")
+    :onLeftClick(function() 
+        pings.ColorFX("green")
+        ArcanaString = "area:player:gate:home"
+        pings.playAnim("castSpinRaiseWand") 
+    end)
+PurplePage:newAction()
+    :title("Warp to Wheel HQ"):item("supplementaries:statue")
+    :onLeftClick(function() 
+        pings.ColorFX("purple")
+        ArcanaString = "area:player:gate:wheel"
         pings.playAnim("castSpinRaiseWand") 
     end)
 

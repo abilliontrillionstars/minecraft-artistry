@@ -80,6 +80,7 @@ GREEN - Balance, Harmony
     cure spell
     extinguisher
     *Warp: Wheel HQ
+    *Warp: Home
 ORANGE - Warmth, Comfort
     brewing drinks, tea, cooking
     smelting, fire
@@ -89,6 +90,7 @@ BLACK - Power, Mystery
     spread-shot ink-slings?
     spooky, eldritch
     explosions
+    "hold in air and springlock" hex
     @The abundance of hue blackens the air.@
 GRAY - Evanescence (?)  Forlornness
     mote/item manip?

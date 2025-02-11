@@ -130,3 +130,12 @@ function events.on_play_sound(id, pos)
         end
     end
 end
+
+
+
+function AnimsPlaying()
+    for _, anim in ipairs(animations:getAnimations()) do
+        if anim:isPlaying() then return true end
+    end
+    return false
+end
