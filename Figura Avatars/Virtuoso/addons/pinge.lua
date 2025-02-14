@@ -6,7 +6,7 @@ function events.chat_receive_message(message, asJson)
     --print(message)
 
     message=string.lower(message)
-    if message:find(nick) and not (message:find("<"..username..">") or message:find("<#"..username..">")) and player:isLoaded() then
+    if message:find(nick) and not (message:find("<"..username..">") or message:find("<#"..username..">") or message:find("<"..username.." @Wheel>")) and player:isLoaded() then
         pitch=math.random(3,9)/10
         pings.sfx("entity.experience_orb.pickup",  pitch)
         pings.sfx("entity.experience_orb.pickup",  pitch*2)

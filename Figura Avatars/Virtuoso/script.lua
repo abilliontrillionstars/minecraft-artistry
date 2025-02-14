@@ -49,6 +49,26 @@ function SetVanillaParent(toggle)
     end
 end
 
+function SendArcana(message, anim, color)
+    ArcanaString = message
+    pings.playAnim(anim) 
+
+    -- cache the arcana
+    if color then
+        ArcanaCache[color].message = message
+        ArcanaCache[color].anim = anim
+
+        pings.ColorFX(color)
+    end
+end
+
+function AnimsPlaying()
+    for _, anim in ipairs(animations:getAnimations()) do
+        if anim:isPlaying() then return true end
+    end
+    return false
+end
+
 local sneakKey = keybinds:fromVanilla("key.sneak")
   local wristPocketKey = keybinds:newKeybind("Quick Wristpocket Spell", "key.keyboard.c", false)
   wristPocketKey.press = function() 
@@ -129,13 +149,4 @@ function events.on_play_sound(id, pos)
             pings.playAnim("slingInk1")
         end
     end
-end
-
-
-
-function AnimsPlaying()
-    for _, anim in ipairs(animations:getAnimations()) do
-        if anim:isPlaying() then return true end
-    end
-    return false
 end
