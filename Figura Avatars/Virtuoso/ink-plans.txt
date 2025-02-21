@@ -65,6 +65,7 @@ PURPLE - Wisdom, Creativity
     enchantments, design
     visual hexes
     summon meshes as markers
+    *Warp: Wheel HQ
 RED - Passion, Willpower
     strength, damage, knockback
     *Brush Shift: Dreamslayer(?)
@@ -79,7 +80,6 @@ BROWN - Nature, Stability
 GREEN - Balance, Harmony
     cure spell
     extinguisher
-    *Warp: Wheel HQ
     *Warp: Home
 ORANGE - Warmth, Comfort
     brewing drinks, tea, cooking

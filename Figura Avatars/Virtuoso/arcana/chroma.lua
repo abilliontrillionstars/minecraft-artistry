@@ -32,6 +32,13 @@ PinkPage:newAction()
 YellowPage:newAction()
     :title("Brush Shift: Radiance Staff"):item("spectrum:radiance_staff")
     :onLeftClick(function() SendArcana("brush-shift:radiance staff", "castSpinRaiseWand", "yellow") end)
+YellowPage:newAction()
+    :title("Bestow Elytra"):item("minecraft:elytra")
+    :onLeftClick(function() SendArcana("area:player:altiora", "castSpinRaiseWand", "yellow") end)
+YellowPage:newAction()
+    :title("Bestow Flight"):item("minecraft:feather")
+    :onLeftClick(function() SendArcana("area:player:anchorite", "castArmsOut1", "yellow") end)
+
 
 LimePage:newAction()
     :title("Brush Shift: Nature's Staff"):item("spectrum:natures_staff")
@@ -51,7 +58,11 @@ GreenPage:newAction()
 
 PurplePage:newAction()
     :title("Warp to Wheel HQ"):item("supplementaries:statue")
-    :onLeftClick(function() SendArcana("area:player:gate:wheel", "castSpinRaiseWand", 'purple') end)
+    :onLeftClick(function() SendArcana("area:player:gate:wheel", "castSpinRaiseWand", "purple") end)
+
+BluePage:newAction()
+    :title("Self Aegis"):item("ephemera:media_chestplate")
+    :onLeftClick(function() SendArcana("self-aegis", "castInkCross1", "blue") end)
 
 
 
