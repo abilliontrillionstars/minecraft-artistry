@@ -4,16 +4,16 @@ ArcanaCache = {
     cyan={message="brush-shift:multitool", anim="castSpinRaiseWand"},
     light_blue={message="", anim=""},
     blue={message="self-aegis", anim="castInkCross1"},
-    lime={message="brush-shift:natures staff", anim="castSpinRaiseWand"},
+    lime={message="brush-shift:nature's staff", anim="castSpinRaiseWand"},
     -- TIME
     magenta={message="", anim=""},
     pink={message="area:player:heal", anim="castArmsOut1"},
-    purple={message="area:player:gate:wheel", anim="castSpinRaiseWand"},
+    purple={message="area:player:gate:wheel", anim="castInkCircle1"},
     red={message="", anim=""},
     -- ENERGY
     yellow={message="brush-shift:radiance staff", anim="castSpinRaiseWand"},
     brown={message="", anim=""},
-    green={message="area:player:gate:home", anim="castSpinRaiseWand"},
+    green={message="area:player:gate:home", anim="castInkCircle1"},
     orange={message="", anim=""},
     -- VOID
     black={message="", anim=""},

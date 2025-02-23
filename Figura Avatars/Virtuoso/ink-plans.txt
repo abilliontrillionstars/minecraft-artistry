@@ -42,7 +42,6 @@ CYAN - Integrity
 LIGHT_BLUE - Luck, Peace
     *Brush Shift: Moon Clock
     moon imagery, scrying?
-    water summoning
     night vision
     cold, freezing, slowness?
     *Gear: Reach Gloves
@@ -77,6 +76,7 @@ YELLOW - Joy
 BROWN - Nature, Stability
     trees, home, biomes
     terraforming
+    water summoning
 GREEN - Balance, Harmony
     cure spell
     extinguisher
