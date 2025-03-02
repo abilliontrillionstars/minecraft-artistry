@@ -150,3 +150,19 @@ function events.on_play_sound(id, pos)
         end
     end
 end
+
+
+--[[
+local checkColor = false
+function events.chat_receive_message(message) 
+    if message:find("joined the game") then
+        checkColor = true
+    end
+end
+function events.tick()
+    if player:isLoaded() and checkColor then
+        pings.ColorMain(avatar:getColor())
+        checkColor = false
+    end
+end
+]]--

@@ -1,0 +1,64 @@
+
+
+### Spectrum Hues + Symbology Reference ###
+CYAN   | MAGENTA | YELLOW | BLACK | WHITE |
+MATTER |  TIME   | ENERGY | VOID  | LIFE  |
+------------------------------------------#
+CYAN - Integrity
+    [*] brush-shift:multitool
+    [+] brush-shift:construction wand
+
+LIGHT_BLUE - Luck, Peace
+    [+] brush-shift:moon clock
+    [+] snowball throwing
+    [+] mass slowness+winds
+
+BLUE - Permanence, Safety
+    [*] self-aegis
+    [+] channeled forcefield
+        *change pigment temp
+    [+] projectile reflector wisp
+        *change pigment temp for wisp
+
+LIME - Happiness, Fertility
+    [*] brush-shift:nature's staff
+    [+] plant growth (snerry part 2)
+
+------------------------------------------#
+MAGENTA - Kindness, Tolerance
+    [+] mass stasis wisp deploy
+
+PINK - Health, Admiration
+    [*] regeneration
+PURPLE - Wisdom, Creativity
+    [*] gate:wheel
+    [*] gate:acad
+    
+RED - Passion, Willpower
+    [*] throw into air+damage
+
+------------------------------------------#
+YELLOW - Joy
+    [*] brush-shift:radiance staff
+    [*] bestow elytra
+BROWN - Nature, Stability
+    [*] water summoning
+GREEN - Balance, Harmony
+    [*] cure
+    [*] gate:home
+ORANGE - Warmth, Comfort
+    [*] explode+fire
+    [*] ignite
+    [*] bulk smelting
+    [+] fireballs
+
+------------------------------------------#
+BLACK - Power, Mystery
+    [+] 
+
+GRAY - Evanescence, Forlornness
+    [*] mass mediafy
+
+LIGHT_GRAY - Change, Quiet
+
+WHITE - Purity, Innocence

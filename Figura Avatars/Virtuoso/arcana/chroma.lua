@@ -44,9 +44,16 @@ PinkPage:newAction()
 PurplePage:newAction()
     :title("Warp to Wheel HQ"):item("supplementaries:statue")
     :onLeftClick(function() SendArcana("area:player:gate:wheel", "castInkCircle1", "purple") end)
+PurplePage:newAction()
+    :title("Warp to the Academy"):item("minecraft:lectern")
+    :onLeftClick(function() SendArcana("area:player:gate:acad", "castInkCircle1", "purple") end)
+
 RedPage:newAction()
     :title("Toss Monsters"):item("minecraft:creeper_head")
-    :onLeftClick(function() SendArcana("area:living:toss", "castStaffOrbit1", "red") end)
+    :onLeftClick(function() SendArcana("area:monster:toss:foo", "castStaffOrbit1", "red") end)
+RedPage:newAction()
+    :title("Warp to the Pale Garden"):item("minecraft:wither_rose")
+    :onLeftClick(function() SendArcana("area:player:gate:greenland", "castInkCircle1", "red") end)
 
 --------------------------
 --------- ENERGY ---------

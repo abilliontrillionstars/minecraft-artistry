@@ -1,3 +1,4 @@
+--[[
 local tex = textures:newTexture("white", 1, 1)
 tex:fill(0, 0, 1, 1, 1, 1, 1, 1)
 tex:update()
@@ -61,3 +62,4 @@ function events.render(delta)
         end
     end
 end
+]]--

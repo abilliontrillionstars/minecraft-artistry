@@ -9,12 +9,12 @@ ArcanaCache = {
     magenta={message="", anim=""},
     pink={message="area:player:heal", anim="castArmsOut1"},
     purple={message="area:player:gate:wheel", anim="castInkCircle1"},
-    red={message="", anim=""},
+    red={message="area:monster:toss:foo", anim="castStaffOrbit1"},
     -- ENERGY
     yellow={message="brush-shift:radiance staff", anim="castSpinRaiseWand"},
     brown={message="", anim=""},
     green={message="area:player:gate:home", anim="castInkCircle1"},
-    orange={message="", anim=""},
+    orange={message="area:monster:ignite", anim="castInkCross1"},
     -- VOID
     black={message="", anim=""},
     gray={message="", anim=""},
