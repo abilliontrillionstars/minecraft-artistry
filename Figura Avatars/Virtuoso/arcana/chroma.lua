@@ -24,33 +24,51 @@ testPage:newAction()
 --------------------------
 CyanPage:newAction()
     :title("Brush Shift: Multitool"):item("spectrum:multitool")
-    :onLeftClick(function() SendArcana("brush-shift:multitool", "castSpinRaiseWand", "cyan") end)
+    :onLeftClick(function() SendArcana("brush-shift:multitool", "castArmsIn1", "cyan") end)
+
 LightBluePage:newAction()
     :title("Glow Vision"):item("minecraft:glow_ink_sac")
     :onLeftClick(function() SendArcana("area:player:night-vision", "castInkCross1", "light_blue") end)
+LightBluePage:newAction()
+    :title("Freeze Monsters"):item("minecraft:packed_ice")
+    :onLeftClick(function() SendArcana("area:monster:freeze", "castArmsOut2", "light_blue") end)
+
 BluePage:newAction()
-    :title("Self Aegis"):item("ephemera:media_chestplate")
+    :title("Don Magic Plate"):item("ephemera:media_chestplate")
     :onLeftClick(function() SendArcana("self-aegis", "castInkCross1", "blue") end)
+BluePage:newAction()
+    :title("Anti-Projectile Zone"):item("minecraft:tube_coral_fan")
+    :onLeftClick(function() SendArcana("self-aegis", "castInkCross1", "blue") end)
+
 LimePage:newAction()
     :title("Brush Shift: Nature's Staff"):item("spectrum:natures_staff")
-    :onLeftClick(function() SendArcana("brush-shift:nature's staff", "castSpinRaiseWand", "lime") end)
+    :onLeftClick(function() SendArcana("brush-shift:nature's staff", "castArmsIn1", "lime") end)
 
 --------------------------
 ---------- TIME ----------
 --------------------------
+MagentaPage:newAction()
+    :title("Slow Time"):item("minecraft:clock")
+    :onLeftClick(function() SendArcana("area:living:slow-time", "castStaffOrbit1", "magenta") end)
+
+
 PinkPage:newAction()
     :title("Heal Players"):item("minecraft:glistering_melon_slice")
-    :onLeftClick(function() SendArcana("area:player:heal", "castStaffOrbit1", "pink") end)
+    :onLeftClick(function() SendArcana("area:player:heal", "castArmsOut2", "pink") end)
+
 PurplePage:newAction()
     :title("Warp to Wheel HQ"):item("supplementaries:statue")
     :onLeftClick(function() SendArcana("area:player:gate:wheel", "castInkCircle1", "purple") end)
 PurplePage:newAction()
     :title("Warp to the Academy"):item("minecraft:lectern")
     :onLeftClick(function() SendArcana("area:player:gate:acad", "castInkCircle1", "purple") end)
+PurplePage:newAction()
+    :title("Call Guidebook"):item("spectrum:guidebook")
+    :onLeftClick(function() SendArcana("brush-shift:colorful world", "castArmsIn1", "purple") end)
 
 RedPage:newAction()
     :title("Toss Monsters"):item("minecraft:creeper_head")
-    :onLeftClick(function() SendArcana("area:monster:toss:foo", "castStaffOrbit1", "red") end)
+    :onLeftClick(function() SendArcana("area:monster:toss:foo", "castSlamStaff1", "red") end)
 RedPage:newAction()
     :title("Warp to the Pale Garden"):item("minecraft:wither_rose")
     :onLeftClick(function() SendArcana("area:player:gate:greenland", "castInkCircle1", "red") end)
@@ -60,7 +78,7 @@ RedPage:newAction()
 --------------------------
 YellowPage:newAction()
     :title("Brush Shift: Radiance Staff"):item("spectrum:radiance_staff")
-    :onLeftClick(function() SendArcana("brush-shift:radiance staff", "castSpinRaiseWand", "yellow") end)
+    :onLeftClick(function() SendArcana("brush-shift:radiance staff", "castArmsIn1", "yellow") end)
 YellowPage:newAction()
     :title("Bestow Elytra"):item("minecraft:elytra")
     :onLeftClick(function() SendArcana("area:player:altiora", "castSpinRaiseWand", "yellow") end)
@@ -71,6 +89,10 @@ YellowPage:newAction()
 BrownPage:newAction()
     :title("Conjure Water"):item("minecraft:water_bucket")
     :onLeftClick(function() SendArcana("conjure-water", "castInkCircle1", "brown") end)
+BrownPage:newAction()
+    :title("Pick Fruit"):item("oneironaut:monkfruit")
+    :onLeftClick(function() SendArcana("brush-shift:monkfruit,64", "castArmsIn1", "brown") end)
+
 
 GreenPage:newAction()
     :title("Warp Home"):item("minecraft:dark_oak_sapling")

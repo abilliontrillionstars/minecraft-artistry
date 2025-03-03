@@ -12,6 +12,7 @@ LIGHT_BLUE - Luck, Peace
     [+] brush-shift:moon clock
     [+] snowball throwing
     [+] mass slowness+winds
+    [+] mass freeze
 
 BLUE - Permanence, Safety
     [*] self-aegis
@@ -30,9 +31,11 @@ MAGENTA - Kindness, Tolerance
 
 PINK - Health, Admiration
     [*] regeneration
+
 PURPLE - Wisdom, Creativity
     [*] gate:wheel
     [*] gate:acad
+    [*] brush-shift:colorful world
     
 RED - Passion, Willpower
     [*] throw into air+damage
@@ -41,11 +44,16 @@ RED - Passion, Willpower
 YELLOW - Joy
     [*] brush-shift:radiance staff
     [*] bestow elytra
+    [*] bestow flight
+    
 BROWN - Nature, Stability
     [*] water summoning
+    [*] summon food
+
 GREEN - Balance, Harmony
     [*] cure
     [*] gate:home
+
 ORANGE - Warmth, Comfort
     [*] explode+fire
     [*] ignite
