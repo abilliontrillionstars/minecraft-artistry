@@ -85,6 +85,10 @@ YellowPage:newAction()
 YellowPage:newAction()
     :title("Bestow Flight"):item("minecraft:feather")
     :onLeftClick(function() SendArcana("area:player:anchorite", "castInkCircle1", "yellow") end)
+YellowPage:newAction()
+    :title("Collect Media"):item("hexcasting:trinket")
+    :onLeftClick(function() SendArcana("area:item:recharge:foo", "castArmsIn1", "yellow") end)
+
 
 BrownPage:newAction()
     :title("Conjure Water"):item("minecraft:water_bucket")
