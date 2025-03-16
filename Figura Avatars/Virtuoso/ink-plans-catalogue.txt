@@ -9,7 +9,7 @@ CYAN - Integrity
     [+] brush-shift:construction wand
 
 LIGHT_BLUE - Luck, Peace
-    [+] brush-shift:moon clock
+    [*] brush-shift:moon clock
     [+] snowball throwing
     [+] mass slowness+winds
     [+] mass freeze
@@ -18,7 +18,7 @@ BLUE - Permanence, Safety
     [*] self-aegis
     [+] channeled forcefield
         *change pigment temp
-    [+] projectile reflector wisp
+    [*] projectile reflector wisp
         *change pigment temp for wisp
 
 LIME - Happiness, Fertility
@@ -27,7 +27,7 @@ LIME - Happiness, Fertility
 
 ------------------------------------------#
 MAGENTA - Kindness, Tolerance
-    [+] mass stasis wisp deploy
+    [*] mass stasis wisp deploy
 
 PINK - Health, Admiration
     [*] regeneration
@@ -54,7 +54,7 @@ BROWN - Nature, Stability
 GREEN - Balance, Harmony
     [*] cure
     [*] gate:home
-    [+] brush-shift:crafting tablet
+    [*] brush-shift:crafting tablet
 
 ORANGE - Warmth, Comfort
     [*] explode+fire
@@ -64,7 +64,7 @@ ORANGE - Warmth, Comfort
 
 ------------------------------------------#
 BLACK - Power, Mystery
-    [+] 
+    [+] hold in air and springlock hex
 
 GRAY - Evanescence, Forlornness
     [*] mass mediafy
