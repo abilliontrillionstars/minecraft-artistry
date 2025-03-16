@@ -50,8 +50,8 @@ function SetVanillaParent(toggle)
 end
 
 function SendArcana(message, anim, color)
-    ArcanaString = message
-    pings.playAnim(anim) 
+    ArcanaString = message .. ":" .. world.getTime()
+    pings.playAnim(anim)
 
     -- cache the arcana
     if color then
@@ -86,7 +86,11 @@ function pings.ColorMain(color)
     models.iris.root.RightLeg.pocket:setColor(color)
     models.iris.root.RightLeg.overallFlap:setColor(color)
     models.iris.root.Body.overall:setColor(color)
+
+    models.iris.Arrow.cube1:setColor(color)
+    models.iris.Arrow.cube2:setColor(color)
     avatar:setColor(color)
+    
     if player:isLoaded() then 
         sounds:playSound("minecraft:entity.zombie_villager.converted", player:getPos(), 0.3, 7 + (math.random(-4,4)/10))
         sounds:playSound("minecraft:entity.zombie_villager.converted", player:getPos(), 0.05, 5 + (math.random(-4,4)/10))
@@ -130,7 +134,9 @@ function events.mouse_press(button, action)
     end
     if player:isLoaded() then
         if player:getHeldItem():getID() == "spectrum:paintbrush" and action==1 and button==1 then
-            pings.playAnim("slingInk1") 
+            if not (player:isCrouching() or host:getScreen()) then
+                pings.playAnim("slingInk1") 
+            end
         end
     end
 end

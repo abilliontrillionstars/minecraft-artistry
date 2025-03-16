@@ -18,6 +18,22 @@ testPage:newAction()
     :title("Test Brush-Staff"):item("hexcasting:staff/spruce")
     :onLeftClick(function() pings.ToggleBrushStaff() end)
 
+local quickInkShotKey = keybinds:newKeybind("Quick Ink Hexshot", "key.mouse.5")
+quickInkShotKey.press = function ()
+    ArcanaString = "hexshot" .. ":" .. world.getTime()
+
+    --alternate left-right sling arm swing anims
+    --don't interrupt the animation immediately after the first sling 
+    if animations.iris["castSlingInk1"]:isPlaying() and animations.iris["castSlingInk1"]:getTime() > 0.25 then
+        pings.stopAnim("castSlingInk1")    
+        pings.playAnim("castSlingInk2")
+    elseif animations.iris["castSlingInk2"]:isPlaying() and animations.iris["castSlingInk2"]:getTime() > 0.25 then
+        pings.stopAnim("castSlingInk2")    
+        pings.playAnim("castSlingInk1")
+    else 
+        pings.playAnim("castSlingInk1")
+    end
+end
 
 --------------------------
 --------- MATTER ---------
@@ -32,13 +48,16 @@ LightBluePage:newAction()
 LightBluePage:newAction()
     :title("Freeze Monsters"):item("minecraft:packed_ice")
     :onLeftClick(function() SendArcana("area:monster:freeze", "castArmsOut2", "light_blue") end)
+LightBluePage:newAction()
+    :title("Brush Shift: Crescent Clock"):item("spectrum:crescent_clock")
+    :onLeftClick(function() SendArcana("brush-shift:crescent clock", "castArmsIn1", "light_blue") end)
 
 BluePage:newAction()
     :title("Don Magic Plate"):item("ephemera:media_chestplate")
     :onLeftClick(function() SendArcana("self-aegis", "castInkCross1", "blue") end)
 BluePage:newAction()
     :title("Anti-Projectile Zone"):item("minecraft:tube_coral_fan")
-    :onLeftClick(function() SendArcana("self-aegis", "castInkCross1", "blue") end)
+    :onLeftClick(function() SendArcana("reflector-wisp", "castArmsOut1", "blue") end)
 
 LimePage:newAction()
     :title("Brush Shift: Nature's Staff"):item("spectrum:natures_staff")
@@ -55,6 +74,9 @@ MagentaPage:newAction()
 PinkPage:newAction()
     :title("Heal Players"):item("minecraft:glistering_melon_slice")
     :onLeftClick(function() SendArcana("area:player:heal", "castArmsOut2", "pink") end)
+PinkPage:newAction()
+    :title("Heal Living"):item("spectrum:glistering_melon")
+    :onLeftClick(function() SendArcana("area:living:heal", "castArmsOut2", "pink") end)
 
 PurplePage:newAction()
     :title("Warp to Wheel HQ"):item("supplementaries:statue")
@@ -72,6 +94,9 @@ RedPage:newAction()
 RedPage:newAction()
     :title("Warp to the Pale Garden"):item("minecraft:wither_rose")
     :onLeftClick(function() SendArcana("area:player:gate:greenland", "castInkCircle1", "red") end)
+RedPage:newAction()
+    :title("Summon Estrogen"):item("estrogen:estrogen_pill")
+    :onLeftClick(function() SendArcana("brush-shift:estrogen pill", "castArmsIn1", "red") end)
 
 --------------------------
 --------- ENERGY ---------
@@ -87,7 +112,7 @@ YellowPage:newAction()
     :onLeftClick(function() SendArcana("area:player:anchorite", "castInkCircle1", "yellow") end)
 YellowPage:newAction()
     :title("Collect Media"):item("hexcasting:trinket")
-    :onLeftClick(function() SendArcana("area:item:recharge:foo", "castArmsIn1", "yellow") end)
+    :onLeftClick(function() SendArcana("area:item:recharge:foo", "castArmsOut1", "yellow") end)
 
 
 BrownPage:newAction()
@@ -104,6 +129,9 @@ GreenPage:newAction()
 GreenPage:newAction()
     :title("Mass Cure"):item("minecraft:milk_bucket")
     :onLeftClick(function() SendArcana("area:living:cure", "castInkCross1", "green") end)
+GreenPage:newAction()
+    :title("Brush Shift: Crafting Tablet"):item("spectrum:crafting_tablet")
+    :onLeftClick(function() SendArcana("brush-shift:crafting tablet", "castArmsIn1", "green") end)
 
 OrangePage:newAction()
     :title("Combust Monsters"):item("minecraft:fire_charge")

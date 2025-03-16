@@ -58,7 +58,7 @@ function events.tick()
         --factor in ANGLEMOD
         mousePos = vec(mousePos[1]*ANGLEMOD, mousePos[2]*ANGLEMOD)
         --extend the arm out, just a tad
-        mousePos[1] = mousePos[1]
+        mousePos[1] = mousePos[1] + 60
         --now, FLOOR IT! *epic chase scene*
         --this is for ping data rates, makes the numbers 2 bytes long
         mousePos = vec(math.floor(mousePos[1]), math.floor(mousePos[2]))

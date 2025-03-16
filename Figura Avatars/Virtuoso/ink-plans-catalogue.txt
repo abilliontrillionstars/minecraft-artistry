@@ -39,6 +39,7 @@ PURPLE - Wisdom, Creativity
     
 RED - Passion, Willpower
     [*] throw into air+damage
+    [*] summon estrogen
 
 ------------------------------------------#
 YELLOW - Joy
@@ -53,6 +54,7 @@ BROWN - Nature, Stability
 GREEN - Balance, Harmony
     [*] cure
     [*] gate:home
+    [+] brush-shift:crafting tablet
 
 ORANGE - Warmth, Comfort
     [*] explode+fire

@@ -27,7 +27,7 @@ function events.item_render(item, mode)
         elseif AnimsPlaying() then
             return models.iris.ItemBrush:setRot(0,0,0)
         else
-            return models.iris.ItemBrush:setRot(-15,0,0)
+            return models.iris.ItemBrush:setRot(0,0,0)
         end
     end
 
