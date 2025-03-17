@@ -69,6 +69,27 @@ function AnimsPlaying()
     return false
 end
 
+require("arcana.brush-mem")
+function HandleLoopAnims()
+    if animations.iris["castTwirlStaff1Loop"]:isPlaying() then
+        if not quickcastKey:isPressed() then
+            pings.stopAnim("castTwirlStaff1Loop")
+            pings.playAnim("castTwirlStaff1End")
+        end
+        models.iris.root.LeftArm:setRot(vanilla_model.HEAD:getOriginRot())
+        models.iris.root.RightArm:setRot(vanilla_model.HEAD:getOriginRot())
+        --gimbal locking,,,,
+        --models.iris.AnimBrush:setRot(vanilla_model.HEAD:getOriginRot())
+    elseif animations.iris["castForceChokeLoop"]:isPlaying() then
+        if not quickcastKey:isPressed() then
+            pings.stopAnim("castForceChokeLoop")
+            pings.playAnim("castForceChokeEnd")
+        end
+        models.iris.root.LeftArm:setRot(vanilla_model.HEAD:getOriginRot())
+        models.iris.root.RightArm:setRot(vanilla_model.HEAD:getOriginRot())
+    end
+end
+
 local sneakKey = keybinds:fromVanilla("key.sneak")
   local wristPocketKey = keybinds:newKeybind("Quick Wristpocket Spell", "key.keyboard.c", false)
   wristPocketKey.press = function() 
@@ -80,10 +101,8 @@ local sneakKey = keybinds:fromVanilla("key.sneak")
 
 function pings.ColorMain(color)
     models.iris.root.LeftLeg.overall:setColor(color)
-    models.iris.root.LeftLeg.pocket:setColor(color)
     models.iris.root.LeftLeg.overallFlap:setColor(color)
     models.iris.root.RightLeg.overall:setColor(color)
-    models.iris.root.RightLeg.pocket:setColor(color)
     models.iris.root.RightLeg.overallFlap:setColor(color)
     models.iris.root.Body.overall:setColor(color)
 
@@ -159,6 +178,10 @@ end
 
 function events.chat_send_message(message)
     return message:gsub(",bs:", ",brush-shift:")
+end
+
+function events.tick()
+    HandleLoopAnims()
 end
 
 --[[

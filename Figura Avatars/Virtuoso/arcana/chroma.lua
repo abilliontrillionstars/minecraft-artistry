@@ -35,12 +35,20 @@ quickInkShotKey.press = function ()
     end
 end
 
+local quickShieldKey = keybinds:newKeybind("Quick Ink Sheilding", "key.mouse.4")
+quickShieldKey.press = function ()
+    SendArcana("cont:forcefield", "castTwirlStaff1Start", "blue")
+end
+
 --------------------------
 --------- MATTER ---------
 --------------------------
 CyanPage:newAction()
     :title("Brush Shift: Multitool"):item("spectrum:multitool")
     :onLeftClick(function() SendArcana("brush-shift:multitool", "castArmsIn1", "cyan") end)
+CyanPage:newAction()
+    :title("Brush Shift: Construction Staff"):item("spectrum:constructors_staff")
+    :onLeftClick(function() SendArcana("brush-shift:constructor's staff", "castArmsIn1", "cyan") end)
 
 LightBluePage:newAction()
     :title("Glow Vision"):item("minecraft:glow_ink_sac")
@@ -58,6 +66,9 @@ BluePage:newAction()
 BluePage:newAction()
     :title("Anti-Projectile Zone"):item("minecraft:tube_coral_fan")
     :onLeftClick(function() SendArcana("reflector-wisp", "castArmsOut1", "blue") end)
+BluePage:newAction()
+    :title("Conjured Cover"):item("minecraft:shield")
+    :onLeftClick(function() SendArcana("cont:forcefield", "castTwirlStaff1Start", "blue") end)
 
 LimePage:newAction()
     :title("Brush Shift: Nature's Staff"):item("spectrum:natures_staff")
@@ -67,8 +78,11 @@ LimePage:newAction()
 ---------- TIME ----------
 --------------------------
 MagentaPage:newAction()
-    :title("Slow Time"):item("minecraft:clock")
+    :title("Slow Time"):item("minecraft:cobweb")
     :onLeftClick(function() SendArcana("area:living:slow-time", "castStaffOrbit1", "magenta") end)
+MagentaPage:newAction()
+    :title("Speed Time"):item("minecraft:clock")
+    :onLeftClick(function() SendArcana("cont:accelerate", "castTwirlStaff1Start", "magenta") end)
 
 
 PinkPage:newAction()
@@ -120,7 +134,7 @@ BrownPage:newAction()
     :onLeftClick(function() SendArcana("conjure-water", "castInkCircle1", "brown") end)
 BrownPage:newAction()
     :title("Pick Fruit"):item("oneironaut:monkfruit")
-    :onLeftClick(function() SendArcana("brush-shift:monkfruit,64", "castArmsIn1", "brown") end)
+    :onLeftClick(function() SendArcana("brush-shift:monkfruit,32", "castArmsIn1", "brown") end)
 
 
 GreenPage:newAction()

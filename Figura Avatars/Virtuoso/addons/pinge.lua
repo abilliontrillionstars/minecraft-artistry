@@ -2,16 +2,20 @@ local username = "just_laniakea"
 local nick = "lani"
 
 function events.chat_receive_message(message, asJson) 
-    --if message:find("[lua]") then return end
-    --if message:find("test") and not message:find("{") then
-      --   print(asJson) end
+    if message:find("lua")
+    then return message end
 
-    if asJson:find("Wheel#31ff8594") then return end
+    if string.sub(message,1,1) == "<" then
+      message = string.sub(message, message:find(">"), #message) end
+    if string.sub(message,1,1) == "[" then
+      message = string.sub(message, message:find("]"), #message) end
 
     message=string.lower(message)
-    if message:find(nick) and not (message:find("<"..username..">") or message:find("<#"..username..">") or message:find("<"..username.." @Wheel>")) and player:isLoaded() then
+
+    if message:find(nick) and player:isLoaded() then
         pitch=math.random(3,9)/10
-        pings.sfx("entity.experience_orb.pickup",  pitch)
-        pings.sfx("entity.experience_orb.pickup",  pitch*2)
+        pings.sfx("block.note_block.bell",  pitch)
+        pings.sfx("block.note_block.bell",  pitch*1.25)
+        pings.sfx("block.note_block.bell",  pitch*2)
     end 
 end

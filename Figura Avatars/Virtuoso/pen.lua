@@ -26,33 +26,29 @@ end
 local lastposit = vec(0,0,0)
 local posit = vec(0,0,0)
 local ptcl
-function events.tick()
-    isCasting = host:getScreen() == "at.petrak.hexcasting.client.gui.GuiSpellcasting"
-    if PENDOWN then
-        if models.iris.AnimBrush:getVisible() then
-            posit = models.iris.AnimBrush.holdPivot.physBoneBrushTip2.physBoneBrushTipTip2.springForce3:partToWorldMatrix():apply()
-        else
-            posit = models.iris.ItemBrush.holdPivot2.physBoneBrushTip.physBoneBrushTipTip.springForce:partToWorldMatrix():apply()
-        end
-        if (posit - lastposit):length() > 0.3 and not isCasting then
-            ptcl = "inksplotch" 
-            --make a particle in between the two
-            confetti.newParticle("inkblot", lastposit+(lastposit - posit)/2, 
-                vec(math.random(),math.random(),math.random())/1000,
-                {billboard=true}
-            ).task:setColor(PENCOLOR):setRot(0,0,math.random(-100,100))
-        elseif (posit - lastposit):length() > 0.2 then
-            ptcl = "inkblot"
-        else
-            ptcl = "inkdot"
-        end
-        
-        confetti.newParticle(ptcl, posit, 
-            vec(math.random(),math.random(),math.random())/1000,
-        {billboard=true,}
-        ).task:setColor(PENCOLOR):setRot(0,0,math.random(-100,100))
+function DrawParticle()
+    if models.iris.AnimBrush:getVisible() then
+        posit = models.iris.AnimBrush.holdPivot.physBoneBrushTip2.physBoneBrushTipTip2.springForce3:partToWorldMatrix():apply()
+    else
+        posit = models.iris.ItemBrush.holdPivot2.physBoneBrushTip.physBoneBrushTipTip.springForce:partToWorldMatrix():apply()
     end
-    lastposit = posit
+    if (posit - lastposit):length() > 0.3 and not isCasting then
+        ptcl = "inksplotch" 
+        --make a particle in between the two
+        confetti.newParticle("inkblot", lastposit+(lastposit - posit)/2, 
+            vec(math.random(),math.random(),math.random())/1000,
+            {billboard=true}
+        ).task:setColor(PENCOLOR):setRot(0,0,math.random(-100,100))
+    elseif (posit - lastposit):length() > 0.2 then
+        ptcl = "inkblot"
+    else
+        ptcl = "inkdot"
+    end
+    
+    confetti.newParticle(ptcl, posit, 
+        vec(math.random(),math.random(),math.random())/1000,
+    {billboard=true,}
+    ).task:setColor(PENCOLOR):setRot(0,0,math.random(-100,100))
 end
 
 function events.WORLD_RENDER(delta)
@@ -71,4 +67,12 @@ function events.WORLD_RENDER(delta)
         end
     end
     ]]
+end
+
+function events.tick()
+    isCasting = host:getScreen() == "at.petrak.hexcasting.client.gui.GuiSpellcasting"
+    if PENDOWN then
+        DrawParticle()
+    end
+    lastposit = posit
 end
