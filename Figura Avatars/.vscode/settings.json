@@ -25,7 +25,8 @@
     "avatar",
     "sounds",
     "world",
-    "renderer"
+    "renderer",
+    "particles"
   ],
   "Lua.diagnostics.disable": [
     "duplicate-set-field"

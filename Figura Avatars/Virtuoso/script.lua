@@ -57,7 +57,6 @@ function SendArcana(message, anim, color)
     if color then
         ArcanaCache[color].message = message
         ArcanaCache[color].anim = anim
-
         pings.ColorFX(color)
     end
 end
@@ -120,6 +119,7 @@ function pings.ColorMain(color)
 end
 function pings.ColorFX(color)
     PENCOLOR_DYE_STRING=color
+    PENCOLOR = VANILLA_COLORS[PENCOLOR_DYE_STRING]
 end
 
     
