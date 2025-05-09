@@ -175,9 +175,9 @@ testPage:newAction()
     :onLeftClick(function() 
         if player:isLoaded() then
             if player:getHeldItem():getID() == "spectrum:paintbrush" then
-                SendArcana("brush-shift:birch staff", "castSpinRaiseWand", "white")
+                host:sendChatMessage(SIFTER.."brush-shift:birch staff".. ":" .. world.getTime())
             else
-                SendArcana("brush-shift:paintbrush", "castSpinRaiseWand", "white")
+                host:sendChatMessage(SIFTER.."brush-shift:paintbrush".. ":" .. world.getTime())
             end
         end
     end)

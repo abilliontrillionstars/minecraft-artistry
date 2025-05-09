@@ -8,10 +8,10 @@ ArcanaCache = {
     -- TIME
     magenta={message="area:living:slow-time", anim="castStaffOrbit1"},
     pink={message="area:player:heal", anim="castArmsOut2"},
-    purple={message="area:player:gate:wheel", anim="castInkCircle1"},
+    purple={message="area:player:gate:acad", anim="castInkCircle1"},
     red={message="area:monster:toss:foo", anim="castSlamStaff1"},
     -- ENERGY
-    yellow={message="brush-shift:radiance staff", anim="castSpinRaiseWand"},
+    yellow={message="area:player:altiora", anim="castSpinRaiseWand"},
     brown={message="brush-shift:monkfruit,32", anim="castArmsIn1"},
     green={message="area:player:gate:home", anim="castInkCircle1"},
     orange={message="area:monster:ignite", anim="castInkCross1"},

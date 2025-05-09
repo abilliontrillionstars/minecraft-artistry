@@ -6,7 +6,8 @@ MATTER |  TIME   | ENERGY | VOID  | LIFE  |
 ------------------------------------------#
 CYAN - Integrity
     [*] brush-shift:multitool
-    [+] brush-shift:construction wand
+    [*] brush-shift:construction wand
+    
 
 LIGHT_BLUE - Luck, Peace
     [*] brush-shift:moon clock
@@ -16,7 +17,7 @@ LIGHT_BLUE - Luck, Peace
 
 BLUE - Permanence, Safety
     [*] self-aegis
-    [+] channeled forcefield
+    [*] channeled forcefield
         *change pigment temp
     [*] projectile reflector wisp
         *change pigment temp for wisp
