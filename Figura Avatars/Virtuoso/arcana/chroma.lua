@@ -49,6 +49,9 @@ CyanPage:newAction()
 CyanPage:newAction()
     :title("Brush Shift: Construction Staff"):item("spectrum:constructors_staff")
     :onLeftClick(function() SendArcana("brush-shift:constructor's staff", "castArmsIn1", "cyan") end)
+CyanPage:newAction()
+    :title("Charge Artifacts"):item("hexcasting:trinket")
+    :onLeftClick(function() SendArcana("area:item:recharge:foo", "castArmsOut1", "cyan") end)
 
 LightBluePage:newAction()
     :title("Glow Vision"):item("minecraft:glow_ink_sac")
@@ -124,9 +127,6 @@ YellowPage:newAction()
 YellowPage:newAction()
     :title("Bestow Flight"):item("minecraft:feather")
     :onLeftClick(function() SendArcana("area:player:anchorite", "castInkCircle1", "yellow") end)
-YellowPage:newAction()
-    :title("Collect Media"):item("hexcasting:trinket")
-    :onLeftClick(function() SendArcana("area:item:recharge:foo", "castArmsOut1", "yellow") end)
 
 
 BrownPage:newAction()
@@ -176,6 +176,7 @@ testPage:newAction()
         if player:isLoaded() then
             if player:getHeldItem():getID() == "spectrum:paintbrush" then
                 host:sendChatMessage(SIFTER.."brush-shift:birch staff".. ":" .. world.getTime())
+                if BRUSHMODE == "STAFF" then pings.playAnim("brushToWand") end
             else
                 host:sendChatMessage(SIFTER.."brush-shift:paintbrush".. ":" .. world.getTime())
             end

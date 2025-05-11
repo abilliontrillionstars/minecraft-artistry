@@ -174,14 +174,28 @@ function events.on_play_sound(id, pos)
             pings.playAnim("slingInk1")
         end
     end
+
+    if id == "minecraft:block.sculk_shrieker.shriek" then
+        print(pos)
+    end
 end
 
 function events.chat_send_message(message)
     return message:gsub(",bs:", ",brush-shift:")
 end
 
+local wasDead = false
 function events.tick()
     HandleLoopAnims()
+    renderer:setRenderLeftArm(player:getHeldItem(true).id == "minecraft:air")
+    if player:getDeathTime() > 0 then
+        if not wasDead then
+            pings.sfx("spectrum:spectrum.ui.new_revelation", 0.85)
+            wasDead = true
+        end
+    else
+        wasDead = false
+    end
 end
 
 --[[
