@@ -3,12 +3,13 @@ require("physBoneAPI")
 local ENABLECANTRIPS = true
 local ENABLEHEXES = true
 local ENABLEROOTS = true
-if client.getVersion() ~= "1.19.2" then
+--[[if client.getVersion() ~= "1.19.2" then
   print("Minecraft Version incompatible with Hexcasting, disabling magicks")
   ENABLECANTRIPS = false
   ENABLEHEXES = false
   ENABLEROOTS = false
 end
+]]--
 
 vanilla_model.PLAYER:setVisible(false)
 vanilla_model.ARMOR:setVisible(false)

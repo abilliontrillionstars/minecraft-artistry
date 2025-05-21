@@ -41,6 +41,10 @@ function events.tick()
 end
 
 function pings.ColorBrush(color)
+    hue = VANILLA_COLORS[color]
+    models.iris.ItemBrush.holdPivot2.physBoneBrushTip:setColor(hue)
+    models.iris.AnimBrush.holdPivot.physBoneBrushTip2:setColor(hue)
+
     for var=0,50 do
         if player:isLoaded() and avatar:getRemainingParticles() then
             particles:newParticle("spectrum:"..color.."_crafting", 

@@ -1,4 +1,3 @@
-
 vanilla_model.PLAYER:setVisible(false)
 vanilla_model.ARMOR:setVisible(false)
 vanilla_model.ELYTRA:setVisible(false)
@@ -122,14 +121,6 @@ function pings.ColorFX(color)
     PENCOLOR = VANILLA_COLORS[PENCOLOR_DYE_STRING]
 end
 
-    
-local sneakKey = keybinds:fromVanilla("key.sneak")
-keybinds:fromVanilla("key.jump").press = function()
-    if sneakKey:isPressed() then
-        pings.playAnim("jumpSpin")
-    end
-end
-
 LMBDown = false
 RMBDown = false
 MMBDown = false
@@ -187,7 +178,9 @@ end
 local wasDead = false
 function events.tick()
     HandleLoopAnims()
+
     renderer:setRenderLeftArm(player:getHeldItem(true).id == "minecraft:air")
+
     if player:getDeathTime() > 0 then
         if not wasDead then
             pings.sfx("spectrum:spectrum.ui.new_revelation", 0.85)
@@ -196,6 +189,11 @@ function events.tick()
     else
         wasDead = false
     end
+end
+
+function events.on_play_sound(id, pos)
+    if id == "minecraft:entity.goat.long_jump" then 
+        pings.playAnim("jumpSpin") end
 end
 
 --[[
