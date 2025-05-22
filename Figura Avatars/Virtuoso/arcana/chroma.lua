@@ -127,6 +127,9 @@ YellowPage:newAction()
 YellowPage:newAction()
     :title("Bestow Flight"):item("minecraft:feather")
     :onLeftClick(function() SendArcana("area:player:anchorite", "castInkCircle1", "yellow") end)
+YellowPage:newAction()
+    :title("Zap"):item("spectrum:citrine_sugar_stick")
+    :onLeftClick(function() SendArcana("zap", "castSlingInk1", "yellow") end)
 
 
 BrownPage:newAction()
