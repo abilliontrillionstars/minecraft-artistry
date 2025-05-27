@@ -48,12 +48,12 @@ function SetVanillaParent(toggle)
     end
 end
 
-function SendArcana(message, anim, color)
+function SendArcana(message, anim, color, load)
     ArcanaString = message .. ":" .. world.getTime()
     pings.playAnim(anim)
 
     -- cache the arcana
-    if color then
+    if load then
         ArcanaCache[color].message = message
         ArcanaCache[color].anim = anim
         pings.ColorFX(color)
@@ -67,10 +67,9 @@ function AnimsPlaying()
     return false
 end
 
-require("arcana.brush-mem")
 function HandleLoopAnims()
     if animations.iris["castTwirlStaff1Loop"]:isPlaying() then
-        if not quickcastKey:isPressed() then
+        if not MMBDown then
             pings.stopAnim("castTwirlStaff1Loop")
             pings.playAnim("castTwirlStaff1End")
         end
@@ -79,7 +78,7 @@ function HandleLoopAnims()
         --gimbal locking,,,,
         --models.iris.AnimBrush:setRot(vanilla_model.HEAD:getOriginRot())
     elseif animations.iris["castForceChokeLoop"]:isPlaying() then
-        if not quickcastKey:isPressed() then
+        if not MMBDown then
             pings.stopAnim("castForceChokeLoop")
             pings.playAnim("castForceChokeEnd")
         end
@@ -88,13 +87,13 @@ function HandleLoopAnims()
     end
 end
 
-local sneakKey = keybinds:fromVanilla("key.sneak")
+sneakKey = keybinds:fromVanilla("key.sneak")
   local wristPocketKey = keybinds:newKeybind("Quick Wristpocket Spell", "key.keyboard.c", false)
   wristPocketKey.press = function() 
     if sneakKey:isPressed() then
       pings.playAnim("castFlickWrist")
     end
-  end
+end
 
 
 function pings.ColorMain(color)
@@ -142,13 +141,6 @@ function events.mouse_press(button, action)
             MMBDown = false
         end
     end
-    if player:isLoaded() then
-        if player:getHeldItem():getID() == "spectrum:paintbrush" and action==1 and button==1 then
-            if not (player:isCrouching() or host:getScreen()) then
-                pings.playAnim("slingInk1") 
-            end
-        end
-    end
 end
 
 IsSlinging = false
@@ -171,6 +163,7 @@ function events.on_play_sound(id, pos)
     end
 end
 
+--"bs" as shorthand for "brush-shift"
 function events.chat_send_message(message)
     return message:gsub(",bs:", ",brush-shift:")
 end
@@ -191,9 +184,11 @@ function events.tick()
     end
 end
 
-function events.on_play_sound(id, pos)
-    if id == "minecraft:entity.goat.long_jump" then 
-        pings.playAnim("jumpSpin") end
+sneakKey = keybinds:fromVanilla("key.sneak")
+keybinds:fromVanilla("key.jump").press = function()
+    if sneakKey:isPressed() then
+        pings.playAnim("jumpSpin")
+    end
 end
 
 --[[

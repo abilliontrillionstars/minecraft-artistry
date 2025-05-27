@@ -3,6 +3,8 @@ SIFTER = ","
 ArcanaString = ""
 ArcanaAnim = ""
 
+
+
 local testPage = action_wheel:newPage()
 MainPage:newAction()
     :title("Other"):item("spectrum:paintbrush")
@@ -18,22 +20,6 @@ testPage:newAction()
     :title("Test Brush-Staff"):item("hexcasting:staff/spruce")
     :onLeftClick(function() pings.ToggleBrushStaff() end)
 
-local quickInkShotKey = keybinds:newKeybind("Quick Ink Hexshot", "key.mouse.5")
-quickInkShotKey.press = function ()
-    ArcanaString = "hexshot" .. ":" .. world.getTime()
-
-    --alternate left-right sling arm swing anims
-    --don't interrupt the animation immediately after the first sling 
-    if animations.iris["castSlingInk1"]:isPlaying() and animations.iris["castSlingInk1"]:getTime() > 0.25 then
-        pings.stopAnim("castSlingInk1")    
-        pings.playAnim("castSlingInk2")
-    elseif animations.iris["castSlingInk2"]:isPlaying() and animations.iris["castSlingInk2"]:getTime() > 0.25 then
-        pings.stopAnim("castSlingInk2")    
-        pings.playAnim("castSlingInk1")
-    else 
-        pings.playAnim("castSlingInk1")
-    end
-end
 
 local quickShieldKey = keybinds:newKeybind("Quick Ink Sheilding", "key.mouse.4")
 quickShieldKey.press = function ()
@@ -86,6 +72,9 @@ MagentaPage:newAction()
 MagentaPage:newAction()
     :title("Speed Time"):item("minecraft:clock")
     :onLeftClick(function() SendArcana("cont:accelerate", "castTwirlStaff1Start", "magenta") end)
+MagentaPage:newAction()
+    :title("Brush Shift: Bag of Holding"):item("spectrum:bag_of_holding")
+    :onLeftClick(function() SendArcana("brush-shift:bag of holding", "castArmsIn1", "magenta") end)
 
 
 PinkPage:newAction()
@@ -95,9 +84,6 @@ PinkPage:newAction()
     :title("Heal Living"):item("spectrum:glistering_melon")
     :onLeftClick(function() SendArcana("area:living:heal", "castArmsOut2", "pink") end)
 
-PurplePage:newAction()
-    :title("Warp to Wheel HQ"):item("supplementaries:statue")
-    :onLeftClick(function() SendArcana("area:player:gate:wheel", "castInkCircle1", "purple") end)
 PurplePage:newAction()
     :title("Warp to the Academy"):item("minecraft:lectern")
     :onLeftClick(function() SendArcana("area:player:gate:acad", "castInkCircle1", "purple") end)
@@ -161,6 +147,9 @@ OrangePage:newAction()
     :onLeftClick(function() SendArcana("area:item:smelt:foo", "castInkCircle1", "orange") end)
 
 
+BlackPage:newAction()
+    :title("Warp to Wheel HQ"):item("supplementaries:statue")
+    :onLeftClick(function() SendArcana("area:player:gate:wheel", "castInkCircle1", "black") end)
 
 GrayPage:newAction()
     :title("Item Cleanup"):item("hexal:mediafied_storage")

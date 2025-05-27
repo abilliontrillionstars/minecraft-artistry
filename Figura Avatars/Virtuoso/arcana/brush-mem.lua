@@ -1,26 +1,4 @@
--- cache the last arcana cast by action wheel to a table. each color has its own cache.
-ArcanaCache = {
-    -- MATTER
-    cyan={message="brush-shift:multitool", anim="castSpinRaiseWand"},
-    light_blue={message="area:player:night-vision", anim="castInkCross1"},
-    blue={message="self-aegis", anim="castInkCross1"},
-    lime={message="brush-shift:nature's staff", anim="castSpinRaiseWand"},
-    -- TIME
-    magenta={message="area:living:slow-time", anim="castStaffOrbit1"},
-    pink={message="area:player:heal", anim="castArmsOut2"},
-    purple={message="area:player:gate:acad", anim="castInkCircle1"},
-    red={message="area:monster:toss:foo", anim="castSlamStaff1"},
-    -- ENERGY
-    yellow={message="area:player:altiora", anim="castSpinRaiseWand"},
-    brown={message="brush-shift:monkfruit,32", anim="castArmsIn1"},
-    green={message="area:player:gate:home", anim="castInkCircle1"},
-    orange={message="area:monster:ignite", anim="castInkCross1"},
-    -- VOID
-    black={message="", anim=""},
-    gray={message="area:item:mediafy:foo", anim="castSpinRaiseWand"},
-    light_gray={message="", anim=""},
-    white={message="awd", anim="castTwirlStaff1Start"},
-}
+require("arcana.chroma-cache")
 
 local heldColor
 local oldColor = "white"
@@ -66,17 +44,34 @@ function events.key_press(key, action)
         then return false end
 end
 
+require("script")
+local mouseButtons = {"left", "right", "middle", "back", "forward"}
+function events.mouse_press(button,action,modifier)
+    if action==1 and host:getSlot("weapon.mainhand"):getID() == "spectrum:paintbrush" then
+        if modifier~=0 then return false end
+        if host:getScreen()~=nil then return false end
+        button = mouseButtons[button+1]
+
+        if ArcanaCache[heldColor][button].message == "" or ArcanaCache[heldColor][button].anim == "" then
+            pings.sfx("spectrum:use_fail", math.random(75, 95)/100)
+            --print("no arcana for that hue and button")
+        else
+            SendArcana(ArcanaCache[heldColor][button].message, ArcanaCache[heldColor][button].anim, heldColor) 
+            --print("arcana matched, casting...")
+            -- special, swap between the slingInk's
+            if ArcanaCache[heldColor][button].anim == "castSlingInk1" then
+                ArcanaCache[heldColor][button].anim = "castSlingInk2"
+            elseif ArcanaCache[heldColor][button].anim == "castSlingInk2" then
+                ArcanaCache[heldColor][button].anim = "castSlingInk1" end
+        end 
+        
+        return true
+    end
+end
 
 quickcastKey = keybinds:newKeybind("Quickcast via Paintbrush", "key.mouse.middle", false)
 quickcastKey.press = function() 
-    if ArcanaCache[heldColor].message ~= "" and ArcanaCache[heldColor].anim ~= "" then
-        SendArcana(ArcanaCache[heldColor].message, ArcanaCache[heldColor].anim, heldColor) 
-        -- special, swap between the slingInk's
-        if ArcanaCache[heldColor].anim == "castSlingInk1" then
-            ArcanaCache[heldColor].anim = "castSlingInk2"
-        elseif ArcanaCache[heldColor].anim == "castSlingInk2" then
-            ArcanaCache[heldColor].anim = "castSlingInk1" end
-    end 
+    
 end
 
 
