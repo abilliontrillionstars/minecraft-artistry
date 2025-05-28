@@ -9,15 +9,15 @@ ArcanaCache = {
         back={message="", anim=""},
     },
     light_blue={
-        right={message="brush-shift:crescent clock", anim="castArmsIn1"},
-        middle={message="", anim=""},
+        right={message="", anim=""},
+        middle={message="cont:winter-wind:2", anim="castTwirlStaff1Start"},
         left={message="area:player:night-vision", anim="castInkCross1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
     },
     blue={
         right={message="", anim=""},
-        middle={message="cont:forcefield", anim="castTwirlStaff1Start"},
+        middle={message="cont:forcefield:1", anim="castTwirlStaff1Start"},
         left={message="self-aegis", anim="castInkCross1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
@@ -31,8 +31,8 @@ ArcanaCache = {
     },
     -- TIME
     magenta={
-        right={message="brush-shift:bag of holding", anim=""},
-        middle={message="cont:accelerate", anim="castTwirlStaff1Start"},
+        right={message="brush-shift:bag of holding", anim="castArmsIn1"},
+        middle={message="cont:accelerate:1", anim="castTwirlStaff1Start"},
         left={message="area:living:slow-time", anim="castStaffOrbit1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
@@ -81,7 +81,7 @@ ArcanaCache = {
         back={message="", anim=""},
     },
     orange={
-        right={message="area:smelt", anim=""},
+        right={message="area:item:smelt:foo", anim="castInkCircle1"},
         middle={message="area:monster:ignite:foo", anim="castArmsOut1"},
         left={message="", anim=""},
         forward={message="hexshot", anim="castSlingInk1"},
@@ -103,7 +103,7 @@ ArcanaCache = {
         back={message="", anim=""},
     },
     light_gray={
-        right={message="", anim=""},
+        right={message="wall-phase", anim="castInkCross1"},
         middle={message="", anim=""},
         left={message="", anim=""},
         forward={message="hexshot", anim="castSlingInk1"},

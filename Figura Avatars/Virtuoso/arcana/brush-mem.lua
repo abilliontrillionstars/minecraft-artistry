@@ -1,4 +1,3 @@
-require("arcana.chroma-cache")
 
 local heldColor
 local oldColor = "white"
@@ -49,7 +48,7 @@ local mouseButtons = {"left", "right", "middle", "back", "forward"}
 function events.mouse_press(button,action,modifier)
     if action==1 and host:getSlot("weapon.mainhand"):getID() == "spectrum:paintbrush" then
         if modifier~=0 then return false end
-        if host:getScreen()~=nil then return false end
+        if host:getScreen()~=nil or action_wheel:isEnabled() then return false end
         button = mouseButtons[button+1]
 
         if ArcanaCache[heldColor][button].message == "" or ArcanaCache[heldColor][button].anim == "" then
@@ -65,13 +64,7 @@ function events.mouse_press(button,action,modifier)
                 ArcanaCache[heldColor][button].anim = "castSlingInk1" end
         end 
         
-        return true
+        if button=="left" or button=="right" then return true end
     end
 end
-
-quickcastKey = keybinds:newKeybind("Quickcast via Paintbrush", "key.mouse.middle", false)
-quickcastKey.press = function() 
-    
-end
-
 

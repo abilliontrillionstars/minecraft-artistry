@@ -21,11 +21,6 @@ testPage:newAction()
     :onLeftClick(function() pings.ToggleBrushStaff() end)
 
 
-local quickShieldKey = keybinds:newKeybind("Quick Ink Sheilding", "key.mouse.4")
-quickShieldKey.press = function ()
-    SendArcana("cont:forcefield", "castTwirlStaff1Start", "blue")
-end
-
 --------------------------
 --------- MATTER ---------
 --------------------------
@@ -43,8 +38,8 @@ LightBluePage:newAction()
     :title("Glow Vision"):item("minecraft:glow_ink_sac")
     :onLeftClick(function() SendArcana("area:player:night-vision", "castInkCross1", "light_blue") end)
 LightBluePage:newAction()
-    :title("Freeze Monsters"):item("minecraft:packed_ice")
-    :onLeftClick(function() SendArcana("area:monster:freeze", "castArmsOut2", "light_blue") end)
+    :title("Winter Wind"):item("minecraft:snow")
+    :onLeftClick(function() SendArcana("cont:winter-wind:2", "castTwirlStaff1Start", "light_blue") end)
 LightBluePage:newAction()
     :title("Brush Shift: Crescent Clock"):item("spectrum:crescent_clock")
     :onLeftClick(function() SendArcana("brush-shift:crescent clock", "castArmsIn1", "light_blue") end)
@@ -154,6 +149,10 @@ BlackPage:newAction()
 GrayPage:newAction()
     :title("Item Cleanup"):item("hexal:mediafied_storage")
     :onLeftClick(function() SendArcana("area:item:mediafy:foo", "castSpinRaiseWand", "gray") end)
+
+LightGrayPage:newAction()
+    :title("Wall Phase"):item("minecraft:scaffolding")
+    :onLeftClick(function() SendArcana("wall-phase", "castInkCross1", "light_gray") end)
 
 
 

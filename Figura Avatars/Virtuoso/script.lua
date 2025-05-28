@@ -94,6 +94,11 @@ sneakKey = keybinds:fromVanilla("key.sneak")
       pings.playAnim("castFlickWrist")
     end
 end
+keybinds:fromVanilla("key.jump").press = function()
+    if sneakKey:isPressed() then
+        pings.playAnim("jumpSpin")
+    end
+end
 
 
 function pings.ColorMain(color)
@@ -184,12 +189,6 @@ function events.tick()
     end
 end
 
-sneakKey = keybinds:fromVanilla("key.sneak")
-keybinds:fromVanilla("key.jump").press = function()
-    if sneakKey:isPressed() then
-        pings.playAnim("jumpSpin")
-    end
-end
 
 --[[
 local checkColor = false
