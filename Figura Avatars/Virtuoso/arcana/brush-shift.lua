@@ -31,10 +31,12 @@ function events.item_render(item, mode)
         end
     end
 
-    if item:getID() == "hexcasting:spellbook" or item:getID() == "hexgloop:covered_spellbook" then 
+
+    if id == "hexcasting:spellbook" then 
         if mode:find("FIRST") then 
-          if mode:find("LEFT") then return models.iris.ItemSpellbook:setRot(30,15,0)
-          else return models.iris.ItemSpellbook:setRot(30,-15,0) end 
-        elseif mode:find("THIRD") then return models.iris.ItemSpellbook:setRot(90,0,0) end
+            if mode:find("LEFT") then return models.iris.ItemPalette:setRot(-15,180,0)
+            else return models.iris.ItemPalette:setRot(15,0,0) end 
+        elseif mode:find("THIRD") then 
+            return models.iris.ItemPalette:setRot(90,15,100):setPos(-1,4,0) end
       end
 end

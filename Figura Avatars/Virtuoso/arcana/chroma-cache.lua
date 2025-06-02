@@ -46,8 +46,8 @@ ArcanaCache = {
     },
     purple={
         right={message="brush-shift:colorful world", anim="castArmsIn1"},
-        middle={message="", anim=""},
-        left={message="area:player:gate:acad", anim="castInkCircle1"},
+        middle={message="area:player:gate:acad", anim="castInkCircle1"},
+        left={message="firework-shot", anim="castSlingInk1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
     },
@@ -68,8 +68,8 @@ ArcanaCache = {
     },
     brown={
         right={message="brush-shift:monkfruit,32", anim="castArmsIn1"},
-        middle={message="", anim=""},
-        left={message="conjure-water", anim="castInkCircle1"},
+        middle={message="conjure-water", anim="castInkCircle1"},
+        left={message="extinguish", anim="castSlingInk1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
     },
@@ -83,7 +83,7 @@ ArcanaCache = {
     orange={
         right={message="area:item:smelt:foo", anim="castInkCircle1"},
         middle={message="area:monster:ignite:foo", anim="castArmsOut1"},
-        left={message="", anim=""},
+        left={message="fire-shot", anim="castSlingInk1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
     },

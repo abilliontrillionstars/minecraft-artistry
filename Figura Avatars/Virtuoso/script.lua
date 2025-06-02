@@ -7,6 +7,9 @@ models.iris.ItemBrush:setVisible(true)
 models.iris.ItemBrush.holdPivot2.handleExtend:setVisible(false)
 models.iris.AnimBrush:setVisible(false)
 models.iris.AnimBrush.holdPivot.handleExtend:setVisible(false)
+models.iris.ItemPalette:setVisible(true)
+models.iris.Skull:setVisible(true)
+models.iris.Insignia:setVisible(false)
 
 --------------------
 --HELPER FUNCTIONS--
@@ -125,9 +128,28 @@ function pings.ColorFX(color)
     PENCOLOR = VANILLA_COLORS[PENCOLOR_DYE_STRING]
 end
 
+function pings.updateSkull(palette, pos)
+    models.iris.Skull.palette:setVisible(palette)
+    if player:isLoaded() then sounds:playSound("spectrum:paintbrush_trigger", player:getPos(), 0.8, 0.5 + math.random()) end
+end
+
+function events.key_press(key, action, mod)
+    --if action==1 then print(key) end
+    -- w, a, s, d
+    if action==1 and key==82 and not host:getScreen() and mod==0 and host:getSlot("weapon.mainhand"):getID() == "spectrum:paintbrush" then 
+        if BRUSHMODE=="WAND" then
+            pings.playAnim("brushToStaff")
+        else
+            pings.playAnim("brushToWand")
+        end
+        return true
+    end
+end
+
 LMBDown = false
 RMBDown = false
 MMBDown = false
+bookOpen = true
 function events.mouse_press(button, action)
     if action==1 then
         if button==0 then
@@ -144,6 +166,25 @@ function events.mouse_press(button, action)
             RMBDown = false
         elseif button==2 then
             MMBDown = false
+        end
+    end
+    if player:isLoaded() then  
+        if player:getHeldItem(true).id:find("spellbook") and player:getHeldItem(false).id == "minecraft:air" then
+            if button==1 then
+                if action==1 then RMBDown=true
+                elseif action==0 then RMBDown=false
+                end
+            elseif button==0 and action==1 and RMBDown then
+                if bookOpen then 
+                pings.playAnim("closeSpellbook")
+                pings.stopAnim("openSpellbook")
+                bookOpen = false
+                else 
+                pings.playAnim("openSpellbook") 
+                pings.stopAnim("closeSpellbook")
+                bookOpen = true
+                end
+            end
         end
     end
 end
@@ -173,6 +214,7 @@ function events.chat_send_message(message)
     return message:gsub(",bs:", ",brush-shift:")
 end
 
+
 local wasDead = false
 function events.tick()
     HandleLoopAnims()
@@ -189,6 +231,34 @@ function events.tick()
     end
 end
 
+hasSpellbook = false
+isOnline = false    
+function events.skull_render(delta, block, item)
+    hasSpellbook = false
+    isOnline = false        
+    if host:isHost() then
+        for i=0,8 do
+            if host:getSlot(i):getID() == "hexcasting:spellbook" then
+                hasSpellbook = true end
+        end
+        if host:getSlot(99):getID() == "hexcasting:spellbook" then
+                hasSpellbook = true end
+    end
+    
+    if models.iris.Skull.palette:getVisible() == hasSpellbook then
+        pings.updateSkull(not hasSpellbook)
+    end
+
+    for i,v in pairs(client:getTabList().players) do 
+        if v == "just_laniakea" then
+            isOnline = true end
+    end
+    if models.iris.Skull.brush:getVisible() == isOnline then
+        models.iris.Skull.brush:setVisible(not isOnline)
+        if player:isLoaded() then
+            sounds:playSound("spectrum:paintbrush_trigger", player:getPos(), 0.8, math.random(5,13)) end
+    end
+end
 
 --[[
 local checkColor = false

@@ -31,9 +31,9 @@ out the shifted item will mediafy it and return the paintbrush as it were.
 
 
 ### Spectrum Hues + Symbology Reference ###
-CYAN   | MAGENTA | YELLOW | BLACK | WHITE |
-MATTER |  TIME   | ENERGY | VOID  | LIFE  |
-------------------------------------------#
+CYAN   | MAGENTA | YELLOW |  BLACK   | WHITE |
+MATTER |  TIME   | ENERGY | CATALYST | LIFE  |
+---------------------------------------------#
 CYAN - Integrity
     *Brush Shift: Construction Wand 
     *Brush Shift: Exchange Wand 

@@ -26,3 +26,7 @@ function events.on_play_sound(id, pos)
         end
     end
 end
+
+function events.chat_send_message(message)
+    return message:gsub("-# ", "<dark_gray>-# ")
+end
