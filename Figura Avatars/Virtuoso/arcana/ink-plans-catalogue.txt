@@ -51,6 +51,7 @@ YELLOW - Joy
 BROWN - Nature, Stability
     [*] water summoning
     [*] summon food
+    [*] gate:spawn
 
 GREEN - Balance, Harmony
     [*] cure
@@ -58,10 +59,9 @@ GREEN - Balance, Harmony
     [*] brush-shift:crafting tablet
 
 ORANGE - Warmth, Comfort
-    [*] explode+fire
     [*] ignite
     [*] bulk smelting
-    [+] fireballs
+    [*] fireballs
 
 ------------------------------------------#
 BLACK - Power, Mystery
@@ -74,5 +74,6 @@ GRAY - Evanescence, Forlornness
 
 LIGHT_GRAY - Change, Quiet
     [*] wall-blinking
+    [+] AE2 summoner
     
 WHITE - Purity, Innocence

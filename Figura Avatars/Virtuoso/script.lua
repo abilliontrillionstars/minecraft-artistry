@@ -211,6 +211,7 @@ end
 
 --"bs" as shorthand for "brush-shift"
 function events.chat_send_message(message)
+    if message == "?" then pings.sfx("Lani inquires", 1) end
     return message:gsub(",bs:", ",brush-shift:")
 end
 

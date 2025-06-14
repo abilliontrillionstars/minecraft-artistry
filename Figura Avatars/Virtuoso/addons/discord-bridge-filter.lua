@@ -1,4 +1,4 @@
-
+--[[
 FILTER_DISCORD_GLOBAL = false
 BLOCKED_DISCORD_USERS = {"codenredstone", "just_laniakea"}
 
@@ -14,3 +14,5 @@ function events.chat_receive_message(message, asJson)
         and message:find(v) then return end
     end
 end
+
+]]--

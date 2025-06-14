@@ -78,6 +78,9 @@ PinkPage:newAction()
 PinkPage:newAction()
     :title("Heal Living"):item("spectrum:glistering_melon")
     :onLeftClick(function() SendArcana("area:living:heal", "castArmsOut2", "pink") end)
+PinkPage:newAction()
+    :title("Warp to Wife"):item("spectrum:heartsingers_reward")
+    :onLeftClick(function() SendArcana("area:player:gate:wife", "castInkCircle1", "pink") end)
 
 PurplePage:newAction()
     :title("Warp to the Academy"):item("minecraft:lectern")
@@ -119,6 +122,9 @@ BrownPage:newAction()
 BrownPage:newAction()
     :title("Pick Fruit"):item("oneironaut:monkfruit")
     :onLeftClick(function() SendArcana("brush-shift:monkfruit,32", "castArmsIn1", "brown") end)
+BrownPage:newAction()
+    :title("Warp to Spawn"):item("botania:world_seed")
+    :onLeftClick(function() SendArcana("area:player:gate:spawn", "castInkCircle1", "brown") end)
 
 
 GreenPage:newAction()
@@ -153,6 +159,9 @@ GrayPage:newAction()
 LightGrayPage:newAction()
     :title("Wall Phase"):item("minecraft:scaffolding")
     :onLeftClick(function() SendArcana("wall-phase", "castInkCross1", "light_gray") end)
+LightGrayPage:newAction()
+    :title("Summon AE2"):item("ae2:wireless_terminal")
+    :onLeftClick(function() SendArcana("summon-ae2", "castInkCircle1", "light_gray") end)
 
 
 

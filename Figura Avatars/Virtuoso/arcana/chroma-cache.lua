@@ -39,7 +39,7 @@ ArcanaCache = {
     },
     pink={
         right={message="area:player:heal", anim="castArmsOut2"},
-        middle={message="area:living:heal", anim="castStaffOrbit1"},
+        middle={message="area:player:gate:wife", anim="castInkCircle1"},
         left={message="", anim=""},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
@@ -68,10 +68,10 @@ ArcanaCache = {
     },
     brown={
         right={message="brush-shift:monkfruit,32", anim="castArmsIn1"},
-        middle={message="conjure-water", anim="castInkCircle1"},
+        middle={message="area:player:gate:spawn", anim="castInkCircle1"},
         left={message="extinguish", anim="castSlingInk1"},
         forward={message="hexshot", anim="castSlingInk1"},
-        back={message="", anim=""},
+        back={message="conjure-water", anim="castInkCircle1"},
     },
     green={
         right={message="brush-shift:crafting tablet", anim="castArmsIn1"},
@@ -104,7 +104,7 @@ ArcanaCache = {
     },
     light_gray={
         right={message="wall-phase", anim="castInkCross1"},
-        middle={message="", anim=""},
+        middle={message="summon-ae2", anim="castInkCircle1"},
         left={message="", anim=""},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},

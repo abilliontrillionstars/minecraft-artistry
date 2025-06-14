@@ -54,7 +54,7 @@ aliases["\\10"]="<se,aqaae>"
 function events.chat_send_message(message)
     for i,v in pairs(aliases) do
         --eat spaces for phrases
-        message = message:gsub(i.." ",v)        
+        --message = message:gsub(i.." ",v)        
         message = message:gsub(i,v)
     end
     return message
