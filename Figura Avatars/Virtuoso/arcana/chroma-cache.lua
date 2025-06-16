@@ -105,7 +105,7 @@ ArcanaCache = {
     light_gray={
         right={message="wall-phase", anim="castInkCross1"},
         middle={message="summon-ae2", anim="castInkCircle1"},
-        left={message="", anim=""},
+        left={message="mine", anim="castSlingInk1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
     },

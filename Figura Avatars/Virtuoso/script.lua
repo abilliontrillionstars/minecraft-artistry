@@ -219,8 +219,10 @@ end
 local wasDead = false
 function events.tick()
     HandleLoopAnims()
+    if not AnimsPlaying() then SetVanillaParent(true) end  
 
-    renderer:setRenderLeftArm(player:getHeldItem(true).id == "minecraft:air")
+    renderer:setRenderLeftArm(host:getSlot("weapon.offhand").id == "minecraft:air")
+    renderer:setRenderRightArm(host:getSlot("weapon.mainhand").id == "minecraft:air")
 
     if player:getDeathTime() > 0 then
         if not wasDead then
@@ -260,18 +262,3 @@ function events.skull_render(delta, block, item)
             sounds:playSound("spectrum:paintbrush_trigger", player:getPos(), 0.8, math.random(5,13)) end
     end
 end
-
---[[
-local checkColor = false
-function events.chat_receive_message(message) 
-    if message:find("joined the game") then
-        checkColor = true
-    end
-end
-function events.tick()
-    if player:isLoaded() and checkColor then
-        pings.ColorMain(avatar:getColor())
-        checkColor = false
-    end
-end
-]]--

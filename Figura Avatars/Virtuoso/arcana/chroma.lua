@@ -33,6 +33,10 @@ CyanPage:newAction()
 CyanPage:newAction()
     :title("Charge Artifacts"):item("hexcasting:trinket")
     :onLeftClick(function() SendArcana("area:item:recharge:foo", "castArmsOut1", "cyan") end)
+CyanPage:newAction()
+    :title("Induce Mending"):item("minecraft:mossy_cobblestone")
+    :onLeftClick(function() SendArcana("charge:mending:"..host:getSlot("weapon.offhand"):getDamage(), "castInkCircle1", "cyan") end)
+
 
 LightBluePage:newAction()
     :title("Glow Vision"):item("minecraft:glow_ink_sac")
@@ -162,7 +166,14 @@ LightGrayPage:newAction()
 LightGrayPage:newAction()
     :title("Summon AE2"):item("ae2:wireless_terminal")
     :onLeftClick(function() SendArcana("summon-ae2", "castInkCircle1", "light_gray") end)
+LightGrayPage:newAction()
+    :title("Simple Mine"):item("minecraft:iron_pickaxe")
+    :onLeftClick(function() SendArcana("mine", "castSlingInk1", "light_gray") end)
 
+
+WhitePage:newAction()
+    :title("Brush Shift: Resonant Pickaxe"):item("spectrum:resonant_pickaxe")
+    :onLeftClick(function() SendArcana("brush-shift:resonant pickaxe", "castArmsIn1", "white") end)
 
 
 
