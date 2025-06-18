@@ -1,3 +1,6 @@
+
+STARRY_FORM = false
+
 models["starry-form"]:setVisible(state)
 
 local starryParts = {
@@ -32,6 +35,8 @@ function pings.StarryForm(state)
     models.aduene.root.Head:setVisible(not state)
     models.aduene.root.LeftLeg:setVisible(not state)
     models.aduene.root.RightLeg:setVisible(not state)
+
+    models["starry-form"]:setVisible(state)
     
     if state then
         models.aduene.root.Body.Mantle:setOpacity(0.5)
@@ -50,8 +55,16 @@ function pings.StarryForm(state)
         models.aduene.root.Body.Mantle:setOpacity(1)
         models.aduene.root.LeftArm.mantleLeft:setOpacity(1)
         models.aduene.root.RightArm.mantleRight:setOpacity(1)
+        models.aduene.root.Body.Mantle:setPrimaryRenderType("TRANSLUCENT")
+        models.aduene.root.LeftArm.mantleLeft:setPrimaryRenderType("TRANSLUCENT")
+        models.aduene.root.RightArm.mantleRight:setPrimaryRenderType("TRANSLUCENT")
+
+        models.aduene.root.Elytra.LeftElytra:setOpacity(1)
+        models.aduene.root.Elytra.RightElytra:setOpacity(1)
+        models.aduene.root.Elytra.LeftElytra:setPrimaryRenderType("TRANSLUCENT")
+        models.aduene.root.Elytra.RightElytra:setPrimaryRenderType("TRANSLUCENT")
     end
-    models["starry-form"]:setVisible(state)
+    STARRY_FORM = state
 end
 
 --pings.StarryForm(true)

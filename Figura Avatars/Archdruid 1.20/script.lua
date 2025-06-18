@@ -23,7 +23,7 @@ models.aduene.root.RightArm.faunaWristRight:setVisible(false)
 
 SpellHistory = {nil, nil, nil, nil, nil}
 HistoryDepth = 0
-SpellString = "!"
+SpellString = ","
 SpellCache = SkySoarer
 ------------------------
 --- EMOTES / VISUALS ---
@@ -138,12 +138,12 @@ end
 function SendSpell(spell)
 --if passed a string, just use that
   if type(spell) == "string" then
-    SpellString = "!"..spell
+    SpellString = ","..spell
   elseif type(spell) == "table" then
-    SpellString = "!" .. spell.id --"!skysoarer"
+    SpellString = "," .. spell.id --",skysoarer"
     for i,v in pairs(spell.mods) do 
       SpellString = SpellString..'-'..v 
-    end --"!skysoarer-2-0"
+    end --",skysoarer-2-0"
     SpellNick = spell.nick
   end
   host:sendChatMessage(SpellString)
@@ -171,85 +171,17 @@ function RecallSpell(depth)
   host:setActionbar(hudMessage)
 end
 
-function handleIdleMovement()
-  models.aduene.root.Head.faunaEye.irisOuterLeft:setPos(math.sin(world.getTime()/10)/3,0,0)
-  models.aduene.root.Head.faunaEye.irisOuterRight:setPos(math.sin(world.getTime()/10)/-3,0,0)
-  models.aduene.root.RightArm.faunaWristRight:setScale(1+math.sin(world.getTime()/10)/10,1,1+math.sin(world.getTime()/10)/10)
-  models.aduene.root.LeftArm.faunaWristLeft:setScale(1+math.sin(world.getTime()/10)/10,1,1+math.sin(world.getTime()/10)/10)
-  models.aduene.root.Elytra.RightElytra.faunaWingRight:setPos(math.sin(world.getTime()/10)/4,math.sin(world.getTime()/10)/4,math.sin(world.getTime()/10)/4)
-  models.aduene.root.Elytra.LeftElytra.faunaWingLeft:setPos(math.sin(world.getTime()/10)/-4,math.sin(world.getTime()/10)/4,math.sin(world.getTime()/10)/4)
-end
 
-FaunaActive = false
-function ToggleFauna()
-  if FaunaActive then
-    pings.playAnim("deactivateFauna")
-    FaunaActive = false
-  else 
-    pings.playAnim("activateFauna")
-    FaunaActive = true
-  end
-end
 ---------------------
 --- ACTION WHEEL  ---
 ---------------------
-local mainPage = action_wheel:newPage()
-action_wheel:setPage(mainPage)
+MainPage = action_wheel:newPage()
+action_wheel:setPage(MainPage)
 
-if ENABLEROOTS then 
-  require("gramary-roots") 
-  mainPage:newAction()
-    :title("Roots Spells")
-    :item("minecraft:oak_sapling")
-    :hoverColor(vectors.hexToRGB("#6c8031"))
-    :onLeftClick(function() action_wheel:setPage(spellPage) end)
+MainPage:newAction()
+  :title("Toggle Starry Form")
+  :onLeftClick(function() pings.StarryForm(not STARRY_FORM) end)
 
-  spellPage:newAction()
-    :item("minecraft:feather"):title("Sky Soarer")
-    :onLeftClick(function() ChangeSpell(SkySoarer) end)
-    :onRightClick(function() action_wheel:setPage(ModPageSS) end)
-  spellPage:newAction()
-    :item("minecraft:golden_pickaxe"):title("Shatter")
-    :onLeftClick(function() ChangeSpell(Shatter) end)
-  spellPage:newAction()
-    :item("minecraft:sunflower"):title("Radiance")
-    :onLeftClick(function() ChangeSpell(Radiance) end)
-  spellPage:newAction()
-    :item("minecraft:rose_bush"):title("Rose Thorns")
-    :onLeftClick(function() ChangeSpell(RoseThorns) end)
-    :onRightClick(function() action_wheel:setPage(ModPageRT) end)
-  spellPage:newAction()
-    :item("minecraft:dandelion"):title("Dandelion Winds")
-    :onLeftClick(function() ChangeSpell(DandelionWinds) end)
-    :onRightClick(function() action_wheel:setPage(ModPageDW) end)
-  spellPage:newAction()
-    :item("minecraft:potion"):title("Augment")
-    :onLeftClick(function() ChangeSpell(Augment) end)
-    :onRightClick(function() action_wheel:setPage(ModPageA) end)
-  spellPage:newAction()
-    :item("minecraft:red_stained_glass"):title("Sanctuary")
-    :onLeftClick(function() ChangeSpell(Sanctuary) end)
-    --:onRightClick(function() action_wheel:setPage() end)
-  
-
---color each action
-for i,v in pairs(spellPage:getActions()) do v:hoverColor(vectors.hexToRGB("#3a5b24")) end
-end
-if ENABLEHEXES then 
-  require("gramary-hex")
-  mainPage:newAction()
-    :title("Other Hexes")
-    :item("minecraft:amethyst_shard")
-    :hoverColor(vectors.hexToRGB("#8d6acc"))
-    :onLeftClick(function() action_wheel:setPage(hexPage) end)
-end
-if ENABLECANTRIPS then
-  require("gramary-cantrips")
-  mainPage:newAction()
-    :title("Bound Cantrips"):item("minecraft:totem_of_undying")
-    :hoverColor(vectors.hexToRGB("#5d4627"))
-    :onLeftClick(function() action_wheel:setPage(cantripPage) end)
-end
 
 ---------------------
 --- API FUNCTIONS ---
@@ -257,19 +189,20 @@ end
 local watchForSpam = false
 local cloakTimer = 0
 function events.tick()
-  handleIdleMovement()
+  if action_wheel:getCurrentPage() ~= MainPage and not action_wheel:isEnabled()
+      then action_wheel:setPage(MainPage) end
+   
+  if host:isHost() then
+        renderer:setRenderLeftArm(host:getSlot("weapon.offhand"):getID() == "minecraft:air")
+        renderer:setRenderRightArm(host:getSlot("weapon.mainhand"):getID() == "minecraft:air")
+  end
 
-  if action_wheel:getCurrentPage() ~= mainPage and not action_wheel:isEnabled()
-      then action_wheel:setPage(mainPage) end
- 
-  renderer:setRenderLeftArm(player:getHeldItem(true).id == "minecraft:air")
-  renderer:setRenderRightArm(player:getHeldItem().id == "minecraft:air" or player:getHeldItem().id == "hexgloop:casting_ring")
-  
   if cloakTimer==0 then
     sounds:playSound("minecraft:block.beacon.activate", player:getPos(), 0.6, 2+(math.random(-20,50)/100))
   end
   cloakTimer = cloakTimer-1
 end
+
 function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
     -- if there's no path, it's a Figura sound, so we ignore those
     --print(id)
@@ -318,16 +251,6 @@ function events.item_render(item, mode)
   end
 end
 
-function events.chat_receive_message(message, asJson) 
-  --if message:find("[lua]") then return end
-  --print(message)
-  message= string.lower(message)
-  if message:find("lani") and not (message:find("<just_laniakea>") or message:find("<#just_laniakea>")) and player:isLoaded() then
-    pings.sfx("entity.experience_orb.pickup",  0.5+math.random(0,4)/10)
-    pings.sfx("entity.experience_orb.pickup",  0.2+math.random(0,4)/10)
-  end
-    
-end
 local rmbDown = false
 local bookOpen = true
 function events.mouse_press(button, action)

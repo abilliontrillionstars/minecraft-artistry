@@ -5,10 +5,10 @@ ANGLEMOD = 1
 DOTILTSTAFF = true
 
 --replace these with the arms and/or item pivots
-RIGHTARMPATH = models.iris.root.RightArm
-LEFTARMPATH = models.iris.root.LeftArm
-RIGHTITEMPATH = models.iris.root.RightArm.RightItemPivot
-LEFTITEMPATH = models.iris.root.LeftArm.LeftItemPivot
+RIGHTARMPATH = models.aduene.root.RightArm
+LEFTARMPATH = models.aduene.root.LeftArm
+RIGHTITEMPATH = models.aduene.root.RightArm.RightItemPivot
+LEFTITEMPATH = models.aduene.root.LeftArm.LeftItemPivot
 
 assert(RIGHTARMPATH and LEFTARMPATH and (DOTILTSTAFF or (RIGHTITEMPATH and LEFTITEMPATH)),
     "\nCould not find arms or item pivots! Make sure to replace the paths at the start of the file.\n")
