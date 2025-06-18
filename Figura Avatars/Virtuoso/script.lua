@@ -221,9 +221,10 @@ function events.tick()
     HandleLoopAnims()
     if not AnimsPlaying() then SetVanillaParent(true) end  
 
-    renderer:setRenderLeftArm(host:getSlot("weapon.offhand").id == "minecraft:air")
-    renderer:setRenderRightArm(host:getSlot("weapon.mainhand").id == "minecraft:air")
-
+    if host:isHost() then
+        renderer:setRenderLeftArm(host:getSlot("weapon.offhand"):getID() == "minecraft:air")
+        renderer:setRenderRightArm(host:getSlot("weapon.mainhand"):getID() == "minecraft:air")
+    end
     if player:getDeathTime() > 0 then
         if not wasDead then
             pings.sfx("spectrum:spectrum.ui.new_revelation", 0.85)

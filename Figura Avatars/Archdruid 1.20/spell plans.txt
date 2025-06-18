@@ -1,0 +1,139 @@
+###############
+## MECHANICS ##
+###############
+1. keep a history of the spells the caster has selected (max 5(?))
+    - mouse buttons (keybind, configgable) act like a previous-next
+        Ex. player equips Shatter, then Radiance, then Rose Thorns
+        | S R RT | -> 'back' key -> | S R RT | -> 'forward' key -> | S R RT |
+        |------^-|                  |---^----|                     |------^-|
+
+2. spells with modifiers need to be stored as tables
+    - table entries are bools for mods enabled
+        -name, state as num, and table of enable-mods
+    - a changeSpell(spell) function
+        - calls colorStaff()
+        - sends message based on mod table
+
+3. spell string parsing format
+    "spellid-0-1-0"
+    - staff spell splits by '-'
+    - reads the first segment to discern id
+    - additional numbers come from spell tables
+        - past the first common 3 or 4 attributes  
+
+4. gramary-roots.lua
+    holds the tables for the roots spells
+    - have gramary-hex and gramary-cantrips for similar
+    (?) holds the actions for modifier manip
+    - does NOT hold the actions for equipping spells
+    changeSpell() is passed the table
+
+5. Action Wheel Functions
+    left-click equips, saves to history 
+    right-click opens modifiers page
+    functions on mod pages modify spell tables
+
+6. Staff Spell Animations
+    animations can still play with staff!!
+    -can be a static pose, or a loop
+    -spell tables will have an anim name assigned
+    -spellAnim:setPlaying(rmbDown)
+
+
+
+############
+## SPELLS ##
+############
+|+|Acid Cloud - channeled
+    'donut' shape, means 2 concentric zone dist + exclusion
+    poison nadir
+    mod- add weaken, slowing
+    mod- heals instead
+    mod- peaceful
+    mod- configgable radius
+| |Aqua Bubble - applies effect
+    absorbs damage (not possible?)
+    saves from lava/fire
+    -can be done with conjure water/blocks
+    mod- poison immunity
+|*|Augment - applies effect
+    general buff spell
+    zeniths, maybe splash bottle transport? no, EPHEMERA TO THE RESCUE
+    valid effects 0-8: slowfall, fire res, resistance, water breathing, strength, haste, regen, invis, speed,  
+    mod- increase strength (auto-lowers duration)
+| |Chrysopoeia - INCOMPATIBLE
+|*|Dandelion Winds - instant
+    conical blow-away spell
+    mod- vary range, strength
+    mod- pull instead of push
+    mod- peaceful, affect items
+    mod- affect circle
+| |Desaturate - INCOMPATIBLE, TOO NICHE
+| |Disarm - INCOMPATIBLE
+| |Extension - applies effect
+    grants night vision, or points to POIs
+    mod- detect home, animals, monsters, chests/spawners, ore, liquids, or time (reveal timekeeper's? day-night? MOON?)
+| |Fey Light - instant
+    proj wisp -> conjure light
+    mod- foot pos instead
+| |Geas - TOO NICHE, COMPLEX
+| |Growth Infusion - channeled
+    overgrowth. auto-targets plants/crops 
+    mod- up range
+    mod- autofeed animals
+    one to grow babies, one to breed
+    check height to tell which (or Hexical farmer's prf. coming soon!)
+    mob->feed dict
+|+|Harvest - instant
+    harvest and replant (mature plants detected via Hexical farmer's prf. coming soon!)
+    mod- tweak range
+    mod- tp collect drops (powered by Chorus Blink?)
+    crop->seed dict 
+|-|Life Drain - TOO NICHE
+| |Nature's Scythe - channeled
+    breaks plants (based on mods)
+    options- cobwebs, leaves, grass/ferns, mushrooms, flowers
+    mod- tp collect drops
+| |Petal Shell - INCOMPATIBLE
+| |Radiance - channeled
+    light laser
+    mod- peaceful
+    mod- tp collect drops/xp
+    mod- does different damage/healing
+|*|Rose Thorns - instant
+    toss a wisp mine  
+    mod- peaceful
+    mod- larger trap radius
+    mod- weaken, fling, slow 
+|+|Sanctuary - channeled
+    pushes hostiles/projs outward in a sphere
+    mod- anti-peaceful (affect animals)
+    mod- fling intruders away
+    mod- levitate intruders
+    mod- bigger radius
+| |Saturate - NOW VIABLE - channeled
+    force-eat spell (wristpocket eating)
+    -loop throught the hotbar and handoff
+    -check edibility and wrist-eat while not full
+    -end early when full
+|*|Shatter - instant
+    mining spell
+    mod- hammer 3x3, 5x5
+    mod- 3d hammer 3x3, 5x5
+|*|Sky Soarer - instant (will change to channeled)
+    impulse toward look
+    mod- vary strength
+| |Storm Cloud - applies effect
+    spawns a stormcloud, extinguishes nearby fires
+    wisp that follows overhead
+    --use Inferno Prf. to see burning
+    mod- turn lava->obs, and/or water->ice (hexal freeze)
+    mod- vary radius
+| |Time Stop - applies effect
+    freezes mobs in time
+    -plant snare wisps at mob positions
+    mod- peaceful
+    mod- vary duration
+| |Wildfire - instant
+    shoots fireball
+    needs investigation
