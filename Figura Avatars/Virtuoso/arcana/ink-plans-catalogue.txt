@@ -23,6 +23,8 @@ BLUE - Permanence, Safety
 LIME - Happiness, Fertility
     [*] brush-shift:nature's staff
     [+] plant growth (snerry part 2)
+    [+] summon bees (Fertility)
+    [+] summon tamed wolves (Happiness)
 
 ------------------------------------------#
 MAGENTA - Kindness, Tolerance
@@ -32,6 +34,7 @@ MAGENTA - Kindness, Tolerance
 
 PINK - Health, Admiration
     [*] regeneration
+    [*] gate:wife
 
 PURPLE - Wisdom, Creativity
     [*] gate:acad
