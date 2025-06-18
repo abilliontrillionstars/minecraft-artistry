@@ -8,12 +8,14 @@ CYAN - Integrity
     [*] brush-shift:multitool
     [*] brush-shift:construction wand
     [*] recharge
+    [+] conjure walls (charged hex?)
     
 
 LIGHT_BLUE - Luck, Peace
     [*] brush-shift:moon clock
     [*] snowball throwing + winds
-    [+] mass slowness
+    [+] snow golems
+    [+] summon strays
     
 BLUE - Permanence, Safety
     [*] self-aegis
@@ -50,11 +52,13 @@ YELLOW - Joy
     [*] brush-shift:radiance staff
     [*] bestow elytra
     [*] bestow flight
+    [*] the zapperrrrr
     
 BROWN - Nature, Stability
     [*] water summoning
     [*] summon food
     [*] gate:spawn
+    [*] extinguisher
 
 GREEN - Balance, Harmony
     [*] cure
@@ -77,6 +81,6 @@ GRAY - Evanescence, Forlornness
 
 LIGHT_GRAY - Change, Quiet
     [*] wall-blinking
-    [+] AE2 summoner
+    [*] AE2 summoner
     
 WHITE - Purity, Innocence
