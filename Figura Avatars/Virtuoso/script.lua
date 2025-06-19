@@ -90,15 +90,14 @@ function HandleLoopAnims()
     end
 end
 
-sneakKey = keybinds:fromVanilla("key.sneak")
-  local wristPocketKey = keybinds:newKeybind("Quick Wristpocket Spell", "key.keyboard.c", false)
+local wristPocketKey = keybinds:newKeybind("Quick Wristpocket Spell", "key.keyboard.c", false)
   wristPocketKey.press = function() 
-    if sneakKey:isPressed() then
-      pings.playAnim("castFlickWrist")
+    if ShiftPressed then
+        pings.playAnim("castFlickWrist")
     end
 end
 keybinds:fromVanilla("key.jump").press = function()
-    if sneakKey:isPressed() then
+    if ShiftPressed then
         pings.playAnim("jumpSpin")
     end
 end
@@ -133,16 +132,25 @@ function pings.updateSkull(palette, pos)
     if player:isLoaded() then sounds:playSound("spectrum:paintbrush_trigger", player:getPos(), 0.8, 0.5 + math.random()) end
 end
 
+ShiftPressed = false
 function events.key_press(key, action, mod)
     --if action==1 then print(key) end
-    -- w, a, s, d
-    if action==1 and key==82 and not host:getScreen() and mod==0 and host:getSlot("weapon.mainhand"):getID() == "spectrum:paintbrush" then 
-        if BRUSHMODE=="WAND" then
-            pings.playAnim("brushToStaff")
-        else
-            pings.playAnim("brushToWand")
+    -- use r to empower/deempower the brush
+    if action==1 then 
+        if key==82 and not host:getScreen() and mod==0 and host:getSlot("weapon.mainhand"):getID() == "spectrum:paintbrush" then 
+            if BRUSHMODE=="WAND" then
+                pings.playAnim("brushToStaff")
+            else
+                pings.playAnim("brushToWand")
+            end
+            return true
         end
-        return true
+    end
+
+    --track crouching locally
+    if key==340 then
+        if action==1 then ShiftPressed = true
+        elseif action==0 then ShiftPressed = false end
     end
 end
 
