@@ -1,30 +1,15 @@
 require("physBoneAPI")
 
-local ENABLECANTRIPS = true
-local ENABLEHEXES = true
-local ENABLEROOTS = true
---[[if client.getVersion() ~= "1.19.2" then
-  print("Minecraft Version incompatible with Hexcasting, disabling magicks")
-  ENABLECANTRIPS = false
-  ENABLEHEXES = false
-  ENABLEROOTS = false
-end
-]]--
-
 vanilla_model.PLAYER:setVisible(false)
 vanilla_model.ARMOR:setVisible(false)
+vanilla_model.ELYTRA:setVisible(false)
 --vanilla_model.ALL:setVisible(false)
 models.aduene.ItemStaff3D:setVisible(true)
 models.aduene.ItemSpellbook:setVisible(true)
 models.aduene.ItemRing:setVisible(true)
 
-models.aduene.root.LeftArm.faunaWristLeft:setVisible(false)
-models.aduene.root.RightArm.faunaWristRight:setVisible(false)
 
-SpellHistory = {nil, nil, nil, nil, nil}
-HistoryDepth = 0
-SpellString = ","
-SpellCache = SkySoarer
+SIFTER = ","
 ------------------------
 --- EMOTES / VISUALS ---
 ------------------------
@@ -54,53 +39,17 @@ end
 ----------------
 --- KEYBINDS ---
 ----------------
-if ENABLECANTRIPS then
-  local sneakKey = keybinds:fromVanilla("key.sneak")
-  local wristPocketKey = keybinds:newKeybind("Quick Wristpocket Spell", "key.keyboard.c", false)
+
+local wristPocketKey = keybinds:newKeybind("Quick Wristpocket Spell", "key.keyboard.c", false)
   wristPocketKey.press = function() 
-    if sneakKey:isPressed() then
-      pings.playAnim("castFlickWrist")
-      if player:isLoaded() then
-        if player:getHeldItem(true).id:find("spellbook") then
-          pings.playAnim("closeSpellbook") end 
-      end
+    if ShiftPressed then
+        pings.playAnim("castFlickWrist")
     end
-  end
-  local faunaKey = keybinds:newKeybind("Toggle Fauna-Eye", "key.mouse.middle", false)
-  faunaKey.press = function()
-    if sneakKey:isPressed() and player:isLoaded() then
-      if player:getHeldItem(true):getID() == "minecraft:air" and player:getHeldItem(false):getID() == "minecraft:air" then
-        ToggleFauna()
-      end
-    end
-  end
 end
-
-local wheelClicks = 0
-if ENABLEROOTS or ENABLEHEXES then
-  --keybind to sense the closing of the action wheel
-  local wheelRelease = keybinds:newKeybind("Figura Wheel Release", 
-    keybinds:getVanillaKey("figura.config.action_wheel_button"))
-  wheelRelease.release = function() 
-    if wheelClicks>=3 then 
-      SendSpell(SpellCache)
+keybinds:fromVanilla("key.jump").press = function()
+    if ShiftPressed then
+        pings.playAnim("jumpSpin")
     end
-    wheelClicks = 0
-  end
-
-  --next and previous buttons
-  local prevSpell = keybinds:newKeybind("Previous Spell", "key.mouse.4")
-  prevSpell.press = function()
-    if HistoryDepth<4 then
-      HistoryDepth=HistoryDepth+1 end
-    RecallSpell(HistoryDepth)
-  end
-  local nextSpell = keybinds:newKeybind("Next Spell", "key.mouse.5")
-  nextSpell.press = function()
-    if HistoryDepth>0 then
-      HistoryDepth=HistoryDepth-1 end
-    RecallSpell(HistoryDepth)  end
-  
 end
 
 -----------------------
@@ -169,6 +118,24 @@ function RecallSpell(depth)
     if i~=5 then hudMessage=hudMessage.."§f-" end
   end
   host:setActionbar(hudMessage)
+end
+
+function SetVanillaParent(toggle)
+    if toggle then
+        models.aduene.root.Head:setParentType("Head")
+        models.aduene.root.Body:setParentType("Body")
+        models.aduene.root.LeftArm:setParentType("LeftArm")
+        models.aduene.root.RightArm:setParentType("RightArm")
+        models.aduene.root.LeftLeg:setParentType("LeftLeg")
+        models.aduene.root.RightLeg:setParentType("RightLeg")
+    else
+        models.aduene.root.Head:setParentType("None")
+        models.aduene.root.Body:setParentType("None")
+        models.aduene.root.LeftArm:setParentType("None")
+        models.aduene.root.RightArm:setParentType("None")
+        models.aduene.root.LeftLeg:setParentType("None")
+        models.aduene.root.RightLeg:setParentType("None")
+    end
 end
 
 
@@ -253,6 +220,7 @@ end
 
 local rmbDown = false
 local bookOpen = true
+wheelClicks = 0
 function events.mouse_press(button, action)
   if player:isLoaded() then  
     if player:getHeldItem(true).id:find("spellbook") and player:getHeldItem(false).id == "minecraft:air" then
@@ -289,5 +257,14 @@ function events.mouse_press(button, action)
 
   if action_wheel:isEnabled() then
     if action==1 then wheelClicks=wheelClicks+1 end
+  end
+end
+
+ShiftPressed = false
+function events.key_press(key, action)
+  --track crouching locally
+  if key==340 then
+    if action==1 then ShiftPressed = true
+    elseif action==0 then ShiftPressed = false end
   end
 end

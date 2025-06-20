@@ -1,70 +1,65 @@
 
 STARRY_FORM = false
 
-models["starry-form"]:setVisible(state)
-
 local starryParts = {
-    models["starry-form"].Head.Head,
-    models["starry-form"].Body.Body,
-    models["starry-form"].LeftArm.LeftArm,
-    models["starry-form"].RightArm.RightArm,
-    models["starry-form"].LeftLeg.LeftLeg,
-    models["starry-form"].RightLeg.RightLeg
+    models.aduene.root.Body.Body,
+    models.aduene.root.Head.Head,
+    models.aduene.root.LeftLeg.LeftLeg,
+    models.aduene.root.RightLeg.RightLeg,
+    models.aduene.root.LeftArm.LeftArm,
+    models.aduene.root.RightArm.RightArm,
 }
-
-models["starry-form"]:setPrimaryRenderType("TRANSLUCENT")
-models["starry-form"].Head.HeadLayer:setOpacity(0.75)
-models["starry-form"].Head.HeadLayer:setPrimaryRenderType("EMISSIVE")
-models["starry-form"].Head.HatLayer:setOpacity(0.75)
-models["starry-form"].Head.HatLayer:setPrimaryRenderType("EMISSIVE")
-
-models["starry-form"].Head.Outline:setPrimaryRenderType("CUTOUT_CULL")
-models["starry-form"].Body.Outline:setPrimaryRenderType("CUTOUT_CULL")
-models["starry-form"].LeftArm.Outline:setPrimaryRenderType("CUTOUT_CULL")
-models["starry-form"].RightArm.Outline:setPrimaryRenderType("CUTOUT_CULL")
-models["starry-form"].LeftLeg.Outline:setPrimaryRenderType("CUTOUT_CULL")
-models["starry-form"].RightLeg.Outline:setPrimaryRenderType("CUTOUT_CULL")
-
-for _,modelpart in pairs(starryParts) do
-    modelpart:setPrimaryRenderType("TEXTURED_PORTAL")
+local shinyParts = {
+    models.aduene.root.Head.Hat,
+    models.aduene.root.Body.Mantle,
+    models.aduene.root.LeftArm.mantleLeft,
+    models.aduene.root.RightArm.mantleRight,
+    models.aduene.root.Elytra.LeftElytra,
+    models.aduene.root.Elytra.RightElytra,
+}
+local outlineParts = {
+    models.aduene.root.Body.Outline,
+    models.aduene.root.Head.Outline,
+    models.aduene.root.LeftLeg.Outline,
+    models.aduene.root.RightLeg.Outline,
+    models.aduene.root.LeftArm.Outline,
+    models.aduene.root.RightArm.Outline,
+}
+for _,modelpart in pairs(outlineParts) do
+    modelpart:setPrimaryRenderType("CUTOUT_CULL")
+    modelpart:setSecondaryRenderType("EMISSIVE")
 end
-
+models.aduene.root.Head.StarryHead:setPrimaryRenderType("EMISSIVE")
 
 function pings.StarryForm(state)
-    models.aduene.root.Body.Body:setVisible(not state)
-    models.aduene.root.Head:setVisible(not state)
-    models.aduene.root.LeftLeg:setVisible(not state)
-    models.aduene.root.RightLeg:setVisible(not state)
-
-    models["starry-form"]:setVisible(state)
+    --models["starry-form"]:setVisible(state)
+    models.aduene.root.LeftLeg["Left Pants"]:setVisible(not state)
+    models.aduene.root.RightLeg["Right Pants"]:setVisible(not state)
+    for _,modelpart in pairs(outlineParts) do
+        modelpart:setVisible(state)
+    end
+    models.aduene.root.Head.StarryHead:setVisible(state)
     
     if state then
-        models.aduene.root.Body.Mantle:setOpacity(0.5)
-        models.aduene.root.LeftArm.mantleLeft:setOpacity(0.5)
-        models.aduene.root.RightArm.mantleRight:setOpacity(0.5)
-        models.aduene.root.Body.Mantle:setPrimaryRenderType("EMISSIVE")
-        models.aduene.root.LeftArm.mantleLeft:setPrimaryRenderType("EMISSIVE")
-        models.aduene.root.RightArm.mantleRight:setPrimaryRenderType("EMISSIVE")
-
-        models.aduene.root.Elytra.LeftElytra:setOpacity(0.5)
-        models.aduene.root.Elytra.RightElytra:setOpacity(0.5)
-        models.aduene.root.Elytra.LeftElytra:setPrimaryRenderType("EMISSIVE")
-        models.aduene.root.Elytra.RightElytra:setPrimaryRenderType("EMISSIVE")
-        
+        for _,modelpart in pairs(starryParts) do
+            modelpart:setPrimaryTexture("custom", textures["textures.stars"])
+            modelpart:setPrimaryRenderType("TEXTURED_PORTAL")
+        end
+        models.aduene.root.Head.Hat:setPrimaryTexture("custom", textures["textures.starry-features"])
+        for _,modelpart in pairs(shinyParts) do
+            modelpart:setPrimaryRenderType("EMISSIVE")
+            modelpart:setOpacity(0.5)
+        end
     else
-        models.aduene.root.Body.Mantle:setOpacity(1)
-        models.aduene.root.LeftArm.mantleLeft:setOpacity(1)
-        models.aduene.root.RightArm.mantleRight:setOpacity(1)
-        models.aduene.root.Body.Mantle:setPrimaryRenderType("TRANSLUCENT")
-        models.aduene.root.LeftArm.mantleLeft:setPrimaryRenderType("TRANSLUCENT")
-        models.aduene.root.RightArm.mantleRight:setPrimaryRenderType("TRANSLUCENT")
-
-        models.aduene.root.Elytra.LeftElytra:setOpacity(1)
-        models.aduene.root.Elytra.RightElytra:setOpacity(1)
-        models.aduene.root.Elytra.LeftElytra:setPrimaryRenderType("TRANSLUCENT")
-        models.aduene.root.Elytra.RightElytra:setPrimaryRenderType("TRANSLUCENT")
+        for _,modelpart in pairs(starryParts) do
+            modelpart:setPrimaryTexture("custom", textures["textures.skin"])
+            modelpart:setPrimaryRenderType("TRANSLUCENT")
+        end
+        models.aduene.root.Head.Hat:setPrimaryTexture("custom", textures["textures.skin"])
+        for _,modelpart in pairs(shinyParts) do
+            modelpart:setPrimaryRenderType("TRANSLUCENT")
+            modelpart:setOpacity(1)
+        end
     end
     STARRY_FORM = state
 end
-
---pings.StarryForm(true)
