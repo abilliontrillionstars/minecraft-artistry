@@ -8,6 +8,7 @@ CYAN - Integrity
     [*] brush-shift:multitool
     [*] brush-shift:construction wand
     [*] recharge
+    [*] induce mending
     [+] conjure walls (charged hex?)
     
 
@@ -15,7 +16,8 @@ LIGHT_BLUE - Luck, Peace
     [*] brush-shift:moon clock
     [*] snowball throwing + winds
     [+] snow golems
-    [+] summon strays
+    [*] summon strays
+    [+] ice floor
     
 BLUE - Permanence, Safety
     [*] self-aegis
@@ -33,6 +35,7 @@ MAGENTA - Kindness, Tolerance
     [*] mass stasis wisp deploy
     [*] acceleration!!! (x4 speed)
     [*] brush-shift:bag of holding
+    [*] brush-shift:celestial pocketwatch
 
 PINK - Health, Admiration
     [*] regeneration
@@ -41,6 +44,7 @@ PINK - Health, Admiration
 PURPLE - Wisdom, Creativity
     [*] gate:acad
     [*] brush-shift:colorful world
+    [*] read & cast
     
 RED - Passion, Willpower
     [*] throw into air+damage
@@ -82,5 +86,7 @@ GRAY - Evanescence, Forlornness
 LIGHT_GRAY - Change, Quiet
     [*] wall-blinking
     [*] AE2 summoner
+    [*] brush-shift:pocket computer
+    [*] raycast mine
     
 WHITE - Purity, Innocence
