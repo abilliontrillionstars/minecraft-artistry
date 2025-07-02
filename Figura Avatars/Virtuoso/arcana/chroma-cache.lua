@@ -9,7 +9,7 @@ ArcanaCache = {
         back={message="", anim=""},
     },
     light_blue={
-        right={message="", anim=""},
+        right={message="charge:strays:3", anim="castArmsOut2"},
         middle={message="cont:winter-wind:2", anim="castTwirlStaff1Start"},
         left={message="area:player:night-vision", anim="castInkCross1"},
         forward={message="hexshot", anim="castSlingInk1"},

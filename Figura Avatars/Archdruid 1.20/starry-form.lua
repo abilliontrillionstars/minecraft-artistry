@@ -63,3 +63,15 @@ function pings.StarryForm(state)
     end
     STARRY_FORM = state
 end
+
+
+function events.render(delta)
+    if avatar:getRemainingParticles()>15 and player:isLoaded() and STARRY_FORM then
+        local var = (delta+world:getTime())*(2*math.pi)/10
+        particles:newParticle("sparkle:sparkle",  
+          player:getPos()+vec(math.sin(var)*1.5,1,math.cos(var)*1.5))
+        var = var/2
+        particles:newParticle("sparkle:sparkle",  
+          player:getPos()+vec(math.sin(var)*4,1,math.cos(var)*-4))
+    end
+end

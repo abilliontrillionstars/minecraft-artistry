@@ -147,7 +147,13 @@ action_wheel:setPage(MainPage)
 
 MainPage:newAction()
   :title("Toggle Starry Form"):item("minecraft:nether_star")
-  :onLeftClick(function() pings.StarryForm(not STARRY_FORM) end)
+  :onLeftClick(function() 
+    if not STARRY_FORM then 
+      pings.playAnim("starsIn") 
+    else
+      pings.playAnim("starsFadeOut") 
+    end
+  end)
 
 
 ---------------------
