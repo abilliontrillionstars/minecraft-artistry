@@ -111,6 +111,9 @@ RedPage:newAction()
 RedPage:newAction()
     :title("Summon Estrogen"):item("estrogen:estrogen_pill")
     :onLeftClick(function() SendArcana("brush-shift:estrogen pill", "castArmsIn1", "red") end)
+RedPage:newAction()
+    :title("Homing Wisp Barrage"):item("minecraft:ender_eye")
+    :onLeftClick(function() SendArcana("cont:homing:barrage:6", "castTwirlStaff1Start", "red") end)
 
 --------------------------
 --------- ENERGY ---------

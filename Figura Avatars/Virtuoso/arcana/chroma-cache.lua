@@ -53,7 +53,7 @@ ArcanaCache = {
     },
     red={
         right={message="brush-shift:estrogen pill", anim="castArmsIn1"},
-        middle={message="area:monster:toss:foo", anim="castSlamStaff1"},
+        middle={message="cont:homing-barrage:6", anim="castTwirlStaff1Start"},
         left={message="area:monster:toss:foo", anim="castSlamStaff1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
