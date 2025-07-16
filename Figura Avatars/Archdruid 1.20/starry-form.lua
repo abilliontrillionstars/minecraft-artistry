@@ -64,14 +64,16 @@ function pings.StarryForm(state)
     STARRY_FORM = state
 end
 
-
+DoRings = true
 function events.render(delta)
-    if avatar:getRemainingParticles()>15 and player:isLoaded() and STARRY_FORM then
+    if avatar:getRemainingParticles()>15 and player:isLoaded() and STARRY_FORM and DoRings then
         local var = (delta+world:getTime())*(2*math.pi)/10
-        particles:newParticle("sparkle:sparkle",  
+        particles:newParticle("hexcasting:conjure_particle 1",  
           player:getPos()+vec(math.sin(var)*1.5,1,math.cos(var)*1.5))
+          :setColor(1,1,1)
         var = var/2
-        particles:newParticle("sparkle:sparkle",  
+        particles:newParticle("hexcasting:conjure_particle 1",  
           player:getPos()+vec(math.sin(var)*4,1,math.cos(var)*-4))
+          :setColor(1,1,1)
     end
 end

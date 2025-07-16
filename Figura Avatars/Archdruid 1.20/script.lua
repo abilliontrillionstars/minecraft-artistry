@@ -154,6 +154,12 @@ MainPage:newAction()
       pings.playAnim("starsFadeOut") 
     end
   end)
+function pings.setDoRings(toggle)
+    DoRings = toggle
+end
+MainPage:newAction()
+    :title("Toggle Starry Rings"):item("minecraft:sunflower")
+    :onLeftClick(function() pings.setDoRings(not DoRings) end)
 
 
 ---------------------
@@ -178,27 +184,13 @@ end
 
 function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
     -- if there's no path, it's a Figura sound, so we ignore those
-    --print(id)
-    
+    --print(id)    
     if path and player:isLoaded() then
       --replace casting noises with the staff percussion hit
       if (pos - player:getPos()):lengthSquared()<3 and (id:find("hermes") or id:find("thoth") or id == "hexcasting:casting.cast") then
         sounds:playSound("Staff percusses", player:getPos(), 1, 1+(math.random(-20,50)/100))
         return true
       end
-      --replace Hexical evoking noises with beacon powah
-      if (pos - player:getPos()):lengthSquared()<1 and id == "hexical:evoking_murmur" then
-        sounds:playSound("minecraft:block.beacon.power_select", player:getPos(), 1, 1+(math.random(-20,50)/100))
-        return true
-      end
-
-      --replace the botania cloak sound, and trigger a countdown
-      if (pos - player:getPos()):lengthSquared()<1 and id == "botania:holy_cloak" then
-        sounds:playSound("minecraft:block.beacon.deactivate", player:getPos(), 0.6, 2+(math.random(-20,50)/100))
-        cloakTimer = 10*20 --ten seconds
-        return true
-      end
-
     end
 
     --replace explosions with polite firework booms, or cancel duplicates of them
