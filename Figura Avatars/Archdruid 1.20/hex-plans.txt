@@ -1,0 +1,66 @@
+###############
+## MECHANICS ##
+###############
+1. Itemless System
+    hexes are cast from mouse buttons while holding no items
+        mouse buttons can be held for charged effects
+    LMB is primarily destructive hexes & RMB constructive
+    MMB is probably a chooser (opens action wheel) 
+    LMB+RMB can cast a separate hex than MMB
+
+2. "Do what I mean"
+    the cast hex is determined by observing many things about the environment
+    e.g. punching while looking at a block mines it, or attacks an entity
+    the first check to pass returns the checker early and casts
+        this means checks are precedented by order in the series
+        list of predicates to be thothed?
+    maybe separate "modes" that interpret variables differently
+
+3. Chat Message Format
+    chat can have explicit hex names, for qol hexes like movement 
+        these aren't triggered by mouse keys
+    otherwise chat will only send the mouse button and the charge time
+    the reader will decide based on button first, then charge time
+    after that tests will be made about the surroundings (see 2)
+
+4. Chooser Hud
+    some UI element will be needed to show me what hex is planned to be used
+    not sure what form this will take, be it text or pattern
+        if pattern, make it visually distinct from June's hud
+    maybe a coil of patterns around the crosshair? or a circle at foot height? orbits?
+
+5. aesthetics and animation theming
+    have the hand extend out towards the cast direction 
+        read head rotation for smart rotation w/o pings
+    script to generate planes with circles drawn on them
+        with variable size & arc length
+    *hopefully* animating the hole body and not just the arms
+        disable movement when anim affects stance/walking
+
+
+############
+## SPELLS ##
+############
+--MOVEMENT--
+    shift-jump casts Altiora (if on the ground)
+    elytra propulsion
+    4-direction dash with WASD
+        use while gliding gblinks to the side 
+
+--FREEHAND CASTING--
+if charge time <5 ticks:
+    if LMB:
+        if looking at entity:
+            if entity within punching range:
+                    explode entity(s) and fling
+            else:
+                shoot projectile at entity(s)
+        elseif looking at block:
+            break block
+    elseif RMB:
+        let RMB pass // (presumably interacting with block)
+elseif charge time <20 ticks:
+    etc
+
+
+
