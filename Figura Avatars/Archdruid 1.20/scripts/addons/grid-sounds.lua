@@ -1,4 +1,4 @@
-CastSound = "Staff percusses"  
+CastSound = "sounds.Staff percusses"  
 
 function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
     -- if there's no path, it's a Figura sound, so we ignore those
