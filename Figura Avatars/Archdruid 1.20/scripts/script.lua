@@ -165,21 +165,9 @@ MainPage:newAction()
 ---------------------
 --- API FUNCTIONS ---
 ---------------------
-local watchForSpam = false
-local cloakTimer = 0
 function events.tick()
   if action_wheel:getCurrentPage() ~= MainPage and not action_wheel:isEnabled()
       then action_wheel:setPage(MainPage) end
-   
-  if host:isHost() then
-        renderer:setRenderLeftArm(host:getSlot("weapon.offhand"):getID() == "minecraft:air")
-        renderer:setRenderRightArm(host:getSlot("weapon.mainhand"):getID() == "minecraft:air")
-  end
-
-  if cloakTimer==0 then
-    sounds:playSound("minecraft:block.beacon.activate", player:getPos(), 0.6, 2+(math.random(-20,50)/100))
-  end
-  cloakTimer = cloakTimer-1
 end
 
 function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
@@ -213,48 +201,6 @@ function events.item_render(item, mode)
       if mode:find("LEFT") then return models.aduene.ItemSpellbook:setRot(30,15,0)
       else return models.aduene.ItemSpellbook:setRot(30,-15,0) end 
     elseif mode:find("THIRD") then return models.aduene.ItemSpellbook:setRot(90,0,0) end
-  end
-end
-
-local rmbDown = false
-local bookOpen = true
-wheelClicks = 0
-function events.mouse_press(button, action)
-  if player:isLoaded() then  
-    if player:getHeldItem(true).id:find("spellbook") and player:getHeldItem(false).id == "minecraft:air" then
-      if button==1 then
-        if action==1 then rmbDown=true
-        elseif action==0 then rmbDown=false
-        end
-      elseif button==0 and action==1 and rmbDown then
-        if bookOpen then 
-          pings.playAnim("closeSpellbook")
-          pings.stopAnim("openSpellbook")
-          bookOpen = false
-        else 
-          pings.playAnim("openSpellbook") 
-          pings.stopAnim("closeSpellbook")
-          bookOpen = true
-        end
-      end
-    end
-    if player:getHeldItem():getName() == "Druidic Staff" and not action_wheel:isEnabled() then
-      if button==1 then
-        if action==1 then
-          if SpellCache and SpellCache.poseAnim ~= "" then pings.playAnim(SpellCache.poseAnim) end
-        elseif action==0 then
-          if SpellCache and SpellCache.poseAnim ~= "" then 
-            if animations.aduene[SpellCache.poseAnim]:getLoop()=="LOOP" then 
-              pings.stopAnim(SpellCache.poseAnim) end
-          end
-        end
-      end
-    end
-    
-  end
-
-  if action_wheel:isEnabled() then
-    if action==1 then wheelClicks=wheelClicks+1 end
   end
 end
 
