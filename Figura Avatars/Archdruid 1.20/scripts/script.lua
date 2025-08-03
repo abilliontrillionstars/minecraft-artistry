@@ -176,7 +176,7 @@ function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
     if path and player:isLoaded() then
       --replace casting noises with the staff percussion hit
       if (pos - player:getPos()):lengthSquared()<3 and (id:find("hermes") or id:find("thoth") or id == "hexcasting:casting.cast") then
-        sounds:playSound("Staff percusses", player:getPos(), 1, 1+(math.random(-20,50)/100))
+        sounds:playSound("sounds.Staff percusses", player:getPos(), 1, 1+(math.random(-20,50)/100))
         return true
       end
     end

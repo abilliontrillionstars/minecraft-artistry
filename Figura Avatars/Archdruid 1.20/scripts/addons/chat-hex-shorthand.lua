@@ -39,23 +39,29 @@ aliases["explode"]="<e,aawaawaa>"
 aliases["conjure water"]="<se,aqawqadaq>"
 aliases["conjure block"]="<e,qqa>"
 --common numbers (preceded by \)
-aliases["\\0"]="<se,aqaa>"
-aliases["\\1"]="<se,aqaaw>"
-aliases["\\2"]="<se,aqaawa>"
-aliases["\\3"]="<se,aqaawaw>"
-aliases["\\4"]="<se,aqaawaa>"
-aliases["\\5"]="<se,aqaaq>"
-aliases["\\6"]="<se,aqaaedw>"
-aliases["\\7"]="<se,aqaawaq>"
-aliases["\\8"]="<se,aqaawaqw>"
-aliases["\\9"]="<se,aqaawaaq>"
-aliases["\\10"]="<se,aqaae>"
+aliases["num0"]="<se,aqaa>"
+aliases["num1"]="<se,aqaaw>"
+aliases["num2"]="<se,aqaawa>"
+aliases["num3"]="<se,aqaawaw>"
+aliases["num4"]="<se,aqaawaa>"
+aliases["num5"]="<se,aqaaq>"
+aliases["num6"]="<se,aqaaedw>"
+aliases["num7"]="<se,aqaawaq>"
+aliases["num8"]="<se,aqaawaqw>"
+aliases["num9"]="<se,aqaawaaq>"
+aliases["num10"]="<se,aqaae>"
+--arithmetic
+aliases["add"]="<ne,waaw>"
+aliases["subtract"]="<nw,wddw>"
+aliases["multiply"]="<se,waqaw>"
+aliases["mult"]="<se,waqaw>"
+aliases["divide"]="<ne,wdedw>"
+aliases["div"]="<ne,wdedw>"
+
 
 function events.chat_send_message(message)
-    for i,v in pairs(aliases) do
-        --eat spaces for phrases
-        --message = message:gsub(i.." ",v)        
-        message = message:gsub(i,v)
+    for i,v in pairs(aliases) do   
+        message = message:gsub(i,"<dark_green>"..v.."</>")
     end
     return message
 end
