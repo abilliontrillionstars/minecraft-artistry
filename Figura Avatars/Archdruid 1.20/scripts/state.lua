@@ -1,11 +1,12 @@
 CHARGE_MODE = "NONE"
 CHARGE_TIME = -1
+DISABLE_WASD = false
 
 local last_mode = "NONE"
 -- what is the leeway time, in ticks, to click both mouse buttons
 -- at the same time, setting DUAL?
 DualThreshold = 3
-function events.tick()
+function RunState()
     -- lock the charging mode
     if CHARGE_TIME==-1 then
         if RMBDown and LMBDown 
@@ -41,7 +42,6 @@ function events.tick()
         end
         if CHARGE_MODE~="NONE" then CHARGE_TIME = CHARGE_TIME+1 end
     end
-    last_mode = CHARGE_MODE
 end
 
 function ReleaseCharge()
@@ -55,20 +55,25 @@ function ReleaseCharge()
         local next = NextAnim(anim)
         if next then pings.playAnim(next) end
     end
-
+    DISABLE_WASD = false
     CHARGE_MODE = "NONE"
     CHARGE_TIME = -1
 end
 
 function SetState(state)
     CHARGE_MODE = state
-    if state == "LEFT" then
+    if state == "LEFT" 
+    and host:getSlot("weapon.mainhand"):getID() == "minecraft:air" then
         pings.playAnim("chargeLeft")
-    elseif state == "RIGHT" then
+    elseif state == "RIGHT" 
+    and host:getSlot("weapon.offhand"):getID() == "minecraft:air" then
         pings.playAnim("chargeRight")
-    elseif state == "DUAL" then
+    elseif state == "DUAL" 
+    and host:getSlot("weapon.offhand"):getID() == "minecraft:air"
+    and host:getSlot("weapon.mainhand"):getID() == "minecraft:air" then
         pings.stopAnim("chargeLeft")
         pings.stopAnim("chargeRight")
+
         pings.playAnim("chargeCastDual1Start")
     end
 end
@@ -78,4 +83,11 @@ function NextAnim(anim)
     elseif anim == "chargeRight" then return "chargeCastRight"
     elseif anim == "chargeCastDual1Loop" then return "chargeCastDual1End"
     end
+end
+
+
+-- eat wasd if an animation requires standing still
+function events.key_press(key, action)
+    if (action==1 or action==2) and (key==87 or key==65 or key==83 or key==68) 
+    and DISABLE_WASD then return true end
 end

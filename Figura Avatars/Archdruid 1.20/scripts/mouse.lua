@@ -1,4 +1,5 @@
 CAPTURE_MOUSE_BUTTONS = true
+LastCancel = false
 LMBDown = false
 RMBDown = false
 MMBDown = false
@@ -6,6 +7,10 @@ LMBCharge = -1
 RMBCharge = -1
 MMBCharge = -1
 function events.mouse_press(button, action)
+  LastCancel = CAPTURE_MOUSE_BUTTONS and host:getScreen()==nil
+  and ((host:getSlot("weapon.offhand"):getID() == "minecraft:air" and button==1)
+  or (host:getSlot("weapon.mainhand"):getID() == "minecraft:air") and button==0)
+  if not LastCancel then return end
   if action==1 then
     if button==0 then
       LMBDown = true
@@ -23,7 +28,7 @@ function events.mouse_press(button, action)
       MMBDown = false
     end
   end
-  return CAPTURE_MOUSE_BUTTONS
+  return LastCancel
 end
 
 function events.tick()
@@ -42,5 +47,6 @@ function events.tick()
     else
       MMBCharge = -1
     end
+    RunState()
 end
 
