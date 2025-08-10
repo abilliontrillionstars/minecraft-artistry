@@ -74,14 +74,19 @@ function SetState(state)
         pings.stopAnim("chargeLeft")
         pings.stopAnim("chargeRight")
 
-        pings.playAnim("chargeCastDual1Start")
+        if CtrlPressed then
+            pings.playAnim("chargeCastDual1Start")
+        else
+            pings.playAnim("chargeCastClapStart")
+        end
     end
 end
 
 function NextAnim(anim)
     if anim == "chargeLeft" then return "chargeCastLeft"
     elseif anim == "chargeRight" then return "chargeCastRight"
-    elseif anim == "chargeCastDual1Loop" then return "chargeCastDual1End"
+    
+    elseif anim:find("Loop") then return anim:gsub("Loop", "End")
     end
 end
 

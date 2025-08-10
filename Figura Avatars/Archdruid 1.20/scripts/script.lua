@@ -161,6 +161,12 @@ MainPage:newAction()
     :title("Toggle Starry Rings"):item("minecraft:sunflower")
     :onLeftClick(function() pings.setDoRings(not DoRings) end)
 
+MainPage:newAction()
+    :title("Toggle Arcana"):item("minecraft:amethyst_shard")
+    :onToggle(function() 
+      CAPTURE_MOUSE_BUTTONS = not CAPTURE_MOUSE_BUTTONS
+    end)
+
 
 ---------------------
 --- API FUNCTIONS ---
@@ -205,10 +211,16 @@ function events.item_render(item, mode)
 end
 
 ShiftPressed = false
+CtrlPressed = false
 function events.key_press(key, action)
-  --track crouching locally
+  --track crouching locally by key
   if key==340 then
     if action==1 then ShiftPressed = true
     elseif action==0 then ShiftPressed = false end
+  end
+  --ditto for sprinting
+  if key==341 then
+    if action==1 then CtrlPressed = true
+    elseif action==0 then CtrlPressed = false end
   end
 end

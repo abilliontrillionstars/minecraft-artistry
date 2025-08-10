@@ -19,7 +19,7 @@ function events.mouse_press(button, action)
     elseif button==2 then
       MMBDown = true
     end
-  else
+  elseif action==0 then
     if button==0 then
       LMBDown = false
     elseif button==1 then

@@ -28,7 +28,7 @@ function events.render(delta, mode)
         HUD.middleMouse:setScale(1)
     end
 
-    host:setActionbar("("..CHARGE_MODE.." : "..CHARGE_TIME..")")
+    --host:setActionbar("("..CHARGE_MODE.." : "..CHARGE_TIME..")")
 
     HUD.crosshair:setVisible(mode=="FIRST_PERSON")
 

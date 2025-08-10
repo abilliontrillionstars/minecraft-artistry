@@ -4,7 +4,7 @@ function events.on_play_sound(id, pos)
     if player:isLoaded() then
         --replace Hexical evoking noises with beacon powah
         if (pos - player:getPos()):lengthSquared()<1 and id == "hexical:evoking_murmur" then
-            sounds:playSound("minecraft:block.beacon.power_select", player:getPos(), 1, 1+(math.random(-20,50)/100))
+            sounds:playSound("minecraft:block.beacon.power_select", player:getPos(), 0.5, 1+(math.random(-20,50)/100))
             return true
         end
 
