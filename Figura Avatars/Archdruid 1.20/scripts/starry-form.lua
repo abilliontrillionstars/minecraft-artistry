@@ -64,7 +64,12 @@ function pings.StarryForm(state)
     STARRY_FORM = state
 end
 
-DoRings = true
+
+function pings.setDoRings(toggle)
+    DoRings = toggle
+end
+
+DoRings = false
 function events.render(delta)
     if avatar:getRemainingParticles()>15 and player:isLoaded() and STARRY_FORM and DoRings then
         local var = (delta+world:getTime())*(2*math.pi)/10

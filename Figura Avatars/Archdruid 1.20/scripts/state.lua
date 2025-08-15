@@ -44,6 +44,8 @@ function RunState()
     end
 end
 
+LastCharge = 0
+LastMode = "NONE"
 function ReleaseCharge()
     --print("("..CHARGE_MODE.." : "..CHARGE_TIME..")")
     -- advance running animations
@@ -55,6 +57,9 @@ function ReleaseCharge()
         local next = NextAnim(anim)
         if next then pings.playAnim(next) end
     end
+    LastMode = CHARGE_MODE
+    LastCharge = CHARGE_TIME
+
     DISABLE_WASD = false
     CHARGE_MODE = "NONE"
     CHARGE_TIME = -1

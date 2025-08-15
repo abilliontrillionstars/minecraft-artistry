@@ -55,69 +55,21 @@ end
 -----------------------
 --- OTHER FUNCTIONS ---
 -----------------------
-function ChangeSpell(spell) 
-  SpellCache = spell
-  SendSpell(spell)
-  if type(spell) == "table" then
-    pings.colorStaff(vectors.hexToRGB(spell.hue1), vectors.hexToRGB(spell.hue2)) end
+SpellString = ""
+function SendSpell(state, charge)
+  SpellString = SIFTER
+  if not state then state = LastMode end
+  if not charge then charge = LastCharge end
+  if state == "LEFT" then
+    SpellString = SpellString.."blast:"
+  elseif state == "RIGHT" then
 
-  --save to the history
-  SpellHistory[1]=SpellHistory[2]
-  SpellHistory[2]=SpellHistory[3]
-  SpellHistory[3]=SpellHistory[4]
-  SpellHistory[4]=SpellHistory[5]
-  SpellHistory[5]=spell
-
-  local hudMessage=""
-  for i,v in pairs(SpellHistory) do
-    if v~=nil then 
-      if type(v)=="table" then
-        if i==5 then hudMessage=hudMessage.."{"..v.nick.."§f}"
-        else hudMessage = hudMessage..v.nick end
-      elseif type(v)=="string" then
-        if i==5 then hudMessage=hudMessage.."{"..v.."§f}"
-        else hudMessage = hudMessage..v end
-      end
-    end
-    if i~=5 then hudMessage=hudMessage.."§f-" end
+  elseif state == "DUAL" then
+    SpellString = SpellString.."blast:"
   end
-  host:setActionbar(hudMessage)
-end
-
-function SendSpell(spell)
---if passed a string, just use that
-  if type(spell) == "string" then
-    SpellString = ","..spell
-  elseif type(spell) == "table" then
-    SpellString = "," .. spell.id --",skysoarer"
-    for i,v in pairs(spell.mods) do 
-      SpellString = SpellString..'-'..v 
-    end --",skysoarer-2-0"
-    SpellNick = spell.nick
-  end
+  SpellString = SpellString..charge..":"..world:getTime()
+  --print(SpellString)
   host:sendChatMessage(SpellString)
-end
-
-function RecallSpell(depth)
-  local spell = SpellHistory[5-depth]
-  SpellCache = spell
-  --send the chat signal for the spell
-  if spell then
-    SendSpell(spell) end
-  --color the staff
-  if type(spell)=="table" then
-    pings.colorStaff(
-    vectors.hexToRGB(SpellHistory[5-depth].hue1), vectors.hexToRGB(SpellHistory[5-depth].hue2)) end
-  --and show the selection to the action bar
-  local hudMessage = ""
-  for i,v in pairs(SpellHistory) do
-    if v~=nil then 
-      if i==5-depth then hudMessage=hudMessage.."{"..v.nick.."§f}"
-      else hudMessage = hudMessage..v.nick end
-    end
-    if i~=5 then hudMessage=hudMessage.."§f-" end
-  end
-  host:setActionbar(hudMessage)
 end
 
 function SetVanillaParent(toggle)
@@ -154,18 +106,23 @@ MainPage:newAction()
       pings.playAnim("starsFadeOut") 
     end
   end)
-function pings.setDoRings(toggle)
-    DoRings = toggle
-end
-MainPage:newAction()
-    :title("Toggle Starry Rings"):item("minecraft:sunflower")
-    :onLeftClick(function() pings.setDoRings(not DoRings) end)
-
 MainPage:newAction()
     :title("Toggle Arcana"):item("minecraft:amethyst_shard")
-    :onToggle(function() 
-      CAPTURE_MOUSE_BUTTONS = not CAPTURE_MOUSE_BUTTONS
+    :onToggle(function() CAPTURE_MOUSE_BUTTONS = not CAPTURE_MOUSE_BUTTONS end)
+
+MainPage:newAction(9)
+    :title("Toggle Starry Rings"):item("minecraft:sunflower")
+    :onLeftClick(function() pings.setDoRings(not DoRings) end)
+MainPage:newAction(10)
+    :title("Toggle Meditate"):item("hextended:staff/drawing_orb")
+    :onToggle(function(toggle) 
+      if toggle then pings.playAnim("meditateNoSeatLoop")
+      else
+        pings.stopAnim("meditateNoSeatLoop")
+        pings.playAnim("meditateNoSeatEnd")
+      end
     end)
+
 
 
 ---------------------

@@ -63,8 +63,17 @@ aliases["div"]="<ne,wdedw>"
 
 
 function events.chat_send_message(message)
-    for i,v in pairs(aliases) do   
-        message = message:gsub(i,"<dark_green>"..v.."</>")
+--   for i,v in pairs(aliases) do   
+--       message = message:gsub(i,"<dark_green>"..v.."</>")
+--   end
+--   return message
+    
+    local output = {}
+    for word in string.gmatch(message, "[^ ]+") do
+        table.insert(output, aliases[word] or word)
     end
-    return message
+    return table.concat(output, " ")
+
 end
+
+
