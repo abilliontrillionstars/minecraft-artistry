@@ -11,23 +11,23 @@ aliases["alidades"]="<e,wa>"
 aliases["archers"]="<e,wqaawdd>"
 aliases["architects"]="<e,weddwaa>"
 aliases["scouts"]="<e,weaqa>"
-
+aliases["reveal"]="<ne,de>"
+--meta eval
 aliases["intro"]="<w,qqq>"
 aliases["retro"]="<e,eee>"
 aliases["consid"]="<w,qqqaw>"
 aliases["hermes"]="<se,deaqq>"
-aliases["reveal"]="<ne,de>"
 --stack manip
 aliases["jesters"]="<e,aawdd>"
 aliases["gemini"]="<e,aadaadaa>"
 aliases["gemini"]="<e,aadaa>"
 --constants
-aliases["+x "]="<nw,qqqqqea>"
-aliases["+y "]="<nw,qqqqqew>"
-aliases["+z "]="<nw,qqqqqed>"
-aliases["-x "]="<sw,eeeeeqa>"
-aliases["-y "]="<sw,eeeeeqw>"
-aliases["-z "]="<sw,eeeeeqd>"
+aliases["vec+x"]="<nw,qqqqqea>"
+aliases["vec+y"]="<nw,qqqqqew>"
+aliases["vec+z"]="<nw,qqqqqed>"
+aliases["vec-x"]="<sw,eeeeeqa>"
+aliases["vec-y"]="<sw,eeeeeqw>"
+aliases["vec-z"]="<sw,eeeeeqd>"
 aliases["0vec"]="<nw,qqqqq>"
 --lists
 aliases["flocks disint"]="<nw,qwaeawq>"
@@ -38,7 +38,10 @@ aliases["break"]="<e,qaqqqqq>"
 aliases["explode"]="<e,aawaawaa>"
 aliases["conjure water"]="<se,aqawqadaq>"
 aliases["conjure block"]="<e,qqa>"
---common numbers (preceded by \)
+
+aliases["read"]="<e,aqqqqq>"
+aliases["write"]="<e,deeeee>"
+--common numbers
 aliases["num0"]="<se,aqaa>"
 aliases["num1"]="<se,aqaaw>"
 aliases["num2"]="<se,aqaawa>"

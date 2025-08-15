@@ -5,10 +5,10 @@ function events.chat_receive_message(message, asJson)
     if message:find("lua")
     then return asJson end
 
-    if string.sub(message,1,1) == "<" then
-      message = string.sub(message, message:find(">"), #message) end
-    if string.sub(message,1,1) == "[" then
-      message = string.sub(message, message:find("]"), #message) end
+    if message:find("%<") then
+      message = string.sub(message, message:find("%>"), #message) end
+    if message:find("%[") then
+      message = string.sub(message, message:find("%]"), #message) end
 
     message=string.lower(message)
 
