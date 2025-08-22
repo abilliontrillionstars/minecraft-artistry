@@ -61,11 +61,16 @@ function SendSpell(state, charge)
   if not state then state = LastMode end
   if not charge then charge = LastCharge end
   if state == "LEFT" then
-    SpellString = SpellString.."blast:"
+    if STARRY_FORM then
+      SpellString = SpellString.."punch:"  
+    else
+      SpellString = SpellString.."blast:"  
+    end
   elseif state == "RIGHT" then
-
+    SpellString = SpellString.."blast:"
   elseif state == "DUAL" then
     SpellString = SpellString.."blast:"
+  elseif state == "MIDDLE" then
   end
   SpellString = SpellString..charge..":"..world:getTime()
   --print(SpellString)

@@ -69,10 +69,18 @@ function SetState(state)
     CHARGE_MODE = state
     if state == "LEFT" 
     and host:getSlot("weapon.mainhand"):getID() == "minecraft:air" then
-        pings.playAnim("chargeLeft")
+        if STARRY_FORM then
+            pings.playAnim("chargeCastPunchStart")
+        else
+            pings.playAnim("chargeLeft")
+        end
     elseif state == "RIGHT" 
     and host:getSlot("weapon.offhand"):getID() == "minecraft:air" then
-        pings.playAnim("chargeRight")
+        if CtrlPressed then
+            pings.playAnim("chargeCastDispelStart")
+        else
+            pings.playAnim("chargeRight")
+        end
     elseif state == "DUAL" 
     and host:getSlot("weapon.offhand"):getID() == "minecraft:air"
     and host:getSlot("weapon.mainhand"):getID() == "minecraft:air" then
@@ -84,12 +92,18 @@ function SetState(state)
         else
             pings.playAnim("chargeCastClapStart")
         end
+    elseif state == "MIDDLE" then
+        if ShiftPressed then
+            pings.playAnim("castFloorCircle")
+        end
     end
+
 end
 
 function NextAnim(anim)
     if anim == "chargeLeft" then return "chargeCastLeft"
     elseif anim == "chargeRight" then return "chargeCastRight"
+    elseif anim == "chargeLeft2" then return "chargeLeft2End"
     
     elseif anim:find("Loop") then return anim:gsub("Loop", "End")
     end

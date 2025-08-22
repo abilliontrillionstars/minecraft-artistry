@@ -10,6 +10,8 @@ function events.mouse_press(button, action)
   LastCancel = CAPTURE_MOUSE_BUTTONS and host:getScreen()==nil
   and ((host:getSlot("weapon.offhand"):getID() == "minecraft:air" and button==1)
   or (host:getSlot("weapon.mainhand"):getID() == "minecraft:air") and button==0)
+  or button==2 -- MMB doesn't use the hands
+  
   if not LastCancel then return end
   if action==1 then
     if button==0 then
