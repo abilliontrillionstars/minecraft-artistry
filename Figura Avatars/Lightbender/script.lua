@@ -1,13 +1,17 @@
 vanilla_model.PLAYER:setVisible(false)
 vanilla_model.ARMOR:setVisible(false)
 
+models.model.root.Body.BodyLayer:setPrimaryRenderType("EMISSIVE")
+
 local mainPage = action_wheel:newPage()
 action_wheel:setPage(mainPage)
 
 mainPage:newAction()
     :title("Party Invite Vex"):item("minecraft:iron_sword")
     :hoverColor(vectors.hexToRGB("#462451"))
-    :onLeftClick(function() host:sendChatMessage("/party invite Vexify27") end)
+    :onLeftClick(function() 
+        host:sendChatMessage("/party invite Vexify27")
+    end)
 mainPage:newAction()
     :title("Housing Invite Vex"):item("minecraft:vex_spawn_egg")
     :hoverColor(vectors.hexToRGB("#462451"))
@@ -17,4 +21,12 @@ mainPage:newAction()
     :hoverColor(vectors.hexToRGB("#462451"))
     :onLeftClick(function() host:sendChatMessage("/housing edit") end)
 
-    
+mainPage:newAction(9)
+    :title("Toggle Model"):item("minecraft:leather_chestplate")
+    :hoverColor(vectors.hexToRGB("#462451"))
+    :onToggle(function(toggle)
+        vanilla_model.PLAYER:setVisible(not toggle)
+        vanilla_model.ARMOR:setVisible(not toggle)
+        models.model:setVisible(toggle)
+    end)
+

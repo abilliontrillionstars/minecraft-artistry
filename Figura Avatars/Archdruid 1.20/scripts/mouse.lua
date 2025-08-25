@@ -7,7 +7,7 @@ LMBCharge = -1
 RMBCharge = -1
 MMBCharge = -1
 function events.mouse_press(button, action)
-  LastCancel = CAPTURE_MOUSE_BUTTONS and host:getScreen()==nil
+  LastCancel = CAPTURE_MOUSE_BUTTONS and host:getScreen()==nil and not action_wheel:isEnabled()
   and ((host:getSlot("weapon.offhand"):getID() == "minecraft:air" and button==1)
   or (host:getSlot("weapon.mainhand"):getID() == "minecraft:air") and button==0)
   or button==2 -- MMB doesn't use the hands
