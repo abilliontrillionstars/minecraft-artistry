@@ -40,6 +40,7 @@ end
 --- KEYBINDS ---
 ----------------
 
+local testKey = keybinds:newKeybind("test", "key.keyboard.backslash", false)
 local wristPocketKey = keybinds:newKeybind("Quick Wristpocket Spell", "key.keyboard.c", false)
   wristPocketKey.press = function() 
     if ShiftPressed then
@@ -67,9 +68,9 @@ function SendSpell(state, charge)
       SpellString = SpellString.."blast:"  
     end
   elseif state == "RIGHT" then
-    SpellString = SpellString.."blast:"
+    SpellString = SpellString.."rblast:"
   elseif state == "DUAL" then
-    SpellString = SpellString.."blast:"
+    SpellString = SpellString.."clap:"
   elseif state == "MIDDLE" then
   end
   SpellString = SpellString..charge..":"..world:getTime()
@@ -119,7 +120,7 @@ MainPage:newAction(9)
     :title("Toggle Starry Rings"):item("minecraft:sunflower")
     :onLeftClick(function() pings.setDoRings(not DoRings) end)
 MainPage:newAction(10)
-    :title("Toggle Meditate"):item("hextended:staff/drawing_orb")
+    :title("Toggle Meditate"):item("minecraft:ender_eye")
     :onToggle(function(toggle) 
       if toggle then pings.playAnim("meditateNoSeatLoop")
       else
@@ -162,8 +163,8 @@ function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
 end
 function events.item_render(item, mode)
   if item:getName():find("Druidic Staff") then return models.aduene.ItemStaff3D end
-  if item:getID() == "hexgloop:casting_ring" then return models.aduene.ItemRing end
-
+  if item:getID() == "hextended:staff/drawing_orb" then return models.aduene.ItemOrb end
+  
   if item:getID() == "hexcasting:spellbook" or item:getID() == "hexgloop:covered_spellbook" then 
     if mode:find("FIRST") then 
       if mode:find("LEFT") then return models.aduene.ItemSpellbook:setRot(30,15,0)
