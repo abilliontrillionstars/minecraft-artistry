@@ -34,7 +34,7 @@
         read head rotation for smart rotation w/o pings
     script to generate planes with circles drawn on them
         with variable size & arc length
-    *hopefully* animating the hole body and not just the arms
+    *hopefully* animating the whole body and not just the arms
         disable movement when anim affects stance/walking
 
 
