@@ -1,6 +1,7 @@
 HUD = models.aduene.Hud
 
 HUD:setVisible(true)
+HUD.crosshair:setVisible(false)
 local screendims = client:getScaledWindowSize()
 HUD:setPos(screendims[1]/-2, screendims[2]/-2, 0)
 HUD:setScale(1)
