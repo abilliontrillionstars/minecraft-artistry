@@ -21,7 +21,7 @@ end
 
 function pings.pling()
   range={(0.8*1.25), 0.8, 1.2}
-  pitch=range[math.random(1,3)]
+  pitch=range[math.random(1,3)]/3
   if player:isLoaded() then
     sounds:playSound("block.note_block.guitar", player:getPos(), 1, pitch*0.25)
     sounds:playSound("block.note_block.guitar", player:getPos(), 1, pitch)
