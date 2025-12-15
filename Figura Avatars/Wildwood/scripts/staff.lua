@@ -14,7 +14,7 @@ function events.tick()
         if RMBCharge == 12 then pings.sfx("sounds.Staff percusses", math.random(8,12)/10) end
         
         -- particles
-        if RMBDown then
+        if IsCasting then
             if avatar:getRemainingParticles() > 0 then
                 for var=0,10 do
                     name = rootsParticleFormat("magic", rootsColourFormat(70, 81, 22))
@@ -59,11 +59,7 @@ function events.item_render(item, mode)
     local id = item:getID()
     if id == "rootsclassic:crystal_staff" then
         if mode:find("THIRD") then
-            if animations:getPlaying()[1] then
-                return models.aduene.ItemStaff
-            else
-                return models.aduene.ItemStaff:setRot(45,0,0):setPos(0,0,1)        
-            end
+            return models.aduene.ItemStaff:setPos(0,0,1)        
         else
             model = models.aduene.ItemStaff:setRot(0,90,0)
             if staff and RMBDown and not player:isCrouching() then model:setRot(0,90,15) end
