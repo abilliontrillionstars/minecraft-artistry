@@ -76,8 +76,16 @@ Spells["orange_tulip"] = {
 Spells["dandelion"] = {
     -- pushes out mobs and projectiles in a 2 + size/2 radius.
     -- push (in blocks/tick) is equal to 0.05 * potency+1
-    name="Shielding",
+    name="Dandelion Winds",
     emoji=":mcb_orange_tulip:",
+    anim="castOnBlock",
+    modelparts={}
+}
+Spells["poisonous_potato"] = {
+    -- calls lightning to the raycasted block.
+    -- added size increases the *reach*.
+    name="Electric Spark",
+    emoji=":mci_poisonous_potato:",
     anim="castOnBlock",
     modelparts={}
 }

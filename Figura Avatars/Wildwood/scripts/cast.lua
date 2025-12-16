@@ -10,8 +10,12 @@ function events.tick()
     name = spell["effect"]
     -- "chorus"
     name = string.sub(name, #"rootsclassic:"+1, #name)
+    cast = Spells[name]
+    if not cast then return end
+
+    if name ~= oldName then host:setActionbar(cast["emoji"].." "..cast[name].." "..cast["emoji"]) end
     -- string of anim, e.g. "castWarp"
-    anim = Spells[name]["anim"]
+    anim = cast["anim"]
     if not anim then return end
 
     if RMBDown then
@@ -21,7 +25,6 @@ function events.tick()
 
         -- special case: show the blink destination (only for caster)
         if name == "chorus" then
-            host:setActionbar("wah")
             distance = 8 + (8* spell["potency"])
             pos = player:getPos() + (player:getLookDir()*distance)
             if avatar:getRemainingParticles() > 0 then
@@ -31,6 +34,7 @@ function events.tick()
         if IsCasting then pings.setCasting(false) end
         if animations.aduene[anim]:getTime() < 0.6 then pings.stopAnim(anim) end
     end
+    oldName = name
 end
 
 
