@@ -2,8 +2,8 @@ local username = "just_laniakea"
 local nick = "lani"
 
 function events.chat_receive_message(message, asJson) 
-    if message:find("lua")
-    then return asJson end
+    if message:find("lua") then return asJson end
+    if message:find("%[ping%]") then return asJson end
 
     if message:find("%<") ~= nil and message:find("%>") ~= nil then
       message = string.sub(message, message:find("%>"), #message) 

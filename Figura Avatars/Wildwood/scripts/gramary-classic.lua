@@ -59,15 +59,16 @@ Spells["peony"] = {
 Spells["white_tulip"] = {
     -- deals 5 + potency*3 damage to surrounding mobs.
     -- also slows them for 100 * potency+2 ticks at level potency.
-    -- added size increases range (radius) around cast point
+    -- added size increases range (radius) around cast point (0 default??)
     name="Blistering Cold",
     emoji=":mcb_white_tulip:",
-    anim="castRaiseStaff",
+    anim="castBlizzard",
     modelparts={}
 }
 Spells["orange_tulip"] = {
     -- pushes out mobs and projectiles in a 2 + size/2 radius.
     -- push (in blocks/tick) is equal to 0.05 * potency+1
+    -- push seems to sadly be too small to be practical :(
     name="Shielding",
     emoji=":mcb_orange_tulip:",
     anim="castRaiseStaff",
@@ -78,7 +79,7 @@ Spells["dandelion"] = {
     -- push (in blocks/tick) is equal to 0.05 * potency+1
     name="Dandelion Winds",
     emoji=":mcb_orange_tulip:",
-    anim="castOnBlock",
+    anim="castWinds",
     modelparts={}
 }
 Spells["poisonous_potato"] = {

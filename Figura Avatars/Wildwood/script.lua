@@ -35,5 +35,8 @@ end
 --"delta" is the percentage between the last and the next tick (as a decimal value, 0.0 to 1.0)
 --"context" is a string that tells from where this render event was called (the paperdoll, gui, player render, first person)
 function events.render(delta, context)
-  --code goes here
+  if not animations.aduene.castWarp:isPlaying() then
+    models.aduene.root.Head.physBoneHair:setVisible(not context:find("FIRST"))
+    models.aduene.root.Head.physBoneHair2:setVisible(not context:find("FIRST"))
+  end
 end

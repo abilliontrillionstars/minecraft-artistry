@@ -15,12 +15,11 @@ function events.tick()
         
         -- particles
         if IsCasting then
-            if avatar:getRemainingParticles() > 0 then
-                for var=0,10 do
-                    name = rootsParticleFormat("magic", rootsColourFormat(70, 81, 22))
-                    particles:newParticle(name, player:getPos()
-                        + vec(-1 + math.random()*2,0, -1 + math.random()*2),
-                        vec(0,0.1,0))
+            for var=0,5 do
+                if avatar:getRemainingParticles() > 50 then
+                    i = math.random() * math.pi * 2
+                    offset = vec(math.sin(i), 0, math.cos(i))
+                    particles:newParticle("minecraft:end_rod", player:getPos()+offset, vec(0,0.01,0))
                 end
             end
         end
