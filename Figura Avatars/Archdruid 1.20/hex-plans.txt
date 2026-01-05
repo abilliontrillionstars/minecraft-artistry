@@ -27,7 +27,8 @@
     some UI element will be needed to show me what hex is planned to be used
     not sure what form this will take, be it text or pattern
         if pattern, make it visually distinct from June's hud
-    maybe a coil of patterns around the crosshair? or a circle at foot height? orbits?
+    maybe a coil of patterns around the crosshair? 
+        or a circle at foot height? orbits?
 
 5. aesthetics and animation theming
     have the hand extend out towards the cast direction 

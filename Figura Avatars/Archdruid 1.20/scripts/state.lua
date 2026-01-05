@@ -95,6 +95,8 @@ function SetState(state)
     elseif state == "MIDDLE" then
         if ShiftPressed then
             pings.playAnim("castFloorCircle")
+        else
+            pings.playAnim("chargeCastStompStart")
         end
     end
 

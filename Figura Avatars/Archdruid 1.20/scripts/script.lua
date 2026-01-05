@@ -72,6 +72,7 @@ function SendSpell(state, charge)
   elseif state == "DUAL" then
     SpellString = SpellString.."clap:"
   elseif state == "MIDDLE" then
+    SpellString = SpellString.."stomp:"
   end
   SpellString = SpellString..charge..":"..world:getTime()
   --print(SpellString)
@@ -96,6 +97,39 @@ function SetVanillaParent(toggle)
     end
 end
 
+-- false closed, true open
+function SetEyes(toggle) 
+  skin = textures["textures.skin"]
+  skinStars = textures["textures.starry-features"]
+  
+  if not toggle then
+    skin:setPixel(9,11,skin:getPixel(1,1))
+    skin:setPixel(9,12,skin:getPixel(1,2))
+    skin:setPixel(10,11,skin:getPixel(2,1))
+    skin:setPixel(10,12,skin:getPixel(2,2))
+    
+    skin:setPixel(13,11,skin:getPixel(5,1))
+    skin:setPixel(13,12,skin:getPixel(5,2))
+    skin:setPixel(14,11,skin:getPixel(6,1))
+    skin:setPixel(14,12,skin:getPixel(6,2))
+
+    skinStars:setPixel(9,11,skinStars:getPixel(1,1))
+    skinStars:setPixel(9,12,skinStars:getPixel(1,2))
+    skinStars:setPixel(10,11,skinStars:getPixel(2,1))
+    skinStars:setPixel(10,12,skinStars:getPixel(2,2))
+    
+    skinStars:setPixel(13,11,skinStars:getPixel(5,1))
+    skinStars:setPixel(13,12,skinStars:getPixel(5,2))
+    skinStars:setPixel(14,11,skinStars:getPixel(6,1))
+    skinStars:setPixel(14,12,skinStars:getPixel(6,2))
+  else
+    skin:restore()
+    skinStars:restore()
+  end
+
+  skin:update()
+  skinStars:update()
+end
 
 ---------------------
 --- ACTION WHEEL  ---
@@ -150,14 +184,14 @@ function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
       end
     end
 
-    --replace explosions with polite firework booms, or cancel duplicates of them
-    if player:isLoaded() then
-      if path and id:find("explode") and (pos - player:getPos()):lengthSquared() < 32^2 then
-        if not watchForSpam then
-          sounds["entity.firework_rocket.large_blast"]:pos(pos):play()
-        end
-        watchForSpam = true
-        return true -- we return true here to cancel the sound
+  --replace explosions with polite firework booms, or cancel duplicates of them
+  if host:isHost() then
+    if path and id:find("explode") and (pos - player:getPos()):lengthSquared() < 32^2 then
+      if not watchForSpam then
+        sounds["entity.firework_rocket.large_blast"]:pos(pos):play()
+      end
+      watchForSpam = true
+      return true -- we return true here to cancel the sound
     end
   end
 end
