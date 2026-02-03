@@ -196,7 +196,7 @@ function events.on_play_sound(id, pos, vol, pitch, loop, cat, path)
   end
 end
 function events.item_render(item, mode)
-  if item:getName():find("Druidic Staff") then return models.aduene.ItemStaff3D end
+  if item:getName():find("Druidic Staff") then return models.staff end
   if item:getID() == "hextended:staff/drawing_orb" then return models.aduene.ItemOrb end
   
   if item:getID() == "hexcasting:spellbook" or item:getID() == "hexgloop:covered_spellbook" then 
