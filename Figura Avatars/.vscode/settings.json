@@ -27,7 +27,8 @@
     "world",
     "renderer",
     "particles",
-    "printTable"
+    "printTable",
+    "server_packets"
   ],
   "Lua.diagnostics.disable": [
     "duplicate-set-field"

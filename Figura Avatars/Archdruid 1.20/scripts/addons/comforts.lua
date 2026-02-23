@@ -21,6 +21,16 @@ function events.chat_send_message(message)
 end
 
 
+function string.startsWith(str1,str2)
+  return str2 == string.sub(str1,1,#str2)
+end
+
+function events.CHAT_RECEIVE_MESSAGE(msg,jsonmsg)
+  if string.startsWith(msg, "[Rcon:") then
+    return false
+  end
+end
+
 function events.render()
     if host:isHost() then
         renderer:setRenderLeftArm(host:getSlot("weapon.mainhand"):getID() == "minecraft:air")

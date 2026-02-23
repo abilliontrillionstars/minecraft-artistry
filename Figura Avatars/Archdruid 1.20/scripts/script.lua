@@ -142,6 +142,11 @@ MainPage:newAction()
   :onLeftClick(function() 
     if not STARRY_FORM then 
       pings.playAnim("starsIn") 
+      if player:isLoaded() then
+        if not player:isGliding() then
+          pings.playAnim("starsInElytra")
+        end
+      end 
     else
       pings.playAnim("starsFadeOut") 
     end
