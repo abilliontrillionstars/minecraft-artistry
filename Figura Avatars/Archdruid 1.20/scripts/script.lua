@@ -8,6 +8,7 @@ models.aduene.ItemStaff3D:setVisible(true)
 models.aduene.ItemSpellbook:setVisible(true)
 models.aduene.ItemRing:setVisible(true)
 
+models.aduene.Arrow:setPrimaryRenderType("EMISSIVE")
 
 SIFTER = ","
 ------------------------
@@ -68,11 +69,15 @@ function SendSpell(state, charge)
       SpellString = SpellString.."blast:"  
     end
   elseif state == "RIGHT" then
-    SpellString = SpellString.."rblast:"
+    SpellString = SpellString.."clap:"
   elseif state == "DUAL" then
     SpellString = SpellString.."clap:"
   elseif state == "MIDDLE" then
-    SpellString = SpellString.."stomp:"
+    if STARRY_FORM then
+      SpellString = SpellString.."starry-stomp:"
+    else
+      SpellString = SpellString.."stomp:"
+    end
   end
   SpellString = SpellString..charge..":"..world:getTime()
   --print(SpellString)
@@ -162,10 +167,7 @@ MainPage:newAction(10)
     :title("Toggle Meditate"):item("minecraft:ender_eye")
     :onToggle(function(toggle) 
       if toggle then pings.playAnim("meditateNoSeatLoop")
-      else
-        pings.stopAnim("meditateNoSeatLoop")
-        pings.playAnim("meditateNoSeatEnd")
-      end
+      else pings.stopAnim("meditateNoSeatLoop") pings.SetEyes(true) end
     end)
 
 

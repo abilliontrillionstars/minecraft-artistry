@@ -1,3 +1,4 @@
+--[[
 function server_packets.transport_received(data)
     local type = data:read() -- 1 byte
     --print(type)
@@ -35,3 +36,4 @@ function server_packets.transport_received(data)
 
     
 end
+]]--

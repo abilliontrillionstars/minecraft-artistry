@@ -1,7 +1,7 @@
 vanilla_model.PLAYER:setVisible(false)
 vanilla_model.ARMOR:setVisible(false)
 models.aduene.root:setVisible(true)
-models.aduene.ItemStaff:setVisible(true)
+animations.aduene["passiveSizeFix"]:play()
 
 ------------------------
 --- EMOTES / VISUALS ---
@@ -26,9 +26,5 @@ function pings.sfx(sound, pitch)
 end
 
 function events.render(delta, context)
-  if not animations.aduene.castWarp:isPlaying() then
-    -- the physbones get wierd sometimes? idk
-    models.aduene.root.Head.physBoneHair:setVisible(not context:find("FIRST"))
-    models.aduene.root.Head.physBoneHair2:setVisible(not context:find("FIRST"))
-  end
+  
 end
