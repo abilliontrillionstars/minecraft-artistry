@@ -30,10 +30,10 @@ function pings.waveArm(x, y)
 end
 function pings.tiltStaff(toggle)
     if toggle then
-        if castingArm==RIGHTARMPATH then RIGHTITEMPATH:setRot(-50,0,0)
+        if castingArm==RIGHTARMPATH then RIGHTITEMPATH:setRot(-27.5,0,0)
         else LEFTITEMPATH:setRot(-50,0,0) end
     else
-        if castingArm==RIGHTARMPATH then RIGHTITEMPATH:setRot(-45,0,0)
+        if castingArm==RIGHTARMPATH then RIGHTITEMPATH:setRot(-22.5,0,0)
         else LEFTITEMPATH:setRot(-45,0,0) end
     end
 end
@@ -62,7 +62,7 @@ function events.tick()
         --factor in ANGLEMOD
         mousePos = vec(mousePos[1]*ANGLEMOD, mousePos[2]*ANGLEMOD)
         --extend the arm out, just a tad
-        mousePos[1] = mousePos[1] + 60
+        mousePos[1] = mousePos[1] + 30
         --now, FLOOR IT! *epic chase scene*
         --this is for ping data rates, makes the numbers 2 bytes long
         mousePos = vec(math.floor(mousePos[1]), math.floor(mousePos[2]))

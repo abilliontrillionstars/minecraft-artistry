@@ -18,7 +18,7 @@ function events.chat_receive_message(msg, json)
         local click = val.extra[1].clickEvent
         if click.action ~= "suggest_command" then return end
         if BLOCKLIST[click.value] or BLOCKALL 
-        or msg:find("%[@µyu%]") or msg:find("%[@Miyu")
+        or msg:find("%[Miyu%]")
         then return blockedIndicator end
     end
 end

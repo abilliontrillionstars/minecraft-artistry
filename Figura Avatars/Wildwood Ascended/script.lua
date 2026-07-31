@@ -26,5 +26,5 @@ function pings.sfx(sound, pitch)
 end
 
 function events.render(delta, context)
-  
+  models.aduene.root.Body.Head:setRot(vanilla_model.HEAD:getOriginRot())
 end

@@ -36,8 +36,8 @@ aliases["flocks gambit"]="<sw,ewdqdwe>"
 --spells
 aliases["break"]="<e,qaqqqqq>"
 aliases["explode"]="<e,aawaawaa>"
-aliases["conjure water"]="<se,aqawqadaq>"
-aliases["conjure block"]="<e,qqa>"
+aliases["conjure-water"]="<se,aqawqadaq>"
+aliases["conjure-block"]="<e,qqa>"
 
 aliases["read"]="<e,aqqqqq>"
 aliases["write"]="<e,deeeee>"
@@ -60,6 +60,16 @@ aliases["multiply"]="<se,waqaw>"
 aliases["mult"]="<se,waqaw>"
 aliases["divide"]="<ne,wdedw>"
 aliases["div"]="<ne,wdedw>"
+
+
+--worldcasting
+aliases["frag"]="<se,edeeeede>"
+aliases["mass"]="<nw,waawaaw>"
+aliases["com"]="<e,qaaqdee>"
+aliases["project"]="<ne,eeeeewqqqqq>"
+--worldcasting spells
+aliases["push"]="<ne,qwqqqeaw>"
+aliases["fracture"]="<w,aqwqawedwd>"
 
 
 function events.chat_send_message(message) 
