@@ -30,14 +30,17 @@ aliases["vec-y"]="<sw,eeeeeqw>"
 aliases["vec-z"]="<sw,eeeeeqd>"
 aliases["0vec"]="<nw,qqqqq>"
 --lists
-aliases["flocks disint"]="<nw,qwaeawq>"
-aliases["flocks refl"]="<nw,qwaeawqaeaqa>"
-aliases["flocks gambit"]="<sw,ewdqdwe>"
+aliases["flocks-disint"]="<nw,qwaeawq>"
+aliases["flocks-refl"]="<nw,qwaeawqaeaqa>"
+aliases["flocks-gambit"]="<sw,ewdqdwe>"
 --spells
 aliases["break"]="<e,qaqqqqq>"
 aliases["explode"]="<e,aawaawaa>"
 aliases["conjure-water"]="<se,aqawqadaq>"
 aliases["conjure-block"]="<e,qqa>"
+aliases["overgrowth"]="<ne,wqaqwawqaqw>"
+aliases["grow"]="<ne,wqaqwawqaqw>"
+
 
 aliases["read"]="<e,aqqqqq>"
 aliases["write"]="<e,deeeee>"
@@ -60,6 +63,10 @@ aliases["multiply"]="<se,waqaw>"
 aliases["mult"]="<se,waqaw>"
 aliases["divide"]="<ne,wdedw>"
 aliases["div"]="<ne,wdedw>"
+
+--hexal spells
+aliases["gate"]="<w,eeeqdqaqwqqeqqwqwqaqdqd>"
+aliases["smelt"]="<e,wqqqwqqadad>"
 
 
 --worldcasting

@@ -361,6 +361,7 @@ local cooldown = false
 local updateTimer, oldhp = 0,0
 local toggleDiff
 local timer = 10
+walking = nil
 local function getInfo()
     if host:isHost() then
         if flyinit then
@@ -443,7 +444,7 @@ local function getInfo()
     local jumpingDown = hasJumped and goingDown and not falling and neverJump or (cooldown and not jumpingUp)
     local isJumping = jumpingUp or jumpingDown or falling
     local sprinting = sprinty and standing and not inLiquid and not sitting
-    local walking = moving and not sprinting and not isJumping and not sitting
+    walking = moving and not sprinting and not isJumping and not sitting
     local forward = walking and not backwards
     local backward = walking and backwards
 
