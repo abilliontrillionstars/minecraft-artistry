@@ -51,7 +51,7 @@ function events.render()
     if (player:isLoaded() and player:getPose()=="STANDING") then
       models.aduene:setScale(1.62/player:getEyeHeight() + 0.25) 
     else 
-      models.aduene:setScale(1.25)
+      --models.aduene:setScale(1.25)
     end
 end
 
