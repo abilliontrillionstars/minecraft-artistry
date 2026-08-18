@@ -1,7 +1,6 @@
 vanilla_model.PLAYER:setVisible(false)
 vanilla_model.ARMOR:setVisible(false)
 models.aduene.root:setVisible(true)
-animations.aduene["passiveSizeFix"]:play()
 
 ------------------------
 --- EMOTES / VISUALS ---
@@ -46,6 +45,13 @@ function events.render()
       models.aduene.root.Body.Head:setRot(origin)
     else
       models.aduene.root.Body.Head:setRot(0,0,0)
+    end
+
+    --passiveSizeFix
+    if (player:isLoaded() and player:getPose()=="STANDING") then
+      models.aduene:setScale(1.62/player:getEyeHeight() + 0.25) 
+    else 
+      models.aduene:setScale(1.25)
     end
 end
 
