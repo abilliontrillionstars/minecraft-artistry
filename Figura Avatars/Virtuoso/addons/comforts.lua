@@ -15,6 +15,12 @@ function events.on_play_sound(id, pos)
             return true
         end
 
+        --replace casting noises with a crystal bing
+        if (pos - player:getPos()):lengthSquared()<3 and (id == "hexcasting:casting.cast.spell") then
+            sounds:playSound("spectrum:crystal_strike", player:getPos(), 1, 1+(math.random(-20,50)/100))
+            return true
+        end
+
 
         --replace explosions with polite firework booms, or cancel duplicates of them
         if id:find("explode") and (pos - player:getPos()):lengthSquared() < 32^2 then

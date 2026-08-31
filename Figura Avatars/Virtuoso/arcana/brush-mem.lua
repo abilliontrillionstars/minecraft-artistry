@@ -51,7 +51,7 @@ function events.mouse_press(button,action,modifier)
         if host:getScreen()~=nil or action_wheel:isEnabled() then return false end
         button = mouseButtons[button+1]
 
-        if ArcanaCache[heldColor][button].message == "" or ArcanaCache[heldColor][button].anim == "" then
+        if heldColor == nil or ArcanaCache[heldColor][button].message == "" or ArcanaCache[heldColor][button].anim == "" then
             pings.sfx("spectrum:use_fail", math.random(75, 95)/100)
             --print("no arcana for that hue and button")
         else
@@ -62,7 +62,7 @@ function events.mouse_press(button,action,modifier)
                 ArcanaCache[heldColor][button].anim = "castSlingInk2"
             elseif ArcanaCache[heldColor][button].anim == "castSlingInk2" then
                 ArcanaCache[heldColor][button].anim = "castSlingInk1" end
-        end 
+        end
         
         if button=="left" or button=="right" then return true end
     end
