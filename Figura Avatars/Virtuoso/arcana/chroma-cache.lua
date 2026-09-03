@@ -39,20 +39,20 @@ ArcanaCache = {
     },
     pink={
         right={message="area:player:heal", anim="castArmsOut2"},
-        middle={message="area:player:gate:wife", anim="castInkCircle1"},
+        middle={message="", anim=""},
         left={message="", anim=""},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
     },
     purple={
         right={message="brush-shift:colorful world", anim="castArmsIn1"},
-        middle={message="area:player:gate:acad", anim="castInkCircle1"},
+        middle={message="", anim=""},
         left={message="firework-shot", anim="castSlingInk1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
     },
     red={
-        right={message="brush-shift:estrogen pill", anim="castArmsIn1"},
+        right={message="", anim=""},
         middle={message="cont:homing-barrage:6", anim="castTwirlStaff1Start"},
         left={message="area:monster:toss:foo", anim="castSlamStaff1"},
         forward={message="hexshot", anim="castSlingInk1"},
@@ -68,14 +68,14 @@ ArcanaCache = {
     },
     brown={
         right={message="brush-shift:monkfruit,32", anim="castArmsIn1"},
-        middle={message="area:player:gate:spawn", anim="castInkCircle1"},
+        middle={message="", anim=""},
         left={message="extinguish", anim="castSlingInk1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="conjure-water", anim="castInkCircle1"},
     },
     green={
         right={message="brush-shift:crafting tablet", anim="castArmsIn1"},
-        middle={message="area:player:gate:home", anim="castInkCircle1"},
+        middle={message="", anim=""},
         left={message="area:player:cure", anim="castInkCross1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},
@@ -89,7 +89,7 @@ ArcanaCache = {
     },
     -- VOID
     black={
-        right={message="area:player:gate:wheel", anim="castInkCircle1"},
+        right={message="", anim=""},
         middle={message="", anim=""},
         left={message="", anim=""},
         forward={message="hexshot", anim="castSlingInk1"},
@@ -104,7 +104,7 @@ ArcanaCache = {
     },
     light_gray={
         right={message="wall-phase", anim="castInkCross1"},
-        middle={message="summon-ae2", anim="castInkCircle1"},
+        middle={message="", anim="castInkCircle1"},
         left={message="mine", anim="castSlingInk1"},
         forward={message="hexshot", anim="castSlingInk1"},
         back={message="", anim=""},

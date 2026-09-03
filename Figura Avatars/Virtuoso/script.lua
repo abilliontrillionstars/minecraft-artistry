@@ -224,7 +224,7 @@ function events.chat_send_message(message)
 end
 
 
-local wasDead = false
+--local wasDead = false
 function events.tick()
     HandleLoopAnims()
     if not AnimsPlaying() then SetVanillaParent(true) end  
@@ -233,14 +233,14 @@ function events.tick()
         renderer:setRenderLeftArm(host:getSlot("weapon.offhand"):getID() == "minecraft:air")
         renderer:setRenderRightArm(host:getSlot("weapon.mainhand"):getID() == "minecraft:air")
     end
-    if player:getDeathTime() > 0 then
-        if not wasDead then
-            pings.sfx("spectrum:spectrum.ui.new_revelation", 0.85)
-            wasDead = true
-        end
-    else
-        wasDead = false
-    end
+--    if player:getDeathTime() > 0 then
+--        if not wasDead then
+--            pings.sfx("spectrum:spectrum.ui.new_revelation", 0.85)
+--            wasDead = true
+--        end
+--    else
+--        wasDead = false
+--    end
 end
 
 hasSpellbook = false
