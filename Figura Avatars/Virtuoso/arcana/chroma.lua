@@ -35,7 +35,7 @@ CyanPage:newAction()
     :onLeftClick(function() SendArcana("area:item:recharge:foo", "castArmsOut1", "cyan") end)
 CyanPage:newAction()
     :title("Induce Mending"):item("minecraft:mossy_cobblestone")
-    :onLeftClick(function() SendArcana("charge:mending:"..host:getSlot("weapon.offhand"):getDamage(), "castInkCircle1", "cyan") end)
+    :onLeftClick(function() SendArcana("mend-tool", "castSpinRaiseWand", "cyan") end)
 
 
 LightBluePage:newAction()
@@ -147,11 +147,15 @@ OrangePage:newAction()
 OrangePage:newAction()
     :title("Bulk Smelt"):item("minecraft:furnace")
     :onLeftClick(function() SendArcana("area:item:smelt:foo", "castInkCircle1", "orange") end)
+OrangePage:newAction()
+    :title("Warp to Jess' Tunnels"):item("minecraft:red_mushroom")
+    :onLeftClick(function() SendArcana("area:player:gate:spawn", "castInkCross1", "orange") end)
 
 
 GrayPage:newAction()
     :title("Item Cleanup"):item("hexal:mediafied_storage")
     :onLeftClick(function() SendArcana("area:item:mediafy:foo", "castSpinRaiseWand", "gray") end)
+
 
 LightGrayPage:newAction()
     :title("Wall Phase"):item("minecraft:scaffolding")
@@ -159,11 +163,17 @@ LightGrayPage:newAction()
 LightGrayPage:newAction()
     :title("Simple Mine"):item("minecraft:iron_pickaxe")
     :onLeftClick(function() SendArcana("mine", "castSlingInk1", "light_gray") end)
+LightGrayPage:newAction()
+    :title("Warp to Iterators"):item("hexal:mediafied_storage")
+    :onLeftClick(function() SendArcana("area:player:gate:wsys", "castInkCircle1", "light_gray") end)
 
 
 WhitePage:newAction()
     :title("Brush Shift: Resonant Pickaxe"):item("spectrum:resonant_pickaxe")
     :onLeftClick(function() SendArcana("brush-shift:resonant pickaxe", "castArmsIn1", "white") end)
+WhitePage:newAction()
+    :title("Warp to Studio"):item("spectrum:pedestal_onyx")
+    :onLeftClick(function() SendArcana("area:player:gate:home", "castInkCircle1", "white") end)
 
 
 

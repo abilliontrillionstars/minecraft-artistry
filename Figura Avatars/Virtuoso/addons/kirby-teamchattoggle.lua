@@ -1,3 +1,5 @@
+--[[
+
 local teamchattoggle = {
     ["prefixes"] = {","},
     ["historyfix"] = true -- Should this script strip out "/ftbteams msg" from all messages? This means history works, but it might mess with scripts that send this.
@@ -39,3 +41,5 @@ events.chat_send_message:register(function(msg)
 end)
 
 return teamchattoggle
+
+]]--
