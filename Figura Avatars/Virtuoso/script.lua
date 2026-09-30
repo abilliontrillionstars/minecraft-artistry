@@ -11,6 +11,9 @@ models.iris.ItemPalette:setVisible(true)
 models.iris.Skull:setVisible(true)
 models.iris.Insignia:setVisible(false)
 
+-- "breaking: laniakea discovers hash collision in figura avatars"
+print("SNURG! !") -- load-bearing snurg print statement (real)
+
 --------------------
 --HELPER FUNCTIONS--
 --------------------
