@@ -8,29 +8,38 @@
   similar to my Virtuoso, I think a hierarchical model with handlers/modules makes the most sense and makes it easiest for me to wrap my head around things. for example, it'd have a gate handler that takes `gate` and another argument that looks in the gate list for a gate by that second argument's name.
   some other hexes planned (inspired by Wildwood's D&D counterpart's abilities):
   - hidden step (give invis, is this possible in 1.21?)
-  - guidance cantrip? (give situational buffs to a target or myself)
-    - haste if they're holding a mining tool
-    - strength if they're holding a weapon
-    - night vision if they're in the dark
+  - cantrips, cast by crouching at a relevant target
+    - guidance (look at player, must hold and release), give situational buffs
+      - haste if they're holding a mining tool
+      - strength if they're holding a weapon
+      - night vision if they're in the dark
+    - mold earth (look at nearby block) basic mining
+    - gust cantrip (look at nearby mobs), push things away
+
   - starry form in the three constellations, with a special manually cast hex (or emote keybind)
     - archer (activate while looking around), which throws spectral arrows semi-passively
     - chalice (activate while looking down), which can heal someone by crouching and looking at them (or myself)
     - dragon (activate while looking up), which gives flight and some TBD wisdom-based thing
+
   - hexes based on the D&D spell list. spells marked as needing concentration (C) similarly need my bound wisp
     - (1st) Guiding Bolt, which shoots a homing wisp (choosing a target based on who is closest to my reticle)
     - (1st) Earth Tremor, which creates a sizable explosion and slows targets in the area (spawn a wisp that slows every second in a range of the difficult terrain left)
+
     - (2nd) Augury, which has some TBD scrying thing
     - (2nd)(C) Gust of Wind, which creates a brief but constant wind (wisp conjured sneakily in the ground)
     - (2nd)(C) Hold Person, which applies slowness 5 and conjures blocks (alternatively conjuring leaves for the vine flavoring that I did late in the campaign)
+
     - (3rd)(C) Aura of Vitality, which gives light regen to anything near me (excluding monsters)
     - (3rd)(C) Wind Wall, which blocks projectiles
     - (3rd) Erupting Earth, which creates a large explosion and slows targets (like Earth Tremor, but larger, and creates sublevels)
     - (3rd) Tidal Wave, which conjures a wall of water, assembles it, and commands it to move in a straight line (might not be possible exactly like this)
     - (3rd)(C) Call Lightning, which puts me in a lightning-strike mode
     - (3rd) Revivify, which gates dead players to me (passively looks for players that drop to zero and marks them) 
+
     - (4th) Divination, which has a more powerful TBD scrying thing
     - (4th)(C) Watery Sphere, which conjures a sphere of water and assembles it, and summons a wisp to follow the center of it, pulling in anything in the water towards the center
     - (4th) Ice Storm, which conjures a rain of arrows (that figura makes look like ice spikes)
+    
     - (5th)(C) Maelstrom, which creates a storm that 0.5-explodes things each second and pulls them towards the center of the storm
     - (5th) Tree Stride, which teleports me to anywhere that there's a tree (really just map teleport)
     - (5th)(C) Control Winds, which like Gust of Wind creates a constant wind, but it can be either up, down, or in a horizontal direction
