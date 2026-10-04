@@ -13,6 +13,7 @@ models.iris.Insignia:setVisible(false)
 
 -- "breaking: laniakea discovers hash collision in figura avatars"
 print("SNURG! !") -- load-bearing snurg print statement (real)
+print("SNURGETTE!")
 
 --------------------
 --HELPER FUNCTIONS--

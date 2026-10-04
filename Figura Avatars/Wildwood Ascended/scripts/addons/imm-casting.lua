@@ -25,7 +25,11 @@ function pings.waveArm(x, y)
     --castingArm:setParentType("None")
     castingArm:setRot(x,y,0)
     if not isCasting and DOTILTSTAFF then 
-        castingArm:getChildren()[3]:setRot()
+        if castingArm == RIGHTARMPATH then
+            RIGHTITEMPATH:setRot()
+        else
+            LEFTITEMPATH:setRot()
+        end
     end
 end
 function pings.tiltStaff(toggle)

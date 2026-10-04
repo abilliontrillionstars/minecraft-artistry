@@ -1,6 +1,7 @@
 vanilla_model.PLAYER:setVisible(false)
 vanilla_model.ARMOR:setVisible(false)
 models.aduene.root:setVisible(true)
+models.pointerwand:setVisible(false)
 
 ------------------------
 --- EMOTES / VISUALS ---
