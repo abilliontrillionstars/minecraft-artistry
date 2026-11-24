@@ -61,9 +61,9 @@ end
 local wPressed = false
 function events.key_press(key, action)
   if key==87 then 
-    if action==0 then
+    if action==0 and host:getScreen() == nil then
       pings.updateWPressed(false)
-    elseif action==1 then
+    elseif action==1 and host:getScreen() == nil then
       pings.updateWPressed(true)
     end
   end
