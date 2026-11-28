@@ -9,7 +9,11 @@ function events.on_play_sound(id, pos)
         end
             --replace casting noises with the staff percussion hit
         if (pos - player:getPos()):lengthSquared()<3 and (id:find("hermes") or id:find("thoth") or id == "hexcasting:casting.cast.spell") then
-            sounds:playSound("sounds.Staff percusses", player:getPos(), 1, 1+(math.random(-20,50)/100))
+            local toPlay = sounds["sounds.Staff percusses"]
+                :setPos(player:getPos())
+                :setPitch(1+(math.random(-20,50)/100))
+                :setSubtitle("Druid hex casts")
+            toPlay:play()
             return true
         end
     end

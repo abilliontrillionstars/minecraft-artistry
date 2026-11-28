@@ -1,23 +1,21 @@
 local jimmy = require("scripts.libs.EZAnims")
 local wildwood = jimmy:addBBModel(animations.aduene)
-local hasStaff = false
-function events.render(item)
-    -- get offhand
-    item = player:getHeldItem(true)
-    if item:getID():find("hexcasting:staff") then
-        if hasStaff then
-            wildwood:setState("hasStaff")
-        end
-        hasStaff = true
-    else
-        if not hasStaff then
-            wildwood:setState()
-        end
-        hasStaff = false
-    end
+
+for _, anim in ipairs(animations:getAnimations()) do
+  if anim.name:find("cast") then
+    wildwood:addAllOverrider(anim)
+  end
 end
 
--- patch: stop the walk animation if I'm not pressing w --
+function events.render(item)
+  if HasStaff then
+    wildwood:setState("hasStaff")
+  else
+    wildwood:setState()
+  end
+end
+
+  -- patch: stop the walk animation if I'm not pressing w --
 local wPressed = false
 function events.key_press(key, action)
   if key==87 then 
